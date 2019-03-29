@@ -1,0 +1,12 @@
+# FundingEvent
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**event_id** | **string** |  | [optional] 
+**event_date_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**funding_event_type** | [**\OpenAPI\Client\Model\FundingEventType**](FundingEventType.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
