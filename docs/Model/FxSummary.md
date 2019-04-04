@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **inverted_rate** | **double** |  | 
 **total_cost** | **int** |  | 
 **total_payment_amount** | **int** |  | 
-**source_currency** | [**\OpenAPI\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
-**payment_currency** | [**\OpenAPI\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
+**source_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
+**payment_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
 **status** | **string** |  | 
 **funding_status** | **string** |  | 
 

@@ -1,4 +1,4 @@
-# OpenAPI\Client\PayeesApi
+# VeloPayments\Client\PayeesApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getPayeeById**
-> \OpenAPI\Client\Model\Payee getPayeeById($payee_id, $sensitive)
+> \VeloPayments\Client\Model\Payee getPayeeById($payee_id, $sensitive)
 
 Get Payee by Id
 
@@ -21,10 +21,10 @@ Get Payee by Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeesApi(
+$apiInstance = new VeloPayments\Client\Api\PayeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Payee**](../Model/Payee.md)
+[**\VeloPayments\Client\Model\Payee**](../Model/Payee.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPayees**
-> \OpenAPI\Client\Model\PayeeResponse listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\PayeeResponse listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page_number, $page_size, $sort)
 
 List Payees
 
@@ -77,22 +77,22 @@ Get a paginated response listing the payees for a payor.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeesApi(
+$apiInstance = new VeloPayments\Client\Api\PayeesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
-$ofac_status = new \stdClass; // object | The ofacStatus of the payees.
-$onboarded_status = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\OnboardedStatus(); // \OpenAPI\Client\Model\OnboardedStatus | The onboarded status of the payees.
+$ofac_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\OfacStatus(); // \VeloPayments\Client\Model\OfacStatus | The ofacStatus of the payees.
+$onboarded_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\OnboardedStatus(); // \VeloPayments\Client\Model\OnboardedStatus | The onboarded status of the payees.
 $email = 'email_example'; // string | Email address
 $display_name = 'display_name_example'; // string | The display name of the payees.
 $remote_id = 'remote_id_example'; // string | The remote id of the payees.
-$payee_type = new \OpenAPI\Client\Model\\OpenAPI\Client\Model\PayeeType(); // \OpenAPI\Client\Model\PayeeType | The onboarded status of the payees.
+$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The onboarded status of the payees.
 $payee_country = 'payee_country_example'; // string | The country of the payees.
 $page_number = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
@@ -112,12 +112,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
- **ofac_status** | [**object**](../Model/.md)| The ofacStatus of the payees. | [optional]
- **onboarded_status** | [**\OpenAPI\Client\Model\OnboardedStatus**](../Model/.md)| The onboarded status of the payees. | [optional]
+ **ofac_status** | [**\VeloPayments\Client\Model\OfacStatus**](../Model/.md)| The ofacStatus of the payees. | [optional]
+ **onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](../Model/.md)| The onboarded status of the payees. | [optional]
  **email** | [**string**](../Model/.md)| Email address | [optional]
  **display_name** | **string**| The display name of the payees. | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
- **payee_type** | [**\OpenAPI\Client\Model\PayeeType**](../Model/.md)| The onboarded status of the payees. | [optional]
+ **payee_type** | [**\VeloPayments\Client\Model\PayeeType**](../Model/.md)| The onboarded status of the payees. | [optional]
  **payee_country** | **string**| The country of the payees. | [optional]
  **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PayeeResponse**](../Model/PayeeResponse.md)
+[**\VeloPayments\Client\Model\PayeeResponse**](../Model/PayeeResponse.md)
 
 ### Authorization
 

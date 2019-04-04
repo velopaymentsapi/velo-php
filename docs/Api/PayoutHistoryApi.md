@@ -1,14 +1,15 @@
-# OpenAPI\Client\PayoutHistoryApi
+# VeloPayments\Client\PayoutHistoryApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getPaymentsForPayout**](PayoutHistoryApi.md#getPaymentsForPayout) | **GET** /v3/paymentaudit/payouts/{payoutId} | Get Payments for Payout
+[**getPayoutStats**](PayoutHistoryApi.md#getPayoutStats) | **GET** /v1/paymentaudit/payoutStatistics | Get Payout Statistics
 
 
 # **getPaymentsForPayout**
-> \OpenAPI\Client\Model\GetPaymentsForPayoutResponse getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort, $sensitive)
+> \VeloPayments\Client\Model\GetPaymentsForPayoutResponse getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort, $sensitive)
 
 Get Payments for Payout
 
@@ -20,10 +21,10 @@ Get List of payments for Payout
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayoutHistoryApi(
+$apiInstance = new VeloPayments\Client\Api\PayoutHistoryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -72,7 +73,61 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetPaymentsForPayoutResponse**](../Model/GetPaymentsForPayoutResponse.md)
+[**\VeloPayments\Client\Model\GetPaymentsForPayoutResponse**](../Model/GetPaymentsForPayoutResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPayoutStats**
+> \VeloPayments\Client\Model\GetPayoutStatistics getPayoutStats($payor_id)
+
+Get Payout Statistics
+
+Get payout statistics for a payor.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayoutHistoryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payor_id = 'payor_id_example'; // string | The account owner Payor ID. Required for external users.
+
+try {
+    $result = $apiInstance->getPayoutStats($payor_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PayoutHistoryApi->getPayoutStats: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payor_id** | [**string**](../Model/.md)| The account owner Payor ID. Required for external users. | [optional]
+
+### Return type
+
+[**\VeloPayments\Client\Model\GetPayoutStatistics**](../Model/GetPayoutStatistics.md)
 
 ### Authorization
 

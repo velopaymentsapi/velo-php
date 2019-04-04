@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**\OpenAPI\Client\Model\PayeeType**](PayeeType.md) |  | 
+**type** | [**\VeloPayments\Client\Model\PayeeType**](PayeeType.md) |  | 
 **remote_id** | **string** |  | 
 **email** | **string** |  | 
 **address_line1** | **string** |  | 

@@ -1,4 +1,4 @@
-# OpenAPI\Client\PayeeInvitationApi
+# VeloPayments\Client\PayeeInvitationApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getPayor**
-> \OpenAPI\Client\Model\InvitationStatusResponse getPayor($payor_id)
+> \VeloPayments\Client\Model\InvitationStatusResponse getPayor($payor_id)
 
 Get Payee Invitation Status
 
@@ -21,10 +21,10 @@ Returns a list of payees associated with a payor, along with invitation status a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeeInvitationApi(
+$apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvitationStatusResponse**](../Model/InvitationStatusResponse.md)
+[**\VeloPayments\Client\Model\InvitationStatusResponse**](../Model/InvitationStatusResponse.md)
 
 ### Authorization
 
@@ -63,11 +63,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendPayeeInvite**
-> \OpenAPI\Client\Model\InvitationStatusResponse sendPayeeInvite($payee_id, $payee_invite_request)
+> \VeloPayments\Client\Model\InvitationStatusResponse sendPayeeInvite($payee_id, $payee_invite_request)
 
 Invite Payee
 
-Send an invite to the Payee The payee must have already been invited by the payor and not yet accepted or declined
+Resend an invite to the Payee The payee must have already been invited by the payor and not yet accepted or declined Any previous invites to the payee by this Payor will be invalidated
 
 ### Example
 ```php
@@ -75,17 +75,17 @@ Send an invite to the Payee The payee must have already been invited by the payo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeeInvitationApi(
+$apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $payee_id = 'payee_id_example'; // string | The UUID of the payee.
-$payee_invite_request = new \OpenAPI\Client\Model\PayeeInviteRequest(); // \OpenAPI\Client\Model\PayeeInviteRequest | 
+$payee_invite_request = new \VeloPayments\Client\Model\PayeeInviteRequest(); // \VeloPayments\Client\Model\PayeeInviteRequest | 
 
 try {
     $result = $apiInstance->sendPayeeInvite($payee_id, $payee_invite_request);
@@ -101,11 +101,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
- **payee_invite_request** | [**\OpenAPI\Client\Model\PayeeInviteRequest**](../Model/PayeeInviteRequest.md)|  |
+ **payee_invite_request** | [**\VeloPayments\Client\Model\PayeeInviteRequest**](../Model/PayeeInviteRequest.md)|  |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InvitationStatusResponse**](../Model/InvitationStatusResponse.md)
+[**\VeloPayments\Client\Model\InvitationStatusResponse**](../Model/InvitationStatusResponse.md)
 
 ### Authorization
 

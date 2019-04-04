@@ -1,11 +1,11 @@
-# OpenAPI\Client\PayorBrandingApi
+# VeloPayments\Client\PayorBrandingApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**payorAddPayorLogo**](PayorBrandingApi.md#payorAddPayorLogo) | **POST** /v1/payors/{payorId}/branding/logos | Add Logo
-[**payorGetBranding**](PayorBrandingApi.md#payorGetBranding) | **POST** /v1/payors/{payorId}/branding | Get Branding
+[**payorGetBranding**](PayorBrandingApi.md#payorGetBranding) | **GET** /v1/payors/{payorId}/branding | Get Branding
 
 
 # **payorAddPayorLogo**
@@ -21,10 +21,10 @@ Add Payor Logo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayorBrandingApi(
+$apiInstance = new VeloPayments\Client\Api\PayorBrandingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -64,7 +64,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **payorGetBranding**
-> \OpenAPI\Client\Model\InlineResponse2001 payorGetBranding($payor_id)
+> \VeloPayments\Client\Model\PayorBrandingResponse payorGetBranding($payor_id)
 
 Get Branding
 
@@ -76,10 +76,10 @@ Get the payor branding details.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayorBrandingApi(
+$apiInstance = new VeloPayments\Client\Api\PayorBrandingApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\VeloPayments\Client\Model\PayorBrandingResponse**](../Model/PayorBrandingResponse.md)
 
 ### Authorization
 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payor_id** | **string** |  | 
 **payout_memo** | **string** |  | [optional] 
-**payments** | [**\OpenAPI\Client\Model\PaymentInstruction[]**](PaymentInstruction.md) |  | 
+**payments** | [**\VeloPayments\Client\Model\PaymentInstruction[]**](PaymentInstruction.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

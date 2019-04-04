@@ -1,4 +1,4 @@
-# OpenAPI\Client\CurrenciesApi
+# VeloPayments\Client\CurrenciesApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **listSupportedCurrencies**
-> \OpenAPI\Client\Model\InlineResponse2004 listSupportedCurrencies()
+> \VeloPayments\Client\Model\SupportedCurrencyResponse listSupportedCurrencies()
 
 List Supported Currencies
 
@@ -20,10 +20,10 @@ List the supported currencies.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\CurrenciesApi(
+$apiInstance = new VeloPayments\Client\Api\CurrenciesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\VeloPayments\Client\Model\SupportedCurrencyResponse**](../Model/SupportedCurrencyResponse.md)
 
 ### Authorization
 

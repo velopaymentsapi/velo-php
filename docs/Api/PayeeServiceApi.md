@@ -1,4 +1,4 @@
-# OpenAPI\Client\PayeeServiceApi
+# VeloPayments\Client\PayeeServiceApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
@@ -20,10 +20,10 @@ This API will delete Payee by Id (UUID). Deletion by ID is not allowed if: * Pay
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeeServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PayeeServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

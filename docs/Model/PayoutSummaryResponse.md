@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **payments_submitted** | **int** |  | [optional] 
 **payments_accepted** | **int** |  | [optional] 
 **payments_rejected** | **int** |  | [optional] 
-**fx_summaries** | [**\OpenAPI\Client\Model\FxSummaries[]**](FxSummaries.md) |  | 
-**accounts** | [**\OpenAPI\Client\Model\SourceAccount[]**](SourceAccount.md) |  | 
-**rejected_payments** | [**\OpenAPI\Client\Model\RejectedPayment[]**](RejectedPayment.md) |  | 
+**fx_summaries** | [**\VeloPayments\Client\Model\QuoteFxSummary[]**](QuoteFxSummary.md) |  | 
+**accounts** | [**\VeloPayments\Client\Model\SourceAccount[]**](SourceAccount.md) |  | 
+**rejected_payments** | [**\VeloPayments\Client\Model\RejectedPayment[]**](RejectedPayment.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

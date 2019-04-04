@@ -1,14 +1,13 @@
-# OpenAPI\Client\PaymentAuditServiceApi
+# VeloPayments\Client\PaymentAuditServiceApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**exportTransactionsCSV**](PaymentAuditServiceApi.md#exportTransactionsCSV) | **GET** /v3/paymentaudit/transactions | Export Transactions
+[**exportTransactionsCSV**](PaymentAuditServiceApi.md#exportTransactionsCSV) | **GET** /v4/paymentaudit/transactions | Export Transactions
 [**getFundings**](PaymentAuditServiceApi.md#getFundings) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
 [**getPaymentDetails**](PaymentAuditServiceApi.md#getPaymentDetails) | **GET** /v3/paymentaudit/payments/{paymentId} | Get Payment
 [**getPaymentsForPayout**](PaymentAuditServiceApi.md#getPaymentsForPayout) | **GET** /v3/paymentaudit/payouts/{payoutId} | Get Payments for Payout
-[**getPayoutStats**](PaymentAuditServiceApi.md#getPayoutStats) | **GET** /v1/paymentaudit/payoutStatistics | Get Payout Statistics
 [**getPayoutsForPayor**](PaymentAuditServiceApi.md#getPayoutsForPayor) | **GET** /v3/paymentaudit/payouts | Get Payouts for Payor
 [**listPaymentsAudit**](PaymentAuditServiceApi.md#listPaymentsAudit) | **GET** /v3/paymentaudit/payments | Get List of Payments
 
@@ -26,10 +25,10 @@ Download a CSV file containing payments in a date range. Uses Transfer-Encoding 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -52,7 +51,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
  **start_date** | **\DateTime**| Start date, inclusive. Format is YYYY-MM-DD | [optional]
  **submitted_date_from** | **\DateTime**| Start date, inclusive. Format is YYYY-MM-DD | [optional]
 
@@ -72,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFundings**
-> \OpenAPI\Client\Model\GetFundingsResponse getFundings($payor_id, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page_number, $page_size, $sort)
 
 Get Fundings for Payor
 
@@ -84,10 +83,10 @@ Get a list of Fundings for a payor.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -111,14 +110,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
  **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields. Example: &#x60;&#x60;&#x60;?sort&#x3D;destinationCurrency:asc,destinationAmount:asc&#x60;&#x60;&#x60; Default is no sort. The supported sort fields are: dateTime and amount. | [optional]
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetFundingsResponse**](../Model/GetFundingsResponse.md)
+[**\VeloPayments\Client\Model\GetFundingsResponse**](../Model/GetFundingsResponse.md)
 
 ### Authorization
 
@@ -132,7 +131,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentDetails**
-> \OpenAPI\Client\Model\PaymentResponse getPaymentDetails($payment_id, $sensitive)
+> \VeloPayments\Client\Model\PaymentResponse getPaymentDetails($payment_id, $sensitive)
 
 Get Payment
 
@@ -144,10 +143,10 @@ Get the payment with the given id. This contains the payment history.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -174,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\PaymentResponse**](../Model/PaymentResponse.md)
+[**\VeloPayments\Client\Model\PaymentResponse**](../Model/PaymentResponse.md)
 
 ### Authorization
 
@@ -188,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPaymentsForPayout**
-> \OpenAPI\Client\Model\GetPaymentsForPayoutResponse getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort, $sensitive)
+> \VeloPayments\Client\Model\GetPaymentsForPayoutResponse getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort, $sensitive)
 
 Get Payments for Payout
 
@@ -200,10 +199,10 @@ Get List of payments for Payout
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -252,61 +251,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetPaymentsForPayoutResponse**](../Model/GetPaymentsForPayoutResponse.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **getPayoutStats**
-> \OpenAPI\Client\Model\GetPayoutStatistics getPayoutStats($payor_id)
-
-Get Payout Statistics
-
-Get payout statistics for a payor.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
-
-try {
-    $result = $apiInstance->getPayoutStats($payor_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PaymentAuditServiceApi->getPayoutStats: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
-
-### Return type
-
-[**\OpenAPI\Client\Model\GetPayoutStatistics**](../Model/GetPayoutStatistics.md)
+[**\VeloPayments\Client\Model\GetPaymentsForPayoutResponse**](../Model/GetPaymentsForPayoutResponse.md)
 
 ### Authorization
 
@@ -320,7 +265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayoutsForPayor**
-> \OpenAPI\Client\Model\GetPayoutsResponse getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\GetPayoutsResponse getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort)
 
 Get Payouts for Payor
 
@@ -332,10 +277,10 @@ Get List of payouts for payor
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -374,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\GetPayoutsResponse**](../Model/GetPayoutsResponse.md)
+[**\VeloPayments\Client\Model\GetPayoutsResponse**](../Model/GetPayoutsResponse.md)
 
 ### Authorization
 
@@ -388,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listPaymentsAudit**
-> \OpenAPI\Client\Model\ListPaymentsResponse listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page_number, $page_size, $sort, $sensitive)
+> \VeloPayments\Client\Model\ListPaymentsResponse listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page_number, $page_size, $sort, $sensitive)
 
 Get List of Payments
 
@@ -400,17 +345,17 @@ Get payments for the given payor Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PaymentAuditServiceApi(
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $payee_id = 'payee_id_example'; // string | The UUID of the payee.
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The account owner Payor Id. Required for external users.
 $payor_name = 'payor_name_example'; // string | The payor’s name. This filters via a case insensitive substring match.
 $remote_id = 'remote_id_example'; // string | The remote id of the payees.
 $status = 'status_example'; // string | Payment Status
@@ -442,8 +387,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payee_id** | [**string**](../Model/.md)| The UUID of the payee. | [optional]
+ **payor_id** | [**string**](../Model/.md)| The account owner Payor Id. Required for external users. | [optional]
  **payor_name** | **string**| The payor’s name. This filters via a case insensitive substring match. | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **status** | **string**| Payment Status | [optional]
@@ -464,7 +409,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ListPaymentsResponse**](../Model/ListPaymentsResponse.md)
+[**\VeloPayments\Client\Model\ListPaymentsResponse**](../Model/ListPaymentsResponse.md)
 
 ### Authorization
 

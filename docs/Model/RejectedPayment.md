@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **source_account_name** | **string** |  | 
 **payor_payment_id** | **string** |  | 
 **reason** | **string** |  | 
-**line_number** | **int** |  | 
-**message** | **string** |  | 
+**line_number** | **int** |  | [optional] 
+**message** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

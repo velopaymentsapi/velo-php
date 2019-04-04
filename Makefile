@@ -30,9 +30,31 @@ trim:
 	rm git_push.sh
 
 info:
-	# sed -i.bak 's/"name": "velo_payments_ap_is"/"name": "php-node"/' composer.json && rm composer.json.bak
-	# sed -i.bak 's/"main": "src\/index.js"/"main": "dist\/index.js"/' composer.json && rm composer.json.bak
-	# sed -i.bak 's/"test": "mocha/"clean": "rm \-rf dist \&\& mkdir dist", "build": "npm run clean \&\& babel src \-\-out\-dir dist", "test": "mocha/' composer.json && rm composer.json.bak
-	@echo 'WE NEED TO UPDATE COMPOSER.JSON FILE'
+	sed -i.bak 's/"name": "GIT_USER_ID\/GIT_REPO_ID"/"name": "velopaymentsapi\/velo-php"/' composer.json && rm composer.json.bak
+	sed -i.bak '3s/.*/    "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",/' composer.json && rm composer.json.bak
+	sed -i.bak 's/OpenAPI\\\\Client/VeloPayments\\\\Client/' composer.json && rm composer.json.bak
+	sed -i.bak 's/"name": "OpenAPI-Generator contributors"/"name": "VeloPayments contributors"/' composer.json && rm composer.json.bak
+	sed -i.bak 's/"homepage": "https:\/\/openapi-generator.tech"/"homepage": "https:\/\/github.com\/velopaymentsapi\/velo-php"/g' composer.json && rm composer.json.bak
+	sed -i.bak 's/"openapitools",/"velo",/' composer.json && rm composer.json.bak
+	sed -i.bak 's/"openapi-generator",/"velo-payments",/' composer.json && rm composer.json.bak
+	sed -i.bak 's/"license": "proprietary",/"license": "Apache License 2.0",/' composer.json && rm composer.json.bak
+	
+	# 
+	grep -rl 'OpenAPI' ./docs/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	grep -rl 'OpenAPI' ./docs/Model | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	rm -Rf ./docs/*/*.bak
+	# 
+	grep -rl 'OpenAPI' ./lib/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	grep -rl 'OpenAPI' ./lib/Model | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	grep -rl 'OpenAPI' ./lib | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	rm -Rf ./lib/*/*.bak
+	rm -Rf ./lib/*.bak
+	# 
+	grep -rl 'OpenAPI' ./test/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	grep -rl 'OpenAPI' ./test/Model | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
+	rm -Rf ./test/*/*.bak
+	# 
+	sed -i.bak '1s/.*/# PHP client for Velo/' README.md && rm README.md.bak
+	sed -i.bak '2s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
 
 client: clean php-client trim info

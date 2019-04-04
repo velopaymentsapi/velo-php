@@ -1,4 +1,4 @@
-# OpenAPI\Client\PayeeBatchCreationApi
+# VeloPayments\Client\PayeeBatchCreationApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **v2CreatePayee**
-> \OpenAPI\Client\Model\CreatePayeesCSVResponse v2CreatePayee($create_payees_request)
+> \VeloPayments\Client\Model\CreatePayeesCSVResponse v2CreatePayee($create_payees_request)
 
 Intiate Payee Creation
 
@@ -21,16 +21,16 @@ Initiate the process of creating 1 to 2000 payees in a batch Use the response lo
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeeBatchCreationApi(
+$apiInstance = new VeloPayments\Client\Api\PayeeBatchCreationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$create_payees_request = new \OpenAPI\Client\Model\CreatePayeesRequest(); // \OpenAPI\Client\Model\CreatePayeesRequest | Post payees to create.
+$create_payees_request = new \VeloPayments\Client\Model\CreatePayeesRequest(); // \VeloPayments\Client\Model\CreatePayeesRequest | Post payees to create.
 
 try {
     $result = $apiInstance->v2CreatePayee($create_payees_request);
@@ -45,11 +45,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_payees_request** | [**\OpenAPI\Client\Model\CreatePayeesRequest**](../Model/CreatePayeesRequest.md)| Post payees to create. |
+ **create_payees_request** | [**\VeloPayments\Client\Model\CreatePayeesRequest**](../Model/CreatePayeesRequest.md)| Post payees to create. |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\CreatePayeesCSVResponse**](../Model/CreatePayeesCSVResponse.md)
+[**\VeloPayments\Client\Model\CreatePayeesCSVResponse**](../Model/CreatePayeesCSVResponse.md)
 
 ### Authorization
 
@@ -57,13 +57,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/formdata
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **v2QueryBatchStatus**
-> \OpenAPI\Client\Model\QueryBatchResponse v2QueryBatchStatus($batch_id)
+> \VeloPayments\Client\Model\QueryBatchResponse v2QueryBatchStatus($batch_id)
 
 Query Batch Status
 
@@ -75,10 +75,10 @@ Fetch the status of a specific batch of payees. The batch is fully processed whe
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayeeBatchCreationApi(
+$apiInstance = new VeloPayments\Client\Api\PayeeBatchCreationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\QueryBatchResponse**](../Model/QueryBatchResponse.md)
+[**\VeloPayments\Client\Model\QueryBatchResponse**](../Model/QueryBatchResponse.md)
 
 ### Authorization
 

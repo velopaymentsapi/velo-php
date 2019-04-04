@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **source_account_name** | **string** |  | [optional] 
 **remote_id** | **string** |  | [optional] 
 **source_amount** | **int** |  | [optional] 
-**source_currency** | [**\OpenAPI\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
+**source_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
 **payment_amount** | **int** |  | 
-**payment_currency** | [**\OpenAPI\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
+**payment_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional] 
 **rate** | **double** |  | [optional] 
 **inverted_rate** | **double** |  | [optional] 
 **submitted_date_time** | [**\DateTime**](\DateTime.md) |  | 
@@ -33,7 +33,9 @@ Name | Type | Description | Notes
 **account_name** | **string** |  | [optional] 
 **rails_id** | **string** |  | 
 **country_code** | **string** |  | [optional] 
-**events** | [**\OpenAPI\Client\Model\PaymentEventResponse[]**](PaymentEventResponse.md) |  | 
+**events** | [**\VeloPayments\Client\Model\PaymentEventResponse[]**](PaymentEventResponse.md) |  | 
+**return_cost** | **int** |  | [optional] 
+**return_reason** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

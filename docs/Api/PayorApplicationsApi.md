@@ -1,4 +1,4 @@
-# OpenAPI\Client\PayorApplicationsApi
+# VeloPayments\Client\PayorApplicationsApi
 
 All URIs are relative to *https://api.sandbox.velopayments.com*
 
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **payorCreateApiKeyRequest**
-> \OpenAPI\Client\Model\InlineResponse200 payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request)
+> \VeloPayments\Client\Model\PayorCreateApiKeyResponse payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request)
 
 Create API Key
 
@@ -21,10 +21,10 @@ Create an an API key for the given payor Id and application Id
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayorApplicationsApi(
+$apiInstance = new VeloPayments\Client\Api\PayorApplicationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -32,7 +32,7 @@ $apiInstance = new OpenAPI\Client\Api\PayorApplicationsApi(
 );
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
 $application_id = 'application_id_example'; // string | Application ID
-$payor_create_api_key_request = new \OpenAPI\Client\Model\PayorCreateApiKeyRequest(); // \OpenAPI\Client\Model\PayorCreateApiKeyRequest | Details of application API key to create
+$payor_create_api_key_request = new \VeloPayments\Client\Model\PayorCreateApiKeyRequest(); // \VeloPayments\Client\Model\PayorCreateApiKeyRequest | Details of application API key to create
 
 try {
     $result = $apiInstance->payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request);
@@ -49,11 +49,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
  **application_id** | [**string**](../Model/.md)| Application ID |
- **payor_create_api_key_request** | [**\OpenAPI\Client\Model\PayorCreateApiKeyRequest**](../Model/PayorCreateApiKeyRequest.md)| Details of application API key to create |
+ **payor_create_api_key_request** | [**\VeloPayments\Client\Model\PayorCreateApiKeyRequest**](../Model/PayorCreateApiKeyRequest.md)| Details of application API key to create |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\InlineResponse200**](../Model/InlineResponse200.md)
+[**\VeloPayments\Client\Model\PayorCreateApiKeyResponse**](../Model/PayorCreateApiKeyResponse.md)
 
 ### Authorization
 
@@ -79,17 +79,17 @@ Create an application for the given Payor ID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure OAuth2 access token for authorization: OAuth2
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\PayorApplicationsApi(
+$apiInstance = new VeloPayments\Client\Api\PayorApplicationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
-$payor_create_application_request = new \OpenAPI\Client\Model\PayorCreateApplicationRequest(); // \OpenAPI\Client\Model\PayorCreateApplicationRequest | Details of application to create
+$payor_create_application_request = new \VeloPayments\Client\Model\PayorCreateApplicationRequest(); // \VeloPayments\Client\Model\PayorCreateApplicationRequest | Details of application to create
 
 try {
     $apiInstance->payorCreateApplicationRequest($payor_id, $payor_create_application_request);
@@ -104,7 +104,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
- **payor_create_application_request** | [**\OpenAPI\Client\Model\PayorCreateApplicationRequest**](../Model/PayorCreateApplicationRequest.md)| Details of application to create |
+ **payor_create_application_request** | [**\VeloPayments\Client\Model\PayorCreateApplicationRequest**](../Model/PayorCreateApplicationRequest.md)| Details of application to create |
 
 ### Return type
 
