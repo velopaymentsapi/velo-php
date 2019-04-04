@@ -11,7 +11,7 @@
         "api"
     ],
     "homepage": "https://github.com/velopaymentsapi/velo-php",
-    "license": "Apache License 2.0",
+    "license": "proprietary",
     "authors": [
         {
             "name": "VeloPayments contributors",

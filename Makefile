@@ -37,7 +37,6 @@ info:
 	sed -i.bak 's/"homepage": "https:\/\/openapi-generator.tech"/"homepage": "https:\/\/github.com\/velopaymentsapi\/velo-php"/g' composer.json && rm composer.json.bak
 	sed -i.bak 's/"openapitools",/"velo",/' composer.json && rm composer.json.bak
 	sed -i.bak 's/"openapi-generator",/"velo-payments",/' composer.json && rm composer.json.bak
-	sed -i.bak 's/"license": "proprietary",/"license": "Apache License 2.0",/' composer.json && rm composer.json.bak
 	
 	# 
 	grep -rl 'OpenAPI' ./docs/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
