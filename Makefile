@@ -1,6 +1,6 @@
 help:
 	@echo ""
-	@echo "\033[0;34m    Velo Payments - PHP Client (\033[1;34mvelo-php\033[0;34m) \033[0m"
+	@echo "\033[0;34m    Velo Payments - PHP Client (\033[1;34mvelopaymentsapi/velo-php\033[0;34m) \033[0m"
 	@echo ""
 	@echo "    To dynamically generate the PHP client based on a spec issue the following command."
 	@echo "    You can specify the spec by replacing the url parameter"
