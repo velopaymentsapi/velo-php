@@ -1,6 +1,7 @@
-# PayoutSummaryAudit
+# # PayoutSummaryAudit
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payout_id** | **string** |  | 
@@ -16,6 +17,6 @@ Name | Type | Description | Notes
 **fx_summaries** | [**\VeloPayments\Client\Model\FxSummary[]**](FxSummary.md) |  | [optional] 
 **payout_memo** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

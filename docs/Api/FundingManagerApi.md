@@ -5,12 +5,15 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createFundingRequest**](FundingManagerApi.md#createFundingRequest) | **POST** /v2/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
+[**getFundings**](FundingManagerApi.md#getFundings) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
 [**getSourceAccount**](FundingManagerApi.md#getSourceAccount) | **GET** /v1/sourceAccounts/{sourceAccountId} | Get details about given source account.
 [**getSourceAccounts**](FundingManagerApi.md#getSourceAccounts) | **GET** /v1/sourceAccounts | Get list of source accounts
 [**setPayorFundingBankDetails**](FundingManagerApi.md#setPayorFundingBankDetails) | **POST** /v1/payors/{payorId}/payorFundingBankDetailsUpdate | Set Funding Bank Details
 
 
-# **createFundingRequest**
+
+## createFundingRequest
+
 > createFundingRequest($source_account_id, $funding_request)
 
 Create Funding Request
@@ -18,9 +21,11 @@ Create Funding Request
 Instruct a funding request to transfer funds from the payor’s funding bank to the payor’s balance held within Velo  (202 - accepted, 400 - invalid request body, 404 - source account not found).
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -45,6 +50,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source_account_id** | [**string**](../Model/.md)| Source account id |
@@ -60,12 +66,83 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getSourceAccount**
+
+## getFundings
+
+> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page_number, $page_size, $sort)
+
+Get Fundings for Payor
+
+Get a list of Fundings for a payor.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$page_number = 1; // int | Page number. Default is 1.
+$page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
+$sort = 'sort_example'; // string | List of sort fields. Example: ```?sort=destinationCurrency:asc,destinationAmount:asc``` Default is no sort. The supported sort fields are: dateTime and amount.
+
+try {
+    $result = $apiInstance->getFundings($payor_id, $page_number, $page_size, $sort);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FundingManagerApi->getFundings: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
+ **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
+ **sort** | **string**| List of sort fields. Example: &#x60;&#x60;&#x60;?sort&#x3D;destinationCurrency:asc,destinationAmount:asc&#x60;&#x60;&#x60; Default is no sort. The supported sort fields are: dateTime and amount. | [optional]
+
+### Return type
+
+[**\VeloPayments\Client\Model\GetFundingsResponse**](../Model/GetFundingsResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getSourceAccount
+
 > \VeloPayments\Client\Model\SourceAccountResponse getSourceAccount($source_account_id)
 
 Get details about given source account.
@@ -73,9 +150,11 @@ Get details about given source account.
 Get details about given source account.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -100,6 +179,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source_account_id** | [**string**](../Model/.md)| Source account id |
@@ -114,22 +194,28 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getSourceAccounts**
-> \VeloPayments\Client\Model\ListSourceAccountResponse getSourceAccounts($physical_account_name, $payor_id, $page_number, $page_size, $sort)
+
+## getSourceAccounts
+
+> \VeloPayments\Client\Model\ListSourceAccountResponse getSourceAccounts($physical_account_name, $payor_id, $page, $page_size, $sort)
 
 Get list of source accounts
 
 List source accounts.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -143,12 +229,12 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
 );
 $physical_account_name = 'physical_account_name_example'; // string | Physical Account Name
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | Sort String
 
 try {
-    $result = $apiInstance->getSourceAccounts($physical_account_name, $payor_id, $page_number, $page_size, $sort);
+    $result = $apiInstance->getSourceAccounts($physical_account_name, $payor_id, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccounts: ', $e->getMessage(), PHP_EOL;
@@ -158,11 +244,12 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **physical_account_name** | **string**| Physical Account Name | [optional]
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| Sort String | [optional]
 
@@ -176,12 +263,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **setPayorFundingBankDetails**
+
+## setPayorFundingBankDetails
+
 > setPayorFundingBankDetails($payor_id, $payor_funding_bank_details_update)
 
 Set Funding Bank Details
@@ -189,9 +280,11 @@ Set Funding Bank Details
 This API allows you to set or update the funding details for the given Payor ID.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -216,6 +309,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
@@ -231,8 +325,10 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

@@ -54,6 +54,6 @@ info:
 	rm -Rf ./test/*/*.bak
 	# 
 	sed -i.bak '1s/.*/# PHP client for Velo/' README.md && rm README.md.bak
-	sed -i.bak '2s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
+	sed -i.bak '3s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
 
 client: clean php-client trim info

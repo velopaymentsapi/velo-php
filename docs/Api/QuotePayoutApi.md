@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**v3PayoutsPayoutIdQuotePost**](QuotePayoutApi.md#v3PayoutsPayoutIdQuotePost) | **POST** /v3/payouts/{payoutId}/quote | Create a quote for the payout
 
 
-# **v3PayoutsPayoutIdQuotePost**
+
+## v3PayoutsPayoutIdQuotePost
+
 > \VeloPayments\Client\Model\QuoteResponse v3PayoutsPayoutIdQuotePost($payout_id)
 
 Create a quote for the payout
@@ -15,9 +17,11 @@ Create a quote for the payout
 Create quote for a payout
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -42,6 +46,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payout_id** | [**string**](../Model/.md)| Id of the payout |
@@ -56,8 +61,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

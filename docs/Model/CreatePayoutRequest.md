@@ -1,12 +1,13 @@
-# CreatePayoutRequest
+# # CreatePayoutRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payor_id** | **string** |  | 
 **payout_memo** | **string** |  | [optional] 
 **payments** | [**\VeloPayments\Client\Model\PaymentInstruction[]**](PaymentInstruction.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 
