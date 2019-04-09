@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ## listPayees
 
-> \VeloPayments\Client\Model\PayeeResponse listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\PayeeResponse listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort)
 
 List Payees
 
@@ -166,12 +166,12 @@ $display_name = 'display_name_example'; // string | The display name of the paye
 $remote_id = 'remote_id_example'; // string | The remote id of the payees.
 $payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The onboarded status of the payees.
 $payee_country = 'payee_country_example'; // string | The country of the payees.
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'displayName:asc'; // string | List of sort fields (e.g. ?sort=onboardedStatus:asc,name:asc) Default is name:asc 'name' is treated as company name for companies - last name + ',' + firstName for individuals The supported sort fields are - payeeId, displayName, payoutStatus, onboardedStatus.
 
 try {
-    $result = $apiInstance->listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page_number, $page_size, $sort);
+    $result = $apiInstance->listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayeesApi->listPayees: ', $e->getMessage(), PHP_EOL;
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **payee_type** | [**\VeloPayments\Client\Model\PayeeType**](../Model/.md)| The onboarded status of the payees. | [optional]
  **payee_country** | **string**| The country of the payees. | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;onboardedStatus:asc,name:asc) Default is name:asc &#39;name&#39; is treated as company name for companies - last name + &#39;,&#39; + firstName for individuals The supported sort fields are - payeeId, displayName, payoutStatus, onboardedStatus. | [optional] [default to &#39;displayName:asc&#39;]
 

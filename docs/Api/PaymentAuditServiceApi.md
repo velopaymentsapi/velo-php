@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 ## getFundings
 
-> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page, $page_size, $sort)
 
 Get Fundings for Payor
 
@@ -104,12 +104,12 @@ $apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     $config
 );
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields. Example: ```?sort=destinationCurrency:asc,destinationAmount:asc``` Default is no sort. The supported sort fields are: dateTime and amount.
 
 try {
-    $result = $apiInstance->getFundings($payor_id, $page_number, $page_size, $sort);
+    $result = $apiInstance->getFundings($payor_id, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getFundings: ', $e->getMessage(), PHP_EOL;
@@ -123,7 +123,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields. Example: &#x60;&#x60;&#x60;?sort&#x3D;destinationCurrency:asc,destinationAmount:asc&#x60;&#x60;&#x60; Default is no sort. The supported sort fields are: dateTime and amount. | [optional]
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ## getPaymentsForPayout
 
-> \VeloPayments\Client\Model\GetPaymentsForPayoutResponse getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort, $sensitive)
+> \VeloPayments\Client\Model\GetPaymentsForPayoutResponse getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort, $sensitive)
 
 Get Payments for Payout
 
@@ -242,13 +242,13 @@ $payment_amount_from = 56; // int | The payment amount from range filter. Filter
 $payment_amount_to = 56; // int | The payment amount to range filter. Filters for paymentAmount ⇐ paymentAmountTo
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status
 $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
 
 try {
-    $result = $apiInstance->getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort, $sensitive);
+    $result = $apiInstance->getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort, $sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPaymentsForPayout: ', $e->getMessage(), PHP_EOL;
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
  **payment_amount_to** | **int**| The payment amount to range filter. Filters for paymentAmount ⇐ paymentAmountTo | [optional]
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
  **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status | [optional]
  **sensitive** | **bool**| Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values. | [optional]
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ## getPayoutsForPayor
 
-> \VeloPayments\Client\Model\GetPayoutsResponse getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\GetPayoutsResponse getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort)
 
 Get Payouts for Payor
 
@@ -323,12 +323,12 @@ $payout_memo = 'payout_memo_example'; // string | Payout Memo filter - case inse
 $status = 'status_example'; // string | Payout Status
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status.
 
 try {
-    $result = $apiInstance->getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page_number, $page_size, $sort);
+    $result = $apiInstance->getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayor: ', $e->getMessage(), PHP_EOL;
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
  **status** | **string**| Payout Status | [optional]
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
  **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status. | [optional]
 
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ## listPaymentsAudit
 
-> \VeloPayments\Client\Model\ListPaymentsResponse listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page_number, $page_size, $sort, $sensitive)
+> \VeloPayments\Client\Model\ListPaymentsResponse listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive)
 
 Get List of Payments
 
@@ -408,13 +408,13 @@ $payment_currency = 'payment_currency_example'; // string | The source currency 
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
 $payment_memo = 'payment_memo_example'; // string | The payment memo filter. This filters via a case insensitive substring match.
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status
 $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
 
 try {
-    $result = $apiInstance->listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page_number, $page_size, $sort, $sensitive);
+    $result = $apiInstance->listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentsAudit: ', $e->getMessage(), PHP_EOL;
@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
  **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional]
  **payment_memo** | **string**| The payment memo filter. This filters via a case insensitive substring match. | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status | [optional]
  **sensitive** | **bool**| Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values. | [optional]
