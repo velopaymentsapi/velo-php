@@ -8,7 +8,9 @@ Method | HTTP request | Description
 [**payorCreateApplicationRequest**](PayorApplicationsApi.md#payorCreateApplicationRequest) | **POST** /v1/payors/{payorId}/applications | Create Application
 
 
-# **payorCreateApiKeyRequest**
+
+## payorCreateApiKeyRequest
+
 > \VeloPayments\Client\Model\PayorCreateApiKeyResponse payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request)
 
 Create API Key
@@ -16,9 +18,11 @@ Create API Key
 Create an an API key for the given payor Id and application Id
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -45,6 +49,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
@@ -61,12 +66,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **payorCreateApplicationRequest**
+
+## payorCreateApplicationRequest
+
 > payorCreateApplicationRequest($payor_id, $payor_create_application_request)
 
 Create Application
@@ -74,9 +83,11 @@ Create Application
 Create an application for the given Payor ID
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -101,6 +112,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
@@ -116,8 +128,10 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

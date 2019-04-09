@@ -1,6 +1,7 @@
-# PayeeResponse
+# # PayeeResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **summary** | [**\VeloPayments\Client\Model\GetPaymentsForPayoutResponseSummary**](GetPaymentsForPayoutResponseSummary.md) |  | [optional] 
@@ -8,6 +9,6 @@ Name | Type | Description | Notes
 **links** | [**\VeloPayments\Client\Model\GetPaymentsForPayoutResponseLinks[]**](GetPaymentsForPayoutResponseLinks.md) |  | [optional] 
 **content** | [**\VeloPayments\Client\Model\Payee[]**](Payee.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

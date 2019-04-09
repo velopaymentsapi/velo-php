@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**v3PayoutsPayoutIdDelete**](WithdrawPayoutApi.md#v3PayoutsPayoutIdDelete) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
 
 
-# **v3PayoutsPayoutIdDelete**
+
+## v3PayoutsPayoutIdDelete
+
 > v3PayoutsPayoutIdDelete($payout_id)
 
 Withdraw Payout
@@ -15,9 +17,11 @@ Withdraw Payout
 Withdraw Payout will delete payout details from payout service and rails services but will just move the status of the payout to WITHDRAWN in payment audit.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure OAuth2 access token for authorization: OAuth2
 $config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -41,6 +45,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payout_id** | [**string**](../Model/.md)| Id of the payout |
@@ -55,8 +60,10 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

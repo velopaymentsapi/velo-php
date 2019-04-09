@@ -1,6 +1,7 @@
-# CreatePayeesCSVRequest
+# # CreatePayeesCSVRequest
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**\VeloPayments\Client\Model\PayeeType**](PayeeType.md) |  | 
@@ -32,6 +33,6 @@ Name | Type | Description | Notes
 **challenge_description** | **string** |  | [optional] 
 **payee_language** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

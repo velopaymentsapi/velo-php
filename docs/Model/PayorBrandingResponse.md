@@ -1,6 +1,7 @@
-# PayorBrandingResponse
+# # PayorBrandingResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payor_name** | **string** | The name of the payor | 
@@ -9,6 +10,6 @@ Name | Type | Description | Notes
 **support_contact** | **string** | The payor’s support contact address | [optional] 
 **dba_name** | **string** | The payor’s &#39;Doing Business As&#39; name | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 
