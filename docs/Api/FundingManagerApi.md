@@ -76,7 +76,7 @@ void (empty response body)
 
 ## getFundings
 
-> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page_number, $page_size, $sort)
+> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page, $page_size, $sort)
 
 Get Fundings for Payor
 
@@ -100,12 +100,12 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     $config
 );
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
-$page_number = 1; // int | Page number. Default is 1.
+$page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields. Example: ```?sort=destinationCurrency:asc,destinationAmount:asc``` Default is no sort. The supported sort fields are: dateTime and amount.
 
 try {
-    $result = $apiInstance->getFundings($payor_id, $page_number, $page_size, $sort);
+    $result = $apiInstance->getFundings($payor_id, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getFundings: ', $e->getMessage(), PHP_EOL;
@@ -119,7 +119,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
- **page_number** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
  **sort** | **string**| List of sort fields. Example: &#x60;&#x60;&#x60;?sort&#x3D;destinationCurrency:asc,destinationAmount:asc&#x60;&#x60;&#x60; Default is no sort. The supported sort fields are: dateTime and amount. | [optional]
 
