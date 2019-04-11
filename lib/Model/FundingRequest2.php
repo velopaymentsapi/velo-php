@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPayoutsResponse
+ * FundingRequest2
  *
  * PHP version 5
  *
@@ -33,15 +33,14 @@ use \ArrayAccess;
 use \VeloPayments\Client\ObjectSerializer;
 
 /**
- * GetPayoutsResponse Class Doc Comment
+ * FundingRequest2 Class Doc Comment
  *
  * @category Class
- * @description List Payouts Response
  * @package  VeloPayments\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GetPayoutsResponse implements ModelInterface, ArrayAccess
+class FundingRequest2 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'GetPayoutsResponse';
+    protected static $openAPIModelName = 'FundingRequest_2';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +57,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'summary' => '\VeloPayments\Client\Model\GetPaymentsForPayoutResponseSummary',
-        'page' => '\VeloPayments\Client\Model\GetPaymentsForPayoutResponsePage',
-        'links' => '\VeloPayments\Client\Model\GetPaymentsForPayoutResponseLinks[]',
-        'content' => '\VeloPayments\Client\Model\PayoutSummaryAudit[]'
+        'amount' => 'int'
     ];
 
     /**
@@ -70,10 +66,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'summary' => null,
-        'page' => null,
-        'links' => null,
-        'content' => null
+        'amount' => null
     ];
 
     /**
@@ -103,10 +96,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'summary' => 'summary',
-        'page' => 'page',
-        'links' => 'links',
-        'content' => 'content'
+        'amount' => 'amount'
     ];
 
     /**
@@ -115,10 +105,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'summary' => 'setSummary',
-        'page' => 'setPage',
-        'links' => 'setLinks',
-        'content' => 'setContent'
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -127,10 +114,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'summary' => 'getSummary',
-        'page' => 'getPage',
-        'links' => 'getLinks',
-        'content' => 'getContent'
+        'amount' => 'getAmount'
     ];
 
     /**
@@ -193,10 +177,7 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
-        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
-        $this->container['links'] = isset($data['links']) ? $data['links'] : null;
-        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
     }
 
     /**
@@ -207,6 +188,17 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['amount'] === null) {
+            $invalidProperties[] = "'amount' can't be null";
+        }
+        if (($this->container['amount'] > 9999999999)) {
+            $invalidProperties[] = "invalid value for 'amount', must be smaller than or equal to 9999999999.";
+        }
+
+        if (($this->container['amount'] < 1)) {
+            $invalidProperties[] = "invalid value for 'amount', must be bigger than or equal to 1.";
+        }
 
         return $invalidProperties;
     }
@@ -224,97 +216,33 @@ class GetPayoutsResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets summary
+     * Gets amount
      *
-     * @return \VeloPayments\Client\Model\GetPaymentsForPayoutResponseSummary|null
+     * @return int
      */
-    public function getSummary()
+    public function getAmount()
     {
-        return $this->container['summary'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets summary
+     * Sets amount
      *
-     * @param \VeloPayments\Client\Model\GetPaymentsForPayoutResponseSummary|null $summary summary
+     * @param int $amount Amount to fund, decimal implied
      *
      * @return $this
      */
-    public function setSummary($summary)
+    public function setAmount($amount)
     {
-        $this->container['summary'] = $summary;
 
-        return $this;
-    }
+        if (($amount > 9999999999)) {
+            throw new \InvalidArgumentException('invalid value for $amount when calling FundingRequest2., must be smaller than or equal to 9999999999.');
+        }
+        if (($amount < 1)) {
+            throw new \InvalidArgumentException('invalid value for $amount when calling FundingRequest2., must be bigger than or equal to 1.');
+        }
 
-    /**
-     * Gets page
-     *
-     * @return \VeloPayments\Client\Model\GetPaymentsForPayoutResponsePage|null
-     */
-    public function getPage()
-    {
-        return $this->container['page'];
-    }
-
-    /**
-     * Sets page
-     *
-     * @param \VeloPayments\Client\Model\GetPaymentsForPayoutResponsePage|null $page page
-     *
-     * @return $this
-     */
-    public function setPage($page)
-    {
-        $this->container['page'] = $page;
-
-        return $this;
-    }
-
-    /**
-     * Gets links
-     *
-     * @return \VeloPayments\Client\Model\GetPaymentsForPayoutResponseLinks[]|null
-     */
-    public function getLinks()
-    {
-        return $this->container['links'];
-    }
-
-    /**
-     * Sets links
-     *
-     * @param \VeloPayments\Client\Model\GetPaymentsForPayoutResponseLinks[]|null $links links
-     *
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->container['links'] = $links;
-
-        return $this;
-    }
-
-    /**
-     * Gets content
-     *
-     * @return \VeloPayments\Client\Model\PayoutSummaryAudit[]|null
-     */
-    public function getContent()
-    {
-        return $this->container['content'];
-    }
-
-    /**
-     * Sets content
-     *
-     * @param \VeloPayments\Client\Model\PayoutSummaryAudit[]|null $content content
-     *
-     * @return $this
-     */
-    public function setContent($content)
-    {
-        $this->container['content'] = $content;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
