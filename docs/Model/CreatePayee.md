@@ -8,16 +8,15 @@ Name | Type | Description | Notes
 **payor_refs** | [**\VeloPayments\Client\Model\PayorRef[]**](PayorRef.md) |  | [optional] 
 **email** | **string** |  | 
 **remote_id** | **string** |  | 
-**type** | **string** |  | [optional] 
+**type** | [**\VeloPayments\Client\Model\PayeeType**](PayeeType.md) |  | 
 **display_name** | **string** |  | [optional] 
 **country** | **string** |  | [optional] 
-**address** | [**\VeloPayments\Client\Model\Address**](Address.md) |  | [optional] 
+**address** | [**\VeloPayments\Client\Model\Address**](Address.md) |  | 
 **payment_channel** | [**\VeloPayments\Client\Model\CreatePaymentChannel**](CreatePaymentChannel.md) |  | [optional] 
 **challenge** | [**\VeloPayments\Client\Model\Challenge**](Challenge.md) |  | [optional] 
 **language** | [**\VeloPayments\Client\Model\Language**](Language.md) |  | [optional] 
 **accept_terms_and_conditions_timestamp** | [**\DateTime**](\DateTime.md) | The timestamp when the payee last accepted T&amp;Cs | [optional] 
 **cellphone_number** | **string** |  | [optional] 
-**payee_type** | [**\VeloPayments\Client\Model\PayeeType**](PayeeType.md) |  | [optional] 
 **company** | [**\VeloPayments\Client\Model\Company**](Company.md) |  | [optional] 
 **individual** | [**\VeloPayments\Client\Model\Individual**](Individual.md) |  | [optional] 
 **created** | [**\DateTime**](\DateTime.md) |  | [optional] 
