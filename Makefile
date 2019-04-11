@@ -5,7 +5,7 @@ help:
 	@echo "    To dynamically generate the PHP client based on a spec issue the following command."
 	@echo "    You can specify the spec by replacing the url parameter"
 	@echo ""
-	@echo "\033[92m    make WORKING_SPEC=https://apidocs.velopayments.com/openapi.json client \033[0m"
+	@echo "\033[92m    make WORKING_SPEC=https://raw.githubusercontent.com/velopaymentsapi/VeloOpenApi/master/spec/openapi.yaml client \033[0m"
 	@echo ""
 
 clean:
