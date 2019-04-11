@@ -4,6 +4,7 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createAchFundingRequest**](FundingManagerApi.md#createAchFundingRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/achFundingRequest | Create Funding Request
 [**createFundingRequest**](FundingManagerApi.md#createFundingRequest) | **POST** /v2/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
 [**getFundings**](FundingManagerApi.md#getFundings) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
 [**getSourceAccount**](FundingManagerApi.md#getSourceAccount) | **GET** /v1/sourceAccounts/{sourceAccountId} | Get details about given source account.
@@ -12,9 +13,9 @@ Method | HTTP request | Description
 
 
 
-## createFundingRequest
+## createAchFundingRequest
 
-> createFundingRequest($source_account_id, $funding_request)
+> createAchFundingRequest($source_account_id, $funding_request)
 
 Create Funding Request
 
@@ -41,7 +42,69 @@ $source_account_id = 'source_account_id_example'; // string | Source account id
 $funding_request = new \VeloPayments\Client\Model\FundingRequest(); // \VeloPayments\Client\Model\FundingRequest | Body to included ammount to be funded
 
 try {
-    $apiInstance->createFundingRequest($source_account_id, $funding_request);
+    $apiInstance->createAchFundingRequest($source_account_id, $funding_request);
+} catch (Exception $e) {
+    echo 'Exception when calling FundingManagerApi->createAchFundingRequest: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **funding_request** | [**\VeloPayments\Client\Model\FundingRequest**](../Model/FundingRequest.md)| Body to included ammount to be funded |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createFundingRequest
+
+> createFundingRequest($source_account_id, $funding_request2)
+
+Create Funding Request
+
+Instruct a funding request to transfer funds from the payor’s funding bank to the payor’s balance held within Velo  (202 - accepted, 400 - invalid request body, 404 - source account not found).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$source_account_id = 'source_account_id_example'; // string | Source account id
+$funding_request2 = new \VeloPayments\Client\Model\FundingRequest2(); // \VeloPayments\Client\Model\FundingRequest2 | Body to included ammount to be funded
+
+try {
+    $apiInstance->createFundingRequest($source_account_id, $funding_request2);
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->createFundingRequest: ', $e->getMessage(), PHP_EOL;
 }
@@ -54,7 +117,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source_account_id** | [**string**](../Model/.md)| Source account id |
- **funding_request** | [**\VeloPayments\Client\Model\FundingRequest**](../Model/FundingRequest.md)| Body to included ammount to be funded |
+ **funding_request2** | [**\VeloPayments\Client\Model\FundingRequest2**](../Model/FundingRequest2.md)| Body to included ammount to be funded |
 
 ### Return type
 

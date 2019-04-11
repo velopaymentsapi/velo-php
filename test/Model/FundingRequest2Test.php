@@ -1,6 +1,6 @@
 <?php
 /**
- * GetPaymentsForPayoutResponseTest
+ * FundingRequest2Test
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace VeloPayments\Client;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetPaymentsForPayoutResponseTest Class Doc Comment
+ * FundingRequest2Test Class Doc Comment
  *
  * @category    Class
- * @description List Payments for payout
+ * @description FundingRequest2
  * @package     VeloPayments\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetPaymentsForPayoutResponseTest extends TestCase
+class FundingRequest2Test extends TestCase
 {
 
     /**
@@ -72,37 +72,16 @@ class GetPaymentsForPayoutResponseTest extends TestCase
     }
 
     /**
-     * Test "GetPaymentsForPayoutResponse"
+     * Test "FundingRequest2"
      */
-    public function testGetPaymentsForPayoutResponse()
+    public function testFundingRequest2()
     {
     }
 
     /**
-     * Test attribute "summary"
+     * Test attribute "amount"
      */
-    public function testPropertySummary()
-    {
-    }
-
-    /**
-     * Test attribute "page"
-     */
-    public function testPropertyPage()
-    {
-    }
-
-    /**
-     * Test attribute "links"
-     */
-    public function testPropertyLinks()
-    {
-    }
-
-    /**
-     * Test attribute "content"
-     */
-    public function testPropertyContent()
+    public function testPropertyAmount()
     {
     }
 }
