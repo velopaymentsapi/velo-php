@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **marketing_opt_ins** | [**\VeloPayments\Client\Model\MarketingOptIn[]**](MarketingOptIn.md) |  | [optional] 
 **ofac_status** | [**\VeloPayments\Client\Model\OfacStatus**](OfacStatus.md) |  | [optional] 
 **onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](OnboardedStatus.md) |  | [optional] 
-**social** | [**\VeloPayments\Client\Model\Social**](Social.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

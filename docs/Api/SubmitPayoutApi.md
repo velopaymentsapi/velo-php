@@ -33,7 +33,7 @@ $apiInstance = new VeloPayments\Client\Api\SubmitPayoutApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_payout_request = new \VeloPayments\Client\Model\CreatePayoutRequest(); // \VeloPayments\Client\Model\CreatePayoutRequest | Post ammount to transfer via ACH using stored funding account details.
+$create_payout_request = new \VeloPayments\Client\Model\CreatePayoutRequest(); // \VeloPayments\Client\Model\CreatePayoutRequest | Post amount to transfer using stored funding account details.
 
 try {
     $apiInstance->submitPayout($create_payout_request);
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_payout_request** | [**\VeloPayments\Client\Model\CreatePayoutRequest**](../Model/CreatePayoutRequest.md)| Post ammount to transfer via ACH using stored funding account details. |
+ **create_payout_request** | [**\VeloPayments\Client\Model\CreatePayoutRequest**](../Model/CreatePayoutRequest.md)| Post amount to transfer using stored funding account details. |
 
 ### Return type
 

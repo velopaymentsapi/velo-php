@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rate** | **object** |  | 
-**inverted_rate** | **object** |  | [optional] 
+**rate** | **float** |  | 
+**inverted_rate** | **float** |  | [optional] 
 **creation_time** | [**\DateTime**](\DateTime.md) |  | 
 **expiry_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **quote_id** | **string** |  | 
