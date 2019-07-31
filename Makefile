@@ -60,3 +60,11 @@ info:
 	sed -i.bak '4s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
 
 client: clean php-client trim info
+
+build:
+	@echo "Packagist polls tags on github ... tag and push"
+
+publish:
+	# make version=2.14.90-RC1 publish
+	git tag $(version)
+	git push origin tag $(version)
