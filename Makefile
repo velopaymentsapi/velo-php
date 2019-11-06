@@ -8,6 +8,12 @@ help:
 	@echo "\033[92m    make WORKING_SPEC=https://raw.githubusercontent.com/velopaymentsapi/VeloOpenApi/master/spec/openapi.yaml client \033[0m"
 	@echo ""
 
+version:
+	@docker run -i --rm mikefarah/yq sh -c "apk -q add curl && curl -s $$WORKING_SPEC -o /tmp/oa3.yaml;  yq r /tmp/oa3.yaml info.version" 2>&1
+
+oa3config:
+	sed -i.bak 's/"artifactVersion": ".*"/"artifactVersion": "${VERSION}"/g' oa3-config.json && rm oa3-config.json.bak
+
 clean:
 	rm -Rf docs
 	rm -Rf lib
@@ -17,11 +23,12 @@ clean:
 	rm -f phpunit.xml.dist
 	rm -f README.md
 
-php-client:
+generate:
 	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
 		-i $$WORKING_SPEC \
 		-g php \
-		-o /local
+		-o /local \
+		-c /local/oa3-config.json
 
 trim:
 	rm -Rf .openapi-generator
@@ -31,32 +38,41 @@ trim:
 
 info:
 	sed -i.bak 's/"name": "GIT_USER_ID\/GIT_REPO_ID"/"name": "velopaymentsapi\/velo-php"/' composer.json && rm composer.json.bak
-	sed -i.bak '3s/.*/    "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",/' composer.json && rm composer.json.bak
-	sed -i.bak 's/OpenAPI\\\\Client/VeloPayments\\\\Client/' composer.json && rm composer.json.bak
+	sed -i.bak '4s/.*/    "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",/' composer.json && rm composer.json.bak
 	sed -i.bak 's/"name": "OpenAPI-Generator contributors"/"name": "VeloPayments contributors"/' composer.json && rm composer.json.bak
 	sed -i.bak 's/"homepage": "https:\/\/openapi-generator.tech"/"homepage": "https:\/\/github.com\/velopaymentsapi\/velo-php"/g' composer.json && rm composer.json.bak
 	sed -i.bak 's/"openapitools",/"velo",/' composer.json && rm composer.json.bak
 	sed -i.bak 's/"openapi-generator",/"velo-payments",/' composer.json && rm composer.json.bak
-	
 	# 
-	grep -rl 'OpenAPI' ./docs/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	grep -rl 'OpenAPI' ./docs/Model | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	rm -Rf ./docs/*/*.bak
-	# 
-	grep -rl 'OpenAPI' ./lib/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	grep -rl 'OpenAPI' ./lib/Model | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	grep -rl 'OpenAPI' ./lib | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	rm -Rf ./lib/*/*.bak
-	rm -Rf ./lib/*.bak
-	# 
-	grep -rl 'OpenAPI' ./test/Api | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	grep -rl 'OpenAPI' ./test/Model | xargs sed -i.bak 's/OpenAPI\\Client/VeloPayments\\Client/g'
-	rm -Rf ./test/*/*.bak
-	# 
+	sed -i.bak 's/GIT_USER_ID\/GIT_REPO_ID/velopaymentsapi\/velo-php/' README.md && rm README.md.bak
 	sed -i.bak '/# OpenAPIClient-php/G' README.md && rm README.md.bak
 	sed -i.bak '1s/.*/# PHP client for Velo/' README.md && rm README.md.bak
 	sed -i.bak '2s/.*/[![Latest Stable Version](https:\/\/poser.pugx.org\/velopaymentsapi\/velo-php\/v\/stable.svg)](https:\/\/packagist.org\/packages\/velopaymentsapi\/velo-php) [![License](https:\/\/poser.pugx.org\/velopaymentsapi\/velo-php\/license.svg)](https:\/\/packagist.org\/packages\/velopaymentsapi\/velo-php)/' README.md && rm README.md.bak
 	sed -i.bak '3s/.*/ /' README.md && rm README.md.bak
 	sed -i.bak '4s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
 
-client: clean php-client trim info
+client: clean generate trim info
+
+tests:
+	# language: php
+	# sudo: false
+	# php:
+	# 	- 5.4
+	# 	- 5.5
+	# 	- 5.6
+	# 	- 7.0
+	# 	- hhvm
+	# before_install: "composer install"
+	# script: "vendor/bin/phpunit"
+
+commit:
+	git add --all
+	git commit -am 'bump version to ${VERSION}'
+	git push --set-upstream origin master
+
+build:
+	@echo "Packagist polls tags on github ... tag and push"
+
+publish:
+	git tag $(VERSION)
+	git push origin tag $(VERSION)

@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create Application
 
-Create an application for the given Payor ID
+Create an application for the given Payor ID. Applications are programatic users which can be assigned unique keys.
 
 ### Example
 

@@ -1,5 +1,6 @@
 {
     "name": "velopaymentsapi/velo-php",
+    "version": "2.16.18",
     "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",
     "keywords": [
         "velo",
@@ -11,7 +12,7 @@
         "api"
     ],
     "homepage": "https://github.com/velopaymentsapi/velo-php",
-    "license": "proprietary",
+    "license": "unlicense",
     "authors": [
         {
             "name": "VeloPayments contributors",

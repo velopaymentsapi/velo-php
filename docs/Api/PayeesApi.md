@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deletePayeeById**](PayeesApi.md#deletePayeeById) | **DELETE** /v1/payees/{payeeId} | Delete Payee by Id
 [**getPayeeById**](PayeesApi.md#getPayeeById) | **GET** /v1/payees/{payeeId} | Get Payee by Id
+[**listPayeeChanges**](PayeesApi.md#listPayeeChanges) | **GET** /v1/deltas/payees | List Payee Changes
 [**listPayees**](PayeesApi.md#listPayees) | **GET** /v1/payees | List Payees
 
 
@@ -133,9 +134,76 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## listPayeeChanges
+
+> \VeloPayments\Client\Model\PayeeDeltaResponse listPayeeChanges($payor_id, $updated_since, $page, $page_size)
+
+List Payee Changes
+
+Get a paginated response listing payee changes.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayeesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payor_id = 'payor_id_example'; // string | The Payor ID to find associated Payees
+$updated_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm
+$page = 1; // int | Page number. Default is 1.
+$page_size = 100; // int | Page size. Default is 100. Max allowable is 1000.
+
+try {
+    $result = $apiInstance->listPayeeChanges($payor_id, $updated_since, $page, $page_size);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PayeesApi->listPayeeChanges: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payor_id** | [**string**](../Model/.md)| The Payor ID to find associated Payees |
+ **updated_since** | **\DateTime**| The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm |
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page_size** | **int**| Page size. Default is 100. Max allowable is 1000. | [optional] [default to 100]
+
+### Return type
+
+[**\VeloPayments\Client\Model\PayeeDeltaResponse**](../Model/PayeeDeltaResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## listPayees
 
-> \VeloPayments\Client\Model\PayeeResponse listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\PagedPayeeResponse listPayees($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort)
 
 List Payees
 
@@ -198,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VeloPayments\Client\Model\PayeeResponse**](../Model/PayeeResponse.md)
+[**\VeloPayments\Client\Model\PagedPayeeResponse**](../Model/PagedPayeeResponse.md)
 
 ### Authorization
 

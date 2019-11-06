@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **source_account_name** | **string** |  | 
 **payor_payment_id** | **string** |  | 
 **reason** | **string** |  | 
+**reason_code** | **string** |  | [optional] 
 **line_number** | **int** |  | [optional] 
 **message** | **string** |  | [optional] 
 

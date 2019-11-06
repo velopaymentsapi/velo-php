@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rate** | **object** |  | 
-**inverted_rate** | **object** |  | [optional] 
+**rate** | **float** |  | 
+**inverted_rate** | **float** |  | [optional] 
 **creation_time** | [**\DateTime**](\DateTime.md) |  | 
 **expiry_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **quote_id** | **string** |  | 
@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **total_payment_amount** | **int** |  | 
 **source_currency** | **string** |  | 
 **payment_currency** | **string** |  | 
-**funding_status** | **string** |  | [optional] 
-**status** | **string** |  | [optional] 
+**funding_status** | **string** |  | 
+**status** | **string** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
