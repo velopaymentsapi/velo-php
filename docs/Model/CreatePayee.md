@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payee_id** | **string** |  | [optional] [readonly] 
-**payor_refs** | [**\VeloPayments\Client\Model\PayeePayorRefV2[]**](PayeePayorRefV2.md) |  | [optional] [readonly] 
+**payor_refs** | [**\VeloPayments\Client\Model\PayeePayorRef2[]**](PayeePayorRef2.md) |  | [optional] [readonly] 
 **email** | **string** |  | 
 **remote_id** | **string** |  | 
 **type** | [**\VeloPayments\Client\Model\PayeeType**](PayeeType.md) |  | 

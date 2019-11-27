@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**getPayeesInvitationStatus**](PayeeInvitationApi.md#getPayeesInvitationStatus) | **GET** /v1/payees/payors/{payorId}/invitationStatus | Get Payee Invitation Status
 [**getPayeesInvitationStatusV2**](PayeeInvitationApi.md#getPayeesInvitationStatusV2) | **GET** /v2/payees/payors/{payorId}/invitationStatus | Get Payee Invitation Status
 [**resendPayeeInvite**](PayeeInvitationApi.md#resendPayeeInvite) | **POST** /v1/payees/{payeeId}/invite | Resend Payee Invite
-[**v2CreatePayee**](PayeeInvitationApi.md#v2CreatePayee) | **POST** /v2/payees | Intiate Payee Creation
+[**v2CreatePayee**](PayeeInvitationApi.md#v2CreatePayee) | **POST** /v2/payees | Intiate Payee Creation V2
 [**v2QueryBatchStatus**](PayeeInvitationApi.md#v2QueryBatchStatus) | **GET** /v2/payees/batch/{batchId} | Query Batch Status
+[**v3CreatePayee**](PayeeInvitationApi.md#v3CreatePayee) | **POST** /v3/payees | Intiate Payee Creation V3
+[**v3QueryBatchStatus**](PayeeInvitationApi.md#v3QueryBatchStatus) | **GET** /v3/payees/batch/{batchId} | Query Batch Status
 
 
 
@@ -209,7 +211,7 @@ Name | Type | Description  | Notes
 
 > \VeloPayments\Client\Model\CreatePayeesCSVResponse v2CreatePayee($create_payees_request)
 
-Intiate Payee Creation
+Intiate Payee Creation V2
 
 Initiate the process of creating 1 to 2000 payees in a batch Use the response location header to query for status (201 - Created, 400 - invalid request body, 409 - if there is a duplicate remote id within the batch / if there is a duplicate email within the batch).
 
@@ -298,6 +300,128 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayeeInvitationApi->v2QueryBatchStatus: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batch_id** | [**string**](../Model/.md)| Batch Id |
+
+### Return type
+
+[**\VeloPayments\Client\Model\QueryBatchResponse**](../Model/QueryBatchResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## v3CreatePayee
+
+> \VeloPayments\Client\Model\CreatePayeesCSVResponse2 v3CreatePayee($create_payees_request2)
+
+Intiate Payee Creation V3
+
+Initiate the process of creating 1 to 2000 payees in a batch Use the response location header to query for status (201 - Created, 400 - invalid request body, 409 - if there is a duplicate remote id within the batch / if there is a duplicate email within the batch).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_payees_request2 = new \VeloPayments\Client\Model\CreatePayeesRequest2(); // \VeloPayments\Client\Model\CreatePayeesRequest2 | Post payees to create.
+
+try {
+    $result = $apiInstance->v3CreatePayee($create_payees_request2);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PayeeInvitationApi->v3CreatePayee: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_payees_request2** | [**\VeloPayments\Client\Model\CreatePayeesRequest2**](../Model/CreatePayeesRequest2.md)| Post payees to create. |
+
+### Return type
+
+[**\VeloPayments\Client\Model\CreatePayeesCSVResponse2**](../Model/CreatePayeesCSVResponse2.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## v3QueryBatchStatus
+
+> \VeloPayments\Client\Model\QueryBatchResponse v3QueryBatchStatus($batch_id)
+
+Query Batch Status
+
+Fetch the status of a specific batch of payees. The batch is fully processed when status is ACCEPTED and pendingCount is 0 ( 200 - OK, 404 - batch not found ).
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$batch_id = 'batch_id_example'; // string | Batch Id
+
+try {
+    $result = $apiInstance->v3QueryBatchStatus($batch_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PayeeInvitationApi->v3QueryBatchStatus: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

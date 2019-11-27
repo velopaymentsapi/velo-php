@@ -1,12 +1,11 @@
-# # PayeePayorRefV2
+# # CreatePayeesCSVResponse2
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payor_id** | **string** |  | [optional] 
-**remote_id** | **string** |  | [optional] 
-**invitation_status** | **string** |  | [optional] 
+**batch_id** | **string** |  | [optional] 
+**rejected_csv_rows** | **string[]** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
