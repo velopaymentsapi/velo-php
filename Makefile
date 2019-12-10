@@ -47,11 +47,14 @@ info:
 	sed -i.bak 's/GIT_USER_ID\/GIT_REPO_ID/velopaymentsapi\/velo-php/' README.md && rm README.md.bak
 	sed -i.bak '/# OpenAPIClient-php/G' README.md && rm README.md.bak
 	sed -i.bak '1s/.*/# PHP client for Velo/' README.md && rm README.md.bak
-	sed -i.bak '2s/.*/[![Latest Stable Version](https:\/\/poser.pugx.org\/velopaymentsapi\/velo-php\/v\/stable.svg)](https:\/\/packagist.org\/packages\/velopaymentsapi\/velo-php) [![License](https:\/\/poser.pugx.org\/velopaymentsapi\/velo-php\/license.svg)](https:\/\/packagist.org\/packages\/velopaymentsapi\/velo-php)/' README.md && rm README.md.bak
+	sed -i.bak '2s/.*/[![License](https:\/\/img.shields.io\/badge\/License-Apache%202.0-blue.svg)](https:\/\/opensource.org\/licenses\/Apache-2.0) [![npm version](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php.svg)](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php) [![CircleCI](https:\/\/circleci.com\/gh\/velopaymentsapi\/velo-php.svg?style=svg)](https:\/\/circleci.com\/gh\/velopaymentsapi\/velo-php)\\/' README.md && rm README.md.bak
 	sed -i.bak '3s/.*/ /' README.md && rm README.md.bak
 	sed -i.bak '4s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
 
-client: clean generate trim info
+build_client:
+	#
+
+client: clean generate trim info build_client
 
 tests:
 	# language: php
@@ -64,8 +67,10 @@ tests:
 	# 	- hhvm
 	# before_install: "composer install"
 	# script: "vendor/bin/phpunit"
+	@echo "Tests placeholder."
 
 commit:
+	sed -i.bak 's/"version": ".*"/"version": "${VERSION}"/g' composer.json && rm composer.json.bak
 	git add --all
 	git commit -am 'bump version to ${VERSION}'
 	git push --set-upstream origin master
