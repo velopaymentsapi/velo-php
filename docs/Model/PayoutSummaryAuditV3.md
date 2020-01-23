@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **payout_id** | **string** |  | 
 **payor_id** | **string** |  | [optional] 
 **status** | [**\VeloPayments\Client\Model\PayoutStatusV3**](PayoutStatusV3.md) |  | 
-**date_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **submitted_date_time** | **string** |  | 
 **instructed_date_time** | **string** |  | [optional] 
 **withdrawn_date_time** | **string** |  | [optional] 

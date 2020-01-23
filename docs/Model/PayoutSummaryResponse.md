@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **payments_rejected** | **int** |  | [optional] 
 **fx_summaries** | [**\VeloPayments\Client\Model\QuoteFxSummary[]**](QuoteFxSummary.md) |  | 
 **accounts** | [**\VeloPayments\Client\Model\SourceAccount[]**](SourceAccount.md) |  | 
+**accepted_payments** | [**\VeloPayments\Client\Model\AcceptedPayment[]**](AcceptedPayment.md) |  | 
 **rejected_payments** | [**\VeloPayments\Client\Model\RejectedPayment[]**](RejectedPayment.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**summary** | [**\VeloPayments\Client\Model\ListPaymentsResponseSummary**](ListPaymentsResponseSummary.md) |  | [optional] 
 **page** | [**\VeloPayments\Client\Model\ListPaymentsResponsePage**](ListPaymentsResponsePage.md) |  | [optional] 
 **links** | [**\VeloPayments\Client\Model\GetPayoutsResponseV3Links[]**](GetPayoutsResponseV3Links.md) |  | [optional] 
 **content** | [**\VeloPayments\Client\Model\PaymentResponseV3[]**](PaymentResponseV3.md) |  | [optional] 

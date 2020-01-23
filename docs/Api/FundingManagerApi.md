@@ -6,13 +6,16 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createAchFundingRequest**](FundingManagerApi.md#createAchFundingRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/achFundingRequest | Create Funding Request
 [**createFundingRequest**](FundingManagerApi.md#createFundingRequest) | **POST** /v2/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
-[**getFundings**](FundingManagerApi.md#getFundings) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
+[**getFundingAccount**](FundingManagerApi.md#getFundingAccount) | **GET** /v1/fundingAccounts/{fundingAccountId} | Get Funding Account
+[**getFundingAccounts**](FundingManagerApi.md#getFundingAccounts) | **GET** /v1/fundingAccounts | Get Funding Accounts
+[**getFundingsV1**](FundingManagerApi.md#getFundingsV1) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
 [**getSourceAccount**](FundingManagerApi.md#getSourceAccount) | **GET** /v1/sourceAccounts/{sourceAccountId} | Get details about given source account.
 [**getSourceAccountV2**](FundingManagerApi.md#getSourceAccountV2) | **GET** /v2/sourceAccounts/{sourceAccountId} | Get details about given source account.
 [**getSourceAccounts**](FundingManagerApi.md#getSourceAccounts) | **GET** /v1/sourceAccounts | Get list of source accounts
 [**getSourceAccountsV2**](FundingManagerApi.md#getSourceAccountsV2) | **GET** /v2/sourceAccounts | Get list of source accounts
-[**listFundingAuditDeltas**](FundingManagerApi.md#listFundingAuditDeltas) | **GET** /v1/deltas/fundings | List Funding changes
+[**listFundingAuditDeltas**](FundingManagerApi.md#listFundingAuditDeltas) | **GET** /v1/deltas/fundings | Get Funding Audit Delta
 [**setNotificationsRequest**](FundingManagerApi.md#setNotificationsRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/notifications | Set notifications
+[**transferFunds**](FundingManagerApi.md#transferFunds) | **POST** /v2/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
 
 
 
@@ -22,7 +25,7 @@ Method | HTTP request | Description
 
 Create Funding Request
 
-Instruct a funding request to transfer funds from the payor’s funding bank to the payor’s balance held within Velo  (202 - accepted, 400 - invalid request body, 404 - source account not found).
+Instruct a funding request to transfer funds from the payor’s funding bank to the payor’s balance held within Velo.
 
 ### Example
 
@@ -71,7 +74,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -133,16 +136,150 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
 [[Back to README]](../../README.md)
 
 
-## getFundings
+## getFundingAccount
 
-> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\FundingAccountResponse getFundingAccount($funding_account_id, $sensitive)
+
+Get Funding Account
+
+Get Funding Account by ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$funding_account_id = 'funding_account_id_example'; // string | 
+$sensitive = false; // bool | 
+
+try {
+    $result = $apiInstance->getFundingAccount($funding_account_id, $sensitive);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FundingManagerApi->getFundingAccount: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **funding_account_id** | [**string**](../Model/.md)|  |
+ **sensitive** | **bool**|  | [optional] [default to false]
+
+### Return type
+
+[**\VeloPayments\Client\Model\FundingAccountResponse**](../Model/FundingAccountResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getFundingAccounts
+
+> \VeloPayments\Client\Model\ListFundingAccountsResponse getFundingAccounts($payor_id, $source_account_id, $page, $page_size, $sort, $sensitive)
+
+Get Funding Accounts
+
+Get the source accounts.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payor_id = 'payor_id_example'; // string | 
+$source_account_id = 'source_account_id_example'; // string | 
+$page = 1; // int | Page number. Default is 1.
+$page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
+$sort = 'accountName:asc'; // string | 
+$sensitive = false; // bool | 
+
+try {
+    $result = $apiInstance->getFundingAccounts($payor_id, $source_account_id, $page, $page_size, $sort, $sensitive);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FundingManagerApi->getFundingAccounts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payor_id** | [**string**](../Model/.md)|  | [optional]
+ **source_account_id** | [**string**](../Model/.md)|  | [optional]
+ **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
+ **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
+ **sort** | **string**|  | [optional] [default to &#39;accountName:asc&#39;]
+ **sensitive** | **bool**|  | [optional] [default to false]
+
+### Return type
+
+[**\VeloPayments\Client\Model\ListFundingAccountsResponse**](../Model/ListFundingAccountsResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getFundingsV1
+
+> \VeloPayments\Client\Model\GetFundingsResponse getFundingsV1($payor_id, $page, $page_size, $sort)
 
 Get Fundings for Payor
 
@@ -171,10 +308,10 @@ $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields. Example: ```?sort=destinationCurrency:asc,destinationAmount:asc``` Default is no sort. The supported sort fields are: dateTime and amount.
 
 try {
-    $result = $apiInstance->getFundings($payor_id, $page, $page_size, $sort);
+    $result = $apiInstance->getFundingsV1($payor_id, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FundingManagerApi->getFundings: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FundingManagerApi->getFundingsV1: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -469,11 +606,11 @@ Name | Type | Description  | Notes
 
 ## listFundingAuditDeltas
 
-> \VeloPayments\Client\Model\FundingDeltaResponse listFundingAuditDeltas($payor_id, $updated_since, $page, $page_size)
+> \VeloPayments\Client\Model\PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse listFundingAuditDeltas($payor_id, $updated_since, $page, $page_size)
 
-List Funding changes
+Get Funding Audit Delta
 
-Get a paginated response listing funding changes.
+Get funding audit deltas for a payor
 
 ### Example
 
@@ -492,10 +629,10 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The Payor ID to find associated funding records
-$updated_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm
+$payor_id = 'payor_id_example'; // string | 
+$updated_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | 
 $page = 1; // int | Page number. Default is 1.
-$page_size = 100; // int | Page size. Default is 100. Max allowable is 1000.
+$page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 
 try {
     $result = $apiInstance->listFundingAuditDeltas($payor_id, $updated_since, $page, $page_size);
@@ -511,14 +648,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID to find associated funding records |
- **updated_since** | **\DateTime**| The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm |
+ **payor_id** | [**string**](../Model/.md)|  |
+ **updated_since** | **\DateTime**|  |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
- **page_size** | **int**| Page size. Default is 100. Max allowable is 1000. | [optional] [default to 100]
+ **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
 
 ### Return type
 
-[**\VeloPayments\Client\Model\FundingDeltaResponse**](../Model/FundingDeltaResponse.md)
+[**\VeloPayments\Client\Model\PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse**](../Model/PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse.md)
 
 ### Authorization
 
@@ -589,7 +726,69 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## transferFunds
+
+> transferFunds($source_account_id, $transfer_request)
+
+Transfer Funds between source accounts
+
+Transfer funds between source accounts for a Payor. The 'from' source account is identified in the URL, and is the account which will be debited. The 'to' (destination) source account is in the body, and is the account which will be credited. Both source accounts must belong to the same Payor. There must be sufficient balance in the 'from' source account, otherwise the transfer attempt will fail.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$source_account_id = 'source_account_id_example'; // string | The 'from' source account id, which will be debited
+$transfer_request = new \VeloPayments\Client\Model\TransferRequest(); // \VeloPayments\Client\Model\TransferRequest | Body
+
+try {
+    $apiInstance->transferFunds($source_account_id, $transfer_request);
+} catch (Exception $e) {
+    echo 'Exception when calling FundingManagerApi->transferFunds: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source_account_id** | [**string**](../Model/.md)| The &#39;from&#39; source account id, which will be debited |
+ **transfer_request** | [**\VeloPayments\Client\Model\TransferRequest**](../Model/TransferRequest.md)| Body |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

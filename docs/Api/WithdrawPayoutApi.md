@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v3PayoutsPayoutIdDelete**](WithdrawPayoutApi.md#v3PayoutsPayoutIdDelete) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
+[**withdrawPayoutV3**](WithdrawPayoutApi.md#withdrawPayoutV3) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
 
 
 
-## v3PayoutsPayoutIdDelete
+## withdrawPayoutV3
 
-> v3PayoutsPayoutIdDelete($payout_id)
+> withdrawPayoutV3($payout_id)
 
 Withdraw Payout
 
@@ -36,9 +36,9 @@ $apiInstance = new VeloPayments\Client\Api\WithdrawPayoutApi(
 $payout_id = 'payout_id_example'; // string | Id of the payout
 
 try {
-    $apiInstance->v3PayoutsPayoutIdDelete($payout_id);
+    $apiInstance->withdrawPayoutV3($payout_id);
 } catch (Exception $e) {
-    echo 'Exception when calling WithdrawPayoutApi->v3PayoutsPayoutIdDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WithdrawPayoutApi->withdrawPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

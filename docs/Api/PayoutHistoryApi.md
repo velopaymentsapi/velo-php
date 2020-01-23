@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getPaymentsForPayout**](PayoutHistoryApi.md#getPaymentsForPayout) | **GET** /v3/paymentaudit/payouts/{payoutId} | Get Payments for Payout
 [**getPaymentsForPayoutV4**](PayoutHistoryApi.md#getPaymentsForPayoutV4) | **GET** /v4/paymentaudit/payouts/{payoutId} | Get Payments for Payout
-[**getPayoutStats**](PayoutHistoryApi.md#getPayoutStats) | **GET** /v1/paymentaudit/payoutStatistics | Get Payout Statistics
+[**getPayoutStatsV1**](PayoutHistoryApi.md#getPayoutStatsV1) | **GET** /v1/paymentaudit/payoutStatistics | Get Payout Statistics
 
 
 
@@ -180,9 +180,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getPayoutStats
+## getPayoutStatsV1
 
-> \VeloPayments\Client\Model\GetPayoutStatistics getPayoutStats($payor_id)
+> \VeloPayments\Client\Model\GetPayoutStatistics getPayoutStatsV1($payor_id)
 
 Get Payout Statistics
 
@@ -208,10 +208,10 @@ $apiInstance = new VeloPayments\Client\Api\PayoutHistoryApi(
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID. Required for external users.
 
 try {
-    $result = $apiInstance->getPayoutStats($payor_id);
+    $result = $apiInstance->getPayoutStatsV1($payor_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayoutHistoryApi->getPayoutStats: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayoutHistoryApi->getPayoutStatsV1: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

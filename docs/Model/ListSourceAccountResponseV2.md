@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**page** | [**\VeloPayments\Client\Model\ListSourceAccountResponseV2Page**](ListSourceAccountResponseV2Page.md) |  | [optional] 
+**page** | [**\VeloPayments\Client\Model\PagedUserResponsePage**](PagedUserResponsePage.md) |  | [optional] 
 **links** | [**\VeloPayments\Client\Model\ListSourceAccountResponseLinks[]**](ListSourceAccountResponseLinks.md) |  | [optional] 
 **content** | [**\VeloPayments\Client\Model\SourceAccountResponseV2[]**](SourceAccountResponseV2.md) |  | [optional] 
 

@@ -4,13 +4,14 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**exportTransactionsCSV**](PaymentAuditServiceApi.md#exportTransactionsCSV) | **GET** /v4/paymentaudit/transactions | Export Transactions
-[**getFundings**](PaymentAuditServiceApi.md#getFundings) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
+[**exportTransactionsCSVV3**](PaymentAuditServiceApi.md#exportTransactionsCSVV3) | **GET** /v3/paymentaudit/transactions | Export Transactions
+[**exportTransactionsCSVV4**](PaymentAuditServiceApi.md#exportTransactionsCSVV4) | **GET** /v4/paymentaudit/transactions | Export Transactions
+[**getFundingsV1**](PaymentAuditServiceApi.md#getFundingsV1) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
 [**getPaymentDetails**](PaymentAuditServiceApi.md#getPaymentDetails) | **GET** /v3/paymentaudit/payments/{paymentId} | Get Payment
 [**getPaymentDetailsV4**](PaymentAuditServiceApi.md#getPaymentDetailsV4) | **GET** /v4/paymentaudit/payments/{paymentId} | Get Payment
 [**getPaymentsForPayout**](PaymentAuditServiceApi.md#getPaymentsForPayout) | **GET** /v3/paymentaudit/payouts/{payoutId} | Get Payments for Payout
 [**getPaymentsForPayoutV4**](PaymentAuditServiceApi.md#getPaymentsForPayoutV4) | **GET** /v4/paymentaudit/payouts/{payoutId} | Get Payments for Payout
-[**getPayoutsForPayor**](PaymentAuditServiceApi.md#getPayoutsForPayor) | **GET** /v3/paymentaudit/payouts | Get Payouts for Payor
+[**getPayoutsForPayorV3**](PaymentAuditServiceApi.md#getPayoutsForPayorV3) | **GET** /v3/paymentaudit/payouts | Get Payouts for Payor
 [**getPayoutsForPayorV4**](PaymentAuditServiceApi.md#getPayoutsForPayorV4) | **GET** /v4/paymentaudit/payouts | Get Payouts for Payor
 [**listPaymentChanges**](PaymentAuditServiceApi.md#listPaymentChanges) | **GET** /v1/deltas/payments | List Payment Changes
 [**listPaymentsAudit**](PaymentAuditServiceApi.md#listPaymentsAudit) | **GET** /v3/paymentaudit/payments | Get List of Payments
@@ -18,9 +19,74 @@ Method | HTTP request | Description
 
 
 
-## exportTransactionsCSV
+## exportTransactionsCSVV3
 
-> string exportTransactionsCSV($payor_id, $start_date, $submitted_date_from, $include)
+> \VeloPayments\Client\Model\PayorAmlTransactionV3 exportTransactionsCSVV3($payor_id, $start_date, $end_date)
+
+Export Transactions
+
+Download a CSV file containing payments in a date range. Uses Transfer-Encoding - chunked to stream to the client. Date range is inclusive of both the start and end dates.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payor_id = 'payor_id_example'; // string | The Payor ID for whom you wish to run the report. For a Payor requesting the report, this could be their exact Payor, or it could be a child/descendant Payor.
+$start_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start date, inclusive. Format is YYYY-MM-DD
+$end_date = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End date, inclusive. Format is YYYY-MM-DD
+
+try {
+    $result = $apiInstance->exportTransactionsCSVV3($payor_id, $start_date, $end_date);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PaymentAuditServiceApi->exportTransactionsCSVV3: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payor_id** | [**string**](../Model/.md)| The Payor ID for whom you wish to run the report. For a Payor requesting the report, this could be their exact Payor, or it could be a child/descendant Payor. | [optional]
+ **start_date** | **\DateTime**| Start date, inclusive. Format is YYYY-MM-DD | [optional]
+ **end_date** | **\DateTime**| End date, inclusive. Format is YYYY-MM-DD | [optional]
+
+### Return type
+
+[**\VeloPayments\Client\Model\PayorAmlTransactionV3**](../Model/PayorAmlTransactionV3.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/csv
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## exportTransactionsCSVV4
+
+> \VeloPayments\Client\Model\PayorAmlTransactionV4 exportTransactionsCSVV4($payor_id, $start_date, $submitted_date_from, $include)
 
 Export Transactions
 
@@ -49,10 +115,10 @@ $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime 
 $include = 'include_example'; // string | Mode to determine whether to include other Payor's data in the results. May only be used if payorId is specified. Can be omitted or set to 'payorOnly' or 'payorAndDescendants'. payorOnly: Only include results for the specified Payor. This is the default if 'include' is omitted. payorAndDescendants: Aggregate results for all descendant Payors of the specified Payor. Should only be used if the Payor with the specified payorId has at least one child Payor.                      Note when a Payor requests the report and include=payorAndDescendants is used, the following additional columns are included in the CSV: Payor Name, Payor Id
 
 try {
-    $result = $apiInstance->exportTransactionsCSV($payor_id, $start_date, $submitted_date_from, $include);
+    $result = $apiInstance->exportTransactionsCSVV4($payor_id, $start_date, $submitted_date_from, $include);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentAuditServiceApi->exportTransactionsCSV: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentAuditServiceApi->exportTransactionsCSVV4: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -69,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**string**
+[**\VeloPayments\Client\Model\PayorAmlTransactionV4**](../Model/PayorAmlTransactionV4.md)
 
 ### Authorization
 
@@ -85,9 +151,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getFundings
+## getFundingsV1
 
-> \VeloPayments\Client\Model\GetFundingsResponse getFundings($payor_id, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\GetFundingsResponse getFundingsV1($payor_id, $page, $page_size, $sort)
 
 Get Fundings for Payor
 
@@ -116,10 +182,10 @@ $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields. Example: ```?sort=destinationCurrency:asc,destinationAmount:asc``` Default is no sort. The supported sort fields are: dateTime and amount.
 
 try {
-    $result = $apiInstance->getFundings($payor_id, $page, $page_size, $sort);
+    $result = $apiInstance->getFundingsV1($payor_id, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentAuditServiceApi->getFundings: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentAuditServiceApi->getFundingsV1: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -448,9 +514,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## getPayoutsForPayor
+## getPayoutsForPayorV3
 
-> \VeloPayments\Client\Model\GetPayoutsResponseV3 getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\GetPayoutsResponseV3 getPayoutsForPayorV3($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort)
 
 Get Payouts for Payor
 
@@ -483,10 +549,10 @@ $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status.
 
 try {
-    $result = $apiInstance->getPayoutsForPayor($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort);
+    $result = $apiInstance->getPayoutsForPayorV3($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayor: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayorV3: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -525,7 +591,7 @@ Name | Type | Description  | Notes
 
 ## getPayoutsForPayorV4
 
-> \VeloPayments\Client\Model\GetPayoutsResponseV4 getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\GetPayoutsResponseV4 getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort)
 
 Get Payouts for Payor
 
@@ -548,17 +614,18 @@ $apiInstance = new VeloPayments\Client\Api\PaymentAuditServiceApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The id (UUID) of the payor funding the payout or the payor whose payees are being paid.
 $payout_memo = 'payout_memo_example'; // string | Payout Memo filter - case insensitive sub-string match
 $status = 'status_example'; // string | Payout Status
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
+$from_payor_name = 'from_payor_name_example'; // string | The name of the payor whose payees are being paid. This filters via a case insensitive substring match.
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
-$sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status.
+$sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status, totalPayments
 
 try {
-    $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort);
+    $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayorV4: ', $e->getMessage(), PHP_EOL;
@@ -571,14 +638,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The id (UUID) of the payor funding the payout or the payor whose payees are being paid. | [optional]
  **payout_memo** | **string**| Payout Memo filter - case insensitive sub-string match | [optional]
  **status** | **string**| Payout Status | [optional]
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
  **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional]
+ **from_payor_name** | **string**| The name of the payor whose payees are being paid. This filters via a case insensitive substring match. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
- **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status. | [optional]
+ **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status, totalPayments | [optional]
 
 ### Return type
 
@@ -764,7 +832,7 @@ Name | Type | Description  | Notes
 
 ## listPaymentsAuditV4
 
-> \VeloPayments\Client\Model\ListPaymentsResponse listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive)
+> \VeloPayments\Client\Model\ListPaymentsResponseV4 listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive)
 
 Get List of Payments
 
@@ -843,7 +911,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VeloPayments\Client\Model\ListPaymentsResponse**](../Model/ListPaymentsResponse.md)
+[**\VeloPayments\Client\Model\ListPaymentsResponseV4**](../Model/ListPaymentsResponseV4.md)
 
 ### Authorization
 
