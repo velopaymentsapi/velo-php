@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**withdrawPayoutV3**](WithdrawPayoutApi.md#withdrawPayoutV3) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
+[**v3PayoutsPayoutIdDelete**](WithdrawPayoutApi.md#v3PayoutsPayoutIdDelete) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
 
 
 
-## withdrawPayoutV3
+## v3PayoutsPayoutIdDelete
 
-> withdrawPayoutV3($payout_id)
+> v3PayoutsPayoutIdDelete($payout_id)
 
 Withdraw Payout
 
@@ -36,9 +36,9 @@ $apiInstance = new VeloPayments\Client\Api\WithdrawPayoutApi(
 $payout_id = 'payout_id_example'; // string | Id of the payout
 
 try {
-    $apiInstance->withdrawPayoutV3($payout_id);
+    $apiInstance->v3PayoutsPayoutIdDelete($payout_id);
 } catch (Exception $e) {
-    echo 'Exception when calling WithdrawPayoutApi->withdrawPayoutV3: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WithdrawPayoutApi->v3PayoutsPayoutIdDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -61,7 +61,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

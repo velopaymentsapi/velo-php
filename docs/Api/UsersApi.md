@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteUserByIdV2**](UsersApi.md#deleteUserByIdV2) | **DELETE** /v2/users/{userId} | Delete a User
 [**disableUserV2**](UsersApi.md#disableUserV2) | **POST** /v2/users/{userId}/disable | Disable a User
-[**emailUpdate**](UsersApi.md#emailUpdate) | **POST** /v2/users/{userId}/emailUpdate | Update Email Address
 [**enableUserV2**](UsersApi.md#enableUserV2) | **POST** /v2/users/{userId}/enable | Enable a User
 [**getSelf**](UsersApi.md#getSelf) | **GET** /v2/users/self | Get Self
 [**getUserByIdV2**](UsersApi.md#getUserByIdV2) | **GET** /v2/users/{userId} | Get User
@@ -14,10 +13,12 @@ Method | HTTP request | Description
 [**listUsers**](UsersApi.md#listUsers) | **GET** /v2/users | List Users
 [**registerSms**](UsersApi.md#registerSms) | **POST** /v2/users/registration/sms | Register SMS Number
 [**resendToken**](UsersApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
+[**roleUpdate**](UsersApi.md#roleUpdate) | **POST** /v2/users/{userId}/roleUpdate | Update User Role
 [**unlockUserV2**](UsersApi.md#unlockUserV2) | **POST** /v2/users/{userId}/unlock | Unlock a User
 [**unregisterMFA**](UsersApi.md#unregisterMFA) | **POST** /v2/users/{userId}/mfa/unregister | Unregister MFA for the user
 [**unregisterMFAForSelf**](UsersApi.md#unregisterMFAForSelf) | **POST** /v2/users/self/mfa/unregister | Unregister MFA for Self
 [**updatePasswordSelf**](UsersApi.md#updatePasswordSelf) | **POST** /v2/users/self/password | Update Password for self
+[**userDetailsUpdate**](UsersApi.md#userDetailsUpdate) | **POST** /v2/users/{userId}/userDetailsUpdate | Update User Details
 [**validatePasswordSelf**](UsersApi.md#validatePasswordSelf) | **POST** /v2/users/self/password/validate | Validate the proposed password
 
 
@@ -135,68 +136,6 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
-[[Back to README]](../../README.md)
-
-
-## emailUpdate
-
-> emailUpdate($user_id, $email_update_request)
-
-Update Email Address
-
-<p>Update the user's email address </p> <p>If the email address is already in use a 409 will be returned</p>
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new VeloPayments\Client\Api\UsersApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$user_id = 'user_id_example'; // string | The UUID of the User.
-$email_update_request = new \VeloPayments\Client\Model\EmailUpdateRequest(); // \VeloPayments\Client\Model\EmailUpdateRequest | a new email address
-
-try {
-    $apiInstance->emailUpdate($user_id, $email_update_request);
-} catch (Exception $e) {
-    echo 'Exception when calling UsersApi->emailUpdate: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
- **email_update_request** | [**\VeloPayments\Client\Model\EmailUpdateRequest**](../Model/EmailUpdateRequest.md)| a new email address |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -635,6 +574,68 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
+## roleUpdate
+
+> roleUpdate($user_id, $role_update_request)
+
+Update User Role
+
+<p>Update the user's Role</p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$user_id = 'user_id_example'; // string | The UUID of the User.
+$role_update_request = new \VeloPayments\Client\Model\RoleUpdateRequest(); // \VeloPayments\Client\Model\RoleUpdateRequest | The Role to change to
+
+try {
+    $apiInstance->roleUpdate($user_id, $role_update_request);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->roleUpdate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **role_update_request** | [**\VeloPayments\Client\Model\RoleUpdateRequest**](../Model/RoleUpdateRequest.md)| The Role to change to |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## unlockUserV2
 
 > unlockUserV2($user_id)
@@ -858,6 +859,68 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **self_update_password_request** | [**\VeloPayments\Client\Model\SelfUpdatePasswordRequest**](../Model/SelfUpdatePasswordRequest.md)| The password |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## userDetailsUpdate
+
+> userDetailsUpdate($user_id, $user_details_update_request)
+
+Update User Details
+
+<p>Update the profile details for the given user</p> <p>When updating Payor users with the role of payor.master_admin a verificationCode is required</p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$user_id = 'user_id_example'; // string | The UUID of the User.
+$user_details_update_request = new \VeloPayments\Client\Model\UserDetailsUpdateRequest(); // \VeloPayments\Client\Model\UserDetailsUpdateRequest | The details of the user to update
+
+try {
+    $apiInstance->userDetailsUpdate($user_id, $user_details_update_request);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->userDetailsUpdate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_details_update_request** | [**\VeloPayments\Client\Model\UserDetailsUpdateRequest**](../Model/UserDetailsUpdateRequest.md)| The details of the user to update |
 
 ### Return type
 

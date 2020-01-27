@@ -25,15 +25,10 @@ List the supported countries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $apiInstance = new VeloPayments\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -55,7 +50,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 
@@ -73,7 +68,7 @@ This endpoint does not need any parameter.
 
 List Supported Countries
 
-List the supported countries.
+<p>List the supported countries.</p> <p>This version will be retired in March 2020. Use /v2/supportedCountries</p>
 
 ### Example
 
@@ -82,15 +77,10 @@ List the supported countries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $apiInstance = new VeloPayments\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -112,7 +102,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

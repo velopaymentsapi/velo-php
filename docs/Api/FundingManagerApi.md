@@ -495,7 +495,7 @@ $physical_account_name = 'physical_account_name_example'; // string | Physical A
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
-$sort = 'sort_example'; // string | Sort String
+$sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef
 
 try {
     $result = $apiInstance->getSourceAccounts($physical_account_name, $payor_id, $page, $page_size, $sort);
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
- **sort** | **string**| Sort String | [optional]
+ **sort** | **string**| List of sort fields e.g. ?sort&#x3D;name:asc Default is name:asc The supported sort fields are - fundingRef | [optional] [default to &#39;fundingRef:asc&#39;]
 
 ### Return type
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 
 ## getSourceAccountsV2
 
-> \VeloPayments\Client\Model\ListSourceAccountResponseV2 getSourceAccountsV2($physical_account_name, $payor_id, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\ListSourceAccountResponseV2 getSourceAccountsV2($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $page, $page_size, $sort)
 
 Get list of source accounts
 
@@ -561,13 +561,15 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     $config
 );
 $physical_account_name = 'physical_account_name_example'; // string | Physical Account Name
+$physical_account_id = 'physical_account_id_example'; // string | The physical account ID
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$funding_account_id = 'funding_account_id_example'; // string | The funding account ID
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
-$sort = 'sort_example'; // string | Sort String
+$sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance
 
 try {
-    $result = $apiInstance->getSourceAccountsV2($physical_account_name, $payor_id, $page, $page_size, $sort);
+    $result = $apiInstance->getSourceAccountsV2($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccountsV2: ', $e->getMessage(), PHP_EOL;
@@ -581,10 +583,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **physical_account_name** | **string**| Physical Account Name | [optional]
+ **physical_account_id** | [**string**](../Model/.md)| The physical account ID | [optional]
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
+ **funding_account_id** | [**string**](../Model/.md)| The funding account ID | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
- **sort** | **string**| Sort String | [optional]
+ **sort** | **string**| List of sort fields e.g. ?sort&#x3D;name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance | [optional] [default to &#39;fundingRef:asc&#39;]
 
 ### Return type
 

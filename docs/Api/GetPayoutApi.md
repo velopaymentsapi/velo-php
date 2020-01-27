@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPayoutSummaryV3**](GetPayoutApi.md#getPayoutSummaryV3) | **GET** /v3/payouts/{payoutId} | Get Payout Summary
+[**v3PayoutsPayoutIdGet**](GetPayoutApi.md#v3PayoutsPayoutIdGet) | **GET** /v3/payouts/{payoutId} | Get Payout Summary
 
 
 
-## getPayoutSummaryV3
+## v3PayoutsPayoutIdGet
 
-> \VeloPayments\Client\Model\PayoutSummaryResponse getPayoutSummaryV3($payout_id)
+> \VeloPayments\Client\Model\PayoutSummaryResponse v3PayoutsPayoutIdGet($payout_id)
 
 Get Payout Summary
 
@@ -36,10 +36,10 @@ $apiInstance = new VeloPayments\Client\Api\GetPayoutApi(
 $payout_id = 'payout_id_example'; // string | Id of the payout
 
 try {
-    $result = $apiInstance->getPayoutSummaryV3($payout_id);
+    $result = $apiInstance->v3PayoutsPayoutIdGet($payout_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling GetPayoutApi->getPayoutSummaryV3: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GetPayoutApi->v3PayoutsPayoutIdGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

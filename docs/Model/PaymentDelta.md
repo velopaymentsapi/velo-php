@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **payor_payment_id** | **string** |  | [optional] 
 **payment_currency** | **string** |  | [optional] 
 **payment_amount** | **int** |  | [optional] 
-**status** | [**\VeloPayments\Client\Model\PaymentStatus**](PaymentStatus.md) |  | [optional] 
+**status** | **string** |  | [optional] 
 **source_currency** | **string** |  | [optional] 
 **source_amount** | **int** |  | [optional] 
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **summary** | [**\VeloPayments\Client\Model\GetPaymentsForPayoutResponseV4Summary**](GetPaymentsForPayoutResponseV4Summary.md) |  | [optional] 
-**page** | [**\VeloPayments\Client\Model\PagedPayeeResponsePage**](PagedPayeeResponsePage.md) |  | [optional] 
+**page** | [**\VeloPayments\Client\Model\PagedPayeeInvitationStatusResponsePage**](PagedPayeeInvitationStatusResponsePage.md) |  | [optional] 
 **links** | [**\VeloPayments\Client\Model\PagedPayeeResponseLinks[]**](PagedPayeeResponseLinks.md) |  | [optional] 
 **content** | [**\VeloPayments\Client\Model\PaymentResponseV4[]**](PaymentResponseV4.md) |  | [optional] 
 

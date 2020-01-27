@@ -23,15 +23,10 @@ List the supported currencies.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $apiInstance = new VeloPayments\Client\Api\CurrenciesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
@@ -53,7 +48,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

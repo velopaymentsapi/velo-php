@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instructPayoutV3**](InstructPayoutApi.md#instructPayoutV3) | **POST** /v3/payouts/{payoutId} | Instruct Payout
+[**v3PayoutsPayoutIdPost**](InstructPayoutApi.md#v3PayoutsPayoutIdPost) | **POST** /v3/payouts/{payoutId} | Instruct Payout
 
 
 
-## instructPayoutV3
+## v3PayoutsPayoutIdPost
 
-> instructPayoutV3($payout_id)
+> v3PayoutsPayoutIdPost($payout_id)
 
 Instruct Payout
 
@@ -36,9 +36,9 @@ $apiInstance = new VeloPayments\Client\Api\InstructPayoutApi(
 $payout_id = 'payout_id_example'; // string | Id of the payout
 
 try {
-    $apiInstance->instructPayoutV3($payout_id);
+    $apiInstance->v3PayoutsPayoutIdPost($payout_id);
 } catch (Exception $e) {
-    echo 'Exception when calling InstructPayoutApi->instructPayoutV3: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling InstructPayoutApi->v3PayoutsPayoutIdPost: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -61,7 +61,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
