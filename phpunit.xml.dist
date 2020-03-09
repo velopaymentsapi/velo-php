@@ -7,8 +7,8 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="tests">
-            <directory>./test/Api</directory>
-            <directory>./test/Model</directory>
+            <directory>./tests/Api</directory>
+            
         </testsuite>
     </testsuites>
     <filter>
