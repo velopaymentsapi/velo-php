@@ -1,6 +1,6 @@
 {
     "name": "velopaymentsapi/velo-php",
-    "version": "2.19.116",
+    "version": "2.20.29-RC1",
     "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",
     "keywords": [
         "velo",
