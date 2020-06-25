@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**unregisterMFAForSelf**](UsersApi.md#unregisterMFAForSelf) | **POST** /v2/users/self/mfa/unregister | Unregister MFA for Self
 [**updatePasswordSelf**](UsersApi.md#updatePasswordSelf) | **POST** /v2/users/self/password | Update Password for self
 [**userDetailsUpdate**](UsersApi.md#userDetailsUpdate) | **POST** /v2/users/{userId}/userDetailsUpdate | Update User Details
+[**userDetailsUpdateForSelf**](UsersApi.md#userDetailsUpdateForSelf) | **POST** /v2/users/self/userDetailsUpdate | Update User Details for self
 [**validatePasswordSelf**](UsersApi.md#validatePasswordSelf) | **POST** /v2/users/self/password/validate | Validate the proposed password
 
 
@@ -205,7 +206,7 @@ void (empty response body)
 
 ## getSelf
 
-> \VeloPayments\Client\Model\UserResponse2 getSelf()
+> \VeloPayments\Client\Model\UserResponse getSelf()
 
 Get Self
 
@@ -244,7 +245,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\VeloPayments\Client\Model\UserResponse2**](../Model/UserResponse2.md)
+[**\VeloPayments\Client\Model\UserResponse**](../Model/UserResponse.md)
 
 ### Authorization
 
@@ -410,7 +411,7 @@ $type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserType(); //
 $status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserStatus(); // \VeloPayments\Client\Model\UserStatus | The status of the User.
 $entity_id = 'entity_id_example'; // string | The entityId of the User.
 $page = 1; // int | Page number. Default is 1.
-$page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
+$page_size = 25; // int | The number of results to return in a page
 $sort = 'email:asc'; // string | List of sort fields (e.g. ?sort=email:asc,lastName:asc) Default is email:asc 'name' The supported sort fields are - email, lastNmae.
 
 try {
@@ -431,7 +432,7 @@ Name | Type | Description  | Notes
  **status** | [**\VeloPayments\Client\Model\UserStatus**](../Model/.md)| The status of the User. | [optional]
  **entity_id** | [**string**](../Model/.md)| The entityId of the User. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
- **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
+ **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;email:asc,lastName:asc) Default is email:asc &#39;name&#39; The supported sort fields are - email, lastNmae. | [optional] [default to &#39;email:asc&#39;]
 
 ### Return type
@@ -921,6 +922,66 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | [**string**](../Model/.md)| The UUID of the User. |
  **user_details_update_request** | [**\VeloPayments\Client\Model\UserDetailsUpdateRequest**](../Model/UserDetailsUpdateRequest.md)| The details of the user to update |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## userDetailsUpdateForSelf
+
+> userDetailsUpdateForSelf($payee_user_self_update_request)
+
+Update User Details for self
+
+<p>Update the profile details for the given user</p> <p>Only Payee user types are supported</p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payee_user_self_update_request = new \VeloPayments\Client\Model\PayeeUserSelfUpdateRequest(); // \VeloPayments\Client\Model\PayeeUserSelfUpdateRequest | The details of the user to update
+
+try {
+    $apiInstance->userDetailsUpdateForSelf($payee_user_self_update_request);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->userDetailsUpdateForSelf: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payee_user_self_update_request** | [**\VeloPayments\Client\Model\PayeeUserSelfUpdateRequest**](../Model/PayeeUserSelfUpdateRequest.md)| The details of the user to update |
 
 ### Return type
 

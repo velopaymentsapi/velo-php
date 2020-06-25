@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **language** | **string** | The payor’s language preference. Must be one of [EN, FR]. | [optional] 
 **includes_reports** | **bool** |  | [optional] 
 **max_master_payor_admins** | **int** |  | [optional] 
+**transmission_types** | [**\VeloPayments\Client\Model\TransmissionTypes**](TransmissionTypes.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

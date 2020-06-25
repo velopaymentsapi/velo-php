@@ -40,7 +40,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 
 try {
     $result = $apiInstance->getPayorById($payor_id);
@@ -56,7 +56,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
 
 ### Return type
 
@@ -101,7 +101,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 
 try {
     $result = $apiInstance->getPayorByIdV2($payor_id);
@@ -117,7 +117,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
 
 ### Return type
 
@@ -162,7 +162,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 $logo = "/path/to/file.txt"; // \SplFileObject | 
 
 try {
@@ -178,7 +178,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
  **logo** | **\SplFileObject****\SplFileObject**|  | [optional]
 
 ### Return type
@@ -224,7 +224,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 $application_id = 'application_id_example'; // string | Application ID
 $payor_create_api_key_request = new \VeloPayments\Client\Model\PayorCreateApiKeyRequest(); // \VeloPayments\Client\Model\PayorCreateApiKeyRequest | Details of application API key to create
 
@@ -242,7 +242,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
  **application_id** | [**string**](../Model/.md)| Application ID |
  **payor_create_api_key_request** | [**\VeloPayments\Client\Model\PayorCreateApiKeyRequest**](../Model/PayorCreateApiKeyRequest.md)| Details of application API key to create |
 
@@ -289,7 +289,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 $payor_create_application_request = new \VeloPayments\Client\Model\PayorCreateApplicationRequest(); // \VeloPayments\Client\Model\PayorCreateApplicationRequest | Details of application to create
 
 try {
@@ -305,7 +305,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
  **payor_create_application_request** | [**\VeloPayments\Client\Model\PayorCreateApplicationRequest**](../Model/PayorCreateApplicationRequest.md)| Details of application to create |
 
 ### Return type
@@ -351,7 +351,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 $payor_email_opt_out_request = new \VeloPayments\Client\Model\PayorEmailOptOutRequest(); // \VeloPayments\Client\Model\PayorEmailOptOutRequest | Reminder Emails Opt-Out Request
 
 try {
@@ -367,7 +367,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
  **payor_email_opt_out_request** | [**\VeloPayments\Client\Model\PayorEmailOptOutRequest**](../Model/PayorEmailOptOutRequest.md)| Reminder Emails Opt-Out Request |
 
 ### Return type
@@ -413,7 +413,7 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | The account owner Payor ID
+$payor_id = 'payor_id_example'; // string | The Payor Id
 
 try {
     $result = $apiInstance->payorGetBranding($payor_id);
@@ -429,7 +429,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | [**string**](../Model/.md)| The Payor Id |
 
 ### Return type
 

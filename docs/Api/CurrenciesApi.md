@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listSupportedCurrencies**](CurrenciesApi.md#listSupportedCurrencies) | **GET** /v2/currencies | List Supported Currencies
+[**listSupportedCurrenciesV2**](CurrenciesApi.md#listSupportedCurrenciesV2) | **GET** /v2/currencies | List Supported Currencies
 
 
 
-## listSupportedCurrencies
+## listSupportedCurrenciesV2
 
-> \VeloPayments\Client\Model\SupportedCurrencyResponse listSupportedCurrencies()
+> \VeloPayments\Client\Model\SupportedCurrencyResponseV2 listSupportedCurrenciesV2()
 
 List Supported Currencies
 
@@ -30,10 +30,10 @@ $apiInstance = new VeloPayments\Client\Api\CurrenciesApi(
 );
 
 try {
-    $result = $apiInstance->listSupportedCurrencies();
+    $result = $apiInstance->listSupportedCurrenciesV2();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CurrenciesApi->listSupportedCurrencies: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CurrenciesApi->listSupportedCurrenciesV2: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\VeloPayments\Client\Model\SupportedCurrencyResponse**](../Model/SupportedCurrencyResponse.md)
+[**\VeloPayments\Client\Model\SupportedCurrencyResponseV2**](../Model/SupportedCurrencyResponseV2.md)
 
 ### Authorization
 

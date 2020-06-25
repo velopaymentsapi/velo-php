@@ -80,6 +80,7 @@ class CountriesApiTest extends TestCase
      */
     public function testListSupportedCountries()
     {
+        $this->markTestSkipped('skip');
     }
 
     /**
@@ -90,6 +91,7 @@ class CountriesApiTest extends TestCase
      */
     public function testListSupportedCountriesV1()
     {
+        $this->markTestSkipped('skip');
     }
 
     /**
@@ -100,5 +102,6 @@ class CountriesApiTest extends TestCase
      */
     public function testV1PaymentChannelRulesGet()
     {
+        $this->markTestSkipped('skip');
     }
 }

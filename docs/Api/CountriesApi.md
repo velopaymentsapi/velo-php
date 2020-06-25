@@ -4,19 +4,19 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listSupportedCountries**](CountriesApi.md#listSupportedCountries) | **GET** /v2/supportedCountries | List Supported Countries
+[**listPaymentChannelRulesV1**](CountriesApi.md#listPaymentChannelRulesV1) | **GET** /v1/paymentChannelRules | List Payment Channel Country Rules
 [**listSupportedCountriesV1**](CountriesApi.md#listSupportedCountriesV1) | **GET** /v1/supportedCountries | List Supported Countries
-[**v1PaymentChannelRulesGet**](CountriesApi.md#v1PaymentChannelRulesGet) | **GET** /v1/paymentChannelRules | List Payment Channel Country Rules
+[**listSupportedCountriesV2**](CountriesApi.md#listSupportedCountriesV2) | **GET** /v2/supportedCountries | List Supported Countries
 
 
 
-## listSupportedCountries
+## listPaymentChannelRulesV1
 
-> \VeloPayments\Client\Model\SupportedCountriesResponse2 listSupportedCountries()
+> \VeloPayments\Client\Model\PaymentChannelRulesResponse listPaymentChannelRulesV1()
 
-List Supported Countries
+List Payment Channel Country Rules
 
-List the supported countries.
+List the country specific payment channel rules.
 
 ### Example
 
@@ -25,17 +25,22 @@ List the supported countries.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
 $apiInstance = new VeloPayments\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
-    $result = $apiInstance->listSupportedCountries();
+    $result = $apiInstance->listPaymentChannelRulesV1();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->listSupportedCountries: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->listPaymentChannelRulesV1: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -46,11 +51,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\VeloPayments\Client\Model\SupportedCountriesResponse2**](../Model/SupportedCountriesResponse2.md)
+[**\VeloPayments\Client\Model\PaymentChannelRulesResponse**](../Model/PaymentChannelRulesResponse.md)
 
 ### Authorization
 
-No authorization required
+[OAuth2](../../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -114,13 +119,13 @@ No authorization required
 [[Back to README]](../../README.md)
 
 
-## v1PaymentChannelRulesGet
+## listSupportedCountriesV2
 
-> \VeloPayments\Client\Model\PaymentChannelRulesResponse v1PaymentChannelRulesGet()
+> \VeloPayments\Client\Model\SupportedCountriesResponseV2 listSupportedCountriesV2()
 
-List Payment Channel Country Rules
+List Supported Countries
 
-List the country specific payment channel rules.
+List the supported countries.
 
 ### Example
 
@@ -129,22 +134,17 @@ List the country specific payment channel rules.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
 $apiInstance = new VeloPayments\Client\Api\CountriesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+    new GuzzleHttp\Client()
 );
 
 try {
-    $result = $apiInstance->v1PaymentChannelRulesGet();
+    $result = $apiInstance->listSupportedCountriesV2();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CountriesApi->v1PaymentChannelRulesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling CountriesApi->listSupportedCountriesV2: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -155,11 +155,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\VeloPayments\Client\Model\PaymentChannelRulesResponse**](../Model/PaymentChannelRulesResponse.md)
+[**\VeloPayments\Client\Model\SupportedCountriesResponseV2**](../Model/SupportedCountriesResponseV2.md)
 
 ### Authorization
 
-[OAuth2](../../README.md#OAuth2)
+No authorization required
 
 ### HTTP request headers
 

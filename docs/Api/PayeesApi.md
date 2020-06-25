@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**listPayeeChangesV3**](PayeesApi.md#listPayeeChangesV3) | **GET** /v3/payees/deltas | List Payee Changes
 [**listPayeesV1**](PayeesApi.md#listPayeesV1) | **GET** /v1/payees | List Payees V1
 [**listPayeesV3**](PayeesApi.md#listPayeesV3) | **GET** /v3/payees | List Payees
+[**payeeDetailsUpdateV3**](PayeesApi.md#payeeDetailsUpdateV3) | **POST** /v3/payees/{payeeId}/payeeDetailsUpdate | Update Payee Details
 [**v1PayeesPayeeIdRemoteIdUpdatePost**](PayeesApi.md#v1PayeesPayeeIdRemoteIdUpdatePost) | **POST** /v1/payees/{payeeId}/remoteIdUpdate | Update Payee Remote Id
 [**v3PayeesPayeeIdRemoteIdUpdatePost**](PayeesApi.md#v3PayeesPayeeIdRemoteIdUpdatePost) | **POST** /v3/payees/{payeeId}/remoteIdUpdate | Update Payee Remote Id
 
@@ -266,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## getPayeeByIdV3
 
-> \VeloPayments\Client\Model\PayeeResponseV3 getPayeeByIdV3($payee_id, $sensitive)
+> \VeloPayments\Client\Model\PayeeDetailResponse getPayeeByIdV3($payee_id, $sensitive)
 
 Get Payee by Id
 
@@ -311,7 +312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VeloPayments\Client\Model\PayeeResponseV3**](../Model/PayeeResponseV3.md)
+[**\VeloPayments\Client\Model\PayeeDetailResponse**](../Model/PayeeDetailResponse.md)
 
 ### Authorization
 
@@ -544,7 +545,7 @@ Name | Type | Description  | Notes
 
 ## listPayeesV3
 
-> \VeloPayments\Client\Model\PagedPayeeResponse2 listPayeesV3($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort)
+> \VeloPayments\Client\Model\PagedPayeeResponse2 listPayeesV3($payor_id, $watchlist_status, $disabled, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort)
 
 List Payees
 
@@ -568,7 +569,8 @@ $apiInstance = new VeloPayments\Client\Api\PayeesApi(
     $config
 );
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
-$ofac_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\WatchlistStatus(); // \VeloPayments\Client\Model\WatchlistStatus | The watchlistStatus of the payees.
+$watchlist_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\WatchlistStatus(); // \VeloPayments\Client\Model\WatchlistStatus | The watchlistStatus of the payees.
+$disabled = True; // bool | Payee disabled
 $onboarded_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\OnboardedStatus(); // \VeloPayments\Client\Model\OnboardedStatus | The onboarded status of the payees.
 $email = bob@example.com; // string | Email address
 $display_name = Bob Smith; // string | The display name of the payees.
@@ -580,7 +582,7 @@ $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 $sort = displayName:asc; // string | List of sort fields (e.g. ?sort=onboardedStatus:asc,name:asc) Default is name:asc 'name' is treated as company name for companies - last name + ',' + firstName for individuals The supported sort fields are - payeeId, displayName, payoutStatus, onboardedStatus.
 
 try {
-    $result = $apiInstance->listPayeesV3($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort);
+    $result = $apiInstance->listPayeesV3($payor_id, $watchlist_status, $disabled, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayeesApi->listPayeesV3: ', $e->getMessage(), PHP_EOL;
@@ -594,7 +596,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
- **ofac_status** | [**\VeloPayments\Client\Model\WatchlistStatus**](../Model/.md)| The watchlistStatus of the payees. | [optional]
+ **watchlist_status** | [**\VeloPayments\Client\Model\WatchlistStatus**](../Model/.md)| The watchlistStatus of the payees. | [optional]
+ **disabled** | **bool**| Payee disabled | [optional]
  **onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](../Model/.md)| The onboarded status of the payees. | [optional]
  **email** | [**string**](../Model/.md)| Email address | [optional]
  **display_name** | **string**| The display name of the payees. | [optional]
@@ -616,6 +619,68 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## payeeDetailsUpdateV3
+
+> payeeDetailsUpdateV3($payee_id, $update_payee_details_request)
+
+Update Payee Details
+
+<p>Update payee details for the given Payee Id.<p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayeesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payee_id = 2aa5d7e0-2ecb-403f-8494-1865ed0454e9; // string | The UUID of the payee.
+$update_payee_details_request = new \VeloPayments\Client\Model\UpdatePayeeDetailsRequest(); // \VeloPayments\Client\Model\UpdatePayeeDetailsRequest | Request to update payee details
+
+try {
+    $apiInstance->payeeDetailsUpdateV3($payee_id, $update_payee_details_request);
+} catch (Exception $e) {
+    echo 'Exception when calling PayeesApi->payeeDetailsUpdateV3: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **update_payee_details_request** | [**\VeloPayments\Client\Model\UpdatePayeeDetailsRequest**](../Model/UpdatePayeeDetailsRequest.md)| Request to update payee details |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sandbox.velopayments.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createFundingAccount**](FundingManagerPrivateApi.md#createFundingAccount) | **POST** /v1/fundingAccounts | Create Funding Account
+[**createFundingAccountV2**](FundingManagerPrivateApi.md#createFundingAccountV2) | **POST** /v2/fundingAccounts | Create Funding Account
 
 
 
-## createFundingAccount
+## createFundingAccountV2
 
-> createFundingAccount($create_funding_account_request)
+> createFundingAccountV2($create_funding_account_request_v2)
 
 Create Funding Account
 
@@ -33,12 +33,12 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerPrivateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_funding_account_request = new \VeloPayments\Client\Model\CreateFundingAccountRequest(); // \VeloPayments\Client\Model\CreateFundingAccountRequest | 
+$create_funding_account_request_v2 = {"type":"FBO","name":"My FBO Account","payorId":"ee53e01d-c078-43fd-abd4-47e92f4a06cf","accountName":"My Account Name","accountNumber":1231231234556,"routingNumber":123456789}; // \VeloPayments\Client\Model\CreateFundingAccountRequestV2 | 
 
 try {
-    $apiInstance->createFundingAccount($create_funding_account_request);
+    $apiInstance->createFundingAccountV2($create_funding_account_request_v2);
 } catch (Exception $e) {
-    echo 'Exception when calling FundingManagerPrivateApi->createFundingAccount: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FundingManagerPrivateApi->createFundingAccountV2: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_funding_account_request** | [**\VeloPayments\Client\Model\CreateFundingAccountRequest**](../Model/CreateFundingAccountRequest.md)|  | [optional]
+ **create_funding_account_request_v2** | [**\VeloPayments\Client\Model\CreateFundingAccountRequestV2**](../Model/CreateFundingAccountRequestV2.md)|  | [optional]
 
 ### Return type
 
