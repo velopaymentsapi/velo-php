@@ -53,8 +53,8 @@ info:
 	sed -i.bak '3s/.*/ /' README.md && rm README.md.bak
 	sed -i.bak '4s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
 	# adust the phpunit tests target dir
-	sed -i.bak 's/<directory>.\/test\/Model<\/directory>//' phpunit.xml.dist && rm phpunit.xml.dist.bak
-	sed -i.bak 's/<directory>.\/test\/Api<\/directory>/<directory>.\/tests\/Api<\/directory>/' phpunit.xml.dist && rm phpunit.xml.dist.bak
+	# sed -i.bak 's/<directory>.\/test\/Model<\/directory>//' phpunit.xml.dist && rm phpunit.xml.dist.bak
+	# sed -i.bak 's/<directory>.\/test\/Api<\/directory>/<directory>.\/tests\/Api<\/directory>/' phpunit.xml.dist && rm phpunit.xml.dist.bak
 	
 
 build_client:
@@ -63,6 +63,7 @@ build_client:
 client: clean generate trim info build_client
 
 tests:
+	cp -Rf tests/ test/
 	docker run -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} --rm composer install && ./vendor/bin/phpunit
 	@echo "Tests placeholder."
 
