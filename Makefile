@@ -52,9 +52,6 @@ info:
 	sed -i.bak '2s/.*/[![License](https:\/\/img.shields.io\/badge\/License-Apache%202.0-blue.svg)](https:\/\/opensource.org\/licenses\/Apache-2.0) [![npm version](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php.svg)](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php) [![CircleCI](https:\/\/circleci.com\/gh\/velopaymentsapi\/velo-php.svg?style=svg)](https:\/\/circleci.com\/gh\/velopaymentsapi\/velo-php)\\/' README.md && rm README.md.bak
 	sed -i.bak '3s/.*/ /' README.md && rm README.md.bak
 	sed -i.bak '4s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
-	# adust the phpunit tests target dir
-	# sed -i.bak 's/<directory>.\/test\/Model<\/directory>//' phpunit.xml.dist && rm phpunit.xml.dist.bak
-	# sed -i.bak 's/<directory>.\/test\/Api<\/directory>/<directory>.\/tests\/Api<\/directory>/' phpunit.xml.dist && rm phpunit.xml.dist.bak
 	
 
 build_client:
@@ -63,9 +60,11 @@ build_client:
 client: clean generate trim info build_client
 
 tests:
+ 	# TODO: test/Model since generated model tests are empty remove for now
+	rm -Rf test/Model
+	# overwrite the generated test stubs
 	cp -Rf tests/ test/
-	docker run -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} --rm composer install && ./vendor/bin/phpunit
-	@echo "Tests placeholder."
+	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APITOKEN="" --rm composer install && ./vendor/bin/phpunit
 
 commit:
 	sed -i.bak 's/"version": ".*"/"version": "${VERSION}"/g' composer.json && rm composer.json.bak

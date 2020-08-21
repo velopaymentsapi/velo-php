@@ -28,6 +28,9 @@
 
 namespace VeloPayments\Client;
 
+use GuzzleHttp;
+use \VeloPayments\Client\Api\LoginApi;
+use \VeloPayments\Client\Api\CountriesApi;
 use \VeloPayments\Client\Configuration;
 use \VeloPayments\Client\ApiException;
 use \VeloPayments\Client\ObjectSerializer;
@@ -49,6 +52,21 @@ class CountriesApiTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
+        if (getenv('APITOKEN') == "") {
+            $config = Configuration::getDefaultConfiguration()
+              ->setUsername(getenv('KEY'))
+              ->setPassword(getenv('SECRET'));
+
+            $apiInstance = new LoginApi(
+                new GuzzleHttp\Client(),
+                $config
+            );
+            $grant_type = 'client_credentials';
+
+            $result = $apiInstance->veloAuth($grant_type);
+            $t = $result["access_token"];
+            putenv("APITOKEN=$t");
+        }
     }
 
     /**
@@ -80,7 +98,13 @@ class CountriesApiTest extends TestCase
      */
     public function testListPaymentChannelRulesV1()
     {
-        $this->markTestSkipped('skip');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new CountriesApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+        $result = $apiInstance->listPaymentChannelRulesV1();
+        $this->assertGreaterThan(1, count($result['bank']));
     }
 
     /**
@@ -91,7 +115,12 @@ class CountriesApiTest extends TestCase
      */
     public function testListSupportedCountriesV1()
     {
-        $this->markTestSkipped('skip');
+        // $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new CountriesApi(
+            new GuzzleHttp\Client()
+        );
+        $result = $apiInstance->listSupportedCountriesV1();
+        $this->assertGreaterThan(1, count($result['countries']));
     }
 
     /**
@@ -102,6 +131,12 @@ class CountriesApiTest extends TestCase
      */
     public function testListSupportedCountriesV2()
     {
-        $this->markTestSkipped('skip');
+        // $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new CountriesApi(
+            new GuzzleHttp\Client()
+        );
+        // $this->markTestSkipped('skip');
+        $result = $apiInstance->listSupportedCountriesV2();
+        $this->assertGreaterThan(1, count($result['countries']));
     }
 }
