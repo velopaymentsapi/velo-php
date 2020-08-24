@@ -239,6 +239,20 @@ class FundingManagerApiTest extends TestCase
      */
     public function testGetSourceAccounts()
     {
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new FundingManagerApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $physical_account_name = null; // string | Physical Account Name
+        $payor_id = getenv('PAYOR'); // string | The account owner Payor ID
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef
+        
+        $result = $apiInstance->getSourceAccounts($physical_account_name, $payor_id, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -249,7 +263,22 @@ class FundingManagerApiTest extends TestCase
      */
     public function testGetSourceAccountsV2()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new FundingManagerApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $physical_account_name = null; // string | Physical Account Name
+        $physical_account_id = null; // string | The physical account ID
+        $payor_id = getenv('PAYOR'); // string | The account owner Payor ID
+        $funding_account_id = null; // string | The funding account ID
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance
+
+        $result = $apiInstance->getSourceAccountsV2($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -260,7 +289,23 @@ class FundingManagerApiTest extends TestCase
      */
     public function testGetSourceAccountsV3()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new FundingManagerApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $physical_account_name = null; // string | Physical Account Name
+        $physical_account_id = null; // string | The physical account ID
+        $payor_id = getenv('PAYOR'); // string | The account owner Payor ID
+        $funding_account_id = null; // string | The funding account ID
+        $type = 'FBO'; //new \VeloPayments\Client\Model\\VeloPayments\Client\Model\SourceAccountType(); // \VeloPayments\Client\Model\SourceAccountType | The type of source account.
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance
+
+        $result = $apiInstance->getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $type, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -271,7 +316,19 @@ class FundingManagerApiTest extends TestCase
      */
     public function testListFundingAuditDeltas()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new FundingManagerApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR'); // string | 
+        $updated_since = "2013-10-20T19:20:30+01:00"; // \DateTime | 
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+
+        $result = $apiInstance->listFundingAuditDeltas($payor_id, $updated_since, $page, $page_size);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
