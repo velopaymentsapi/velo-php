@@ -28,6 +28,9 @@
 
 namespace VeloPayments\Client;
 
+use GuzzleHttp;
+use \VeloPayments\Client\Api\LoginApi;
+use \VeloPayments\Client\Api\PayeeInvitationApi;
 use \VeloPayments\Client\Configuration;
 use \VeloPayments\Client\ApiException;
 use \VeloPayments\Client\ObjectSerializer;
@@ -49,6 +52,21 @@ class PayeeInvitationApiTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
+        if (getenv('APITOKEN') == "") {
+            $config = Configuration::getDefaultConfiguration()
+              ->setUsername(getenv('KEY'))
+              ->setPassword(getenv('SECRET'));
+
+            $apiInstance = new LoginApi(
+                new GuzzleHttp\Client(),
+                $config
+            );
+            $grant_type = 'client_credentials';
+
+            $result = $apiInstance->veloAuth($grant_type);
+            $t = $result["access_token"];
+            putenv("APITOKEN=$t");
+        }
     }
 
     /**
@@ -80,7 +98,17 @@ class PayeeInvitationApiTest extends TestCase
      */
     public function testGetPayeesInvitationStatusV1()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PayeeInvitationApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR'); // string | 
+        
+
+        $result = $apiInstance->getPayeesInvitationStatusV1($payor_id);
+        $this->assertGreaterThan(0, count($result->getPayeeInvitationStatuses()));
     }
 
     /**
@@ -91,7 +119,20 @@ class PayeeInvitationApiTest extends TestCase
      */
     public function testGetPayeesInvitationStatusV2()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PayeeInvitationApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR'); // string | 
+        $payee_id = NULL; // string | The UUID of the payee.
+        $invitation_status = NULL; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\InvitationStatus(); // \VeloPayments\Client\Model\InvitationStatus | The invitation status of the payees.
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
+
+        $result = $apiInstance->getPayeesInvitationStatusV2($payor_id, $payee_id, $invitation_status, $page, $page_size);
+        $this->assertGreaterThan(0, count($result->getContent()));
     }
 
     /**
@@ -102,7 +143,20 @@ class PayeeInvitationApiTest extends TestCase
      */
     public function testGetPayeesInvitationStatusV3()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PayeeInvitationApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR'); // string | 
+        $payee_id = null; // string | The UUID of the payee.
+        $invitation_status = null; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\InvitationStatus(); // \VeloPayments\Client\Model\InvitationStatus | The invitation status of the payees.
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25;
+
+        $result = $apiInstance->getPayeesInvitationStatusV3($payor_id, $payee_id, $invitation_status, $page, $page_size);
+        $this->assertGreaterThan(0, count($result->getContent()));
     }
 
     /**

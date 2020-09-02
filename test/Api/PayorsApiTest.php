@@ -28,6 +28,9 @@
 
 namespace VeloPayments\Client;
 
+use GuzzleHttp;
+use \VeloPayments\Client\Api\LoginApi;
+use \VeloPayments\Client\Api\PayorsApi;
 use \VeloPayments\Client\Configuration;
 use \VeloPayments\Client\ApiException;
 use \VeloPayments\Client\ObjectSerializer;
@@ -49,6 +52,21 @@ class PayorsApiTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
+        if (getenv('APITOKEN') == "") {
+            $config = Configuration::getDefaultConfiguration()
+              ->setUsername(getenv('KEY'))
+              ->setPassword(getenv('SECRET'));
+
+            $apiInstance = new LoginApi(
+                new GuzzleHttp\Client(),
+                $config
+            );
+            $grant_type = 'client_credentials';
+
+            $result = $apiInstance->veloAuth($grant_type);
+            $t = $result["access_token"];
+            putenv("APITOKEN=$t");
+        }
     }
 
     /**
@@ -157,6 +175,17 @@ class PayorsApiTest extends TestCase
      */
     public function testPayorLinks()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PayorsApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $descendants_of_payor = getenv('PAYOR'); // string | The Payor ID from which to start the query to show all descendants
+        $parent_of_payor = null; // string | Look for the parent payor details for this payor id
+        $fields = null; // string | List of additional Payor fields to include in the response for each Payor. The values of payorId and payorName and always included for each Payor - 'fields' allows you to add to this. Example: ```fields=primaryContactEmail,kycState``` - will include payorId+payorName+primaryContactEmail+kycState for each Payor Default if not specified is to include only payorId and payorName. The supported fields are any combination of: primaryContactEmail,kycState
+
+        $result = $apiInstance->payorLinks($descendants_of_payor, $parent_of_payor, $fields);
+        $this->assertArrayHasKey('links', $result);
     }
 }

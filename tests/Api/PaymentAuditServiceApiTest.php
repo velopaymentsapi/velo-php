@@ -28,6 +28,9 @@
 
 namespace VeloPayments\Client;
 
+use GuzzleHttp;
+use \VeloPayments\Client\Api\LoginApi;
+use \VeloPayments\Client\Api\PaymentAuditServiceApi;
 use \VeloPayments\Client\Configuration;
 use \VeloPayments\Client\ApiException;
 use \VeloPayments\Client\ObjectSerializer;
@@ -49,6 +52,21 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
+        if (getenv('APITOKEN') == "") {
+            $config = Configuration::getDefaultConfiguration()
+              ->setUsername(getenv('KEY'))
+              ->setPassword(getenv('SECRET'));
+
+            $apiInstance = new LoginApi(
+                new GuzzleHttp\Client(),
+                $config
+            );
+            $grant_type = 'client_credentials';
+
+            $result = $apiInstance->veloAuth($grant_type);
+            $t = $result["access_token"];
+            putenv("APITOKEN=$t");
+        }
     }
 
     /**
@@ -102,7 +120,19 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testGetFundingsV1()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR'); // string | 
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | Page size. Default is 100. Max allowable is 1000.
+        $sort = null;
+
+        $result = $apiInstance->getFundingsV1($payor_id, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result->getContent()));
     }
 
     /**
@@ -113,7 +143,19 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testGetFundingsV4()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR'); // string | 
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | Page size. Default is 100. Max allowable is 1000.
+        $sort = null;
+
+        $result = $apiInstance->getFundingsV4($payor_id, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result->getContent()));
     }
 
     /**
@@ -168,7 +210,16 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testGetPayoutStatsV1()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR');
+
+        $result = $apiInstance->getPayoutStatsV1($payor_id);
+        $this->assertGreaterThanOrEqual(0, $result['this_month_payouts_count']);
     }
 
     /**
@@ -179,7 +230,16 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testGetPayoutStatsV4()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR');
+
+        $result = $apiInstance->getPayoutStatsV4($payor_id);
+        $this->assertGreaterThanOrEqual(0, $result['this_month_payouts_count']);
     }
 
     /**
@@ -190,7 +250,23 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testGetPayoutsForPayorV3()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR');
+        $payout_memo = null; // string | Payout Memo filter - case insensitive sub-string match
+        $status = null; // string | Payout Status
+        $submitted_date_from = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
+        $submitted_date_to = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'submittedDateTime:asc'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status.
+
+        $result = $apiInstance->getPayoutsForPayorV3($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -201,7 +277,24 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testGetPayoutsForPayorV4()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR');
+        $payout_memo = null; // string | Payout Memo filter - case insensitive sub-string match
+        $status = null; // string | Payout Status
+        $submitted_date_from = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
+        $submitted_date_to = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
+        $from_payor_name = null;
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'submittedDateTime:asc'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status.
+
+        $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -212,7 +305,19 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testListPaymentChanges()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR');
+        $updated_since = "2013-10-20T19:20:30+01:00"; // \DateTime | The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+
+        $result = $apiInstance->listPaymentChanges($payor_id, $updated_since, $page, $page_size);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -224,6 +329,19 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testListPaymentChangesV4()
     {
         $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payor_id = getenv('PAYOR');
+        $updated_since = "2013-10-20T19:20:30+01:00"; // \DateTime | The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 100; // int | The number of results to return in a page
+
+        $result = $apiInstance->listPaymentChangesV4($payor_id, $updated_since, $page, $page_size);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -234,7 +352,35 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testListPaymentsAudit()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payee_id = null; // string | The UUID of the payee.
+        $payor_id = getenv('PAYOR');
+        $payor_name = null; // string | The payor’s name. This filters via a case insensitive substring match.
+        $remote_id = null; // string | The remote id of the payees.
+        $status = null; // string | Payment Status
+        $source_account_name = null; // string | The source account name filter. This filters via a case insensitive substring match.
+        $source_amount_from = null; // int | The source amount from range filter. Filters for sourceAmount >= sourceAmountFrom
+        $source_amount_to = null; // int | The source amount to range filter. Filters for sourceAmount ⇐ sourceAmountTo
+        $source_currency = null; // string | The source currency filter. Filters based on an exact match on the currency.
+        $payment_amount_from = null; // int | The payment amount from range filter. Filters for paymentAmount >= paymentAmountFrom
+        $payment_amount_to = null; // int | The payment amount to range filter. Filters for paymentAmount ⇐ paymentAmountTo
+        $payment_currency = null; // string | The payment currency filter. Filters based on an exact match on the currency.
+        $submitted_date_from = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
+        $submitted_date_to = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
+        $payment_memo = null; // string | The payment memo filter. This filters via a case insensitive substring match.
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'sourceAmount:asc'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status
+        $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
+
+
+        $result = $apiInstance->listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 
     /**
@@ -245,6 +391,34 @@ class PaymentAuditServiceApiTest extends TestCase
      */
     public function testListPaymentsAuditV4()
     {
-        $this->markTestSkipped('skipping test');
+        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $apiInstance = new PaymentAuditServiceApi(
+            new GuzzleHttp\Client(),
+            $config
+        );
+
+        $payee_id = null; // string | The UUID of the payee.
+        $payor_id = getenv('PAYOR');
+        $payor_name = null; // string | The payor’s name. This filters via a case insensitive substring match.
+        $remote_id = null; // string | The remote id of the payees.
+        $status = null; // string | Payment Status
+        $source_account_name = null; // string | The source account name filter. This filters via a case insensitive substring match.
+        $source_amount_from = null; // int | The source amount from range filter. Filters for sourceAmount >= sourceAmountFrom
+        $source_amount_to = null; // int | The source amount to range filter. Filters for sourceAmount ⇐ sourceAmountTo
+        $source_currency = null; // string | The source currency filter. Filters based on an exact match on the currency.
+        $payment_amount_from = null; // int | The payment amount from range filter. Filters for paymentAmount >= paymentAmountFrom
+        $payment_amount_to = null; // int | The payment amount to range filter. Filters for paymentAmount ⇐ paymentAmountTo
+        $payment_currency = null; // string | The payment currency filter. Filters based on an exact match on the currency.
+        $submitted_date_from = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
+        $submitted_date_to = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
+        $payment_memo = null; // string | The payment memo filter. This filters via a case insensitive substring match.
+        $page = 1; // int | Page number. Default is 1.
+        $page_size = 25; // int | The number of results to return in a page
+        $sort = 'sourceAmount:asc'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status
+        $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
+
+
+        $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive);
+        $this->assertGreaterThan(0, count($result['content']));
     }
 }

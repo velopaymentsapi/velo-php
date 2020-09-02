@@ -28,6 +28,9 @@
 
 namespace VeloPayments\Client;
 
+use GuzzleHttp;
+use \VeloPayments\Client\Api\LoginApi;
+use \VeloPayments\Client\Api\UsersApi;
 use \VeloPayments\Client\Configuration;
 use \VeloPayments\Client\ApiException;
 use \VeloPayments\Client\ObjectSerializer;
@@ -49,6 +52,21 @@ class UsersApiTest extends TestCase
      */
     public static function setUpBeforeClass(): void
     {
+        if (getenv('APITOKEN') == "") {
+            $config = Configuration::getDefaultConfiguration()
+              ->setUsername(getenv('KEY'))
+              ->setPassword(getenv('SECRET'));
+
+            $apiInstance = new LoginApi(
+                new GuzzleHttp\Client(),
+                $config
+            );
+            $grant_type = 'client_credentials';
+
+            $result = $apiInstance->veloAuth($grant_type);
+            $t = $result["access_token"];
+            putenv("APITOKEN=$t");
+        }
     }
 
     /**
@@ -147,6 +165,21 @@ class UsersApiTest extends TestCase
     public function testListUsers()
     {
         $this->markTestSkipped('skipping test');
+        // $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        // $apiInstance = new UsersApi(
+        //     new GuzzleHttp\Client(),
+        //     $config
+        // );
+
+        // $type = null; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserType(); // \VeloPayments\Client\Model\UserType | The Type of the User.
+        // $status = null; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserStatus(); // \VeloPayments\Client\Model\UserStatus | The status of the User.
+        // $entity_id = getenv('PAYOR'); // string | The entityId of the User.
+        // $page = 1; // int | Page number. Default is 1.
+        // $page_size = 25; // int | The number of results to return in a page
+        // $sort = null; // 'email:asc'; // string | List of sort fields (e.g. ?sort=email:asc,lastName:asc) Default is email:asc 'name' The supported sort fields are - email, lastNmae.
+
+        // $result = $apiInstance->listUsers($type, $status, $entity_id, $page, $page_size, $sort);
+        // $this->assertArrayHasKey('content', $result);
     }
 
     /**
