@@ -80,6 +80,7 @@ class LoginApiTest extends TestCase
      */
     public function testLogout()
     {
+        $this->markTestSkipped('skipping test');
     }
 
     /**

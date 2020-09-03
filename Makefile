@@ -64,7 +64,7 @@ tests:
 	rm -Rf test/Model
 	# overwrite the generated test stubs
 	cp -Rf tests/ test/
-	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APITOKEN="" --rm composer install && ./vendor/bin/phpunit
+	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APIURL=${APIURL} -e APITOKEN="" --rm composer install && ./vendor/bin/phpunit
 
 commit:
 	sed -i.bak 's/"version": ".*"/"version": "${VERSION}"/g' composer.json && rm composer.json.bak

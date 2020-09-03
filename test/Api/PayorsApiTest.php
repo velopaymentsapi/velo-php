@@ -176,6 +176,7 @@ class PayorsApiTest extends TestCase
     public function testPayorLinks()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayorsApi(
             new GuzzleHttp\Client(),
             $config

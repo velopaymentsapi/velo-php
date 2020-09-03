@@ -154,6 +154,7 @@ class FundingManagerApiTest extends TestCase
     public function testGetFundingAccounts()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new FundingManagerApi(
             new GuzzleHttp\Client(),
             $config
@@ -179,6 +180,7 @@ class FundingManagerApiTest extends TestCase
     public function testGetFundingAccountsV2()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new FundingManagerApi(
             new GuzzleHttp\Client(),
             $config
@@ -240,6 +242,7 @@ class FundingManagerApiTest extends TestCase
     public function testGetSourceAccounts()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new FundingManagerApi(
             new GuzzleHttp\Client(),
             $config
@@ -264,6 +267,7 @@ class FundingManagerApiTest extends TestCase
     public function testGetSourceAccountsV2()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new FundingManagerApi(
             new GuzzleHttp\Client(),
             $config
@@ -290,6 +294,7 @@ class FundingManagerApiTest extends TestCase
     public function testGetSourceAccountsV3()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new FundingManagerApi(
             new GuzzleHttp\Client(),
             $config
@@ -317,6 +322,7 @@ class FundingManagerApiTest extends TestCase
     public function testListFundingAuditDeltas()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new FundingManagerApi(
             new GuzzleHttp\Client(),
             $config

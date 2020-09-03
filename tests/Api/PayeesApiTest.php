@@ -154,6 +154,7 @@ class PayeesApiTest extends TestCase
     public function testListPayeeChanges()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeesApi(
             new GuzzleHttp\Client(),
             $config
@@ -177,6 +178,7 @@ class PayeesApiTest extends TestCase
     public function testListPayeeChangesV3()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeesApi(
             new GuzzleHttp\Client(),
             $config
@@ -200,6 +202,7 @@ class PayeesApiTest extends TestCase
     public function testListPayeesV1()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeesApi(
             new GuzzleHttp\Client(),
             $config
@@ -230,6 +233,7 @@ class PayeesApiTest extends TestCase
     public function testListPayeesV3()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeesApi(
             new GuzzleHttp\Client(),
             $config

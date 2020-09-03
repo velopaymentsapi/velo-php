@@ -121,6 +121,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testGetFundingsV1()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -144,6 +145,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testGetFundingsV4()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -211,6 +213,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testGetPayoutStatsV1()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -231,6 +234,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testGetPayoutStatsV4()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -251,6 +255,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testGetPayoutsForPayorV3()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -278,6 +283,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testGetPayoutsForPayorV4()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -306,6 +312,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testListPaymentChanges()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -330,6 +337,7 @@ class PaymentAuditServiceApiTest extends TestCase
     {
         $this->markTestSkipped('skipping test');
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -353,6 +361,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testListPaymentsAudit()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config
@@ -392,6 +401,7 @@ class PaymentAuditServiceApiTest extends TestCase
     public function testListPaymentsAuditV4()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PaymentAuditServiceApi(
             new GuzzleHttp\Client(),
             $config

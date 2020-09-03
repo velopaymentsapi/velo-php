@@ -99,6 +99,7 @@ class PayeeInvitationApiTest extends TestCase
     public function testGetPayeesInvitationStatusV1()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeeInvitationApi(
             new GuzzleHttp\Client(),
             $config
@@ -120,6 +121,7 @@ class PayeeInvitationApiTest extends TestCase
     public function testGetPayeesInvitationStatusV2()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeeInvitationApi(
             new GuzzleHttp\Client(),
             $config
@@ -144,6 +146,7 @@ class PayeeInvitationApiTest extends TestCase
     public function testGetPayeesInvitationStatusV3()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new PayeeInvitationApi(
             new GuzzleHttp\Client(),
             $config

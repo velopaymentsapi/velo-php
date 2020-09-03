@@ -99,6 +99,7 @@ class CountriesApiTest extends TestCase
     public function testListPaymentChannelRulesV1()
     {
         $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         $apiInstance = new CountriesApi(
             new GuzzleHttp\Client(),
             $config
@@ -116,6 +117,7 @@ class CountriesApiTest extends TestCase
     public function testListSupportedCountriesV1()
     {
         // $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        // $config->setHost(getenv('APIURL'));
         $apiInstance = new CountriesApi(
             new GuzzleHttp\Client()
         );
@@ -132,6 +134,7 @@ class CountriesApiTest extends TestCase
     public function testListSupportedCountriesV2()
     {
         // $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        // $config->setHost(getenv('APIURL'));
         $apiInstance = new CountriesApi(
             new GuzzleHttp\Client()
         );

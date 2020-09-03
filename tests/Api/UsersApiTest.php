@@ -166,6 +166,7 @@ class UsersApiTest extends TestCase
     {
         $this->markTestSkipped('skipping test');
         // $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
+        $config->setHost(getenv('APIURL'));
         // $apiInstance = new UsersApi(
         //     new GuzzleHttp\Client(),
         //     $config
