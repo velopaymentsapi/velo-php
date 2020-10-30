@@ -1,16 +1,17 @@
 # VeloPayments\Client\FundingManagerPrivateApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createFundingAccountV2**](FundingManagerPrivateApi.md#createFundingAccountV2) | **POST** /v2/fundingAccounts | Create Funding Account
+[**createFundingAccountV2()**](FundingManagerPrivateApi.md#createFundingAccountV2) | **POST** /v2/fundingAccounts | Create Funding Account
 
 
+## `createFundingAccountV2()`
 
-## createFundingAccountV2
-
-> createFundingAccountV2($create_funding_account_request_v2)
+```php
+createFundingAccountV2($create_funding_account_request_v2)
+```
 
 Create Funding Account
 
@@ -33,18 +34,16 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerPrivateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_funding_account_request_v2 = {"type":"FBO","name":"My FBO Account","payorId":"ee53e01d-c078-43fd-abd4-47e92f4a06cf","accountName":"My Account Name","accountNumber":1231231234556,"routingNumber":123456789}; // \VeloPayments\Client\Model\CreateFundingAccountRequestV2 | 
+$create_funding_account_request_v2 = {"type":"FBO","name":"My FBO Account","payorId":"ee53e01d-c078-43fd-abd4-47e92f4a06cf","accountName":"My Account Name","accountNumber":1231231234556,"routingNumber":123456789}; // \VeloPayments\Client\Model\CreateFundingAccountRequestV2
 
 try {
     $apiInstance->createFundingAccountV2($create_funding_account_request_v2);
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerPrivateApi->createFundingAccountV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -60,10 +59,9 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

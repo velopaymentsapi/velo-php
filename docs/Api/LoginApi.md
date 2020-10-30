@@ -1,19 +1,20 @@
 # VeloPayments\Client\LoginApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**logout**](LoginApi.md#logout) | **POST** /v1/logout | Logout
-[**resetPassword**](LoginApi.md#resetPassword) | **POST** /v1/password/reset | Reset password
-[**validateAccessToken**](LoginApi.md#validateAccessToken) | **POST** /v1/validate | validate
-[**veloAuth**](LoginApi.md#veloAuth) | **POST** /v1/authenticate | Authentication endpoint
+[**logout()**](LoginApi.md#logout) | **POST** /v1/logout | Logout
+[**resetPassword()**](LoginApi.md#resetPassword) | **POST** /v1/password/reset | Reset password
+[**validateAccessToken()**](LoginApi.md#validateAccessToken) | **POST** /v1/validate | validate
+[**veloAuth()**](LoginApi.md#veloAuth) | **POST** /v1/authenticate | Authentication endpoint
 
 
+## `logout()`
 
-## logout
-
-> logout()
+```php
+logout()
+```
 
 Logout
 
@@ -42,7 +43,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling LoginApi->logout: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -60,16 +60,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `resetPassword()`
 
-## resetPassword
-
-> resetPassword($reset_password_request)
+```php
+resetPassword($reset_password_request)
+```
 
 Reset password
 
@@ -80,6 +81,7 @@ Reset password
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new VeloPayments\Client\Api\LoginApi(
@@ -94,11 +96,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling LoginApi->resetPassword: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -114,17 +114,18 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `validateAccessToken()`
 
-## validateAccessToken
-
-> \VeloPayments\Client\Model\AccessTokenResponse validateAccessToken($access_token_validation_request)
+```php
+validateAccessToken($access_token_validation_request, $authorization): \VeloPayments\Client\Model\AccessTokenResponse
+```
 
 validate
 
@@ -148,22 +149,22 @@ $apiInstance = new VeloPayments\Client\Api\LoginApi(
     $config
 );
 $access_token_validation_request = new \VeloPayments\Client\Model\AccessTokenValidationRequest(); // \VeloPayments\Client\Model\AccessTokenValidationRequest | An OTP from the user's registered MFA Device
+$authorization = 'authorization_example'; // string | Bearer token authorization leg of validate
 
 try {
-    $result = $apiInstance->validateAccessToken($access_token_validation_request);
+    $result = $apiInstance->validateAccessToken($access_token_validation_request, $authorization);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LoginApi->validateAccessToken: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **access_token_validation_request** | [**\VeloPayments\Client\Model\AccessTokenValidationRequest**](../Model/AccessTokenValidationRequest.md)| An OTP from the user&#39;s registered MFA Device |
+ **authorization** | **string**| Bearer token authorization leg of validate | [optional]
 
 ### Return type
 
@@ -175,17 +176,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `veloAuth()`
 
-## veloAuth
-
-> \VeloPayments\Client\Model\AuthResponse veloAuth($grant_type)
+```php
+veloAuth($grant_type): \VeloPayments\Client\Model\AuthResponse
+```
 
 Authentication endpoint
 
@@ -218,11 +220,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling LoginApi->veloAuth: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -239,9 +239,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

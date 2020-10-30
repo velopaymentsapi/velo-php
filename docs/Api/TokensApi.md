@@ -1,16 +1,17 @@
 # VeloPayments\Client\TokensApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**resendToken**](TokensApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
+[**resendToken()**](TokensApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
 
 
+## `resendToken()`
 
-## resendToken
-
-> resendToken($user_id, $resend_token_request)
+```php
+resendToken($user_id, $resend_token_request)
+```
 
 Resend a token
 
@@ -41,11 +42,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling TokensApi->resendToken: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -62,10 +61,9 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

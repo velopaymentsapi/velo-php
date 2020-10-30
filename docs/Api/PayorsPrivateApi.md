@@ -1,16 +1,17 @@
 # VeloPayments\Client\PayorsPrivateApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createPayorLinks**](PayorsPrivateApi.md#createPayorLinks) | **POST** /v1/payorLinks | Create a Payor Link
+[**createPayorLinks()**](PayorsPrivateApi.md#createPayorLinks) | **POST** /v1/payorLinks | Create a Payor Link
 
 
+## `createPayorLinks()`
 
-## createPayorLinks
-
-> createPayorLinks($create_payor_link_request)
+```php
+createPayorLinks($create_payor_link_request)
+```
 
 Create a Payor Link
 
@@ -40,11 +41,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsPrivateApi->createPayorLinks: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -60,10 +59,9 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

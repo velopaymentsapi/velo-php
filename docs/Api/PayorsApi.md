@@ -1,23 +1,24 @@
 # VeloPayments\Client\PayorsApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPayorById**](PayorsApi.md#getPayorById) | **GET** /v1/payors/{payorId} | Get Payor
-[**getPayorByIdV2**](PayorsApi.md#getPayorByIdV2) | **GET** /v2/payors/{payorId} | Get Payor
-[**payorAddPayorLogo**](PayorsApi.md#payorAddPayorLogo) | **POST** /v1/payors/{payorId}/branding/logos | Add Logo
-[**payorCreateApiKeyRequest**](PayorsApi.md#payorCreateApiKeyRequest) | **POST** /v1/payors/{payorId}/applications/{applicationId}/keys | Create API Key
-[**payorCreateApplicationRequest**](PayorsApi.md#payorCreateApplicationRequest) | **POST** /v1/payors/{payorId}/applications | Create Application
-[**payorEmailOptOut**](PayorsApi.md#payorEmailOptOut) | **POST** /v1/payors/{payorId}/reminderEmailsUpdate | Reminder Email Opt-Out
-[**payorGetBranding**](PayorsApi.md#payorGetBranding) | **GET** /v1/payors/{payorId}/branding | Get Branding
-[**payorLinks**](PayorsApi.md#payorLinks) | **GET** /v1/payorLinks | List Payor Links
+[**getPayorById()**](PayorsApi.md#getPayorById) | **GET** /v1/payors/{payorId} | Get Payor
+[**getPayorByIdV2()**](PayorsApi.md#getPayorByIdV2) | **GET** /v2/payors/{payorId} | Get Payor
+[**payorAddPayorLogo()**](PayorsApi.md#payorAddPayorLogo) | **POST** /v1/payors/{payorId}/branding/logos | Add Logo
+[**payorCreateApiKeyRequest()**](PayorsApi.md#payorCreateApiKeyRequest) | **POST** /v1/payors/{payorId}/applications/{applicationId}/keys | Create API Key
+[**payorCreateApplicationRequest()**](PayorsApi.md#payorCreateApplicationRequest) | **POST** /v1/payors/{payorId}/applications | Create Application
+[**payorEmailOptOut()**](PayorsApi.md#payorEmailOptOut) | **POST** /v1/payors/{payorId}/reminderEmailsUpdate | Reminder Email Opt-Out
+[**payorGetBranding()**](PayorsApi.md#payorGetBranding) | **GET** /v1/payors/{payorId}/branding | Get Branding
+[**payorLinks()**](PayorsApi.md#payorLinks) | **GET** /v1/payorLinks | List Payor Links
 
 
+## `getPayorById()`
 
-## getPayorById
-
-> \VeloPayments\Client\Model\PayorV1 getPayorById($payor_id)
+```php
+getPayorById($payor_id): \VeloPayments\Client\Model\PayorV1
+```
 
 Get Payor
 
@@ -48,11 +49,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->getPayorById: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -69,16 +68,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPayorByIdV2()`
 
-## getPayorByIdV2
-
-> \VeloPayments\Client\Model\PayorV2 getPayorByIdV2($payor_id)
+```php
+getPayorByIdV2($payor_id): \VeloPayments\Client\Model\PayorV2
+```
 
 Get Payor
 
@@ -109,11 +109,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->getPayorByIdV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -130,16 +128,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `payorAddPayorLogo()`
 
-## payorAddPayorLogo
-
-> payorAddPayorLogo($payor_id, $logo)
+```php
+payorAddPayorLogo($payor_id, $logo)
+```
 
 Add Logo
 
@@ -163,18 +162,16 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
     $config
 );
 $payor_id = 'payor_id_example'; // string | The Payor Id
-$logo = "/path/to/file.txt"; // \SplFileObject | 
+$logo = "/path/to/file.txt"; // \SplFileObject
 
 try {
     $apiInstance->payorAddPayorLogo($payor_id, $logo);
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->payorAddPayorLogo: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -191,17 +188,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+- **Content-Type**: `multipart/form-data`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `payorCreateApiKeyRequest()`
 
-## payorCreateApiKeyRequest
-
-> \VeloPayments\Client\Model\PayorCreateApiKeyResponse payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request)
+```php
+payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request): \VeloPayments\Client\Model\PayorCreateApiKeyResponse
+```
 
 Create API Key
 
@@ -234,11 +232,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->payorCreateApiKeyRequest: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -256,17 +252,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `payorCreateApplicationRequest()`
 
-## payorCreateApplicationRequest
-
-> payorCreateApplicationRequest($payor_id, $payor_create_application_request)
+```php
+payorCreateApplicationRequest($payor_id, $payor_create_application_request)
+```
 
 Create Application
 
@@ -297,11 +294,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->payorCreateApplicationRequest: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -318,17 +313,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `payorEmailOptOut()`
 
-## payorEmailOptOut
-
-> payorEmailOptOut($payor_id, $payor_email_opt_out_request)
+```php
+payorEmailOptOut($payor_id, $payor_email_opt_out_request)
+```
 
 Reminder Email Opt-Out
 
@@ -359,11 +355,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->payorEmailOptOut: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -380,17 +374,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `payorGetBranding()`
 
-## payorGetBranding
-
-> \VeloPayments\Client\Model\PayorBrandingResponse payorGetBranding($payor_id)
+```php
+payorGetBranding($payor_id): \VeloPayments\Client\Model\PayorBrandingResponse
+```
 
 Get Branding
 
@@ -421,11 +416,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->payorGetBranding: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -442,16 +435,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `payorLinks()`
 
-## payorLinks
-
-> \VeloPayments\Client\Model\PayorLinksResponse payorLinks($descendants_of_payor, $parent_of_payor, $fields)
+```php
+payorLinks($descendants_of_payor, $parent_of_payor, $fields): \VeloPayments\Client\Model\PayorLinksResponse
+```
 
 List Payor Links
 
@@ -484,11 +478,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayorsApi->payorLinks: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -507,9 +499,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

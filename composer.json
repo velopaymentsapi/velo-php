@@ -1,6 +1,6 @@
 {
     "name": "velopaymentsapi/velo-php",
-    "version": "2.22.122",
+    "version": "2.23.78-RC1",
     "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",
     "keywords": [
         "velo",
@@ -34,6 +34,6 @@
         "psr-4": { "VeloPayments\\Client\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "VeloPayments\\Client\\" : "test/" }
+        "psr-4": { "VeloPayments\\Client\\Test\\" : "test/" }
     }
 }

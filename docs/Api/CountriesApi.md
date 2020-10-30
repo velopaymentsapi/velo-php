@@ -1,18 +1,19 @@
 # VeloPayments\Client\CountriesApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listPaymentChannelRulesV1**](CountriesApi.md#listPaymentChannelRulesV1) | **GET** /v1/paymentChannelRules | List Payment Channel Country Rules
-[**listSupportedCountriesV1**](CountriesApi.md#listSupportedCountriesV1) | **GET** /v1/supportedCountries | List Supported Countries
-[**listSupportedCountriesV2**](CountriesApi.md#listSupportedCountriesV2) | **GET** /v2/supportedCountries | List Supported Countries
+[**listPaymentChannelRulesV1()**](CountriesApi.md#listPaymentChannelRulesV1) | **GET** /v1/paymentChannelRules | List Payment Channel Country Rules
+[**listSupportedCountriesV1()**](CountriesApi.md#listSupportedCountriesV1) | **GET** /v1/supportedCountries | List Supported Countries
+[**listSupportedCountriesV2()**](CountriesApi.md#listSupportedCountriesV2) | **GET** /v2/supportedCountries | List Supported Countries
 
 
+## `listPaymentChannelRulesV1()`
 
-## listPaymentChannelRulesV1
-
-> \VeloPayments\Client\Model\PaymentChannelRulesResponse listPaymentChannelRulesV1()
+```php
+listPaymentChannelRulesV1(): \VeloPayments\Client\Model\PaymentChannelRulesResponse
+```
 
 List Payment Channel Country Rules
 
@@ -42,7 +43,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->listPaymentChannelRulesV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -60,16 +60,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listSupportedCountriesV1()`
 
-## listSupportedCountriesV1
-
-> \VeloPayments\Client\Model\SupportedCountriesResponse listSupportedCountriesV1()
+```php
+listSupportedCountriesV1(): \VeloPayments\Client\Model\SupportedCountriesResponse
+```
 
 List Supported Countries
 
@@ -80,6 +81,7 @@ List Supported Countries
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new VeloPayments\Client\Api\CountriesApi(
@@ -94,7 +96,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->listSupportedCountriesV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -112,16 +113,17 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listSupportedCountriesV2()`
 
-## listSupportedCountriesV2
-
-> \VeloPayments\Client\Model\SupportedCountriesResponseV2 listSupportedCountriesV2()
+```php
+listSupportedCountriesV2(): \VeloPayments\Client\Model\SupportedCountriesResponseV2
+```
 
 List Supported Countries
 
@@ -132,6 +134,7 @@ List the supported countries.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new VeloPayments\Client\Api\CountriesApi(
@@ -146,7 +149,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CountriesApi->listSupportedCountriesV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -164,9 +166,8 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

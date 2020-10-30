@@ -1,32 +1,33 @@
 # VeloPayments\Client\FundingManagerApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAchFundingRequest**](FundingManagerApi.md#createAchFundingRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/achFundingRequest | Create Funding Request
-[**createFundingRequest**](FundingManagerApi.md#createFundingRequest) | **POST** /v2/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
-[**createFundingRequestV3**](FundingManagerApi.md#createFundingRequestV3) | **POST** /v3/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
-[**getFundingAccount**](FundingManagerApi.md#getFundingAccount) | **GET** /v1/fundingAccounts/{fundingAccountId} | Get Funding Account
-[**getFundingAccountV2**](FundingManagerApi.md#getFundingAccountV2) | **GET** /v2/fundingAccounts/{fundingAccountId} | Get Funding Account
-[**getFundingAccounts**](FundingManagerApi.md#getFundingAccounts) | **GET** /v1/fundingAccounts | Get Funding Accounts
-[**getFundingAccountsV2**](FundingManagerApi.md#getFundingAccountsV2) | **GET** /v2/fundingAccounts | Get Funding Accounts
-[**getSourceAccount**](FundingManagerApi.md#getSourceAccount) | **GET** /v1/sourceAccounts/{sourceAccountId} | Get details about given source account.
-[**getSourceAccountV2**](FundingManagerApi.md#getSourceAccountV2) | **GET** /v2/sourceAccounts/{sourceAccountId} | Get details about given source account.
-[**getSourceAccountV3**](FundingManagerApi.md#getSourceAccountV3) | **GET** /v3/sourceAccounts/{sourceAccountId} | Get details about given source account.
-[**getSourceAccounts**](FundingManagerApi.md#getSourceAccounts) | **GET** /v1/sourceAccounts | Get list of source accounts
-[**getSourceAccountsV2**](FundingManagerApi.md#getSourceAccountsV2) | **GET** /v2/sourceAccounts | Get list of source accounts
-[**getSourceAccountsV3**](FundingManagerApi.md#getSourceAccountsV3) | **GET** /v3/sourceAccounts | Get list of source accounts
-[**listFundingAuditDeltas**](FundingManagerApi.md#listFundingAuditDeltas) | **GET** /v1/deltas/fundings | Get Funding Audit Delta
-[**setNotificationsRequest**](FundingManagerApi.md#setNotificationsRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/notifications | Set notifications
-[**transferFunds**](FundingManagerApi.md#transferFunds) | **POST** /v2/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
-[**transferFundsV3**](FundingManagerApi.md#transferFundsV3) | **POST** /v3/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
+[**createAchFundingRequest()**](FundingManagerApi.md#createAchFundingRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/achFundingRequest | Create Funding Request
+[**createFundingRequest()**](FundingManagerApi.md#createFundingRequest) | **POST** /v2/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
+[**createFundingRequestV3()**](FundingManagerApi.md#createFundingRequestV3) | **POST** /v3/sourceAccounts/{sourceAccountId}/fundingRequest | Create Funding Request
+[**getFundingAccount()**](FundingManagerApi.md#getFundingAccount) | **GET** /v1/fundingAccounts/{fundingAccountId} | Get Funding Account
+[**getFundingAccountV2()**](FundingManagerApi.md#getFundingAccountV2) | **GET** /v2/fundingAccounts/{fundingAccountId} | Get Funding Account
+[**getFundingAccounts()**](FundingManagerApi.md#getFundingAccounts) | **GET** /v1/fundingAccounts | Get Funding Accounts
+[**getFundingAccountsV2()**](FundingManagerApi.md#getFundingAccountsV2) | **GET** /v2/fundingAccounts | Get Funding Accounts
+[**getSourceAccount()**](FundingManagerApi.md#getSourceAccount) | **GET** /v1/sourceAccounts/{sourceAccountId} | Get details about given source account.
+[**getSourceAccountV2()**](FundingManagerApi.md#getSourceAccountV2) | **GET** /v2/sourceAccounts/{sourceAccountId} | Get details about given source account.
+[**getSourceAccountV3()**](FundingManagerApi.md#getSourceAccountV3) | **GET** /v3/sourceAccounts/{sourceAccountId} | Get details about given source account.
+[**getSourceAccounts()**](FundingManagerApi.md#getSourceAccounts) | **GET** /v1/sourceAccounts | Get list of source accounts
+[**getSourceAccountsV2()**](FundingManagerApi.md#getSourceAccountsV2) | **GET** /v2/sourceAccounts | Get list of source accounts
+[**getSourceAccountsV3()**](FundingManagerApi.md#getSourceAccountsV3) | **GET** /v3/sourceAccounts | Get list of source accounts
+[**listFundingAuditDeltas()**](FundingManagerApi.md#listFundingAuditDeltas) | **GET** /v1/deltas/fundings | Get Funding Audit Delta
+[**setNotificationsRequest()**](FundingManagerApi.md#setNotificationsRequest) | **POST** /v1/sourceAccounts/{sourceAccountId}/notifications | Set notifications
+[**transferFunds()**](FundingManagerApi.md#transferFunds) | **POST** /v2/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
+[**transferFundsV3()**](FundingManagerApi.md#transferFundsV3) | **POST** /v3/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
 
 
+## `createAchFundingRequest()`
 
-## createAchFundingRequest
-
-> createAchFundingRequest($source_account_id, $funding_request_v1)
+```php
+createAchFundingRequest($source_account_id, $funding_request_v1)
+```
 
 Create Funding Request
 
@@ -57,11 +58,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->createAchFundingRequest: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -78,17 +77,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createFundingRequest()`
 
-## createFundingRequest
-
-> createFundingRequest($source_account_id, $funding_request_v2)
+```php
+createFundingRequest($source_account_id, $funding_request_v2)
+```
 
 Create Funding Request
 
@@ -119,11 +119,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->createFundingRequest: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -140,17 +138,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createFundingRequestV3()`
 
-## createFundingRequestV3
-
-> createFundingRequestV3($source_account_id, $funding_request_v3)
+```php
+createFundingRequestV3($source_account_id, $funding_request_v3)
+```
 
 Create Funding Request
 
@@ -181,11 +180,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->createFundingRequestV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -202,17 +199,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFundingAccount()`
 
-## getFundingAccount
-
-> \VeloPayments\Client\Model\FundingAccountResponse getFundingAccount($funding_account_id, $sensitive)
+```php
+getFundingAccount($funding_account_id, $sensitive): \VeloPayments\Client\Model\FundingAccountResponse
+```
 
 Get Funding Account
 
@@ -235,8 +233,8 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$funding_account_id = 'funding_account_id_example'; // string | 
-$sensitive = false; // bool | 
+$funding_account_id = 'funding_account_id_example'; // string
+$sensitive = false; // bool
 
 try {
     $result = $apiInstance->getFundingAccount($funding_account_id, $sensitive);
@@ -244,11 +242,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getFundingAccount: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -266,16 +262,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFundingAccountV2()`
 
-## getFundingAccountV2
-
-> \VeloPayments\Client\Model\FundingAccountResponse2 getFundingAccountV2($funding_account_id, $sensitive)
+```php
+getFundingAccountV2($funding_account_id, $sensitive): \VeloPayments\Client\Model\FundingAccountResponse2
+```
 
 Get Funding Account
 
@@ -298,8 +295,8 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$funding_account_id = 'funding_account_id_example'; // string | 
-$sensitive = false; // bool | 
+$funding_account_id = 'funding_account_id_example'; // string
+$sensitive = false; // bool
 
 try {
     $result = $apiInstance->getFundingAccountV2($funding_account_id, $sensitive);
@@ -307,11 +304,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getFundingAccountV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -329,16 +324,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFundingAccounts()`
 
-## getFundingAccounts
-
-> \VeloPayments\Client\Model\ListFundingAccountsResponse getFundingAccounts($payor_id, $source_account_id, $page, $page_size, $sort, $sensitive)
+```php
+getFundingAccounts($payor_id, $source_account_id, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListFundingAccountsResponse
+```
 
 Get Funding Accounts
 
@@ -361,12 +357,12 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | 
-$source_account_id = 'source_account_id_example'; // string | 
+$payor_id = 'payor_id_example'; // string
+$source_account_id = 'source_account_id_example'; // string
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'accountName:asc'; // string | List of sort fields (e.g. ?sort=accountName:asc,name:asc) Default is accountName:asc The supported sort fields are - accountName, name and currency.
-$sensitive = false; // bool | 
+$sensitive = false; // bool
 
 try {
     $result = $apiInstance->getFundingAccounts($payor_id, $source_account_id, $page, $page_size, $sort, $sensitive);
@@ -374,11 +370,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getFundingAccounts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -400,16 +394,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFundingAccountsV2()`
 
-## getFundingAccountsV2
-
-> \VeloPayments\Client\Model\ListFundingAccountsResponse2 getFundingAccountsV2($payor_id, $name, $country, $currency, $type, $page, $page_size, $sort, $sensitive)
+```php
+getFundingAccountsV2($payor_id, $name, $country, $currency, $type, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListFundingAccountsResponse2
+```
 
 Get Funding Accounts
 
@@ -432,7 +427,7 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | 
+$payor_id = 'payor_id_example'; // string
 $name = 'name_example'; // string | The descriptive funding account name
 $country = US; // string | The 2 letter ISO 3166-1 country code (upper case)
 $currency = USD; // string | The ISO 4217 currency code
@@ -440,7 +435,7 @@ $type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\FundingAccount
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'accountName:asc'; // string | List of sort fields (e.g. ?sort=accountName:asc,name:asc) Default is accountName:asc The supported sort fields are - accountName, name.
-$sensitive = false; // bool | 
+$sensitive = false; // bool
 
 try {
     $result = $apiInstance->getFundingAccountsV2($payor_id, $name, $country, $currency, $type, $page, $page_size, $sort, $sensitive);
@@ -448,11 +443,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getFundingAccountsV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -477,16 +470,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSourceAccount()`
 
-## getSourceAccount
-
-> \VeloPayments\Client\Model\SourceAccountResponse getSourceAccount($source_account_id)
+```php
+getSourceAccount($source_account_id): \VeloPayments\Client\Model\SourceAccountResponse
+```
 
 Get details about given source account.
 
@@ -517,11 +511,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccount: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -538,16 +530,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSourceAccountV2()`
 
-## getSourceAccountV2
-
-> \VeloPayments\Client\Model\SourceAccountResponseV2 getSourceAccountV2($source_account_id)
+```php
+getSourceAccountV2($source_account_id): \VeloPayments\Client\Model\SourceAccountResponseV2
+```
 
 Get details about given source account.
 
@@ -578,11 +571,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccountV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -599,16 +590,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSourceAccountV3()`
 
-## getSourceAccountV3
-
-> \VeloPayments\Client\Model\SourceAccountResponseV3 getSourceAccountV3($source_account_id)
+```php
+getSourceAccountV3($source_account_id): \VeloPayments\Client\Model\SourceAccountResponseV3
+```
 
 Get details about given source account.
 
@@ -639,11 +631,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccountV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -660,16 +650,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSourceAccounts()`
 
-## getSourceAccounts
-
-> \VeloPayments\Client\Model\ListSourceAccountResponse getSourceAccounts($physical_account_name, $payor_id, $page, $page_size, $sort)
+```php
+getSourceAccounts($physical_account_name, $payor_id, $page, $page_size, $sort): \VeloPayments\Client\Model\ListSourceAccountResponse
+```
 
 Get list of source accounts
 
@@ -704,11 +695,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccounts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -729,16 +718,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSourceAccountsV2()`
 
-## getSourceAccountsV2
-
-> \VeloPayments\Client\Model\ListSourceAccountResponseV2 getSourceAccountsV2($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $page, $page_size, $sort)
+```php
+getSourceAccountsV2($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $page, $page_size, $sort): \VeloPayments\Client\Model\ListSourceAccountResponseV2
+```
 
 Get list of source accounts
 
@@ -775,11 +765,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccountsV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -802,16 +790,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSourceAccountsV3()`
 
-## getSourceAccountsV3
-
-> \VeloPayments\Client\Model\ListSourceAccountResponseV3 getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $type, $page, $page_size, $sort)
+```php
+getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $type, $page, $page_size, $sort): \VeloPayments\Client\Model\ListSourceAccountResponseV3
+```
 
 Get list of source accounts
 
@@ -849,11 +838,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccountsV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -877,16 +864,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listFundingAuditDeltas()`
 
-## listFundingAuditDeltas
-
-> \VeloPayments\Client\Model\PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse listFundingAuditDeltas($payor_id, $updated_since, $page, $page_size)
+```php
+listFundingAuditDeltas($payor_id, $updated_since, $page, $page_size): \VeloPayments\Client\Model\PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse
+```
 
 Get Funding Audit Delta
 
@@ -909,8 +897,8 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerApi(
     new GuzzleHttp\Client(),
     $config
 );
-$payor_id = 'payor_id_example'; // string | 
-$updated_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | 
+$payor_id = 'payor_id_example'; // string
+$updated_since = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 
@@ -920,11 +908,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->listFundingAuditDeltas: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -944,16 +930,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `setNotificationsRequest()`
 
-## setNotificationsRequest
-
-> setNotificationsRequest($source_account_id, $set_notifications_request)
+```php
+setNotificationsRequest($source_account_id, $set_notifications_request)
+```
 
 Set notifications
 
@@ -984,11 +971,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->setNotificationsRequest: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1005,17 +990,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `transferFunds()`
 
-## transferFunds
-
-> transferFunds($source_account_id, $transfer_request)
+```php
+transferFunds($source_account_id, $transfer_request)
+```
 
 Transfer Funds between source accounts
 
@@ -1046,11 +1032,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->transferFunds: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1067,17 +1051,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `transferFundsV3()`
 
-## transferFundsV3
-
-> transferFundsV3($source_account_id, $transfer_request2)
+```php
+transferFundsV3($source_account_id, $transfer_request2)
+```
 
 Transfer Funds between source accounts
 
@@ -1108,11 +1093,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->transferFundsV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1129,10 +1112,9 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

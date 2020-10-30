@@ -1,32 +1,33 @@
 # VeloPayments\Client\UsersApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUserByIdV2**](UsersApi.md#deleteUserByIdV2) | **DELETE** /v2/users/{userId} | Delete a User
-[**disableUserV2**](UsersApi.md#disableUserV2) | **POST** /v2/users/{userId}/disable | Disable a User
-[**enableUserV2**](UsersApi.md#enableUserV2) | **POST** /v2/users/{userId}/enable | Enable a User
-[**getSelf**](UsersApi.md#getSelf) | **GET** /v2/users/self | Get Self
-[**getUserByIdV2**](UsersApi.md#getUserByIdV2) | **GET** /v2/users/{userId} | Get User
-[**inviteUser**](UsersApi.md#inviteUser) | **POST** /v2/users/invite | Invite a User
-[**listUsers**](UsersApi.md#listUsers) | **GET** /v2/users | List Users
-[**registerSms**](UsersApi.md#registerSms) | **POST** /v2/users/registration/sms | Register SMS Number
-[**resendToken**](UsersApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
-[**roleUpdate**](UsersApi.md#roleUpdate) | **POST** /v2/users/{userId}/roleUpdate | Update User Role
-[**unlockUserV2**](UsersApi.md#unlockUserV2) | **POST** /v2/users/{userId}/unlock | Unlock a User
-[**unregisterMFA**](UsersApi.md#unregisterMFA) | **POST** /v2/users/{userId}/mfa/unregister | Unregister MFA for the user
-[**unregisterMFAForSelf**](UsersApi.md#unregisterMFAForSelf) | **POST** /v2/users/self/mfa/unregister | Unregister MFA for Self
-[**updatePasswordSelf**](UsersApi.md#updatePasswordSelf) | **POST** /v2/users/self/password | Update Password for self
-[**userDetailsUpdate**](UsersApi.md#userDetailsUpdate) | **POST** /v2/users/{userId}/userDetailsUpdate | Update User Details
-[**userDetailsUpdateForSelf**](UsersApi.md#userDetailsUpdateForSelf) | **POST** /v2/users/self/userDetailsUpdate | Update User Details for self
-[**validatePasswordSelf**](UsersApi.md#validatePasswordSelf) | **POST** /v2/users/self/password/validate | Validate the proposed password
+[**deleteUserByIdV2()**](UsersApi.md#deleteUserByIdV2) | **DELETE** /v2/users/{userId} | Delete a User
+[**disableUserV2()**](UsersApi.md#disableUserV2) | **POST** /v2/users/{userId}/disable | Disable a User
+[**enableUserV2()**](UsersApi.md#enableUserV2) | **POST** /v2/users/{userId}/enable | Enable a User
+[**getSelf()**](UsersApi.md#getSelf) | **GET** /v2/users/self | Get Self
+[**getUserByIdV2()**](UsersApi.md#getUserByIdV2) | **GET** /v2/users/{userId} | Get User
+[**inviteUser()**](UsersApi.md#inviteUser) | **POST** /v2/users/invite | Invite a User
+[**listUsers()**](UsersApi.md#listUsers) | **GET** /v2/users | List Users
+[**registerSms()**](UsersApi.md#registerSms) | **POST** /v2/users/registration/sms | Register SMS Number
+[**resendToken()**](UsersApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
+[**roleUpdate()**](UsersApi.md#roleUpdate) | **POST** /v2/users/{userId}/roleUpdate | Update User Role
+[**unlockUserV2()**](UsersApi.md#unlockUserV2) | **POST** /v2/users/{userId}/unlock | Unlock a User
+[**unregisterMFA()**](UsersApi.md#unregisterMFA) | **POST** /v2/users/{userId}/mfa/unregister | Unregister MFA for the user
+[**unregisterMFAForSelf()**](UsersApi.md#unregisterMFAForSelf) | **POST** /v2/users/self/mfa/unregister | Unregister MFA for Self
+[**updatePasswordSelf()**](UsersApi.md#updatePasswordSelf) | **POST** /v2/users/self/password | Update Password for self
+[**userDetailsUpdate()**](UsersApi.md#userDetailsUpdate) | **POST** /v2/users/{userId}/userDetailsUpdate | Update User Details
+[**userDetailsUpdateForSelf()**](UsersApi.md#userDetailsUpdateForSelf) | **POST** /v2/users/self/userDetailsUpdate | Update User Details for self
+[**validatePasswordSelf()**](UsersApi.md#validatePasswordSelf) | **POST** /v2/users/self/password/validate | Validate the proposed password
 
 
+## `deleteUserByIdV2()`
 
-## deleteUserByIdV2
-
-> deleteUserByIdV2($user_id)
+```php
+deleteUserByIdV2($user_id)
+```
 
 Delete a User
 
@@ -56,11 +57,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->deleteUserByIdV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -77,16 +76,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `disableUserV2()`
 
-## disableUserV2
-
-> disableUserV2($user_id)
+```php
+disableUserV2($user_id)
+```
 
 Disable a User
 
@@ -116,11 +116,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->disableUserV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -137,16 +135,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `enableUserV2()`
 
-## enableUserV2
-
-> enableUserV2($user_id)
+```php
+enableUserV2($user_id)
+```
 
 Enable a User
 
@@ -176,11 +175,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->enableUserV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -197,16 +194,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getSelf()`
 
-## getSelf
-
-> \VeloPayments\Client\Model\UserResponse getSelf()
+```php
+getSelf(): \VeloPayments\Client\Model\UserResponse
+```
 
 Get Self
 
@@ -236,7 +234,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getSelf: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -254,16 +251,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getUserByIdV2()`
 
-## getUserByIdV2
-
-> \VeloPayments\Client\Model\UserResponse getUserByIdV2($user_id)
+```php
+getUserByIdV2($user_id): \VeloPayments\Client\Model\UserResponse
+```
 
 Get User
 
@@ -294,11 +292,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getUserByIdV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -315,16 +311,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `inviteUser()`
 
-## inviteUser
-
-> inviteUser($invite_user_request)
+```php
+inviteUser($invite_user_request)
+```
 
 Invite a User
 
@@ -354,11 +351,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->inviteUser: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -374,17 +369,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listUsers()`
 
-## listUsers
-
-> \VeloPayments\Client\Model\PagedUserResponse listUsers($type, $status, $entity_id, $page, $page_size, $sort)
+```php
+listUsers($type, $status, $entity_id, $page, $page_size, $sort): \VeloPayments\Client\Model\PagedUserResponse
+```
 
 List Users
 
@@ -420,11 +416,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->listUsers: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -446,16 +440,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `registerSms()`
 
-## registerSms
-
-> registerSms($register_sms_request)
+```php
+registerSms($register_sms_request)
+```
 
 Register SMS Number
 
@@ -485,11 +480,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->registerSms: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -505,17 +498,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `resendToken()`
 
-## resendToken
-
-> resendToken($user_id, $resend_token_request)
+```php
+resendToken($user_id, $resend_token_request)
+```
 
 Resend a token
 
@@ -546,11 +540,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->resendToken: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -567,17 +559,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `roleUpdate()`
 
-## roleUpdate
-
-> roleUpdate($user_id, $role_update_request)
+```php
+roleUpdate($user_id, $role_update_request)
+```
 
 Update User Role
 
@@ -608,11 +601,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->roleUpdate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -629,17 +620,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `unlockUserV2()`
 
-## unlockUserV2
-
-> unlockUserV2($user_id)
+```php
+unlockUserV2($user_id)
+```
 
 Unlock a User
 
@@ -669,11 +661,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->unlockUserV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -690,16 +680,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `unregisterMFA()`
 
-## unregisterMFA
-
-> unregisterMFA($user_id, $unregister_mfa_request)
+```php
+unregisterMFA($user_id, $unregister_mfa_request)
+```
 
 Unregister MFA for the user
 
@@ -730,11 +721,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->unregisterMFA: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -751,17 +740,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `unregisterMFAForSelf()`
 
-## unregisterMFAForSelf
-
-> unregisterMFAForSelf($self_mfa_type_unregister_request)
+```php
+unregisterMFAForSelf($self_mfa_type_unregister_request, $authorization)
+```
 
 Unregister MFA for Self
 
@@ -785,21 +775,21 @@ $apiInstance = new VeloPayments\Client\Api\UsersApi(
     $config
 );
 $self_mfa_type_unregister_request = new \VeloPayments\Client\Model\SelfMFATypeUnregisterRequest(); // \VeloPayments\Client\Model\SelfMFATypeUnregisterRequest | The MFA Type to unregister
+$authorization = 'authorization_example'; // string | Bearer token authorization leg of validate
 
 try {
-    $apiInstance->unregisterMFAForSelf($self_mfa_type_unregister_request);
+    $apiInstance->unregisterMFAForSelf($self_mfa_type_unregister_request, $authorization);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->unregisterMFAForSelf: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **self_mfa_type_unregister_request** | [**\VeloPayments\Client\Model\SelfMFATypeUnregisterRequest**](../Model/SelfMFATypeUnregisterRequest.md)| The MFA Type to unregister |
+ **authorization** | **string**| Bearer token authorization leg of validate | [optional]
 
 ### Return type
 
@@ -811,17 +801,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updatePasswordSelf()`
 
-## updatePasswordSelf
-
-> updatePasswordSelf($self_update_password_request)
+```php
+updatePasswordSelf($self_update_password_request)
+```
 
 Update Password for self
 
@@ -851,11 +842,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->updatePasswordSelf: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -871,17 +860,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `userDetailsUpdate()`
 
-## userDetailsUpdate
-
-> userDetailsUpdate($user_id, $user_details_update_request)
+```php
+userDetailsUpdate($user_id, $user_details_update_request)
+```
 
 Update User Details
 
@@ -912,11 +902,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->userDetailsUpdate: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -933,17 +921,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `userDetailsUpdateForSelf()`
 
-## userDetailsUpdateForSelf
-
-> userDetailsUpdateForSelf($payee_user_self_update_request)
+```php
+userDetailsUpdateForSelf($payee_user_self_update_request)
+```
 
 Update User Details for self
 
@@ -973,11 +962,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->userDetailsUpdateForSelf: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -993,17 +980,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `validatePasswordSelf()`
 
-## validatePasswordSelf
-
-> \VeloPayments\Client\Model\ValidatePasswordResponse validatePasswordSelf($password_request)
+```php
+validatePasswordSelf($password_request): \VeloPayments\Client\Model\ValidatePasswordResponse
+```
 
 Validate the proposed password
 
@@ -1034,11 +1022,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->validatePasswordSelf: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1054,10 +1040,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

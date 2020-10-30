@@ -1,16 +1,17 @@
 # VeloPayments\Client\CurrenciesApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listSupportedCurrenciesV2**](CurrenciesApi.md#listSupportedCurrenciesV2) | **GET** /v2/currencies | List Supported Currencies
+[**listSupportedCurrenciesV2()**](CurrenciesApi.md#listSupportedCurrenciesV2) | **GET** /v2/currencies | List Supported Currencies
 
 
+## `listSupportedCurrenciesV2()`
 
-## listSupportedCurrenciesV2
-
-> \VeloPayments\Client\Model\SupportedCurrencyResponseV2 listSupportedCurrenciesV2()
+```php
+listSupportedCurrenciesV2(): \VeloPayments\Client\Model\SupportedCurrencyResponseV2
+```
 
 List Supported Currencies
 
@@ -21,6 +22,7 @@ List the supported currencies.
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 
 $apiInstance = new VeloPayments\Client\Api\CurrenciesApi(
@@ -35,7 +37,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling CurrenciesApi->listSupportedCurrenciesV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -53,9 +54,8 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

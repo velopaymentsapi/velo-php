@@ -1,22 +1,23 @@
 # VeloPayments\Client\PayoutServiceApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createQuoteForPayoutV3**](PayoutServiceApi.md#createQuoteForPayoutV3) | **POST** /v3/payouts/{payoutId}/quote | Create a quote for the payout
-[**getPaymentsForPayoutV3**](PayoutServiceApi.md#getPaymentsForPayoutV3) | **GET** /v3/payouts/{payoutId}/payments | Retrieve payments for a payout
-[**getPayoutSummaryV3**](PayoutServiceApi.md#getPayoutSummaryV3) | **GET** /v3/payouts/{payoutId} | Get Payout Summary
-[**instructPayoutV3**](PayoutServiceApi.md#instructPayoutV3) | **POST** /v3/payouts/{payoutId} | Instruct Payout
-[**submitPayoutV3**](PayoutServiceApi.md#submitPayoutV3) | **POST** /v3/payouts | Submit Payout
-[**withdrawPayment**](PayoutServiceApi.md#withdrawPayment) | **POST** /v1/payments/{paymentId}/withdraw | Withdraw a Payment
-[**withdrawPayoutV3**](PayoutServiceApi.md#withdrawPayoutV3) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
+[**createQuoteForPayoutV3()**](PayoutServiceApi.md#createQuoteForPayoutV3) | **POST** /v3/payouts/{payoutId}/quote | Create a quote for the payout
+[**getPaymentsForPayoutV3()**](PayoutServiceApi.md#getPaymentsForPayoutV3) | **GET** /v3/payouts/{payoutId}/payments | Retrieve payments for a payout
+[**getPayoutSummaryV3()**](PayoutServiceApi.md#getPayoutSummaryV3) | **GET** /v3/payouts/{payoutId} | Get Payout Summary
+[**instructPayoutV3()**](PayoutServiceApi.md#instructPayoutV3) | **POST** /v3/payouts/{payoutId} | Instruct Payout
+[**submitPayoutV3()**](PayoutServiceApi.md#submitPayoutV3) | **POST** /v3/payouts | Submit Payout
+[**withdrawPayment()**](PayoutServiceApi.md#withdrawPayment) | **POST** /v1/payments/{paymentId}/withdraw | Withdraw a Payment
+[**withdrawPayoutV3()**](PayoutServiceApi.md#withdrawPayoutV3) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
 
 
+## `createQuoteForPayoutV3()`
 
-## createQuoteForPayoutV3
-
-> \VeloPayments\Client\Model\QuoteResponseV3 createQuoteForPayoutV3($payout_id)
+```php
+createQuoteForPayoutV3($payout_id): \VeloPayments\Client\Model\QuoteResponseV3
+```
 
 Create a quote for the payout
 
@@ -47,11 +48,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->createQuoteForPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -68,16 +67,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPaymentsForPayoutV3()`
 
-## getPaymentsForPayoutV3
-
-> \VeloPayments\Client\Model\PagedPaymentsResponseV3 getPaymentsForPayoutV3($payout_id, $status, $remote_id, $payor_payment_id, $source_account_name, $payment_memo, $page_size, $page)
+```php
+getPaymentsForPayoutV3($payout_id, $status, $remote_id, $payor_payment_id, $source_account_name, $payment_memo, $page_size, $page): \VeloPayments\Client\Model\PagedPaymentsResponseV3
+```
 
 Retrieve payments for a payout
 
@@ -115,11 +115,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->getPaymentsForPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -143,16 +141,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPayoutSummaryV3()`
 
-## getPayoutSummaryV3
-
-> \VeloPayments\Client\Model\PayoutSummaryResponseV3 getPayoutSummaryV3($payout_id)
+```php
+getPayoutSummaryV3($payout_id): \VeloPayments\Client\Model\PayoutSummaryResponseV3
+```
 
 Get Payout Summary
 
@@ -183,11 +182,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->getPayoutSummaryV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -204,16 +201,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `instructPayoutV3()`
 
-## instructPayoutV3
-
-> instructPayoutV3($payout_id)
+```php
+instructPayoutV3($payout_id)
+```
 
 Instruct Payout
 
@@ -243,11 +241,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->instructPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -264,16 +260,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `submitPayoutV3()`
 
-## submitPayoutV3
-
-> submitPayoutV3($create_payout_request_v3)
+```php
+submitPayoutV3($create_payout_request_v3)
+```
 
 Submit Payout
 
@@ -303,11 +300,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->submitPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -323,17 +318,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json, multipart/form-data
-- **Accept**: application/json
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `withdrawPayment()`
 
-## withdrawPayment
-
-> withdrawPayment($payment_id, $withdraw_payment_request)
+```php
+withdrawPayment($payment_id, $withdraw_payment_request)
+```
 
 Withdraw a Payment
 
@@ -364,11 +360,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->withdrawPayment: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -385,17 +379,18 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `withdrawPayoutV3()`
 
-## withdrawPayoutV3
-
-> withdrawPayoutV3($payout_id)
+```php
+withdrawPayoutV3($payout_id)
+```
 
 Withdraw Payout
 
@@ -425,11 +420,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->withdrawPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -446,9 +439,8 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

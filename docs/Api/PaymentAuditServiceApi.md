@@ -1,31 +1,32 @@
 # VeloPayments\Client\PaymentAuditServiceApi
 
-All URIs are relative to *https://api.sandbox.velopayments.com*
+All URIs are relative to https://api.sandbox.velopayments.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**exportTransactionsCSVV3**](PaymentAuditServiceApi.md#exportTransactionsCSVV3) | **GET** /v3/paymentaudit/transactions | Export Transactions
-[**exportTransactionsCSVV4**](PaymentAuditServiceApi.md#exportTransactionsCSVV4) | **GET** /v4/paymentaudit/transactions | Export Transactions
-[**getFundingsV1**](PaymentAuditServiceApi.md#getFundingsV1) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
-[**getFundingsV4**](PaymentAuditServiceApi.md#getFundingsV4) | **GET** /v4/paymentaudit/fundings | Get Fundings for Payor
-[**getPaymentDetails**](PaymentAuditServiceApi.md#getPaymentDetails) | **GET** /v3/paymentaudit/payments/{paymentId} | Get Payment
-[**getPaymentDetailsV4**](PaymentAuditServiceApi.md#getPaymentDetailsV4) | **GET** /v4/paymentaudit/payments/{paymentId} | Get Payment
-[**getPaymentsForPayout**](PaymentAuditServiceApi.md#getPaymentsForPayout) | **GET** /v3/paymentaudit/payouts/{payoutId} | Get Payments for Payout
-[**getPaymentsForPayoutV4**](PaymentAuditServiceApi.md#getPaymentsForPayoutV4) | **GET** /v4/paymentaudit/payouts/{payoutId} | Get Payments for Payout
-[**getPayoutStatsV1**](PaymentAuditServiceApi.md#getPayoutStatsV1) | **GET** /v1/paymentaudit/payoutStatistics | Get Payout Statistics
-[**getPayoutStatsV4**](PaymentAuditServiceApi.md#getPayoutStatsV4) | **GET** /v4/paymentaudit/payoutStatistics | Get Payout Statistics
-[**getPayoutsForPayorV3**](PaymentAuditServiceApi.md#getPayoutsForPayorV3) | **GET** /v3/paymentaudit/payouts | Get Payouts for Payor
-[**getPayoutsForPayorV4**](PaymentAuditServiceApi.md#getPayoutsForPayorV4) | **GET** /v4/paymentaudit/payouts | Get Payouts for Payor
-[**listPaymentChanges**](PaymentAuditServiceApi.md#listPaymentChanges) | **GET** /v1/deltas/payments | List Payment Changes
-[**listPaymentChangesV4**](PaymentAuditServiceApi.md#listPaymentChangesV4) | **GET** /v4/payments/deltas | List Payment Changes
-[**listPaymentsAudit**](PaymentAuditServiceApi.md#listPaymentsAudit) | **GET** /v3/paymentaudit/payments | Get List of Payments
-[**listPaymentsAuditV4**](PaymentAuditServiceApi.md#listPaymentsAuditV4) | **GET** /v4/paymentaudit/payments | Get List of Payments
+[**exportTransactionsCSVV3()**](PaymentAuditServiceApi.md#exportTransactionsCSVV3) | **GET** /v3/paymentaudit/transactions | Export Transactions
+[**exportTransactionsCSVV4()**](PaymentAuditServiceApi.md#exportTransactionsCSVV4) | **GET** /v4/paymentaudit/transactions | Export Transactions
+[**getFundingsV1()**](PaymentAuditServiceApi.md#getFundingsV1) | **GET** /v1/paymentaudit/fundings | Get Fundings for Payor
+[**getFundingsV4()**](PaymentAuditServiceApi.md#getFundingsV4) | **GET** /v4/paymentaudit/fundings | Get Fundings for Payor
+[**getPaymentDetails()**](PaymentAuditServiceApi.md#getPaymentDetails) | **GET** /v3/paymentaudit/payments/{paymentId} | Get Payment
+[**getPaymentDetailsV4()**](PaymentAuditServiceApi.md#getPaymentDetailsV4) | **GET** /v4/paymentaudit/payments/{paymentId} | Get Payment
+[**getPaymentsForPayout()**](PaymentAuditServiceApi.md#getPaymentsForPayout) | **GET** /v3/paymentaudit/payouts/{payoutId} | Get Payments for Payout
+[**getPaymentsForPayoutV4()**](PaymentAuditServiceApi.md#getPaymentsForPayoutV4) | **GET** /v4/paymentaudit/payouts/{payoutId} | Get Payments for Payout
+[**getPayoutStatsV1()**](PaymentAuditServiceApi.md#getPayoutStatsV1) | **GET** /v1/paymentaudit/payoutStatistics | Get Payout Statistics
+[**getPayoutStatsV4()**](PaymentAuditServiceApi.md#getPayoutStatsV4) | **GET** /v4/paymentaudit/payoutStatistics | Get Payout Statistics
+[**getPayoutsForPayorV3()**](PaymentAuditServiceApi.md#getPayoutsForPayorV3) | **GET** /v3/paymentaudit/payouts | Get Payouts for Payor
+[**getPayoutsForPayorV4()**](PaymentAuditServiceApi.md#getPayoutsForPayorV4) | **GET** /v4/paymentaudit/payouts | Get Payouts for Payor
+[**listPaymentChanges()**](PaymentAuditServiceApi.md#listPaymentChanges) | **GET** /v1/deltas/payments | List Payment Changes
+[**listPaymentChangesV4()**](PaymentAuditServiceApi.md#listPaymentChangesV4) | **GET** /v4/payments/deltas | List Payment Changes
+[**listPaymentsAudit()**](PaymentAuditServiceApi.md#listPaymentsAudit) | **GET** /v3/paymentaudit/payments | Get List of Payments
+[**listPaymentsAuditV4()**](PaymentAuditServiceApi.md#listPaymentsAuditV4) | **GET** /v4/paymentaudit/payments | Get List of Payments
 
 
+## `exportTransactionsCSVV3()`
 
-## exportTransactionsCSVV3
-
-> \VeloPayments\Client\Model\PayorAmlTransactionV3 exportTransactionsCSVV3($payor_id, $start_date, $end_date)
+```php
+exportTransactionsCSVV3($payor_id, $start_date, $end_date): \VeloPayments\Client\Model\PayorAmlTransactionV3
+```
 
 Export Transactions
 
@@ -58,11 +59,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->exportTransactionsCSVV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -81,16 +80,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv, application/json
+- **Accept**: `application/csv`, `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `exportTransactionsCSVV4()`
 
-## exportTransactionsCSVV4
-
-> \VeloPayments\Client\Model\PayorAmlTransactionV4 exportTransactionsCSVV4($payor_id, $start_date, $end_date, $include)
+```php
+exportTransactionsCSVV4($payor_id, $start_date, $end_date, $include): \VeloPayments\Client\Model\PayorAmlTransactionV4
+```
 
 Export Transactions
 
@@ -124,11 +124,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->exportTransactionsCSVV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -148,16 +146,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: `application/csv`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFundingsV1()`
 
-## getFundingsV1
-
-> \VeloPayments\Client\Model\GetFundingsResponse getFundingsV1($payor_id, $page, $page_size, $sort)
+```php
+getFundingsV1($payor_id, $page, $page_size, $sort): \VeloPayments\Client\Model\GetFundingsResponse
+```
 
 Get Fundings for Payor
 
@@ -191,11 +190,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getFundingsV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -215,16 +212,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getFundingsV4()`
 
-## getFundingsV4
-
-> \VeloPayments\Client\Model\GetFundingsResponse getFundingsV4($payor_id, $page, $page_size, $sort)
+```php
+getFundingsV4($payor_id, $page, $page_size, $sort): \VeloPayments\Client\Model\GetFundingsResponse
+```
 
 Get Fundings for Payor
 
@@ -258,11 +256,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getFundingsV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -282,16 +278,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPaymentDetails()`
 
-## getPaymentDetails
-
-> \VeloPayments\Client\Model\PaymentResponseV3 getPaymentDetails($payment_id, $sensitive)
+```php
+getPaymentDetails($payment_id, $sensitive): \VeloPayments\Client\Model\PaymentResponseV3
+```
 
 Get Payment
 
@@ -323,11 +320,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPaymentDetails: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -345,16 +340,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPaymentDetailsV4()`
 
-## getPaymentDetailsV4
-
-> \VeloPayments\Client\Model\PaymentResponseV4 getPaymentDetailsV4($payment_id, $sensitive)
+```php
+getPaymentDetailsV4($payment_id, $sensitive): \VeloPayments\Client\Model\PaymentResponseV4
+```
 
 Get Payment
 
@@ -386,11 +382,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPaymentDetailsV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -408,16 +402,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPaymentsForPayout()`
 
-## getPaymentsForPayout
-
-> \VeloPayments\Client\Model\GetPaymentsForPayoutResponseV3 getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort, $sensitive)
+```php
+getPaymentsForPayout($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\GetPaymentsForPayoutResponseV3
+```
 
 Get Payments for Payout
 
@@ -460,11 +455,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPaymentsForPayout: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -493,16 +486,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPaymentsForPayoutV4()`
 
-## getPaymentsForPayoutV4
-
-> \VeloPayments\Client\Model\GetPaymentsForPayoutResponseV4 getPaymentsForPayoutV4($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort, $sensitive)
+```php
+getPaymentsForPayoutV4($payout_id, $remote_id, $status, $source_amount_from, $source_amount_to, $payment_amount_from, $payment_amount_to, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\GetPaymentsForPayoutResponseV4
+```
 
 Get Payments for Payout
 
@@ -545,11 +539,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPaymentsForPayoutV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -578,16 +570,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPayoutStatsV1()`
 
-## getPayoutStatsV1
-
-> \VeloPayments\Client\Model\GetPayoutStatistics getPayoutStatsV1($payor_id)
+```php
+getPayoutStatsV1($payor_id): \VeloPayments\Client\Model\GetPayoutStatistics
+```
 
 Get Payout Statistics
 
@@ -618,11 +611,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutStatsV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -639,16 +630,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPayoutStatsV4()`
 
-## getPayoutStatsV4
-
-> \VeloPayments\Client\Model\GetPayoutStatistics getPayoutStatsV4($payor_id)
+```php
+getPayoutStatsV4($payor_id): \VeloPayments\Client\Model\GetPayoutStatistics
+```
 
 Get Payout Statistics
 
@@ -679,11 +671,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutStatsV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -700,16 +690,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPayoutsForPayorV3()`
 
-## getPayoutsForPayorV3
-
-> \VeloPayments\Client\Model\GetPayoutsResponseV3 getPayoutsForPayorV3($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort)
+```php
+getPayoutsForPayorV3($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $page, $page_size, $sort): \VeloPayments\Client\Model\GetPayoutsResponseV3
+```
 
 Get Payouts for Payor
 
@@ -747,11 +738,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayorV3: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -775,16 +764,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `getPayoutsForPayorV4()`
 
-## getPayoutsForPayorV4
-
-> \VeloPayments\Client\Model\GetPayoutsResponseV4 getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort)
+```php
+getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort): \VeloPayments\Client\Model\GetPayoutsResponseV4
+```
 
 Get Payouts for Payor
 
@@ -823,11 +813,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayorV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -852,16 +840,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listPaymentChanges()`
 
-## listPaymentChanges
-
-> \VeloPayments\Client\Model\PaymentDeltaResponse listPaymentChanges($payor_id, $updated_since, $page, $page_size)
+```php
+listPaymentChanges($payor_id, $updated_since, $page, $page_size): \VeloPayments\Client\Model\PaymentDeltaResponse
+```
 
 List Payment Changes
 
@@ -895,11 +884,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentChanges: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -919,16 +906,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listPaymentChangesV4()`
 
-## listPaymentChangesV4
-
-> \VeloPayments\Client\Model\PaymentDeltaResponseV4 listPaymentChangesV4($payor_id, $updated_since, $page, $page_size)
+```php
+listPaymentChangesV4($payor_id, $updated_since, $page, $page_size): \VeloPayments\Client\Model\PaymentDeltaResponseV4
+```
 
 List Payment Changes
 
@@ -962,11 +950,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentChangesV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -986,16 +972,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listPaymentsAudit()`
 
-## listPaymentsAudit
-
-> \VeloPayments\Client\Model\ListPaymentsResponseV3 listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive)
+```php
+listPaymentsAudit($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListPaymentsResponseV3
+```
 
 Get List of Payments
 
@@ -1044,11 +1031,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentsAudit: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1083,16 +1068,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `listPaymentsAuditV4()`
 
-## listPaymentsAuditV4
-
-> \VeloPayments\Client\Model\ListPaymentsResponseV4 listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive)
+```php
+listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $status, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListPaymentsResponseV4
+```
 
 Get List of Payments
 
@@ -1141,11 +1127,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentsAuditV4: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1180,9 +1164,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
