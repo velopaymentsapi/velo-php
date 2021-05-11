@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | [**\VeloPayments\Client\Model\IndividualV1Name**](IndividualV1Name.md) |  |
+**name** | [**\VeloPayments\Client\Model\IndividualName**](IndividualName.md) |  |
 **national_identification** | **string** | If not authorized to view, value will be masked. Example: XXXXX1234 | [optional] [readonly]
 **date_of_birth** | **string** | If not authorized to view, value will be masked. Example: - XXXX-XX-XX | [readonly]
 

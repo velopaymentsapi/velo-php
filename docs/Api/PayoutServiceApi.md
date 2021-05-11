@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 ## `getPaymentsForPayoutV3()`
 
 ```php
-getPaymentsForPayoutV3($payout_id, $status, $remote_id, $payor_payment_id, $source_account_name, $payment_memo, $page_size, $page): \VeloPayments\Client\Model\PagedPaymentsResponseV3
+getPaymentsForPayoutV3($payout_id, $status, $remote_id, $payor_payment_id, $source_account_name, $transmission_type, $payment_memo, $page_size, $page): \VeloPayments\Client\Model\PagedPaymentsResponseV3
 ```
 
 Retrieve payments for a payout
@@ -105,12 +105,13 @@ $status = 'status_example'; // string | Payment Status * ACCEPTED: any payment w
 $remote_id = 'remote_id_example'; // string | The remote id of the payees.
 $payor_payment_id = 'payor_payment_id_example'; // string | Payor's Id of the Payment
 $source_account_name = 'source_account_name_example'; // string | Physical Account Name
+$transmission_type = 'transmission_type_example'; // string | Transmission Type * ACH * SAME_DAY_ACH * WIRE
 $payment_memo = 'payment_memo_example'; // string | Payment Memo of the Payment
 $page_size = 25; // int | The number of results to return in a page
 $page = 1; // int | Page number. Default is 1.
 
 try {
-    $result = $apiInstance->getPaymentsForPayoutV3($payout_id, $status, $remote_id, $payor_payment_id, $source_account_name, $payment_memo, $page_size, $page);
+    $result = $apiInstance->getPaymentsForPayoutV3($payout_id, $status, $remote_id, $payor_payment_id, $source_account_name, $transmission_type, $payment_memo, $page_size, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->getPaymentsForPayoutV3: ', $e->getMessage(), PHP_EOL;
@@ -126,6 +127,7 @@ Name | Type | Description  | Notes
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **payor_payment_id** | **string**| Payor&#39;s Id of the Payment | [optional]
  **source_account_name** | **string**| Physical Account Name | [optional]
+ **transmission_type** | **string**| Transmission Type * ACH * SAME_DAY_ACH * WIRE | [optional]
  **payment_memo** | **string**| Payment Memo of the Payment | [optional]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]

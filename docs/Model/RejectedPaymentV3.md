@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **amount** | **int** |  |
 **source_account_name** | **string** |  |
 **payor_payment_id** | **string** |  |
+**remote_system_id** | **string** |  | [optional]
+**payment_metadata** | **string** |  | [optional]
 **reason** | **string** |  |
 **reason_code** | **string** |  | [optional]
 **line_number** | **int** |  | [optional]

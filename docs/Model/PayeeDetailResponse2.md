@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payee_id** | **string** |  | [optional] [readonly]
-**payor_refs** | [**\VeloPayments\Client\Model\PayeePayorRef2[]**](PayeePayorRef2.md) |  | [optional] [readonly]
+**payor_refs** | [**\VeloPayments\Client\Model\PayeePayorRef[]**](PayeePayorRef.md) |  | [optional] [readonly]
 **email** | **string** |  | [optional]
-**onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus2**](OnboardedStatus2.md) |  | [optional]
+**onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](OnboardedStatus.md) |  | [optional]
 **watchlist_status** | [**\VeloPayments\Client\Model\WatchlistStatus2**](WatchlistStatus2.md) |  | [optional]
 **watchlist_override_expires_at_timestamp** | [**\DateTime**](\DateTime.md) |  | [optional]
 **watchlist_override_comment** | **string** |  | [optional]
-**language** | [**\VeloPayments\Client\Model\Language2**](Language2.md) |  | [optional]
+**language** | **string** | An IETF BCP 47 language code which has been configured for use within this Velo environment.&lt;BR&gt; See the /v1/supportedLanguages endpoint to list the available codes for an environment. | [optional]
 **created** | [**\DateTime**](\DateTime.md) |  | [optional]
 **country** | **string** |  | [optional]
 **display_name** | **string** |  | [optional]

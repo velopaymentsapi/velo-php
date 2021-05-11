@@ -1,5 +1,5 @@
 {
     "packageName": "VeloPayments",
-    "artifactVersion": "2.23.78",
+    "artifactVersion": "2.26.127",
     "invokerPackage": "VeloPayments\\Client"
 }

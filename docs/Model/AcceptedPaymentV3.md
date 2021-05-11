@@ -10,5 +10,7 @@ Name | Type | Description | Notes
 **source_account_name** | **string** |  |
 **payor_payment_id** | **string** |  |
 **payment_memo** | **string** |  | [optional]
+**remote_system_id** | **string** |  | [optional]
+**payment_metadata** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -304,12 +304,13 @@ class FundingManagerApiTest extends TestCase
         $physical_account_id = null; // string | The physical account ID
         $payor_id = getenv('PAYOR'); // string | The account owner Payor ID
         $funding_account_id = null; // string | The funding account ID
+        $include_user_deleted = false; // bool | A filter for retrieving both active accounts and user deleted ones
         $type = 'FBO'; //new \VeloPayments\Client\Model\\VeloPayments\Client\Model\SourceAccountType(); // \VeloPayments\Client\Model\SourceAccountType | The type of source account.
         $page = 1; // int | Page number. Default is 1.
         $page_size = 25; // int | The number of results to return in a page
         $sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance
 
-        $result = $apiInstance->getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $type, $page, $page_size, $sort);
+        $result = $apiInstance->getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $include_user_deleted, $type, $page, $page_size, $sort);
         $this->assertGreaterThan(0, count($result['content']));
     }
 

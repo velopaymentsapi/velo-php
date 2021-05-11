@@ -39,6 +39,7 @@ trim:
 	rm git_push.sh
 
 info:
+	# curl https://raw.githubusercontent.com/velopaymentsapi/changelog/main/README.md --output CHANGELOG.md
 	sed -i.bak 's/"name": "GIT_USER_ID\/GIT_REPO_ID"/"name": "velopaymentsapi\/velo-php"/' composer.json && rm composer.json.bak
 	sed -i.bak '4s/.*/    "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",/' composer.json && rm composer.json.bak
 	sed -i.bak 's/"name": "OpenAPI-Generator contributors"/"name": "VeloPayments contributors"/' composer.json && rm composer.json.bak
@@ -64,7 +65,8 @@ tests:
 	rm -Rf test/Model
 	# overwrite the generated test stubs
 	cp -Rf tests/ test/
-	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APIURL=${APIURL} -e APITOKEN="" --rm composer install && ./vendor/bin/phpunit
+	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APIURL=${APIURL} -e APITOKEN="" --rm composer install
+	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APIURL=${APIURL} -e APITOKEN="" composer  ./vendor/bin/phpunit
 
 commit:
 	sed -i.bak 's/"version": ".*"/"version": "${VERSION}"/g' composer.json && rm composer.json.bak

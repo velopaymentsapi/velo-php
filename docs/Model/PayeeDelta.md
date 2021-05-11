@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **dba_name** | **string** |  | [optional]
 **email** | **string** |  | [optional]
 **payee_country** | **string** |  | [optional]
-**onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](OnboardedStatus.md) |  | [optional]
+**onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus2**](OnboardedStatus2.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -15,5 +15,7 @@ Name | Type | Description | Notes
 **withdrawable** | **bool** |  | [optional]
 **status** | **string** |  | [optional]
 **transmission_type** | [**\VeloPayments\Client\Model\TransmissionType**](TransmissionType.md) |  | [optional]
+**remote_system_id** | **string** |  | [optional]
+**payment_metadata** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -91,53 +91,6 @@ class PayeeInvitationApiTest extends TestCase
     }
 
     /**
-     * Test case for getPayeesInvitationStatusV1
-     *
-     * Get Payee Invitation Status.
-     *
-     */
-    public function testGetPayeesInvitationStatusV1()
-    {
-        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
-        $config->setHost(getenv('APIURL'));
-        $apiInstance = new PayeeInvitationApi(
-            new GuzzleHttp\Client(),
-            $config
-        );
-
-        $payor_id = getenv('PAYOR'); // string | 
-        
-
-        $result = $apiInstance->getPayeesInvitationStatusV1($payor_id);
-        $this->assertGreaterThan(0, count($result->getPayeeInvitationStatuses()));
-    }
-
-    /**
-     * Test case for getPayeesInvitationStatusV2
-     *
-     * Get Payee Invitation Status.
-     *
-     */
-    public function testGetPayeesInvitationStatusV2()
-    {
-        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
-        $config->setHost(getenv('APIURL'));
-        $apiInstance = new PayeeInvitationApi(
-            new GuzzleHttp\Client(),
-            $config
-        );
-
-        $payor_id = getenv('PAYOR'); // string | 
-        $payee_id = NULL; // string | The UUID of the payee.
-        $invitation_status = NULL; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\InvitationStatus(); // \VeloPayments\Client\Model\InvitationStatus | The invitation status of the payees.
-        $page = 1; // int | Page number. Default is 1.
-        $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
-
-        $result = $apiInstance->getPayeesInvitationStatusV2($payor_id, $payee_id, $invitation_status, $page, $page_size);
-        $this->assertGreaterThan(0, count($result->getContent()));
-    }
-
-    /**
      * Test case for getPayeesInvitationStatusV3
      *
      * Get Payee Invitation Status.

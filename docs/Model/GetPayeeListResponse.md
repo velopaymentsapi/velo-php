@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **watchlist_status** | [**\VeloPayments\Client\Model\WatchlistStatus**](WatchlistStatus.md) |  | [optional]
 **watchlist_status_updated_timestamp** | **string** |  | [optional] [readonly]
 **watchlist_override_comment** | **string** |  | [optional]
-**language** | [**\VeloPayments\Client\Model\Language2**](Language2.md) |  | [optional]
+**language** | **string** | An IETF BCP 47 language code which has been configured for use within this Velo environment.&lt;BR&gt; See the /v1/supportedLanguages endpoint to list the available codes for an environment. | [optional]
 **created** | [**\DateTime**](\DateTime.md) |  | [optional]
 **country** | **string** |  | [optional]
 **display_name** | **string** |  | [optional]

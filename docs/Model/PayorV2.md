@@ -26,5 +26,6 @@ Name | Type | Description | Notes
 **max_master_payor_admins** | **int** |  | [optional]
 **payment_rails** | [**\VeloPayments\Client\Model\PaymentRails**](PaymentRails.md) |  | [optional]
 **transmission_types** | [**\VeloPayments\Client\Model\TransmissionTypes2**](TransmissionTypes2.md) |  | [optional]
+**remote_system_ids** | **string[]** | The payor’s supported remote systems by id | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

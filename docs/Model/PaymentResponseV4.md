@@ -12,10 +12,12 @@ Name | Type | Description | Notes
 **source_account_id** | **string** | The id of the source account from which the payment was taken |
 **source_account_name** | **string** | The name of the source account from which the payment was taken | [optional]
 **remote_id** | **string** | The remote id by which the payor refers to the payee. Only populated once payment is confirmed | [optional]
+**remote_system_id** | **string** | The velo id of the remote system orchestrating the payment. Not populated for normal Velo payments. | [optional]
+**remote_system_payment_id** | **string** | The id of the payment in the remote system. Not populated for normal Velo payments. | [optional]
 **source_amount** | **int** | The source amount for the payment (amount debited to make the payment) | [optional]
-**source_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrencyV4**](PaymentAuditCurrencyV4.md) |  | [optional]
+**source_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional]
 **payment_amount** | **int** | The amount which the payee will receive |
-**payment_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrencyV4**](PaymentAuditCurrencyV4.md) |  | [optional]
+**payment_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional]
 **rate** | **double** | The FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
 **inverted_rate** | **double** | The inverted FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
 **is_payment_ccy_base_ccy** | **bool** |  | [optional]
@@ -35,7 +37,7 @@ Name | Type | Description | Notes
 **account_name** | **string** |  | [optional]
 **rails_id** | **string** | The rails ID. Default value is RAILS ID UNAVAILABLE when not populated. | [default to 'RAILS ID UNAVAILABLE']
 **country_code** | **string** | The country code of the payment channel. | [optional]
-**events** | [**\VeloPayments\Client\Model\PaymentEventResponseV4[]**](PaymentEventResponseV4.md) |  |
+**events** | [**\VeloPayments\Client\Model\PaymentEventResponse[]**](PaymentEventResponse.md) |  |
 **return_cost** | **int** | The return cost if a returned payment. | [optional]
 **return_reason** | **string** |  | [optional]
 **rails_payment_id** | **string** |  | [optional]
@@ -43,6 +45,9 @@ Name | Type | Description | Notes
 **rejection_reason** | **string** |  | [optional]
 **withdrawn_reason** | **string** |  | [optional]
 **withdrawable** | **bool** |  | [optional]
+**transmission_type** | **string** | The transmission type of the payment, e.g. ACH, SAME_DAY_ACH, WIRE | [optional]
+**payment_tracking_reference** | **string** |  | [optional]
+**payment_metadata** | **string** | Metadata for the payment | [optional]
 **payout** | [**\VeloPayments\Client\Model\PaymentResponseV4Payout**](PaymentResponseV4Payout.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

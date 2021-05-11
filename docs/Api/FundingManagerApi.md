@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 ## `getSourceAccountsV3()`
 
 ```php
-getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $type, $page, $page_size, $sort): \VeloPayments\Client\Model\ListSourceAccountResponseV3
+getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $include_user_deleted, $type, $page, $page_size, $sort): \VeloPayments\Client\Model\ListSourceAccountResponseV3
 ```
 
 Get list of source accounts
@@ -827,13 +827,14 @@ $physical_account_name = 'physical_account_name_example'; // string | Physical A
 $physical_account_id = 'physical_account_id_example'; // string | The physical account ID
 $payor_id = 'payor_id_example'; // string | The account owner Payor ID
 $funding_account_id = 'funding_account_id_example'; // string | The funding account ID
+$include_user_deleted = 'include_user_deleted_example'; // bool | A filter for retrieving both active accounts and user deleted ones
 $type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\SourceAccountType(); // \VeloPayments\Client\Model\SourceAccountType | The type of source account.
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'fundingRef:asc'; // string | List of sort fields e.g. ?sort=name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance
 
 try {
-    $result = $apiInstance->getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $type, $page, $page_size, $sort);
+    $result = $apiInstance->getSourceAccountsV3($physical_account_name, $physical_account_id, $payor_id, $funding_account_id, $include_user_deleted, $type, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FundingManagerApi->getSourceAccountsV3: ', $e->getMessage(), PHP_EOL;
@@ -848,6 +849,7 @@ Name | Type | Description  | Notes
  **physical_account_id** | [**string**](../Model/.md)| The physical account ID | [optional]
  **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
  **funding_account_id** | [**string**](../Model/.md)| The funding account ID | [optional]
+ **include_user_deleted** | **bool**| A filter for retrieving both active accounts and user deleted ones | [optional]
  **type** | [**\VeloPayments\Client\Model\SourceAccountType**](../Model/.md)| The type of source account. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]

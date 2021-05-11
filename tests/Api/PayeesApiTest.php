@@ -146,30 +146,6 @@ class PayeesApiTest extends TestCase
     }
 
     /**
-     * Test case for listPayeeChanges
-     *
-     * List Payee Changes.
-     *
-     */
-    public function testListPayeeChanges()
-    {
-        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
-        $config->setHost(getenv('APIURL'));
-        $apiInstance = new PayeesApi(
-            new GuzzleHttp\Client(),
-            $config
-        );
-
-        $payor_id = getenv('PAYOR'); // string | 
-        $updated_since = "2013-10-20T19:20:30+01:00"; // \DateTime | The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm
-        $page = 1; // int | Page number. Default is 1.
-        $page_size = 100; // int | Page size. Default is 100. Max allowable is 1000.
-
-        $result = $apiInstance->listPayeeChanges($payor_id, $updated_since, $page, $page_size);
-        $this->assertGreaterThan(0, count($result->getContent()));
-    }
-
-    /**
      * Test case for listPayeeChangesV3
      *
      * List Payee Changes.
@@ -190,37 +166,6 @@ class PayeesApiTest extends TestCase
         $page_size = 100; // int | Page size. Default is 100. Max allowable is 1000.
 
         $result = $apiInstance->listPayeeChangesV3($payor_id, $updated_since, $page, $page_size);
-        $this->assertGreaterThan(0, count($result->getContent()));
-    }
-
-    /**
-     * Test case for listPayeesV1
-     *
-     * List Payees V1.
-     *
-     */
-    public function testListPayeesV1()
-    {
-        $config = Configuration::getDefaultConfiguration()->setAccessToken(getenv('APITOKEN'));
-        $config->setHost(getenv('APIURL'));
-        $apiInstance = new PayeesApi(
-            new GuzzleHttp\Client(),
-            $config
-        );
-
-        $payor_id = getenv('PAYOR'); // string | 
-        $ofac_status = null; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\OfacStatus(); // \VeloPayments\Client\Model\OfacStatus | The ofacStatus of the payees.
-        $onboarded_status = null; //new \VeloPayments\Client\Model\\VeloPayments\Client\Model\OnboardedStatus(); // \VeloPayments\Client\Model\OnboardedStatus | The onboarded status of the payees.
-        $email = null; // string | Email address
-        $display_name = null; // string | The display name of the payees.
-        $remote_id = null; // string | The remote id of the payees.
-        $payee_type = null; // new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The onboarded status of the payees.
-        $payee_country = 'US'; // string | The country of the payee - 2 letter ISO 3166-1 country code (upper case)
-        $page = 1; // int | Page number. Default is 1.
-        $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
-        $sort = 'displayName:asc'; // string | List of sort fields (e.g. ?sort=onboardedStatus:asc,name:asc) Default is name:asc 'name' is treated as company name for companies - last name + ',' + firstName for individuals The supported sort fields are - payeeId, displayName, payoutStatus, onboardedStatus.
-
-        $result = $apiInstance->listPayeesV1($payor_id, $ofac_status, $onboarded_status, $email, $display_name, $remote_id, $payee_type, $payee_country, $page, $page_size, $sort);
         $this->assertGreaterThan(0, count($result->getContent()));
     }
 
