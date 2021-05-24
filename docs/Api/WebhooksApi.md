@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**createWebhookV1()**](WebhooksApi.md#createWebhookV1) | **POST** /v1/webhooks | Create Webhook
 [**getWebhookV1()**](WebhooksApi.md#getWebhookV1) | **GET** /v1/webhooks/{webhookId} | Get details about the given webhook.
 [**listWebhooksV1()**](WebhooksApi.md#listWebhooksV1) | **GET** /v1/webhooks | List the details about the webhooks for the given payor.
-[**pingWebhookV1()**](WebhooksApi.md#pingWebhookV1) | **POST** /v1/webhooks/{webhookId}/ping | 
 [**updateWebhookV1()**](WebhooksApi.md#updateWebhookV1) | **POST** /v1/webhooks/{webhookId} | Update Webhook
 
 
@@ -180,64 +179,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\VeloPayments\Client\Model\WebhooksResponse**](../Model/WebhooksResponse.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `pingWebhookV1()`
-
-```php
-pingWebhookV1($webhook_id): \VeloPayments\Client\Model\PingResponse
-```
-
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new VeloPayments\Client\Api\WebhooksApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$webhook_id = 'webhook_id_example'; // string | Webhook id
-
-try {
-    $result = $apiInstance->pingWebhookV1($webhook_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling WebhooksApi->pingWebhookV1: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_id** | [**string**](../Model/.md)| Webhook id |
-
-### Return type
-
-[**\VeloPayments\Client\Model\PingResponse**](../Model/PingResponse.md)
 
 ### Authorization
 
