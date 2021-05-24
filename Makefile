@@ -11,7 +11,7 @@ help:
 	@echo ""
 
 version:
-	@docker run -i --rm mikefarah/yq sh -c "apk -q add curl && curl -s $$WORKING_SPEC -o /tmp/oa3.yaml;  yq r /tmp/oa3.yaml info.version" 2>&1
+	@docker run -i --rm mikefarah/yq:3 sh -c "apk -q add curl && curl -s $$WORKING_SPEC -o /tmp/oa3.yaml;  yq r /tmp/oa3.yaml info.version" 2>&1
 
 oa3config:
 	sed -i.bak 's/"artifactVersion": ".*"/"artifactVersion": "${VERSION}"/g' oa3-config.json && rm oa3-config.json.bak
