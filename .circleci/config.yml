@@ -57,7 +57,7 @@ jobs:
             if [[ SPEC_BRANCH != 'master' ]]; then
               echo 'NOT MASTER SO BUILDING DEV VERSION'
               make VERSION=${SPEC_OA3_SEMVER}-RC${BETA_BUILD} build
-              make VERSION=${SPEC_OA3_SEMVER}-RC${BETA_BUILD} commit
+              make VERSION=${SPEC_OA3_SEMVER}-RC${BETA_BUILD} BRANCH=${CIRCLE_BRANCH} commit
               make VERSION=${SPEC_OA3_SEMVER}-RC${BETA_BUILD} publish
             fi
 
@@ -65,7 +65,7 @@ jobs:
               if [[ PUBLISH_RELEASE = 'true' ]]; then
                 echo 'MASTER & RELEASE SO BUILDING PROD VERSION'
                 make VERSION=${SPEC_OA3_SEMVER} build
-                make VERSION=${SPEC_OA3_SEMVER} commit
+                make VERSION=${SPEC_OA3_SEMVER} BRANCH=${CIRCLE_BRANCH} commit
                 make VERSION=${SPEC_OA3_SEMVER} publish
               fi
             fi

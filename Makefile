@@ -77,7 +77,7 @@ commit: ## Commit & Push generated client to git repo
 	sed -i.bak 's/"version": ".*"/"version": "${VERSION}"/g' composer.json && rm composer.json.bak
 	git add --all
 	git commit -am 'bump version to ${VERSION}'
-	git push --set-upstream origin master
+	git push --set-upstream origin ${BRANCH}
 
 build: ## Build compiled package (optional per sdk)
 	@echo "Packagist polls tags on github ... tag and push"
