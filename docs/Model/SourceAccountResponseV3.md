@@ -21,6 +21,6 @@ Name | Type | Description | Notes
 **country** | **string** | The two character ISO country code for the associated account | [optional]
 **deleted** | **bool** | An optional flag for whether the source account has been deleted. Only present in the response if true. | [optional]
 **user_deleted** | **bool** | An optional flag for whether the source account has been deleted by a user. Only present in the response if true. | [optional]
-**deleted_at** | [**\DateTime**](\DateTime.md) | An optional timestamp when the source account has been deleted. Only present in the response if deleted. | [optional]
+**deleted_at** | **\DateTime** | An optional timestamp when the source account has been deleted. Only present in the response if deleted. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

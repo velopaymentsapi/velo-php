@@ -222,11 +222,14 @@ class PaymentAuditServiceApiTest extends TestCase
         $submitted_date_from = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
         $submitted_date_to = null; // new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
         $from_payor_name = null;
+        $scheduled_for_date_from = null;
+        $scheduled_for_date_to = null;
+        $schedule_status = null;
         $page = 1; // int | Page number. Default is 1.
         $page_size = 25; // int | The number of results to return in a page
         $sort = 'submittedDateTime:asc'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status.
 
-        $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort);
+        $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $page, $page_size, $sort);
         $this->assertGreaterThan(0, count($result['content']));
     }
 
@@ -287,13 +290,16 @@ class PaymentAuditServiceApiTest extends TestCase
         $submitted_date_from = "2013-10-20"; // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
         $submitted_date_to = "2021-10-20"; // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
         $payment_memo = null; // string | The payment memo filter. This filters via a case insensitive substring match.
+        $scheduled_for_date_from = null;
+        $scheduled_for_date_to = null;
+        $schedule_status = null;
         $page = 1; // int | Page number. Default is 1.
         $page_size = 25; // int | The number of results to return in a page
         $sort = 'sourceAmount:asc'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by remoteId The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime and status
         $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
 
 
-        $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive);
+        $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $page, $page_size, $sort, $sensitive);
         $this->assertGreaterThan(0, count($result['content']));
     }
 }

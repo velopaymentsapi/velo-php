@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
  **resend_token_request** | [**\VeloPayments\Client\Model\ResendTokenRequest**](../Model/ResendTokenRequest.md)| The type of token to resend |
 
 ### Return type

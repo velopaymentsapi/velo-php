@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **accounts** | [**\VeloPayments\Client\Model\SourceAccountV3[]**](SourceAccountV3.md) |  |
 **accepted_payments** | [**\VeloPayments\Client\Model\AcceptedPaymentV3[]**](AcceptedPaymentV3.md) |  |
 **rejected_payments** | [**\VeloPayments\Client\Model\RejectedPaymentV3[]**](RejectedPaymentV3.md) |  |
+**schedule** | [**\VeloPayments\Client\Model\PayoutSchedule2**](PayoutSchedule2.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

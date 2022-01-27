@@ -58,7 +58,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| &lt;p&gt;The Payor ID for whom you wish to run the report.&lt;/p&gt; &lt;p&gt;For a Payor requesting the report, this could be their exact Payor, or it could be a child/descendant Payor.&lt;/p&gt; | [optional]
+ **payor_id** | **string**| &lt;p&gt;The Payor ID for whom you wish to run the report.&lt;/p&gt; &lt;p&gt;For a Payor requesting the report, this could be their exact Payor, or it could be a child/descendant Payor.&lt;/p&gt; | [optional]
  **start_date** | **\DateTime**| Start date, inclusive. Format is YYYY-MM-DD | [optional]
  **end_date** | **\DateTime**| End date, inclusive. Format is YYYY-MM-DD | [optional]
  **include** | **string**| &lt;p&gt;Mode to determine whether to include other Payor&#39;s data in the results.&lt;/p&gt; &lt;p&gt;May only be used if payorId is specified.&lt;/p&gt; &lt;p&gt;Can be omitted or set to &#39;payorOnly&#39; or &#39;payorAndDescendants&#39;.&lt;/p&gt; &lt;p&gt;payorOnly: Only include results for the specified Payor. This is the default if &#39;include&#39; is omitted.&lt;/p&gt; &lt;p&gt;payorAndDescendants: Aggregate results for all descendant Payors of the specified Payor. Should only be used if the Payor with the specified payorId has at least one child Payor.&lt;/p&gt; &lt;p&gt;Note when a Payor requests the report and include&#x3D;payorAndDescendants is used, the following additional columns are included in the CSV: Payor Name, Payor Id&lt;/p&gt; | [optional]
@@ -124,7 +124,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | **string**| The account owner Payor ID |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields. Example: &#x60;&#x60;&#x60;?sort&#x3D;destinationCurrency:asc,destinationAmount:asc&#x60;&#x60;&#x60; Default is no sort. The supported sort fields are: dateTime and amount. | [optional]
@@ -188,7 +188,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**string**](../Model/.md)| Payment Id |
+ **payment_id** | **string**| Payment Id |
  **sensitive** | **bool**| Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values. | [optional]
 
 ### Return type
@@ -263,7 +263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| The id (UUID) of the payout. |
+ **payout_id** | **string**| The id (UUID) of the payout. |
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **remote_system_id** | **string**| The id of the remote system that is orchestrating payments | [optional]
  **status** | **string**| Payment Status | [optional]
@@ -337,7 +337,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID. Required for external users. | [optional]
+ **payor_id** | **string**| The account owner Payor ID. Required for external users. | [optional]
 
 ### Return type
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 ## `getPayoutsForPayorV4()`
 
 ```php
-getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort): \VeloPayments\Client\Model\GetPayoutsResponse
+getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $page, $page_size, $sort): \VeloPayments\Client\Model\GetPayoutsResponse
 ```
 
 Get Payouts for Payor
@@ -389,12 +389,15 @@ $status = 'status_example'; // string | Payout Status
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
 $from_payor_name = 'from_payor_name_example'; // string | The name of the payor whose payees are being paid. This filters via a case insensitive substring match.
+$scheduled_for_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter payouts scheduled to run on or after the given date. Format is yyyy-MM-dd.
+$scheduled_for_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter payouts scheduled to run on or before the given date. Format is yyyy-MM-dd.
+$schedule_status = 'schedule_status_example'; // string | Payout Schedule Status
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
-$sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status, totalPayments, payoutId
+$sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status, totalPayments, payoutId, scheduledFor
 
 try {
-    $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $page, $page_size, $sort);
+    $result = $apiInstance->getPayoutsForPayorV4($payor_id, $payout_memo, $status, $submitted_date_from, $submitted_date_to, $from_payor_name, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->getPayoutsForPayorV4: ', $e->getMessage(), PHP_EOL;
@@ -405,15 +408,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The id (UUID) of the payor funding the payout or the payor whose payees are being paid. | [optional]
+ **payor_id** | **string**| The id (UUID) of the payor funding the payout or the payor whose payees are being paid. | [optional]
  **payout_memo** | **string**| Payout Memo filter - case insensitive sub-string match | [optional]
  **status** | **string**| Payout Status | [optional]
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
  **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional]
  **from_payor_name** | **string**| The name of the payor whose payees are being paid. This filters via a case insensitive substring match. | [optional]
+ **scheduled_for_date_from** | **\DateTime**| Filter payouts scheduled to run on or after the given date. Format is yyyy-MM-dd. | [optional]
+ **scheduled_for_date_to** | **\DateTime**| Filter payouts scheduled to run on or before the given date. Format is yyyy-MM-dd. | [optional]
+ **schedule_status** | **string**| Payout Schedule Status | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
- **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status, totalPayments, payoutId | [optional]
+ **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,instructedDateTime:asc,status:asc) Default is submittedDateTime:asc The supported sort fields are: submittedDateTime, instructedDateTime, status, totalPayments, payoutId, scheduledFor | [optional]
 
 ### Return type
 
@@ -476,7 +482,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID to find associated Payments |
+ **payor_id** | **string**| The Payor ID to find associated Payments |
  **updated_since** | **\DateTime**| The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 100]
@@ -501,7 +507,7 @@ Name | Type | Description  | Notes
 ## `listPaymentsAuditV4()`
 
 ```php
-listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListPaymentsResponseV4
+listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListPaymentsResponseV4
 ```
 
 Get List of Payments
@@ -542,13 +548,16 @@ $payment_currency = 'payment_currency_example'; // string | The payment currency
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
 $payment_memo = 'payment_memo_example'; // string | The payment memo filter. This filters via a case insensitive substring match.
+$scheduled_for_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter payouts scheduled to run on or after the given date. Format is yyyy-MM-dd.
+$scheduled_for_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter payouts scheduled to run on or before the given date. Format is yyyy-MM-dd.
+$schedule_status = 'schedule_status_example'; // string | Payout Schedule Status
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by submittedDateTime:desc,paymentId:asc The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime, status and paymentId
 $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
 
 try {
-    $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $page, $page_size, $sort, $sensitive);
+    $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $page, $page_size, $sort, $sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentsAuditV4: ', $e->getMessage(), PHP_EOL;
@@ -559,8 +568,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. | [optional]
- **payor_id** | [**string**](../Model/.md)| The account owner Payor Id. Required for external users. | [optional]
+ **payee_id** | **string**| The UUID of the payee. | [optional]
+ **payor_id** | **string**| The account owner Payor Id. Required for external users. | [optional]
  **payor_name** | **string**| The payor’s name. This filters via a case insensitive substring match. | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **remote_system_id** | **string**| The id of the remote system that is orchestrating payments | [optional]
@@ -576,6 +585,9 @@ Name | Type | Description  | Notes
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
  **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional]
  **payment_memo** | **string**| The payment memo filter. This filters via a case insensitive substring match. | [optional]
+ **scheduled_for_date_from** | **\DateTime**| Filter payouts scheduled to run on or after the given date. Format is yyyy-MM-dd. | [optional]
+ **scheduled_for_date_to** | **\DateTime**| Filter payouts scheduled to run on or before the given date. Format is yyyy-MM-dd. | [optional]
+ **schedule_status** | **string**| Payout Schedule Status | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,status:asc). Default is sort by submittedDateTime:desc,paymentId:asc The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime, status and paymentId | [optional]

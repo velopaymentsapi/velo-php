@@ -59,8 +59,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. | [optional]
+ **payor_id** | **string**| The account owner Payor ID |
+ **payee_id** | **string**| The UUID of the payee. | [optional]
  **invitation_status** | [**\VeloPayments\Client\Model\InvitationStatus**](../Model/.md)| The invitation status of the payees. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
@@ -127,8 +127,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. | [optional]
+ **payor_id** | **string**| The account owner Payor ID |
+ **payee_id** | **string**| The UUID of the payee. | [optional]
  **invitation_status** | [**\VeloPayments\Client\Model\InvitationStatus**](../Model/.md)| The invitation status of the payees. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
@@ -191,7 +191,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_id** | [**string**](../Model/.md)| Batch Id |
+ **batch_id** | **string**| Batch Id |
 
 ### Return type
 
@@ -251,7 +251,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **batch_id** | [**string**](../Model/.md)| Batch Id |
+ **batch_id** | **string**| Batch Id |
 
 ### Return type
 
@@ -311,7 +311,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **invite_payee_request** | [**\VeloPayments\Client\Model\InvitePayeeRequest**](../Model/InvitePayeeRequest.md)| Provide Payor Id in body of request |
 
 ### Return type
@@ -372,7 +372,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **invite_payee_request2** | [**\VeloPayments\Client\Model\InvitePayeeRequest2**](../Model/InvitePayeeRequest2.md)| Provide Payor Id in body of request |
 
 ### Return type

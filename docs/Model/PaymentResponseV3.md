@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **payment_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrencyV3**](PaymentAuditCurrencyV3.md) |  | [optional]
 **rate** | **float** | The FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
 **inverted_rate** | **float** | The inverted FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
-**submitted_date_time** | [**\DateTime**](\DateTime.md) |  |
+**submitted_date_time** | **\DateTime** |  |
 **status** | **string** |  |
 **funding_status** | **string** | The funding status of the payment |
 **routing_number** | **string** | The routing number for the payment. | [optional]

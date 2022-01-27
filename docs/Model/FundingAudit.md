@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **double** | The amount funded | [optional]
 **currency** | **string** | The currency of the funding | [optional]
-**date_time** | [**\DateTime**](\DateTime.md) |  | [optional]
+**date_time** | **\DateTime** |  | [optional]
 **status** | **string** |  | [optional]
 **source_account_name** | **string** |  | [optional]
 **funding_account_name** | **string** |  | [optional]

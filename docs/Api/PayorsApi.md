@@ -55,7 +55,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
+ **payor_id** | **string**| The Payor Id |
 
 ### Return type
 
@@ -115,7 +115,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
+ **payor_id** | **string**| The Payor Id |
 
 ### Return type
 
@@ -175,7 +175,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
+ **payor_id** | **string**| The Payor Id |
  **logo** | **\SplFileObject****\SplFileObject**|  | [optional]
 
 ### Return type
@@ -238,8 +238,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
- **application_id** | [**string**](../Model/.md)| Application ID |
+ **payor_id** | **string**| The Payor Id |
+ **application_id** | **string**| Application ID |
  **payor_create_api_key_request** | [**\VeloPayments\Client\Model\PayorCreateApiKeyRequest**](../Model/PayorCreateApiKeyRequest.md)| Details of application API key to create |
 
 ### Return type
@@ -300,7 +300,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
+ **payor_id** | **string**| The Payor Id |
  **payor_create_application_request** | [**\VeloPayments\Client\Model\PayorCreateApplicationRequest**](../Model/PayorCreateApplicationRequest.md)| Details of application to create |
 
 ### Return type
@@ -361,7 +361,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
+ **payor_id** | **string**| The Payor Id |
  **payor_email_opt_out_request** | [**\VeloPayments\Client\Model\PayorEmailOptOutRequest**](../Model/PayorEmailOptOutRequest.md)| Reminder Emails Opt-Out Request |
 
 ### Return type
@@ -422,7 +422,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor Id |
+ **payor_id** | **string**| The Payor Id |
 
 ### Return type
 
@@ -484,8 +484,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **descendants_of_payor** | [**string**](../Model/.md)| The Payor ID from which to start the query to show all descendants | [optional]
- **parent_of_payor** | [**string**](../Model/.md)| Look for the parent payor details for this payor id | [optional]
+ **descendants_of_payor** | **string**| The Payor ID from which to start the query to show all descendants | [optional]
+ **parent_of_payor** | **string**| Look for the parent payor details for this payor id | [optional]
  **fields** | **string**| List of additional Payor fields to include in the response for each Payor. The values of payorId and payorName and always included for each Payor - &#39;fields&#39; allows you to add to this. Example: &#x60;&#x60;&#x60;fields&#x3D;primaryContactEmail,kycState&#x60;&#x60;&#x60; - will include payorId+payorName+primaryContactEmail+kycState for each Payor Default if not specified is to include only payorId and payorName. The supported fields are any combination of: primaryContactEmail,kycState | [optional]
 
 ### Return type

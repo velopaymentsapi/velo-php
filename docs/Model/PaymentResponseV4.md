@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **rate** | **double** | The FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
 **inverted_rate** | **double** | The inverted FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
 **is_payment_ccy_base_ccy** | **bool** |  | [optional]
-**submitted_date_time** | [**\DateTime**](\DateTime.md) |  |
+**submitted_date_time** | **\DateTime** |  |
 **status** | **string** |  |
 **funding_status** | **string** | The funding status of the payment |
 **routing_number** | **string** | The routing number for the payment. | [optional]
@@ -45,9 +45,11 @@ Name | Type | Description | Notes
 **rejection_reason** | **string** |  | [optional]
 **withdrawn_reason** | **string** |  | [optional]
 **withdrawable** | **bool** |  | [optional]
+**auto_withdrawn_reason_code** | **string** | Populated with rejection reason code if the payment was withdrawn automatically at instruct time | [optional]
 **transmission_type** | **string** | The transmission type of the payment, e.g. ACH, SAME_DAY_ACH, WIRE | [optional]
 **payment_tracking_reference** | **string** |  | [optional]
 **payment_metadata** | **string** | Metadata for the payment | [optional]
+**schedule** | [**\VeloPayments\Client\Model\PayoutSchedule**](PayoutSchedule.md) |  | [optional]
 **payout** | [**\VeloPayments\Client\Model\PaymentResponseV4Payout**](PaymentResponseV4Payout.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

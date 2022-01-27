@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **quote_id** | **string** |  |
-**creation_date_time** | [**\DateTime**](\DateTime.md) |  |
+**creation_date_time** | **\DateTime** |  |
 **rate** | **double** |  |
 **inverted_rate** | **double** |  |
 **total_cost** | **int** |  |

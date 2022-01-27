@@ -57,7 +57,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID for whom you wish to run the report. For a Payor requesting the report, this could be their exact Payor, or it could be a child/descendant Payor. | [optional]
+ **payor_id** | **string**| The Payor ID for whom you wish to run the report. For a Payor requesting the report, this could be their exact Payor, or it could be a child/descendant Payor. | [optional]
  **start_date** | **\DateTime**| Start date, inclusive. Format is YYYY-MM-DD | [optional]
  **end_date** | **\DateTime**| End date, inclusive. Format is YYYY-MM-DD | [optional]
 
@@ -122,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | **string**| The account owner Payor ID |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields. Example: &#x60;&#x60;&#x60;?sort&#x3D;destinationCurrency:asc,destinationAmount:asc&#x60;&#x60;&#x60; Default is no sort. The supported sort fields are: dateTime and amount. | [optional]
@@ -186,7 +186,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**string**](../Model/.md)| Payment Id |
+ **payment_id** | **string**| Payment Id |
  **sensitive** | **bool**| Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values. | [optional]
 
 ### Return type
@@ -259,7 +259,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| The id (UUID) of the payout. |
+ **payout_id** | **string**| The id (UUID) of the payout. |
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **status** | **string**| Payment Status | [optional]
  **source_amount_from** | **int**| The source amount from range filter. Filters for sourceAmount &gt;&#x3D; sourceAmountFrom | [optional]
@@ -331,7 +331,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID. Required for external users. | [optional]
+ **payor_id** | **string**| The account owner Payor ID. Required for external users. | [optional]
 
 ### Return type
 
@@ -398,7 +398,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | **string**| The account owner Payor ID |
  **payout_memo** | **string**| Payout Memo filter - case insensitive sub-string match | [optional]
  **status** | **string**| Payout Status | [optional]
  **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional]
@@ -468,7 +468,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID to find associated Payments |
+ **payor_id** | **string**| The Payor ID to find associated Payments |
  **updated_since** | **\DateTime**| The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 100]
@@ -549,8 +549,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. | [optional]
- **payor_id** | [**string**](../Model/.md)| The account owner Payor Id. Required for external users. | [optional]
+ **payee_id** | **string**| The UUID of the payee. | [optional]
+ **payor_id** | **string**| The account owner Payor Id. Required for external users. | [optional]
  **payor_name** | **string**| The payor’s name. This filters via a case insensitive substring match. | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **status** | **string**| Payment Status | [optional]

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **payor_refs** | [**\VeloPayments\Client\Model\PayeePayorRef[]**](PayeePayorRef.md) |  | [optional] [readonly]
 **email** | **string** |  |
 **remote_id** | **string** |  |
-**type** | [**\VeloPayments\Client\Model\PayeeType**](PayeeType.md) |  |
+**type** | [**\VeloPayments\Client\Model\PayeeType2**](PayeeType2.md) |  |
 **address** | [**\VeloPayments\Client\Model\CreatePayeeAddress2**](CreatePayeeAddress2.md) |  |
 **payment_channel** | [**\VeloPayments\Client\Model\CreatePaymentChannel2**](CreatePaymentChannel2.md) |  | [optional]
 **challenge** | [**\VeloPayments\Client\Model\Challenge2**](Challenge2.md) |  | [optional]

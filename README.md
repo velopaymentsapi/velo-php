@@ -1,5 +1,5 @@
 # PHP client for Velo
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![npm version](https://badge.fury.io/ph/velopaymentsapi%2Fvelo-php.svg)](https://badge.fury.io/ph/velopaymentsapi%2Fvelo-php) [![CircleCI](https://circleci.com/gh/velopaymentsapi/velo-php.svg?style=svg)](https://circleci.com/gh/velopaymentsapi/velo-php)\
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![npm version](https://badge.fury.io/ph/velopaymentsapi%2Fvelo-php.svg)](https://badge.fury.io/ph/velopaymentsapi%2Fvelo-php) [![CircleCI](https://circleci.com/gh/velopaymentsapi/velo-php.svg?style=svg)](https://circleci.com/gh/velopaymentsapi/velo-php)
  
 This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https://apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure.
 Throughout this document and the Velo platform the following terms are used:
@@ -80,7 +80,8 @@ If you make other Velo API calls which require authorization but the Authorizati
 
 ### Requirements
 
-PHP 7.2 and later.
+PHP 7.3 and later.
+Should also work with PHP 8.0 but has not been tested.
 
 ### Composer
 
@@ -220,9 +221,11 @@ Class | Method | HTTP request | Description
 *PayorsApi* | [**payorLinks**](docs/Api/PayorsApi.md#payorlinks) | **GET** /v1/payorLinks | List Payor Links
 *PayorsPrivateApi* | [**createPayorLinks**](docs/Api/PayorsPrivateApi.md#createpayorlinks) | **POST** /v1/payorLinks | Create a Payor Link
 *PayoutServiceApi* | [**createQuoteForPayoutV3**](docs/Api/PayoutServiceApi.md#createquoteforpayoutv3) | **POST** /v3/payouts/{payoutId}/quote | Create a quote for the payout
+*PayoutServiceApi* | [**deschedulePayout**](docs/Api/PayoutServiceApi.md#deschedulepayout) | **DELETE** /v3/payouts/{payoutId}/schedule | Deschedule a payout
 *PayoutServiceApi* | [**getPaymentsForPayoutV3**](docs/Api/PayoutServiceApi.md#getpaymentsforpayoutv3) | **GET** /v3/payouts/{payoutId}/payments | Retrieve payments for a payout
 *PayoutServiceApi* | [**getPayoutSummaryV3**](docs/Api/PayoutServiceApi.md#getpayoutsummaryv3) | **GET** /v3/payouts/{payoutId} | Get Payout Summary
 *PayoutServiceApi* | [**instructPayoutV3**](docs/Api/PayoutServiceApi.md#instructpayoutv3) | **POST** /v3/payouts/{payoutId} | Instruct Payout
+*PayoutServiceApi* | [**scheduleForPayout**](docs/Api/PayoutServiceApi.md#scheduleforpayout) | **POST** /v3/payouts/{payoutId}/schedule | Schedule a payout
 *PayoutServiceApi* | [**submitPayoutV3**](docs/Api/PayoutServiceApi.md#submitpayoutv3) | **POST** /v3/payouts | Submit Payout
 *PayoutServiceApi* | [**withdrawPayment**](docs/Api/PayoutServiceApi.md#withdrawpayment) | **POST** /v1/payments/{paymentId}/withdraw | Withdraw a Payment
 *PayoutServiceApi* | [**withdrawPayoutV3**](docs/Api/PayoutServiceApi.md#withdrawpayoutv3) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
@@ -331,6 +334,7 @@ Class | Method | HTTP request | Description
 - [InlineResponse404](docs/Model/InlineResponse404.md)
 - [InlineResponse409](docs/Model/InlineResponse409.md)
 - [InlineResponse412](docs/Model/InlineResponse412.md)
+- [InstructPayoutRequest](docs/Model/InstructPayoutRequest.md)
 - [InvitationStatus](docs/Model/InvitationStatus.md)
 - [InvitationStatus2](docs/Model/InvitationStatus2.md)
 - [InvitePayeeRequest](docs/Model/InvitePayeeRequest.md)
@@ -400,6 +404,7 @@ Class | Method | HTTP request | Description
 - [PayeePayorRef](docs/Model/PayeePayorRef.md)
 - [PayeePayorRefV3](docs/Model/PayeePayorRefV3.md)
 - [PayeeType](docs/Model/PayeeType.md)
+- [PayeeType2](docs/Model/PayeeType2.md)
 - [PayeeUserSelfUpdateRequest](docs/Model/PayeeUserSelfUpdateRequest.md)
 - [PaymentAuditCurrency](docs/Model/PaymentAuditCurrency.md)
 - [PaymentAuditCurrencyV3](docs/Model/PaymentAuditCurrencyV3.md)
@@ -445,6 +450,8 @@ Class | Method | HTTP request | Description
 - [PayoutPayor](docs/Model/PayoutPayor.md)
 - [PayoutPayorIds](docs/Model/PayoutPayorIds.md)
 - [PayoutPrincipal](docs/Model/PayoutPrincipal.md)
+- [PayoutSchedule](docs/Model/PayoutSchedule.md)
+- [PayoutSchedule2](docs/Model/PayoutSchedule2.md)
 - [PayoutStatus](docs/Model/PayoutStatus.md)
 - [PayoutStatusV3](docs/Model/PayoutStatusV3.md)
 - [PayoutSummaryAudit](docs/Model/PayoutSummaryAudit.md)
@@ -464,6 +471,9 @@ Class | Method | HTTP request | Description
 - [ResetPasswordRequest](docs/Model/ResetPasswordRequest.md)
 - [Role](docs/Model/Role.md)
 - [RoleUpdateRequest](docs/Model/RoleUpdateRequest.md)
+- [SchedulePayoutRequest](docs/Model/SchedulePayoutRequest.md)
+- [ScheduleStatus](docs/Model/ScheduleStatus.md)
+- [ScheduleStatus2](docs/Model/ScheduleStatus2.md)
 - [SelfMFATypeUnregisterRequest](docs/Model/SelfMFATypeUnregisterRequest.md)
 - [SelfUpdatePasswordRequest](docs/Model/SelfUpdatePasswordRequest.md)
 - [SetNotificationsRequest](docs/Model/SetNotificationsRequest.md)
@@ -546,6 +556,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.26.127`
-    - Package version: `2.26.127`
+- API version: `2.29.127`
+    - Package version: `2.29.130`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

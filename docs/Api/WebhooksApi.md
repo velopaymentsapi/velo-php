@@ -111,7 +111,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | [**string**](../Model/.md)| Webhook id |
+ **webhook_id** | **string**| Webhook id |
 
 ### Return type
 
@@ -173,7 +173,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID |
+ **payor_id** | **string**| The Payor ID |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
 
@@ -233,7 +233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | [**string**](../Model/.md)| Webhook id |
+ **webhook_id** | **string**| Webhook id |
 
 ### Return type
 
@@ -293,7 +293,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhook_id** | [**string**](../Model/.md)| Webhook id |
+ **webhook_id** | **string**| Webhook id |
  **update_webhook_request** | [**\VeloPayments\Client\Model\UpdateWebhookRequest**](../Model/UpdateWebhookRequest.md)|  | [optional]
 
 ### Return type

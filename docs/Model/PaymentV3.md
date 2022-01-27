@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **transmission_type** | [**\VeloPayments\Client\Model\TransmissionType**](TransmissionType.md) |  | [optional]
 **remote_system_id** | **string** |  | [optional]
 **payment_metadata** | **string** |  | [optional]
+**auto_withdrawn_reason_code** | **string** | Populated only if the payment was automatically withdrawn during instruction for being invalid | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**transaction_date** | [**\DateTime**](\DateTime.md) |  | [optional]
+**transaction_date** | **\DateTime** |  | [optional]
 **transaction_time** | **string** |  | [optional]
 **report_transaction_type** | **string** |  | [optional]
 **debit** | **int** |  | [optional]

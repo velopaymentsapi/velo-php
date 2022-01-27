@@ -107,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
 
 ### Return type
 

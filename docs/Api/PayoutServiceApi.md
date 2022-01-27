@@ -5,9 +5,11 @@ All URIs are relative to https://api.sandbox.velopayments.com.
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createQuoteForPayoutV3()**](PayoutServiceApi.md#createQuoteForPayoutV3) | **POST** /v3/payouts/{payoutId}/quote | Create a quote for the payout
+[**deschedulePayout()**](PayoutServiceApi.md#deschedulePayout) | **DELETE** /v3/payouts/{payoutId}/schedule | Deschedule a payout
 [**getPaymentsForPayoutV3()**](PayoutServiceApi.md#getPaymentsForPayoutV3) | **GET** /v3/payouts/{payoutId}/payments | Retrieve payments for a payout
 [**getPayoutSummaryV3()**](PayoutServiceApi.md#getPayoutSummaryV3) | **GET** /v3/payouts/{payoutId} | Get Payout Summary
 [**instructPayoutV3()**](PayoutServiceApi.md#instructPayoutV3) | **POST** /v3/payouts/{payoutId} | Instruct Payout
+[**scheduleForPayout()**](PayoutServiceApi.md#scheduleForPayout) | **POST** /v3/payouts/{payoutId}/schedule | Schedule a payout
 [**submitPayoutV3()**](PayoutServiceApi.md#submitPayoutV3) | **POST** /v3/payouts | Submit Payout
 [**withdrawPayment()**](PayoutServiceApi.md#withdrawPayment) | **POST** /v1/payments/{paymentId}/withdraw | Withdraw a Payment
 [**withdrawPayoutV3()**](PayoutServiceApi.md#withdrawPayoutV3) | **DELETE** /v3/payouts/{payoutId} | Withdraw Payout
@@ -54,11 +56,70 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| Id of the payout |
+ **payout_id** | **string**| Id of the payout |
 
 ### Return type
 
 [**\VeloPayments\Client\Model\QuoteResponseV3**](../Model/QuoteResponseV3.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deschedulePayout()`
+
+```php
+deschedulePayout($payout_id)
+```
+
+Deschedule a payout
+
+Remove the schedule for a scheduled payout
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayoutServiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payout_id = 'payout_id_example'; // string | Id of the payout
+
+try {
+    $apiInstance->deschedulePayout($payout_id);
+} catch (Exception $e) {
+    echo 'Exception when calling PayoutServiceApi->deschedulePayout: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payout_id** | **string**| Id of the payout |
+
+### Return type
+
+void (empty response body)
 
 ### Authorization
 
@@ -122,7 +183,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| Id of the payout |
+ **payout_id** | **string**| Id of the payout |
  **status** | **string**| Payment Status * ACCEPTED: any payment which was accepted at submission time (status may have changed since) * REJECTED: any payment rejected by initial submission processing * WITHDRAWN: any payment which has been withdrawn * WITHDRAWABLE: any payment eligible for withdrawal | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
  **payor_payment_id** | **string**| Payor&#39;s Id of the Payment | [optional]
@@ -190,7 +251,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| Id of the payout |
+ **payout_id** | **string**| Id of the payout |
 
 ### Return type
 
@@ -212,7 +273,7 @@ Name | Type | Description  | Notes
 ## `instructPayoutV3()`
 
 ```php
-instructPayoutV3($payout_id)
+instructPayoutV3($payout_id, $instruct_payout_request)
 ```
 
 Instruct Payout
@@ -237,9 +298,10 @@ $apiInstance = new VeloPayments\Client\Api\PayoutServiceApi(
     $config
 );
 $payout_id = 'payout_id_example'; // string | Id of the payout
+$instruct_payout_request = new \VeloPayments\Client\Model\InstructPayoutRequest(); // \VeloPayments\Client\Model\InstructPayoutRequest | Additional instruct payout parameters
 
 try {
-    $apiInstance->instructPayoutV3($payout_id);
+    $apiInstance->instructPayoutV3($payout_id, $instruct_payout_request);
 } catch (Exception $e) {
     echo 'Exception when calling PayoutServiceApi->instructPayoutV3: ', $e->getMessage(), PHP_EOL;
 }
@@ -249,7 +311,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| Id of the payout |
+ **payout_id** | **string**| Id of the payout |
+ **instruct_payout_request** | [**\VeloPayments\Client\Model\InstructPayoutRequest**](../Model/InstructPayoutRequest.md)| Additional instruct payout parameters | [optional]
 
 ### Return type
 
@@ -261,7 +324,68 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `scheduleForPayout()`
+
+```php
+scheduleForPayout($payout_id, $schedule_payout_request)
+```
+
+Schedule a payout
+
+<p>Schedule a payout for auto-instruction in the future or update existing payout schedule if the payout has been scheduled before.</p>
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayoutServiceApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$payout_id = 'payout_id_example'; // string | Id of the payout
+$schedule_payout_request = new \VeloPayments\Client\Model\SchedulePayoutRequest(); // \VeloPayments\Client\Model\SchedulePayoutRequest | schedule payout parameters
+
+try {
+    $apiInstance->scheduleForPayout($payout_id, $schedule_payout_request);
+} catch (Exception $e) {
+    echo 'Exception when calling PayoutServiceApi->scheduleForPayout: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **payout_id** | **string**| Id of the payout |
+ **schedule_payout_request** | [**\VeloPayments\Client\Model\SchedulePayoutRequest**](../Model/SchedulePayoutRequest.md)| schedule payout parameters | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -368,7 +492,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payment_id** | [**string**](../Model/.md)| Id of the Payment |
+ **payment_id** | **string**| Id of the Payment |
  **withdraw_payment_request** | [**\VeloPayments\Client\Model\WithdrawPaymentRequest**](../Model/WithdrawPaymentRequest.md)| details for withdrawal |
 
 ### Return type
@@ -396,7 +520,7 @@ withdrawPayoutV3($payout_id)
 
 Withdraw Payout
 
-Withdraw Payout will delete payout details from payout service and rails services but will just move the status of the payout to WITHDRAWN in payment audit.
+Withdraw Payout will remove the payout details from the rails but the payout will still be accessible in payout service in WITHDRAWN status.
 
 ### Example
 
@@ -428,7 +552,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payout_id** | [**string**](../Model/.md)| Id of the payout |
+ **payout_id** | **string**| Id of the payout |
 
 ### Return type
 

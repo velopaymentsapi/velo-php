@@ -63,7 +63,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
 
 ### Return type
 
@@ -122,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
 
 ### Return type
 
@@ -181,7 +181,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
 
 ### Return type
 
@@ -298,7 +298,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
 
 ### Return type
 
@@ -379,7 +379,7 @@ void (empty response body)
 ## `listUsers()`
 
 ```php
-listUsers($type, $status, $entity_id, $page, $page_size, $sort): \VeloPayments\Client\Model\PagedUserResponse
+listUsers($type, $status, $entity_id, $payee_type, $page, $page_size, $sort): \VeloPayments\Client\Model\PagedUserResponse
 ```
 
 List Users
@@ -406,12 +406,13 @@ $apiInstance = new VeloPayments\Client\Api\UsersApi(
 $type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserType(); // \VeloPayments\Client\Model\UserType | The Type of the User.
 $status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserStatus(); // \VeloPayments\Client\Model\UserStatus | The status of the User.
 $entity_id = 'entity_id_example'; // string | The entityId of the User.
+$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The Type of the Payee entity. Either COMPANY or INDIVIDUAL.
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'email:asc'; // string | List of sort fields (e.g. ?sort=email:asc,lastName:asc) Default is email:asc 'name' The supported sort fields are - email, lastNmae.
 
 try {
-    $result = $apiInstance->listUsers($type, $status, $entity_id, $page, $page_size, $sort);
+    $result = $apiInstance->listUsers($type, $status, $entity_id, $payee_type, $page, $page_size, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->listUsers: ', $e->getMessage(), PHP_EOL;
@@ -424,7 +425,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | [**\VeloPayments\Client\Model\UserType**](../Model/.md)| The Type of the User. | [optional]
  **status** | [**\VeloPayments\Client\Model\UserStatus**](../Model/.md)| The status of the User. | [optional]
- **entity_id** | [**string**](../Model/.md)| The entityId of the User. | [optional]
+ **entity_id** | **string**| The entityId of the User. | [optional]
+ **payee_type** | [**\VeloPayments\Client\Model\PayeeType**](../Model/.md)| The Type of the Payee entity. Either COMPANY or INDIVIDUAL. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;email:asc,lastName:asc) Default is email:asc &#39;name&#39; The supported sort fields are - email, lastNmae. | [optional] [default to &#39;email:asc&#39;]
@@ -546,7 +548,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
  **resend_token_request** | [**\VeloPayments\Client\Model\ResendTokenRequest**](../Model/ResendTokenRequest.md)| The type of token to resend |
 
 ### Return type
@@ -607,7 +609,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
  **role_update_request** | [**\VeloPayments\Client\Model\RoleUpdateRequest**](../Model/RoleUpdateRequest.md)| The Role to change to |
 
 ### Return type
@@ -667,7 +669,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
 
 ### Return type
 
@@ -727,7 +729,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
  **unregister_mfa_request** | [**\VeloPayments\Client\Model\UnregisterMFARequest**](../Model/UnregisterMFARequest.md)| The MFA Type to unregister |
 
 ### Return type
@@ -908,7 +910,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_id** | [**string**](../Model/.md)| The UUID of the User. |
+ **user_id** | **string**| The UUID of the User. |
  **user_details_update_request** | [**\VeloPayments\Client\Model\UserDetailsUpdateRequest**](../Model/UserDetailsUpdateRequest.md)| The details of the user to update |
 
 ### Return type

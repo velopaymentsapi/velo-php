@@ -58,7 +58,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
 
 ### Return type
 
@@ -117,7 +117,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
 
 ### Return type
 
@@ -178,7 +178,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **sensitive** | **bool**| Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values. | [optional]
 
 ### Return type
@@ -240,7 +240,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **sensitive** | **bool**| Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values. | [optional]
 
 ### Return type
@@ -304,7 +304,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID to find associated Payees |
+ **payor_id** | **string**| The Payor ID to find associated Payees |
  **updated_since** | **\DateTime**| The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 100. Max allowable is 1000. | [optional] [default to 100]
@@ -370,7 +370,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The Payor ID to find associated Payees |
+ **payor_id** | **string**| The Payor ID to find associated Payees |
  **updated_since** | **\DateTime**| The updatedSince filter in the format YYYY-MM-DDThh:mm:ss+hh:mm |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 100. Max allowable is 1000. | [optional] [default to 100]
@@ -426,7 +426,7 @@ $onboarded_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\On
 $email = bob@example.com; // string | Email address
 $display_name = Bob Smith; // string | The display name of the payees.
 $remote_id = remoteId123; // string | The remote id of the payees.
-$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The onboarded status of the payees.
+$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType2(); // \VeloPayments\Client\Model\PayeeType2 | The onboarded status of the payees.
 $payee_country = US; // string | The country of the payee - 2 letter ISO 3166-1 country code (upper case)
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
@@ -444,14 +444,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | **string**| The account owner Payor ID |
  **watchlist_status** | [**\VeloPayments\Client\Model\WatchlistStatus**](../Model/.md)| The watchlistStatus of the payees. | [optional]
  **disabled** | **bool**| Payee disabled | [optional]
  **onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](../Model/.md)| The onboarded status of the payees. | [optional]
- **email** | [**string**](../Model/.md)| Email address | [optional]
+ **email** | **string**| Email address | [optional]
  **display_name** | **string**| The display name of the payees. | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
- **payee_type** | [**\VeloPayments\Client\Model\PayeeType**](../Model/.md)| The onboarded status of the payees. | [optional]
+ **payee_type** | [**\VeloPayments\Client\Model\PayeeType2**](../Model/.md)| The onboarded status of the payees. | [optional]
  **payee_country** | **string**| The country of the payee - 2 letter ISO 3166-1 country code (upper case) | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
@@ -508,7 +508,7 @@ $onboarded_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\On
 $email = bob@example.com; // string | Email address
 $display_name = Bob Smith; // string | The display name of the payees.
 $remote_id = remoteId123; // string | The remote id of the payees.
-$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The onboarded status of the payees.
+$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType2(); // \VeloPayments\Client\Model\PayeeType2 | The onboarded status of the payees.
 $payee_country = US; // string | The country of the payee - 2 letter ISO 3166-1 country code (upper case)
 $ofac_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\OfacStatus(); // \VeloPayments\Client\Model\OfacStatus | The ofacStatus of the payees.
 $page = 1; // int | Page number. Default is 1.
@@ -527,14 +527,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID |
+ **payor_id** | **string**| The account owner Payor ID |
  **watchlist_status** | [**\VeloPayments\Client\Model\WatchlistStatus**](../Model/.md)| The watchlistStatus of the payees. | [optional]
  **disabled** | **bool**| Payee disabled | [optional]
  **onboarded_status** | [**\VeloPayments\Client\Model\OnboardedStatus**](../Model/.md)| The onboarded status of the payees. | [optional]
- **email** | [**string**](../Model/.md)| Email address | [optional]
+ **email** | **string**| Email address | [optional]
  **display_name** | **string**| The display name of the payees. | [optional]
  **remote_id** | **string**| The remote id of the payees. | [optional]
- **payee_type** | [**\VeloPayments\Client\Model\PayeeType**](../Model/.md)| The onboarded status of the payees. | [optional]
+ **payee_type** | [**\VeloPayments\Client\Model\PayeeType2**](../Model/.md)| The onboarded status of the payees. | [optional]
  **payee_country** | **string**| The country of the payee - 2 letter ISO 3166-1 country code (upper case) | [optional]
  **ofac_status** | [**\VeloPayments\Client\Model\OfacStatus**](../Model/.md)| The ofacStatus of the payees. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
@@ -599,7 +599,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **update_payee_details_request** | [**\VeloPayments\Client\Model\UpdatePayeeDetailsRequest**](../Model/UpdatePayeeDetailsRequest.md)| Request to update payee details |
 
 ### Return type
@@ -627,7 +627,7 @@ payeeDetailsUpdateV4($payee_id, $update_payee_details_request2)
 
 Update Payee Details
 
-<p>Update payee details for the given Payee Id.<p>
+<p>Update payee details for the given Payee Id.</p> <p>Payors may only update the payee details if the payee has not yet onboarded</p>
 
 ### Example
 
@@ -660,7 +660,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **update_payee_details_request2** | [**\VeloPayments\Client\Model\UpdatePayeeDetailsRequest2**](../Model/UpdatePayeeDetailsRequest2.md)| Request to update payee details |
 
 ### Return type
@@ -721,7 +721,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **update_remote_id_request** | [**\VeloPayments\Client\Model\UpdateRemoteIdRequest**](../Model/UpdateRemoteIdRequest.md)| Request to update payee remote id v3 |
 
 ### Return type
@@ -782,7 +782,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payee_id** | [**string**](../Model/.md)| The UUID of the payee. |
+ **payee_id** | **string**| The UUID of the payee. |
  **update_remote_id_request2** | [**\VeloPayments\Client\Model\UpdateRemoteIdRequest2**](../Model/UpdateRemoteIdRequest2.md)| Request to update payee remote id v4 |
 
 ### Return type

@@ -64,7 +64,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
  **funding_request_v1** | [**\VeloPayments\Client\Model\FundingRequestV1**](../Model/FundingRequestV1.md)| Body to included amount to be funded |
 
 ### Return type
@@ -125,7 +125,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
  **funding_request_v2** | [**\VeloPayments\Client\Model\FundingRequestV2**](../Model/FundingRequestV2.md)| Body to included amount to be funded |
 
 ### Return type
@@ -186,7 +186,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
  **funding_request_v3** | [**\VeloPayments\Client\Model\FundingRequestV3**](../Model/FundingRequestV3.md)| Body to included amount to be funded |
 
 ### Return type
@@ -248,7 +248,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **funding_account_id** | [**string**](../Model/.md)|  |
+ **funding_account_id** | **string**|  |
  **sensitive** | **bool**|  | [optional] [default to false]
 
 ### Return type
@@ -310,7 +310,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **funding_account_id** | [**string**](../Model/.md)|  |
+ **funding_account_id** | **string**|  |
  **sensitive** | **bool**|  | [optional] [default to false]
 
 ### Return type
@@ -376,8 +376,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)|  | [optional]
- **source_account_id** | [**string**](../Model/.md)|  | [optional]
+ **payor_id** | **string**|  | [optional]
+ **source_account_id** | **string**|  | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;accountName:asc,name:asc) Default is accountName:asc The supported sort fields are - accountName, name and currency. | [optional] [default to &#39;accountName:asc&#39;]
@@ -449,7 +449,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)|  | [optional]
+ **payor_id** | **string**|  | [optional]
  **name** | **string**| The descriptive funding account name | [optional]
  **country** | **string**| The 2 letter ISO 3166-1 country code (upper case) | [optional]
  **currency** | **string**| The ISO 4217 currency code | [optional]
@@ -517,7 +517,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
 
 ### Return type
 
@@ -577,7 +577,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
 
 ### Return type
 
@@ -637,7 +637,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
 
 ### Return type
 
@@ -702,7 +702,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **physical_account_name** | **string**| Physical Account Name | [optional]
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
+ **payor_id** | **string**| The account owner Payor ID | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields e.g. ?sort&#x3D;name:asc Default is name:asc The supported sort fields are - fundingRef | [optional] [default to &#39;fundingRef:asc&#39;]
@@ -772,9 +772,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **physical_account_name** | **string**| Physical Account Name | [optional]
- **physical_account_id** | [**string**](../Model/.md)| The physical account ID | [optional]
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
- **funding_account_id** | [**string**](../Model/.md)| The funding account ID | [optional]
+ **physical_account_id** | **string**| The physical account ID | [optional]
+ **payor_id** | **string**| The account owner Payor ID | [optional]
+ **funding_account_id** | **string**| The funding account ID | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
  **sort** | **string**| List of sort fields e.g. ?sort&#x3D;name:asc Default is name:asc The supported sort fields are - fundingRef, name, balance | [optional] [default to &#39;fundingRef:asc&#39;]
@@ -846,9 +846,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **physical_account_name** | **string**| Physical Account Name | [optional]
- **physical_account_id** | [**string**](../Model/.md)| The physical account ID | [optional]
- **payor_id** | [**string**](../Model/.md)| The account owner Payor ID | [optional]
- **funding_account_id** | [**string**](../Model/.md)| The funding account ID | [optional]
+ **physical_account_id** | **string**| The physical account ID | [optional]
+ **payor_id** | **string**| The account owner Payor ID | [optional]
+ **funding_account_id** | **string**| The funding account ID | [optional]
  **include_user_deleted** | **bool**| A filter for retrieving both active accounts and user deleted ones | [optional]
  **type** | [**\VeloPayments\Client\Model\SourceAccountType**](../Model/.md)| The type of source account. | [optional]
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
@@ -916,7 +916,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **payor_id** | [**string**](../Model/.md)|  |
+ **payor_id** | **string**|  |
  **updated_since** | **\DateTime**|  |
  **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
  **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
@@ -979,7 +979,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| Source account id |
+ **source_account_id** | **string**| Source account id |
  **set_notifications_request** | [**\VeloPayments\Client\Model\SetNotificationsRequest**](../Model/SetNotificationsRequest.md)| Body to included minimum balance to set |
 
 ### Return type
@@ -1040,7 +1040,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| The &#39;from&#39; source account id, which will be debited |
+ **source_account_id** | **string**| The &#39;from&#39; source account id, which will be debited |
  **transfer_request** | [**\VeloPayments\Client\Model\TransferRequest**](../Model/TransferRequest.md)| Body |
 
 ### Return type
@@ -1101,7 +1101,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **source_account_id** | [**string**](../Model/.md)| The &#39;from&#39; source account id, which will be debited |
+ **source_account_id** | **string**| The &#39;from&#39; source account id, which will be debited |
  **transfer_request2** | [**\VeloPayments\Client\Model\TransferRequest2**](../Model/TransferRequest2.md)| Body |
 
 ### Return type
