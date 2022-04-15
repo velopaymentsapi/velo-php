@@ -16,5 +16,8 @@ Name | Type | Description | Notes
 **iban** | **string** |  | [optional]
 **account_name** | **string** |  | [optional]
 **principal** | **string** |  | [optional]
+**scheduled_at** | **\DateTime** |  | [optional]
+**scheduled_for** | **\DateTime** |  | [optional]
+**scheduled_by** | **string** | Optional display name as a hint for who scheduled the payout. Not populated if payout was scheduled by an application. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

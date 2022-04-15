@@ -45,7 +45,7 @@ trim: ## Remove unused files that are auto geneated
 	- rm .travis.yml
 	- rm git_push.sh
 
-info: ## Update the auto generated README.md with Velo info
+adjustments: ## Update the auto generated README.md with Velo info
 	# sed -i.bak 's/"name": "GIT_USER_ID\/GIT_REPO_ID"/"name": "velopaymentsapi\/velo-php"/' composer.json && rm composer.json.bak
 	sed -i.bak '3s/.*/    "description": "This library provides a PHP client that simplifies interactions with the Velo Payments API.",/' composer.json && rm composer.json.bak
 	sed -i.bak 's/"name": "OpenAPI-Generator contributors"/"name": "VeloPayments contributors"/' composer.json && rm composer.json.bak
@@ -56,15 +56,19 @@ info: ## Update the auto generated README.md with Velo info
 	sed -i.bak 's/GIT_USER_ID\/GIT_REPO_ID/velopaymentsapi\/velo-php/' README.md && rm README.md.bak
 	sed -i.bak '/# OpenAPIClient-php/G' README.md && rm README.md.bak
 	sed -i.bak '1s/.*/# PHP client for Velo/' README.md && rm README.md.bak
-	sed -i.bak '2s/.*/[![License](https:\/\/img.shields.io\/badge\/License-Apache%202.0-blue.svg)](https:\/\/opensource.org\/licenses\/Apache-2.0) [![npm version](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php.svg)](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php) [![CircleCI](https:\/\/circleci.com\/gh\/velopaymentsapi\/velo-php.svg?style=svg)](https:\/\/circleci.com\/gh\/velopaymentsapi\/velo-php)\\/' README.md && rm README.md.bak
+	sed -i.bak '2s/.*/[![License](https:\/\/img.shields.io\/badge\/License-Apache%202.0-blue.svg)](https:\/\/opensource.org\/licenses\/Apache-2.0) [![npm version](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php.svg)](https:\/\/badge.fury.io\/ph\/velopaymentsapi%2Fvelo-php)\\/' README.md && rm README.md.bak
 	sed -i.bak '3s/.*/ /' README.md && rm README.md.bak
 	sed -i.bak '4s/.*/This library provides a PHP client that simplifies interactions with the Velo Payments API. For full details covering the API visit our docs at [Velo Payments APIs](https:\/\/apidocs.velopayments.com). Note: some of the Velo API calls which require authorization via an access token, see the full docs on how to configure./' README.md && rm README.md.bak
-	
-
-build_client: ## Post generate client processing (optional per sdk)
 	#
+	# Velo API tends not to like blank querystring values
+	sed -i.bak "s/return \[\"{\$$paramName}\" => \'\'\];/return [];/" lib/ObjectSerializer.php && rm lib/ObjectSerializer.php.bak
+	sed -i.bak 's/<directory>.\/test\/Model<\/directory>//' phpunit.xml.dist && rm phpunit.xml.dist.bak
 
-client: clean generate trim info build_client ## Generate sdk via cli
+rcnaming: ## 
+	$(eval RC_REVISION="$(shell make WORKING_SPEC=${WORKING_SPEC} version)")
+	@echo "${RC_REVISION}-RC${RC_BUILD}"
+
+client: clean generate trim adjustments ## Generate sdk via cli
 
 tests: ## Run (via docker) tests using supplied variables KEY, SECRET, PAYOR, APIURL
 	rm -Rf test/Model
@@ -72,16 +76,3 @@ tests: ## Run (via docker) tests using supplied variables KEY, SECRET, PAYOR, AP
 	rm composer.lock
 	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APIURL=${APIURL} -e APITOKEN="" --rm composer install
 	docker run -t -v $(PWD):/app --env KEY=${KEY} --env SECRET=${SECRET} --env PAYOR=${PAYOR} -e APIURL=${APIURL} -e APITOKEN="" composer  ./vendor/bin/phpunit
-
-commit: ## Commit & Push generated client to git repo
-	sed -i.bak 's/"version": ".*"/"version": "${VERSION}"/g' composer.json && rm composer.json.bak
-	git add --all
-	git commit -am 'bump version to ${VERSION}'
-	git push --set-upstream origin ${BRANCH}
-
-build: ## Build compiled package (optional per sdk)
-	@echo "Packagist polls tags on github ... tag and push"
-
-publish: ## Tag & Push git ref, (optional per sdk) publish to 3rd party registry
-	git tag $(VERSION)
-	git push origin tag $(VERSION)

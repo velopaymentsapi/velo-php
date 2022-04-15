@@ -1,0 +1,10 @@
+# # CreatePayeesCSVResponseV4
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**batch_id** | **string** |  | [optional]
+**rejected_csv_rows** | [**\VeloPayments\Client\Model\CreatePayeesCSVResponseV3RejectedCsvRows[]**](CreatePayeesCSVResponseV3RejectedCsvRows.md) |  | [optional]
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

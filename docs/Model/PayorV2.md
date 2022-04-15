@@ -29,5 +29,7 @@ Name | Type | Description | Notes
 **payment_rails** | [**\VeloPayments\Client\Model\PaymentRails**](PaymentRails.md) |  | [optional]
 **transmission_types** | [**\VeloPayments\Client\Model\TransmissionTypes2**](TransmissionTypes2.md) |  | [optional]
 **remote_system_ids** | **string[]** | The payor’s supported remote systems by id | [optional]
+**usd_txn_value_reporting_threshold** | **int** | USD in minor units | [optional]
+**managing_payees** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
