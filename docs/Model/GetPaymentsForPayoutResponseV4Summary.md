@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payout_status** | [**\VeloPayments\Client\Model\PayoutStatus**](PayoutStatus.md) |  | [optional]
+**payout_status** | **string** | Current status of the Payout. One of the following values: ACCEPTED, REJECTED, SUBMITTED, QUOTED, INSTRUCTED, COMPLETED, INCOMPLETE, CONFIRMED, WITHDRAWN | [optional]
 **submitted_date_time** | **\DateTime** | The date/time at which the payout was submitted. | [optional]
 **instructed_date_time** | **\DateTime** | The date/time at which the payout was instructed. | [optional]
 **withdrawn_date_time** | **\DateTime** |  | [optional]
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **incomplete_payments** | **int** | The count of payments within the payout which are incomplete. | [optional]
 **returned_payments** | **int** | The count of payments within the payout which have been returned. | [optional]
 **withdrawn_payments** | **int** | The count of payments within the payout which have been withdrawn. | [optional]
-**payout_type** | [**\VeloPayments\Client\Model\PayoutType**](PayoutType.md) |  | [optional]
+**payout_type** | **string** | The type of payout. One of the following values: STANDARD, AS, ON_BEHALF_OF | [optional]
 **submitting** | [**\VeloPayments\Client\Model\PayoutPayor**](PayoutPayor.md) |  | [optional]
 **payout_from** | [**\VeloPayments\Client\Model\PayoutPayor**](PayoutPayor.md) |  | [optional]
 **payout_to** | [**\VeloPayments\Client\Model\PayoutPayor**](PayoutPayor.md) |  | [optional]

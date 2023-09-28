@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payout_id** | **string** |  | [optional]
 **payor_id** | **string** |  | [optional]
-**status** | [**\VeloPayments\Client\Model\PayoutStatus**](PayoutStatus.md) |  |
+**status** | **string** | Current status of the Payout. One of the following values: ACCEPTED, REJECTED, SUBMITTED, QUOTED, INSTRUCTED, COMPLETED, INCOMPLETE, CONFIRMED, WITHDRAWN |
 **date_time** | **\DateTime** |  | [optional]
 **submitted_date_time** | **string** |  |
 **instructed_date_time** | **string** |  | [optional]
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **source_account_summary** | [**\VeloPayments\Client\Model\SourceAccountSummary[]**](SourceAccountSummary.md) |  | [optional]
 **fx_summaries** | [**\VeloPayments\Client\Model\FxSummary[]**](FxSummary.md) |  | [optional]
 **payout_memo** | **string** |  | [optional]
-**payout_type** | [**\VeloPayments\Client\Model\PayoutType**](PayoutType.md) |  |
+**payout_type** | **string** | The type of payout. One of the following values: STANDARD, AS, ON_BEHALF_OF |
 **payor_name** | **string** |  |
 **schedule** | [**\VeloPayments\Client\Model\PayoutSchedule**](PayoutSchedule.md) |  | [optional]
 

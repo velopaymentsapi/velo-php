@@ -1,5 +1,6 @@
 {
     "packageName": "VeloPayments",
-    "artifactVersion": "2.29.127",
-    "invokerPackage": "VeloPayments\\Client"
+    "artifactVersion": "2.35.58-RC1",
+    "invokerPackage": "VeloPayments\\Client",
+    "composerPackageName": "velopaymentsapi/velo-php"
 }

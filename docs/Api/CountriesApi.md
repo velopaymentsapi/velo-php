@@ -1,12 +1,12 @@
 # VeloPayments\Client\CountriesApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listPaymentChannelRulesV1()**](CountriesApi.md#listPaymentChannelRulesV1) | **GET** /v1/paymentChannelRules | List Payment Channel Country Rules
-[**listSupportedCountriesV1()**](CountriesApi.md#listSupportedCountriesV1) | **GET** /v1/supportedCountries | List Supported Countries
-[**listSupportedCountriesV2()**](CountriesApi.md#listSupportedCountriesV2) | **GET** /v2/supportedCountries | List Supported Countries
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**listPaymentChannelRulesV1()**](CountriesApi.md#listPaymentChannelRulesV1) | **GET** /v1/paymentChannelRules | List Payment Channel Country Rules |
+| [**listSupportedCountriesV1()**](CountriesApi.md#listSupportedCountriesV1) | **GET** /v1/supportedCountries | List Supported Countries |
+| [**listSupportedCountriesV2()**](CountriesApi.md#listSupportedCountriesV2) | **GET** /v2/supportedCountries | List Supported Countries |
 
 
 ## `listPaymentChannelRulesV1()`

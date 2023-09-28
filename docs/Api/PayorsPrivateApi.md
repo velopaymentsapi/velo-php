@@ -1,10 +1,10 @@
 # VeloPayments\Client\PayorsPrivateApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createPayorLinks()**](PayorsPrivateApi.md#createPayorLinks) | **POST** /v1/payorLinks | Create a Payor Link
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createPayorLinks()**](PayorsPrivateApi.md#createPayorLinks) | **POST** /v1/payorLinks | Create a Payor Link |
 
 
 ## `createPayorLinks()`
@@ -45,9 +45,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_payor_link_request** | [**\VeloPayments\Client\Model\CreatePayorLinkRequest**](../Model/CreatePayorLinkRequest.md)| Request to create a payor link |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_payor_link_request** | [**\VeloPayments\Client\Model\CreatePayorLinkRequest**](../Model/CreatePayorLinkRequest.md)| Request to create a payor link | |
 
 ### Return type
 

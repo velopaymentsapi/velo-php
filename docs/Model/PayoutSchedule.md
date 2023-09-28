@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**schedule_status** | [**\VeloPayments\Client\Model\ScheduleStatus**](ScheduleStatus.md) |  |
+**schedule_status** | **string** | Current status of the payout schedule. One of the following values: SCHEDULED, EXECUTED, FAILED |
 **scheduled_at** | **\DateTime** |  |
 **scheduled_for** | **\DateTime** |  |
 **scheduled_by_principal_id** | **string** | ID of the user or application that scheduled the payout |

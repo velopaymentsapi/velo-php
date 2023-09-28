@@ -1,10 +1,10 @@
 # VeloPayments\Client\TokensApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**resendToken()**](TokensApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**resendToken()**](TokensApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token |
 
 
 ## `resendToken()`
@@ -46,10 +46,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
- **resend_token_request** | [**\VeloPayments\Client\Model\ResendTokenRequest**](../Model/ResendTokenRequest.md)| The type of token to resend |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
+| **resend_token_request** | [**\VeloPayments\Client\Model\ResendTokenRequest**](../Model/ResendTokenRequest.md)| The type of token to resend | |
 
 ### Return type
 

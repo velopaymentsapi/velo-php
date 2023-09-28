@@ -1,28 +1,27 @@
 # VeloPayments\Client\PayorsApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getPayorById()**](PayorsApi.md#getPayorById) | **GET** /v1/payors/{payorId} | Get Payor
-[**getPayorByIdV2()**](PayorsApi.md#getPayorByIdV2) | **GET** /v2/payors/{payorId} | Get Payor
-[**payorAddPayorLogo()**](PayorsApi.md#payorAddPayorLogo) | **POST** /v1/payors/{payorId}/branding/logos | Add Logo
-[**payorCreateApiKeyRequest()**](PayorsApi.md#payorCreateApiKeyRequest) | **POST** /v1/payors/{payorId}/applications/{applicationId}/keys | Create API Key
-[**payorCreateApplicationRequest()**](PayorsApi.md#payorCreateApplicationRequest) | **POST** /v1/payors/{payorId}/applications | Create Application
-[**payorEmailOptOut()**](PayorsApi.md#payorEmailOptOut) | **POST** /v1/payors/{payorId}/reminderEmailsUpdate | Reminder Email Opt-Out
-[**payorGetBranding()**](PayorsApi.md#payorGetBranding) | **GET** /v1/payors/{payorId}/branding | Get Branding
-[**payorLinks()**](PayorsApi.md#payorLinks) | **GET** /v1/payorLinks | List Payor Links
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getPayorByIdV1()**](PayorsApi.md#getPayorByIdV1) | **GET** /v1/payors/{payorId} | Get Payor |
+| [**getPayorByIdV2()**](PayorsApi.md#getPayorByIdV2) | **GET** /v2/payors/{payorId} | Get Payor |
+| [**payorAddPayorLogoV1()**](PayorsApi.md#payorAddPayorLogoV1) | **POST** /v1/payors/{payorId}/branding/logos | Add Logo |
+| [**payorCreateApiKeyV1()**](PayorsApi.md#payorCreateApiKeyV1) | **POST** /v1/payors/{payorId}/applications/{applicationId}/keys | Create API Key |
+| [**payorCreateApplicationV1()**](PayorsApi.md#payorCreateApplicationV1) | **POST** /v1/payors/{payorId}/applications | Create Application |
+| [**payorEmailOptOut()**](PayorsApi.md#payorEmailOptOut) | **POST** /v1/payors/{payorId}/reminderEmailsUpdate | Reminder Email Opt-Out |
+| [**payorGetBranding()**](PayorsApi.md#payorGetBranding) | **GET** /v1/payors/{payorId}/branding | Get Branding |
 
 
-## `getPayorById()`
+## `getPayorByIdV1()`
 
 ```php
-getPayorById($payor_id): \VeloPayments\Client\Model\PayorV1
+getPayorByIdV1($payor_id): \VeloPayments\Client\Model\PayorV1
 ```
 
 Get Payor
 
-Get a Single Payor by Id.
+<p>Get a Single Payor by Id.</p> <p>deprecated since v2.10 - Use /v2/payors
 
 ### Example
 
@@ -44,18 +43,18 @@ $apiInstance = new VeloPayments\Client\Api\PayorsApi(
 $payor_id = 'payor_id_example'; // string | The Payor Id
 
 try {
-    $result = $apiInstance->getPayorById($payor_id);
+    $result = $apiInstance->getPayorByIdV1($payor_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayorsApi->getPayorById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayorsApi->getPayorByIdV1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
 
 ### Return type
 
@@ -113,9 +112,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
 
 ### Return type
 
@@ -134,15 +133,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `payorAddPayorLogo()`
+## `payorAddPayorLogoV1()`
 
 ```php
-payorAddPayorLogo($payor_id, $logo)
+payorAddPayorLogoV1($payor_id, $logo)
 ```
 
 Add Logo
 
-Add Payor Logo. Logo file is used in your branding, and emails sent to payees.
+<p>Add Payor Logo</p> <p>Logo file is used in your branding and emails sent to payees</p>
 
 ### Example
 
@@ -165,18 +164,18 @@ $payor_id = 'payor_id_example'; // string | The Payor Id
 $logo = "/path/to/file.txt"; // \SplFileObject
 
 try {
-    $apiInstance->payorAddPayorLogo($payor_id, $logo);
+    $apiInstance->payorAddPayorLogoV1($payor_id, $logo);
 } catch (Exception $e) {
-    echo 'Exception when calling PayorsApi->payorAddPayorLogo: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayorsApi->payorAddPayorLogoV1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
- **logo** | **\SplFileObject****\SplFileObject**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
+| **logo** | **\SplFileObject****\SplFileObject**|  | [optional] |
 
 ### Return type
 
@@ -195,15 +194,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `payorCreateApiKeyRequest()`
+## `payorCreateApiKeyV1()`
 
 ```php
-payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request): \VeloPayments\Client\Model\PayorCreateApiKeyResponse
+payorCreateApiKeyV1($payor_id, $application_id, $payor_create_api_key_request): \VeloPayments\Client\Model\PayorCreateApiKeyResponse
 ```
 
 Create API Key
 
-Create an an API key for the given payor Id and application Id
+<p>Create an an API key for the given payor Id and application Id</p> <p>You can create multiple API Keys for a given application</p> <p>API Keys are programmatic users for integrating your application with the Velo platform</p>
 
 ### Example
 
@@ -227,20 +226,20 @@ $application_id = 'application_id_example'; // string | Application ID
 $payor_create_api_key_request = new \VeloPayments\Client\Model\PayorCreateApiKeyRequest(); // \VeloPayments\Client\Model\PayorCreateApiKeyRequest | Details of application API key to create
 
 try {
-    $result = $apiInstance->payorCreateApiKeyRequest($payor_id, $application_id, $payor_create_api_key_request);
+    $result = $apiInstance->payorCreateApiKeyV1($payor_id, $application_id, $payor_create_api_key_request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PayorsApi->payorCreateApiKeyRequest: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayorsApi->payorCreateApiKeyV1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
- **application_id** | **string**| Application ID |
- **payor_create_api_key_request** | [**\VeloPayments\Client\Model\PayorCreateApiKeyRequest**](../Model/PayorCreateApiKeyRequest.md)| Details of application API key to create |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
+| **application_id** | **string**| Application ID | |
+| **payor_create_api_key_request** | [**\VeloPayments\Client\Model\PayorCreateApiKeyRequest**](../Model/PayorCreateApiKeyRequest.md)| Details of application API key to create | |
 
 ### Return type
 
@@ -259,15 +258,15 @@ Name | Type | Description  | Notes
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `payorCreateApplicationRequest()`
+## `payorCreateApplicationV1()`
 
 ```php
-payorCreateApplicationRequest($payor_id, $payor_create_application_request)
+payorCreateApplicationV1($payor_id, $payor_create_application_request)
 ```
 
 Create Application
 
-Create an application for the given Payor ID. Applications are programatic users which can be assigned unique keys.
+<p>Create an application for the given Payor ID.</p> <p>Applications provide a means to group your API Keys</p> <p>For example you might have an SAP application that you wish to integrate with Velo</p> <p>You can create an application and then create one or more API keys for the application</p>
 
 ### Example
 
@@ -290,18 +289,18 @@ $payor_id = 'payor_id_example'; // string | The Payor Id
 $payor_create_application_request = new \VeloPayments\Client\Model\PayorCreateApplicationRequest(); // \VeloPayments\Client\Model\PayorCreateApplicationRequest | Details of application to create
 
 try {
-    $apiInstance->payorCreateApplicationRequest($payor_id, $payor_create_application_request);
+    $apiInstance->payorCreateApplicationV1($payor_id, $payor_create_application_request);
 } catch (Exception $e) {
-    echo 'Exception when calling PayorsApi->payorCreateApplicationRequest: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PayorsApi->payorCreateApplicationV1: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
- **payor_create_application_request** | [**\VeloPayments\Client\Model\PayorCreateApplicationRequest**](../Model/PayorCreateApplicationRequest.md)| Details of application to create |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
+| **payor_create_application_request** | [**\VeloPayments\Client\Model\PayorCreateApplicationRequest**](../Model/PayorCreateApplicationRequest.md)| Details of application to create | |
 
 ### Return type
 
@@ -359,10 +358,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
- **payor_email_opt_out_request** | [**\VeloPayments\Client\Model\PayorEmailOptOutRequest**](../Model/PayorEmailOptOutRequest.md)| Reminder Emails Opt-Out Request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
+| **payor_email_opt_out_request** | [**\VeloPayments\Client\Model\PayorEmailOptOutRequest**](../Model/PayorEmailOptOutRequest.md)| Reminder Emails Opt-Out Request | |
 
 ### Return type
 
@@ -420,77 +419,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor Id | |
 
 ### Return type
 
 [**\VeloPayments\Client\Model\PayorBrandingResponse**](../Model/PayorBrandingResponse.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `payorLinks()`
-
-```php
-payorLinks($descendants_of_payor, $parent_of_payor, $fields): \VeloPayments\Client\Model\PayorLinksResponse
-```
-
-List Payor Links
-
-This endpoint allows you to list payor links
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new VeloPayments\Client\Api\PayorsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$descendants_of_payor = 'descendants_of_payor_example'; // string | The Payor ID from which to start the query to show all descendants
-$parent_of_payor = 'parent_of_payor_example'; // string | Look for the parent payor details for this payor id
-$fields = 'fields_example'; // string | List of additional Payor fields to include in the response for each Payor. The values of payorId and payorName and always included for each Payor - 'fields' allows you to add to this. Example: ```fields=primaryContactEmail,kycState``` - will include payorId+payorName+primaryContactEmail+kycState for each Payor Default if not specified is to include only payorId and payorName. The supported fields are any combination of: primaryContactEmail,kycState
-
-try {
-    $result = $apiInstance->payorLinks($descendants_of_payor, $parent_of_payor, $fields);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PayorsApi->payorLinks: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **descendants_of_payor** | **string**| The Payor ID from which to start the query to show all descendants | [optional]
- **parent_of_payor** | **string**| Look for the parent payor details for this payor id | [optional]
- **fields** | **string**| List of additional Payor fields to include in the response for each Payor. The values of payorId and payorName and always included for each Payor - &#39;fields&#39; allows you to add to this. Example: &#x60;&#x60;&#x60;fields&#x3D;primaryContactEmail,kycState&#x60;&#x60;&#x60; - will include payorId+payorName+primaryContactEmail+kycState for each Payor Default if not specified is to include only payorId and payorName. The supported fields are any combination of: primaryContactEmail,kycState | [optional]
-
-### Return type
-
-[**\VeloPayments\Client\Model\PayorLinksResponse**](../Model/PayorLinksResponse.md)
 
 ### Authorization
 

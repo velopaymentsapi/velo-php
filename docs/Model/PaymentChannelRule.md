@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **max_length** | **int** | maximum length of the element data | [optional]
 **validation** | **string** | a regex to validate the element data |
 **display_order** | **int** |  | [optional]
+**description** | **string** | An optional description, or hint, as to how the user should enter the field value. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -28,6 +28,6 @@ Name | Type | Description | Notes
 **payor_payment_id** | **string** |  | [optional]
 **payment_status** | **string** |  | [optional]
 **reject_reason** | **string** |  | [optional]
-**fx_applied** | **double** |  | [optional]
+**fx_applied** | **float** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

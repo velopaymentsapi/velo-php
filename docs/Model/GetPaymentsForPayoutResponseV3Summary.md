@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payout_status** | **string** | The current status of the payout. | [optional]
+**payout_status** | **string** | The current status of the payout. One of the following values: ACCEPTED, REJECTED, SUBMITTED, QUOTED, INSTRUCTED, COMPLETED, INCOMPLETE, CONFIRMED, WITHDRAWN | [optional]
 **submitted_date_time** | **\DateTime** | The date/time at which the payout was submitted. | [optional]
 **instructed_date_time** | **\DateTime** | The date/time at which the payout was instructed. | [optional]
 **withdrawn_date_time** | **\DateTime** | The date/time at which the payout was withdrawn. | [optional]

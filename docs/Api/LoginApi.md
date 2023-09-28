@@ -1,13 +1,13 @@
 # VeloPayments\Client\LoginApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**logout()**](LoginApi.md#logout) | **POST** /v1/logout | Logout
-[**resetPassword()**](LoginApi.md#resetPassword) | **POST** /v1/password/reset | Reset password
-[**validateAccessToken()**](LoginApi.md#validateAccessToken) | **POST** /v1/validate | validate
-[**veloAuth()**](LoginApi.md#veloAuth) | **POST** /v1/authenticate | Authentication endpoint
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**logout()**](LoginApi.md#logout) | **POST** /v1/logout | Logout |
+| [**resetPassword()**](LoginApi.md#resetPassword) | **POST** /v1/password/reset | Reset password |
+| [**validateAccessToken()**](LoginApi.md#validateAccessToken) | **POST** /v1/validate | validate |
+| [**veloAuth()**](LoginApi.md#veloAuth) | **POST** /v1/authenticate | Authentication endpoint |
 
 
 ## `logout()`
@@ -100,9 +100,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reset_password_request** | [**\VeloPayments\Client\Model\ResetPasswordRequest**](../Model/ResetPasswordRequest.md)| An Email address to send the reset password link to |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **reset_password_request** | [**\VeloPayments\Client\Model\ResetPasswordRequest**](../Model/ResetPasswordRequest.md)| An Email address to send the reset password link to | |
 
 ### Return type
 
@@ -161,10 +161,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **access_token_validation_request** | [**\VeloPayments\Client\Model\AccessTokenValidationRequest**](../Model/AccessTokenValidationRequest.md)| An OTP from the user&#39;s registered MFA Device |
- **authorization** | **string**| Bearer token authorization leg of validate | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **access_token_validation_request** | [**\VeloPayments\Client\Model\AccessTokenValidationRequest**](../Model/AccessTokenValidationRequest.md)| An OTP from the user&#39;s registered MFA Device | |
+| **authorization** | **string**| Bearer token authorization leg of validate | [optional] |
 
 ### Return type
 
@@ -191,7 +191,7 @@ veloAuth($grant_type): \VeloPayments\Client\Model\AuthResponse
 
 Authentication endpoint
 
-Use this endpoint to obtain an access token for calling Velo Payments APIs. Use HTTP Basic Auth. String value of Basic and a Base64 endcoded string comprising the API key (e.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8) and API secret  (e.g. c396b26b-137a-44fd-87f5-34631f8fd529) with a colon between them. E.g. Basic 44a9537d-d55d-4b47-8082-14061c2bcdd8:c396b26b-137a-44fd-87f5-34631f8fd529
+<p>Use this endpoint to obtain an access token for calling Velo Payments APIs. </p> <p>You need your API key and API secret issued by Velo</p> <p>To login and get an access token the API key and API secret must be Base64 encoded by concatenating them with a colon between them</p> <p>e.g. Given an ApiKey: 44a9537d-d55d-4b47-8082-14061c2bcdd8 and ApiSecret: c396b26b-137a-44fd-87f5-34631f8fd529</p> <p>Using a Base64 encode function Base64Encoder().encode(\"44a9537d-d55d-4b47-8082-14061c2bcdd8:c396b26b-137a-44fd-87f5-34631f8fd529\")</p> <p>Included as a Basic Authorization header: -H \"Authorization: Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==\" </p>
 
 ### Example
 
@@ -224,9 +224,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **grant_type** | **string**| OAuth grant type. Should use &#39;client_credentials&#39; | [optional] [default to &#39;client_credentials&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **grant_type** | **string**| OAuth grant type. Should use &#39;client_credentials&#39; | [optional] [default to &#39;client_credentials&#39;] |
 
 ### Return type
 

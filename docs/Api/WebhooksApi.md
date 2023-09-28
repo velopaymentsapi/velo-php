@@ -1,14 +1,14 @@
 # VeloPayments\Client\WebhooksApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createWebhookV1()**](WebhooksApi.md#createWebhookV1) | **POST** /v1/webhooks | Create Webhook
-[**getWebhookV1()**](WebhooksApi.md#getWebhookV1) | **GET** /v1/webhooks/{webhookId} | Get details about the given webhook.
-[**listWebhooksV1()**](WebhooksApi.md#listWebhooksV1) | **GET** /v1/webhooks | List the details about the webhooks for the given payor.
-[**pingWebhookV1()**](WebhooksApi.md#pingWebhookV1) | **POST** /v1/webhooks/{webhookId}/ping | 
-[**updateWebhookV1()**](WebhooksApi.md#updateWebhookV1) | **POST** /v1/webhooks/{webhookId} | Update Webhook
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createWebhookV1()**](WebhooksApi.md#createWebhookV1) | **POST** /v1/webhooks | Create Webhook |
+| [**getWebhookV1()**](WebhooksApi.md#getWebhookV1) | **GET** /v1/webhooks/{webhookId} | Get details about the given webhook. |
+| [**listWebhooksV1()**](WebhooksApi.md#listWebhooksV1) | **GET** /v1/webhooks | List the details about the webhooks for the given payor. |
+| [**pingWebhookV1()**](WebhooksApi.md#pingWebhookV1) | **POST** /v1/webhooks/{webhookId}/ping |  |
+| [**updateWebhookV1()**](WebhooksApi.md#updateWebhookV1) | **POST** /v1/webhooks/{webhookId} | Update Webhook |
 
 
 ## `createWebhookV1()`
@@ -49,9 +49,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_webhook_request** | [**\VeloPayments\Client\Model\CreateWebhookRequest**](../Model/CreateWebhookRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_webhook_request** | [**\VeloPayments\Client\Model\CreateWebhookRequest**](../Model/CreateWebhookRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -109,9 +109,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_id** | **string**| Webhook id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **webhook_id** | **string**| Webhook id | |
 
 ### Return type
 
@@ -171,11 +171,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The Payor ID |
- **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
- **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The Payor ID | |
+| **page** | **int**| Page number. Default is 1. | [optional] [default to 1] |
+| **page_size** | **int**| The number of results to return in a page | [optional] [default to 25] |
 
 ### Return type
 
@@ -231,9 +231,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_id** | **string**| Webhook id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **webhook_id** | **string**| Webhook id | |
 
 ### Return type
 
@@ -291,10 +291,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhook_id** | **string**| Webhook id |
- **update_webhook_request** | [**\VeloPayments\Client\Model\UpdateWebhookRequest**](../Model/UpdateWebhookRequest.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **webhook_id** | **string**| Webhook id | |
+| **update_webhook_request** | [**\VeloPayments\Client\Model\UpdateWebhookRequest**](../Model/UpdateWebhookRequest.md)|  | [optional] |
 
 ### Return type
 

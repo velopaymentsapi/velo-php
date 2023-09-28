@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payout_id** | **string** |  |
 **payor_id** | **string** |  | [optional]
-**status** | [**\VeloPayments\Client\Model\PayoutStatusV3**](PayoutStatusV3.md) |  |
+**status** | **string** | Current status of the payout. One of the following values: ACCEPTED, REJECTED, SUBMITTED, QUOTED, INSTRUCTED, COMPLETED, INCOMPLETE, CONFIRMED, WITHDRAWN |
 **submitted_date_time** | **string** |  |
 **instructed_date_time** | **string** |  | [optional]
 **withdrawn_date_time** | **string** |  | [optional]

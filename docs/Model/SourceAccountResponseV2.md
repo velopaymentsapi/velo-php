@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **balance_visible** | **bool** |  |
 **customer_id** | **string** |  | [optional]
 **physical_account_id** | **string** |  | [optional]
-**notifications** | [**\VeloPayments\Client\Model\Notifications**](Notifications.md) |  | [optional]
+**notifications** | [**\VeloPayments\Client\Model\NotificationsV2**](NotificationsV2.md) |  | [optional]
 **funding_account_id** | **string** |  | [optional]
-**auto_top_up_config** | [**\VeloPayments\Client\Model\AutoTopUpConfig**](AutoTopUpConfig.md) |  | [optional]
+**auto_top_up_config** | [**\VeloPayments\Client\Model\AutoTopUpConfigV2**](AutoTopUpConfigV2.md) |  | [optional]
 **account_type** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

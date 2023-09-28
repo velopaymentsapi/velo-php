@@ -1,10 +1,10 @@
 # VeloPayments\Client\CurrenciesApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listSupportedCurrenciesV2()**](CurrenciesApi.md#listSupportedCurrenciesV2) | **GET** /v2/currencies | List Supported Currencies
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**listSupportedCurrenciesV2()**](CurrenciesApi.md#listSupportedCurrenciesV2) | **GET** /v2/currencies | List Supported Currencies |
 
 
 ## `listSupportedCurrenciesV2()`

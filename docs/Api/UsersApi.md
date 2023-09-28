@@ -1,26 +1,26 @@
 # VeloPayments\Client\UsersApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**deleteUserByIdV2()**](UsersApi.md#deleteUserByIdV2) | **DELETE** /v2/users/{userId} | Delete a User
-[**disableUserV2()**](UsersApi.md#disableUserV2) | **POST** /v2/users/{userId}/disable | Disable a User
-[**enableUserV2()**](UsersApi.md#enableUserV2) | **POST** /v2/users/{userId}/enable | Enable a User
-[**getSelf()**](UsersApi.md#getSelf) | **GET** /v2/users/self | Get Self
-[**getUserByIdV2()**](UsersApi.md#getUserByIdV2) | **GET** /v2/users/{userId} | Get User
-[**inviteUser()**](UsersApi.md#inviteUser) | **POST** /v2/users/invite | Invite a User
-[**listUsers()**](UsersApi.md#listUsers) | **GET** /v2/users | List Users
-[**registerSms()**](UsersApi.md#registerSms) | **POST** /v2/users/registration/sms | Register SMS Number
-[**resendToken()**](UsersApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token
-[**roleUpdate()**](UsersApi.md#roleUpdate) | **POST** /v2/users/{userId}/roleUpdate | Update User Role
-[**unlockUserV2()**](UsersApi.md#unlockUserV2) | **POST** /v2/users/{userId}/unlock | Unlock a User
-[**unregisterMFA()**](UsersApi.md#unregisterMFA) | **POST** /v2/users/{userId}/mfa/unregister | Unregister MFA for the user
-[**unregisterMFAForSelf()**](UsersApi.md#unregisterMFAForSelf) | **POST** /v2/users/self/mfa/unregister | Unregister MFA for Self
-[**updatePasswordSelf()**](UsersApi.md#updatePasswordSelf) | **POST** /v2/users/self/password | Update Password for self
-[**userDetailsUpdate()**](UsersApi.md#userDetailsUpdate) | **POST** /v2/users/{userId}/userDetailsUpdate | Update User Details
-[**userDetailsUpdateForSelf()**](UsersApi.md#userDetailsUpdateForSelf) | **POST** /v2/users/self/userDetailsUpdate | Update User Details for self
-[**validatePasswordSelf()**](UsersApi.md#validatePasswordSelf) | **POST** /v2/users/self/password/validate | Validate the proposed password
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**deleteUserByIdV2()**](UsersApi.md#deleteUserByIdV2) | **DELETE** /v2/users/{userId} | Delete a User |
+| [**disableUserV2()**](UsersApi.md#disableUserV2) | **POST** /v2/users/{userId}/disable | Disable a User |
+| [**enableUserV2()**](UsersApi.md#enableUserV2) | **POST** /v2/users/{userId}/enable | Enable a User |
+| [**getSelf()**](UsersApi.md#getSelf) | **GET** /v2/users/self | Get Self |
+| [**getUserByIdV2()**](UsersApi.md#getUserByIdV2) | **GET** /v2/users/{userId} | Get User |
+| [**inviteUser()**](UsersApi.md#inviteUser) | **POST** /v2/users/invite | Invite a User |
+| [**listUsers()**](UsersApi.md#listUsers) | **GET** /v2/users | List Users |
+| [**registerSms()**](UsersApi.md#registerSms) | **POST** /v2/users/registration/sms | Register SMS Number |
+| [**resendToken()**](UsersApi.md#resendToken) | **POST** /v2/users/{userId}/tokens | Resend a token |
+| [**roleUpdate()**](UsersApi.md#roleUpdate) | **POST** /v2/users/{userId}/roleUpdate | Update User Role |
+| [**unlockUserV2()**](UsersApi.md#unlockUserV2) | **POST** /v2/users/{userId}/unlock | Unlock a User |
+| [**unregisterMFA()**](UsersApi.md#unregisterMFA) | **POST** /v2/users/{userId}/mfa/unregister | Unregister MFA for the user |
+| [**unregisterMFAForSelf()**](UsersApi.md#unregisterMFAForSelf) | **POST** /v2/users/self/mfa/unregister | Unregister MFA for Self |
+| [**updatePasswordSelf()**](UsersApi.md#updatePasswordSelf) | **POST** /v2/users/self/password | Update Password for self |
+| [**userDetailsUpdate()**](UsersApi.md#userDetailsUpdate) | **POST** /v2/users/{userId}/userDetailsUpdate | Update User Details |
+| [**userDetailsUpdateForSelf()**](UsersApi.md#userDetailsUpdateForSelf) | **POST** /v2/users/self/userDetailsUpdate | Update User Details for self |
+| [**validatePasswordSelf()**](UsersApi.md#validatePasswordSelf) | **POST** /v2/users/self/password/validate | Validate the proposed password |
 
 
 ## `deleteUserByIdV2()`
@@ -61,9 +61,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
 
 ### Return type
 
@@ -120,9 +120,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
 
 ### Return type
 
@@ -179,9 +179,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
 
 ### Return type
 
@@ -296,9 +296,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
 
 ### Return type
 
@@ -355,9 +355,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **invite_user_request** | [**\VeloPayments\Client\Model\InviteUserRequest**](../Model/InviteUserRequest.md)| Details of User to invite |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **invite_user_request** | [**\VeloPayments\Client\Model\InviteUserRequest**](../Model/InviteUserRequest.md)| Details of User to invite | |
 
 ### Return type
 
@@ -403,10 +403,10 @@ $apiInstance = new VeloPayments\Client\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserType(); // \VeloPayments\Client\Model\UserType | The Type of the User.
-$status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\UserStatus(); // \VeloPayments\Client\Model\UserStatus | The status of the User.
+$type = new \VeloPayments\Client\Model\UserType(); // UserType | The Type of the User.
+$status = new \VeloPayments\Client\Model\UserStatus(); // UserStatus | The status of the User.
 $entity_id = 'entity_id_example'; // string | The entityId of the User.
-$payee_type = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\PayeeType(); // \VeloPayments\Client\Model\PayeeType | The Type of the Payee entity. Either COMPANY or INDIVIDUAL.
+$payee_type = new \VeloPayments\Client\Model\PayeeType(); // PayeeType | The Type of the Payee entity. Either COMPANY or INDIVIDUAL.
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'email:asc'; // string | List of sort fields (e.g. ?sort=email:asc,lastName:asc) Default is email:asc 'name' The supported sort fields are - email, lastNmae.
@@ -421,15 +421,15 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **type** | [**\VeloPayments\Client\Model\UserType**](../Model/.md)| The Type of the User. | [optional]
- **status** | [**\VeloPayments\Client\Model\UserStatus**](../Model/.md)| The status of the User. | [optional]
- **entity_id** | **string**| The entityId of the User. | [optional]
- **payee_type** | [**\VeloPayments\Client\Model\PayeeType**](../Model/.md)| The Type of the Payee entity. Either COMPANY or INDIVIDUAL. | [optional]
- **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
- **page_size** | **int**| The number of results to return in a page | [optional] [default to 25]
- **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;email:asc,lastName:asc) Default is email:asc &#39;name&#39; The supported sort fields are - email, lastNmae. | [optional] [default to &#39;email:asc&#39;]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **type** | [**UserType**](../Model/.md)| The Type of the User. | [optional] |
+| **status** | [**UserStatus**](../Model/.md)| The status of the User. | [optional] |
+| **entity_id** | **string**| The entityId of the User. | [optional] |
+| **payee_type** | [**PayeeType**](../Model/.md)| The Type of the Payee entity. Either COMPANY or INDIVIDUAL. | [optional] |
+| **page** | **int**| Page number. Default is 1. | [optional] [default to 1] |
+| **page_size** | **int**| The number of results to return in a page | [optional] [default to 25] |
+| **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;email:asc,lastName:asc) Default is email:asc &#39;name&#39; The supported sort fields are - email, lastNmae. | [optional] [default to &#39;email:asc&#39;] |
 
 ### Return type
 
@@ -486,9 +486,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **register_sms_request** | [**\VeloPayments\Client\Model\RegisterSmsRequest**](../Model/RegisterSmsRequest.md)| a SMS Number to send an OTP to |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **register_sms_request** | [**\VeloPayments\Client\Model\RegisterSmsRequest**](../Model/RegisterSmsRequest.md)| a SMS Number to send an OTP to | |
 
 ### Return type
 
@@ -546,10 +546,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
- **resend_token_request** | [**\VeloPayments\Client\Model\ResendTokenRequest**](../Model/ResendTokenRequest.md)| The type of token to resend |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
+| **resend_token_request** | [**\VeloPayments\Client\Model\ResendTokenRequest**](../Model/ResendTokenRequest.md)| The type of token to resend | |
 
 ### Return type
 
@@ -607,10 +607,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
- **role_update_request** | [**\VeloPayments\Client\Model\RoleUpdateRequest**](../Model/RoleUpdateRequest.md)| The Role to change to |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
+| **role_update_request** | [**\VeloPayments\Client\Model\RoleUpdateRequest**](../Model/RoleUpdateRequest.md)| The Role to change to | |
 
 ### Return type
 
@@ -667,9 +667,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
 
 ### Return type
 
@@ -727,10 +727,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
- **unregister_mfa_request** | [**\VeloPayments\Client\Model\UnregisterMFARequest**](../Model/UnregisterMFARequest.md)| The MFA Type to unregister |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
+| **unregister_mfa_request** | [**\VeloPayments\Client\Model\UnregisterMFARequest**](../Model/UnregisterMFARequest.md)| The MFA Type to unregister | |
 
 ### Return type
 
@@ -788,10 +788,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **self_mfa_type_unregister_request** | [**\VeloPayments\Client\Model\SelfMFATypeUnregisterRequest**](../Model/SelfMFATypeUnregisterRequest.md)| The MFA Type to unregister |
- **authorization** | **string**| Bearer token authorization leg of validate | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **self_mfa_type_unregister_request** | [**\VeloPayments\Client\Model\SelfMFATypeUnregisterRequest**](../Model/SelfMFATypeUnregisterRequest.md)| The MFA Type to unregister | |
+| **authorization** | **string**| Bearer token authorization leg of validate | [optional] |
 
 ### Return type
 
@@ -848,9 +848,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **self_update_password_request** | [**\VeloPayments\Client\Model\SelfUpdatePasswordRequest**](../Model/SelfUpdatePasswordRequest.md)| The password |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **self_update_password_request** | [**\VeloPayments\Client\Model\SelfUpdatePasswordRequest**](../Model/SelfUpdatePasswordRequest.md)| The password | |
 
 ### Return type
 
@@ -908,10 +908,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **user_id** | **string**| The UUID of the User. |
- **user_details_update_request** | [**\VeloPayments\Client\Model\UserDetailsUpdateRequest**](../Model/UserDetailsUpdateRequest.md)| The details of the user to update |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **user_id** | **string**| The UUID of the User. | |
+| **user_details_update_request** | [**\VeloPayments\Client\Model\UserDetailsUpdateRequest**](../Model/UserDetailsUpdateRequest.md)| The details of the user to update | |
 
 ### Return type
 
@@ -968,9 +968,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payee_user_self_update_request** | [**\VeloPayments\Client\Model\PayeeUserSelfUpdateRequest**](../Model/PayeeUserSelfUpdateRequest.md)| The details of the user to update |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payee_user_self_update_request** | [**\VeloPayments\Client\Model\PayeeUserSelfUpdateRequest**](../Model/PayeeUserSelfUpdateRequest.md)| The details of the user to update | |
 
 ### Return type
 
@@ -1028,9 +1028,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **password_request** | [**\VeloPayments\Client\Model\PasswordRequest**](../Model/PasswordRequest.md)| The password |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **password_request** | [**\VeloPayments\Client\Model\PasswordRequest**](../Model/PasswordRequest.md)| The password | |
 
 ### Return type
 

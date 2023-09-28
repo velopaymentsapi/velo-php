@@ -15,15 +15,15 @@ Name | Type | Description | Notes
 **remote_system_id** | **string** | The velo id of the remote system orchestrating the payment. Not populated for normal Velo payments. | [optional]
 **remote_system_payment_id** | **string** | The id of the payment in the remote system. Not populated for normal Velo payments. | [optional]
 **source_amount** | **int** | The source amount for the payment (amount debited to make the payment) | [optional]
-**source_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional]
+**source_currency** | **string** | ISO-4217 3 character currency code | [optional]
 **payment_amount** | **int** | The amount which the payee will receive |
-**payment_currency** | [**\VeloPayments\Client\Model\PaymentAuditCurrency**](PaymentAuditCurrency.md) |  | [optional]
-**rate** | **double** | The FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
-**inverted_rate** | **double** | The inverted FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
+**payment_currency** | **string** | ISO-4217 3 character currency code | [optional]
+**rate** | **float** | The FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
+**inverted_rate** | **float** | The inverted FX rate for the payment, if FX was involved. **Note** that (depending on the role of the caller) this information may not be displayed | [optional]
 **is_payment_ccy_base_ccy** | **bool** |  | [optional]
 **submitted_date_time** | **\DateTime** |  |
-**status** | **string** |  |
-**funding_status** | **string** | The funding status of the payment |
+**status** | **string** | Current status of the payment. One of the following values: ACCEPTED, AWAITING_FUNDS, FUNDED, UNFUNDED, BANK_PAYMENT_REQUESTED, REJECTED, ACCEPTED_BY_RAILS, CONFIRMED, RETURNED, WITHDRAWN |
+**funding_status** | **string** | Current funding status of the payment. One of the following values: FUNDED, INSTRUCTED, UNFUNDED |
 **routing_number** | **string** | The routing number for the payment. | [optional]
 **account_number** | **string** | The account number for the account which will receive the payment. | [optional]
 **iban** | **string** | The iban for the payment. | [optional]
@@ -37,19 +37,22 @@ Name | Type | Description | Notes
 **account_name** | **string** |  | [optional]
 **rails_id** | **string** | The rails ID. Default value is RAILS ID UNAVAILABLE when not populated. | [default to 'RAILS ID UNAVAILABLE']
 **country_code** | **string** | The country code of the payment channel. | [optional]
+**payee_address_country_code** | **string** | The country code of the payee&#39;s address. | [optional]
 **events** | [**\VeloPayments\Client\Model\PaymentEventResponse[]**](PaymentEventResponse.md) |  |
 **return_cost** | **int** | The return cost if a returned payment. | [optional]
 **return_reason** | **string** |  | [optional]
 **rails_payment_id** | **string** |  | [optional]
 **rails_batch_id** | **string** |  | [optional]
+**payment_scheme** | **string** |  | [optional]
 **rejection_reason** | **string** |  | [optional]
 **withdrawn_reason** | **string** |  | [optional]
 **withdrawable** | **bool** |  | [optional]
 **auto_withdrawn_reason_code** | **string** | Populated with rejection reason code if the payment was withdrawn automatically at instruct time | [optional]
-**transmission_type** | **string** | The transmission type of the payment, e.g. ACH, SAME_DAY_ACH, WIRE | [optional]
+**transmission_type** | **string** | The transmission type of the payment, e.g. ACH, SAME_DAY_ACH, WIRE, GACHO | [optional]
 **payment_tracking_reference** | **string** |  | [optional]
 **payment_metadata** | **string** | Metadata for the payment | [optional]
 **schedule** | [**\VeloPayments\Client\Model\PayoutSchedule**](PayoutSchedule.md) |  | [optional]
+**post_instruct_fx_info** | [**\VeloPayments\Client\Model\PostInstructFxInfo**](PostInstructFxInfo.md) |  | [optional]
 **payout** | [**\VeloPayments\Client\Model\PaymentResponseV4Payout**](PaymentResponseV4Payout.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

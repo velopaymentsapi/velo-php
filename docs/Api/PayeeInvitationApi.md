@@ -1,23 +1,83 @@
 # VeloPayments\Client\PayeeInvitationApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getPayeesInvitationStatusV3()**](PayeeInvitationApi.md#getPayeesInvitationStatusV3) | **GET** /v3/payees/payors/{payorId}/invitationStatus | Get Payee Invitation Status
-[**getPayeesInvitationStatusV4()**](PayeeInvitationApi.md#getPayeesInvitationStatusV4) | **GET** /v4/payees/payors/{payorId}/invitationStatus | Get Payee Invitation Status
-[**queryBatchStatusV3()**](PayeeInvitationApi.md#queryBatchStatusV3) | **GET** /v3/payees/batch/{batchId} | Query Batch Status
-[**queryBatchStatusV4()**](PayeeInvitationApi.md#queryBatchStatusV4) | **GET** /v4/payees/batch/{batchId} | Query Batch Status
-[**resendPayeeInviteV3()**](PayeeInvitationApi.md#resendPayeeInviteV3) | **POST** /v3/payees/{payeeId}/invite | Resend Payee Invite
-[**resendPayeeInviteV4()**](PayeeInvitationApi.md#resendPayeeInviteV4) | **POST** /v4/payees/{payeeId}/invite | Resend Payee Invite
-[**v3CreatePayee()**](PayeeInvitationApi.md#v3CreatePayee) | **POST** /v3/payees | Initiate Payee Creation
-[**v4CreatePayee()**](PayeeInvitationApi.md#v4CreatePayee) | **POST** /v4/payees | Initiate Payee Creation
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createPayeeV3()**](PayeeInvitationApi.md#createPayeeV3) | **POST** /v3/payees | Initiate Payee Creation |
+| [**getPayeesInvitationStatusV3()**](PayeeInvitationApi.md#getPayeesInvitationStatusV3) | **GET** /v3/payees/payors/{payorId}/invitationStatus | Get Payee Invitation Status |
+| [**getPayeesInvitationStatusV4()**](PayeeInvitationApi.md#getPayeesInvitationStatusV4) | **GET** /v4/payees/payors/{payorId}/invitationStatus | Get Payee Invitation Status |
+| [**queryBatchStatusV3()**](PayeeInvitationApi.md#queryBatchStatusV3) | **GET** /v3/payees/batch/{batchId} | Query Batch Status |
+| [**queryBatchStatusV4()**](PayeeInvitationApi.md#queryBatchStatusV4) | **GET** /v4/payees/batch/{batchId} | Query Batch Status |
+| [**resendPayeeInviteV3()**](PayeeInvitationApi.md#resendPayeeInviteV3) | **POST** /v3/payees/{payeeId}/invite | Resend Payee Invite |
+| [**resendPayeeInviteV4()**](PayeeInvitationApi.md#resendPayeeInviteV4) | **POST** /v4/payees/{payeeId}/invite | Resend Payee Invite |
+| [**v4CreatePayee()**](PayeeInvitationApi.md#v4CreatePayee) | **POST** /v4/payees | Initiate Payee Creation |
 
+
+## `createPayeeV3()`
+
+```php
+createPayeeV3($create_payees_request_v3): \VeloPayments\Client\Model\CreatePayeesCSVResponseV3
+```
+
+Initiate Payee Creation
+
+<p>Use v4 instead</p> Initiate the process of creating 1 to 2000 payees in a batch Use the response location header to query for status (201 - Created, 400 - invalid request body. In addition to standard semantic validations, a 400 will also result if there is a duplicate remote id within the batch / if there is a duplicate email within the batch, i.e. if there is a conflict between the data provided for one payee within the batch and that provided for another payee within the same batch). The validation at this stage is intra-batch only. Validation against payees who have already been invited occurs subsequently during processing of the batch.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$create_payees_request_v3 = new \VeloPayments\Client\Model\CreatePayeesRequestV3(); // \VeloPayments\Client\Model\CreatePayeesRequestV3 | Post payees to create.
+
+try {
+    $result = $apiInstance->createPayeeV3($create_payees_request_v3);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PayeeInvitationApi->createPayeeV3: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_payees_request_v3** | [**\VeloPayments\Client\Model\CreatePayeesRequestV3**](../Model/CreatePayeesRequestV3.md)| Post payees to create. | [optional] |
+
+### Return type
+
+[**\VeloPayments\Client\Model\CreatePayeesCSVResponseV3**](../Model/CreatePayeesCSVResponseV3.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`, `multipart/form-data`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getPayeesInvitationStatusV3()`
 
 ```php
-getPayeesInvitationStatusV3($payor_id, $payee_id, $invitation_status, $page, $page_size): \VeloPayments\Client\Model\PagedPayeeInvitationStatusResponse
+getPayeesInvitationStatusV3($payor_id, $payee_id, $invitation_status, $page, $page_size): \VeloPayments\Client\Model\PagedPayeeInvitationStatusResponseV3
 ```
 
 Get Payee Invitation Status
@@ -43,7 +103,7 @@ $apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
 );
 $payor_id = 9ac75325-5dcd-42d5-b992-175d7e0a035e; // string | The account owner Payor ID
 $payee_id = 2aa5d7e0-2ecb-403f-8494-1865ed0454e9; // string | The UUID of the payee.
-$invitation_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\InvitationStatus(); // \VeloPayments\Client\Model\InvitationStatus | The invitation status of the payees.
+$invitation_status = 'invitation_status_example'; // string | The invitation status of the payees.
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 
@@ -57,17 +117,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The account owner Payor ID |
- **payee_id** | **string**| The UUID of the payee. | [optional]
- **invitation_status** | [**\VeloPayments\Client\Model\InvitationStatus**](../Model/.md)| The invitation status of the payees. | [optional]
- **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
- **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The account owner Payor ID | |
+| **payee_id** | **string**| The UUID of the payee. | [optional] |
+| **invitation_status** | **string**| The invitation status of the payees. | [optional] |
+| **page** | **int**| Page number. Default is 1. | [optional] [default to 1] |
+| **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25] |
 
 ### Return type
 
-[**\VeloPayments\Client\Model\PagedPayeeInvitationStatusResponse**](../Model/PagedPayeeInvitationStatusResponse.md)
+[**\VeloPayments\Client\Model\PagedPayeeInvitationStatusResponseV3**](../Model/PagedPayeeInvitationStatusResponseV3.md)
 
 ### Authorization
 
@@ -85,7 +145,7 @@ Name | Type | Description  | Notes
 ## `getPayeesInvitationStatusV4()`
 
 ```php
-getPayeesInvitationStatusV4($payor_id, $payee_id, $invitation_status, $page, $page_size): \VeloPayments\Client\Model\PagedPayeeInvitationStatusResponse2
+getPayeesInvitationStatusV4($payor_id, $payee_id, $invitation_status, $page, $page_size): \VeloPayments\Client\Model\PagedPayeeInvitationStatusResponseV4
 ```
 
 Get Payee Invitation Status
@@ -111,7 +171,7 @@ $apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
 );
 $payor_id = 9ac75325-5dcd-42d5-b992-175d7e0a035e; // string | The account owner Payor ID
 $payee_id = 2aa5d7e0-2ecb-403f-8494-1865ed0454e9; // string | The UUID of the payee.
-$invitation_status = new \VeloPayments\Client\Model\\VeloPayments\Client\Model\InvitationStatus(); // \VeloPayments\Client\Model\InvitationStatus | The invitation status of the payees.
+$invitation_status = 'invitation_status_example'; // string | The invitation status of the payees.
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | Page size. Default is 25. Max allowable is 100.
 
@@ -125,17 +185,17 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payor_id** | **string**| The account owner Payor ID |
- **payee_id** | **string**| The UUID of the payee. | [optional]
- **invitation_status** | [**\VeloPayments\Client\Model\InvitationStatus**](../Model/.md)| The invitation status of the payees. | [optional]
- **page** | **int**| Page number. Default is 1. | [optional] [default to 1]
- **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payor_id** | **string**| The account owner Payor ID | |
+| **payee_id** | **string**| The UUID of the payee. | [optional] |
+| **invitation_status** | **string**| The invitation status of the payees. | [optional] |
+| **page** | **int**| Page number. Default is 1. | [optional] [default to 1] |
+| **page_size** | **int**| Page size. Default is 25. Max allowable is 100. | [optional] [default to 25] |
 
 ### Return type
 
-[**\VeloPayments\Client\Model\PagedPayeeInvitationStatusResponse2**](../Model/PagedPayeeInvitationStatusResponse2.md)
+[**\VeloPayments\Client\Model\PagedPayeeInvitationStatusResponseV4**](../Model/PagedPayeeInvitationStatusResponseV4.md)
 
 ### Authorization
 
@@ -153,7 +213,7 @@ Name | Type | Description  | Notes
 ## `queryBatchStatusV3()`
 
 ```php
-queryBatchStatusV3($batch_id): \VeloPayments\Client\Model\QueryBatchResponse
+queryBatchStatusV3($batch_id): \VeloPayments\Client\Model\QueryBatchResponseV3
 ```
 
 Query Batch Status
@@ -189,13 +249,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **batch_id** | **string**| Batch Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **batch_id** | **string**| Batch Id | |
 
 ### Return type
 
-[**\VeloPayments\Client\Model\QueryBatchResponse**](../Model/QueryBatchResponse.md)
+[**\VeloPayments\Client\Model\QueryBatchResponseV3**](../Model/QueryBatchResponseV3.md)
 
 ### Authorization
 
@@ -213,7 +273,7 @@ Name | Type | Description  | Notes
 ## `queryBatchStatusV4()`
 
 ```php
-queryBatchStatusV4($batch_id): \VeloPayments\Client\Model\QueryBatchResponse2
+queryBatchStatusV4($batch_id): \VeloPayments\Client\Model\QueryBatchResponseV4
 ```
 
 Query Batch Status
@@ -249,13 +309,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **batch_id** | **string**| Batch Id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **batch_id** | **string**| Batch Id | |
 
 ### Return type
 
-[**\VeloPayments\Client\Model\QueryBatchResponse2**](../Model/QueryBatchResponse2.md)
+[**\VeloPayments\Client\Model\QueryBatchResponseV4**](../Model/QueryBatchResponseV4.md)
 
 ### Authorization
 
@@ -273,7 +333,7 @@ Name | Type | Description  | Notes
 ## `resendPayeeInviteV3()`
 
 ```php
-resendPayeeInviteV3($payee_id, $invite_payee_request)
+resendPayeeInviteV3($payee_id, $invite_payee_request_v3)
 ```
 
 Resend Payee Invite
@@ -298,10 +358,10 @@ $apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
     $config
 );
 $payee_id = 2aa5d7e0-2ecb-403f-8494-1865ed0454e9; // string | The UUID of the payee.
-$invite_payee_request = new \VeloPayments\Client\Model\InvitePayeeRequest(); // \VeloPayments\Client\Model\InvitePayeeRequest | Provide Payor Id in body of request
+$invite_payee_request_v3 = new \VeloPayments\Client\Model\InvitePayeeRequestV3(); // \VeloPayments\Client\Model\InvitePayeeRequestV3 | Provide Payor Id in body of request
 
 try {
-    $apiInstance->resendPayeeInviteV3($payee_id, $invite_payee_request);
+    $apiInstance->resendPayeeInviteV3($payee_id, $invite_payee_request_v3);
 } catch (Exception $e) {
     echo 'Exception when calling PayeeInvitationApi->resendPayeeInviteV3: ', $e->getMessage(), PHP_EOL;
 }
@@ -309,10 +369,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payee_id** | **string**| The UUID of the payee. |
- **invite_payee_request** | [**\VeloPayments\Client\Model\InvitePayeeRequest**](../Model/InvitePayeeRequest.md)| Provide Payor Id in body of request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payee_id** | **string**| The UUID of the payee. | |
+| **invite_payee_request_v3** | [**\VeloPayments\Client\Model\InvitePayeeRequestV3**](../Model/InvitePayeeRequestV3.md)| Provide Payor Id in body of request | |
 
 ### Return type
 
@@ -334,7 +394,7 @@ void (empty response body)
 ## `resendPayeeInviteV4()`
 
 ```php
-resendPayeeInviteV4($payee_id, $invite_payee_request2)
+resendPayeeInviteV4($payee_id, $invite_payee_request_v4)
 ```
 
 Resend Payee Invite
@@ -359,10 +419,10 @@ $apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
     $config
 );
 $payee_id = 2aa5d7e0-2ecb-403f-8494-1865ed0454e9; // string | The UUID of the payee.
-$invite_payee_request2 = new \VeloPayments\Client\Model\InvitePayeeRequest2(); // \VeloPayments\Client\Model\InvitePayeeRequest2 | Provide Payor Id in body of request
+$invite_payee_request_v4 = new \VeloPayments\Client\Model\InvitePayeeRequestV4(); // \VeloPayments\Client\Model\InvitePayeeRequestV4 | Provide Payor Id in body of request
 
 try {
-    $apiInstance->resendPayeeInviteV4($payee_id, $invite_payee_request2);
+    $apiInstance->resendPayeeInviteV4($payee_id, $invite_payee_request_v4);
 } catch (Exception $e) {
     echo 'Exception when calling PayeeInvitationApi->resendPayeeInviteV4: ', $e->getMessage(), PHP_EOL;
 }
@@ -370,10 +430,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **payee_id** | **string**| The UUID of the payee. |
- **invite_payee_request2** | [**\VeloPayments\Client\Model\InvitePayeeRequest2**](../Model/InvitePayeeRequest2.md)| Provide Payor Id in body of request |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **payee_id** | **string**| The UUID of the payee. | |
+| **invite_payee_request_v4** | [**\VeloPayments\Client\Model\InvitePayeeRequestV4**](../Model/InvitePayeeRequestV4.md)| Provide Payor Id in body of request | |
 
 ### Return type
 
@@ -392,75 +452,15 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `v3CreatePayee()`
-
-```php
-v3CreatePayee($create_payees_request): \VeloPayments\Client\Model\CreatePayeesCSVResponse
-```
-
-Initiate Payee Creation
-
-<p>Use v4 instead</p> Initiate the process of creating 1 to 2000 payees in a batch Use the response location header to query for status (201 - Created, 400 - invalid request body. In addition to standard semantic validations, a 400 will also result if there is a duplicate remote id within the batch / if there is a duplicate email within the batch, i.e. if there is a conflict between the data provided for one payee within the batch and that provided for another payee within the same batch). The validation at this stage is intra-batch only. Validation against payees who have already been invited occurs subsequently during processing of the batch.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: OAuth2
-$config = VeloPayments\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$create_payees_request = new \VeloPayments\Client\Model\CreatePayeesRequest(); // \VeloPayments\Client\Model\CreatePayeesRequest | Post payees to create.
-
-try {
-    $result = $apiInstance->v3CreatePayee($create_payees_request);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling PayeeInvitationApi->v3CreatePayee: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_payees_request** | [**\VeloPayments\Client\Model\CreatePayeesRequest**](../Model/CreatePayeesRequest.md)| Post payees to create. | [optional]
-
-### Return type
-
-[**\VeloPayments\Client\Model\CreatePayeesCSVResponse**](../Model/CreatePayeesCSVResponse.md)
-
-### Authorization
-
-[OAuth2](../../README.md#OAuth2)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`, `multipart/form-data`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
 ## `v4CreatePayee()`
 
 ```php
-v4CreatePayee($create_payees_request2): \VeloPayments\Client\Model\CreatePayeesCSVResponse2
+v4CreatePayee($create_payees_request_v4): \VeloPayments\Client\Model\CreatePayeesCSVResponseV4
 ```
 
 Initiate Payee Creation
 
-Initiate the process of creating 1 to 2000 payees in a batch Use the response location header to query for status (201 - Created, 400 - invalid request body. In addition to standard semantic validations, a 400 will also result if there is a duplicate remote id within the batch / if there is a duplicate email within the batch, i.e. if there is a conflict between the data provided for one payee within the batch and that provided for another payee within the same batch). The validation at this stage is intra-batch only. Validation against payees who have already been invited occurs subsequently during processing of the batch.
+<p>Initiate the process of creating 1 to 2000 payees in a batch</p> <p>Use the batchId in the response to query for status.</p> <p>In addition to standard semantic validations, a 400 will also result if: </p> <ul> <li>there is a duplicate remote id within the batch</li> <li>there is a duplicate email within the batch, i.e. if there is a conflict between the data provided for one payee within the batch and that provided for another payee within the same batch).</li> </ul> <p>The validation at this stage is intra-batch only.</p> <p>Validation against payees who have already been invited occurs subsequently during processing of the batch.</p>
 
 ### Example
 
@@ -479,10 +479,10 @@ $apiInstance = new VeloPayments\Client\Api\PayeeInvitationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_payees_request2 = new \VeloPayments\Client\Model\CreatePayeesRequest2(); // \VeloPayments\Client\Model\CreatePayeesRequest2 | Post payees to create.
+$create_payees_request_v4 = new \VeloPayments\Client\Model\CreatePayeesRequestV4(); // \VeloPayments\Client\Model\CreatePayeesRequestV4 | Post payees to create.
 
 try {
-    $result = $apiInstance->v4CreatePayee($create_payees_request2);
+    $result = $apiInstance->v4CreatePayee($create_payees_request_v4);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PayeeInvitationApi->v4CreatePayee: ', $e->getMessage(), PHP_EOL;
@@ -491,13 +491,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_payees_request2** | [**\VeloPayments\Client\Model\CreatePayeesRequest2**](../Model/CreatePayeesRequest2.md)| Post payees to create. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_payees_request_v4** | [**\VeloPayments\Client\Model\CreatePayeesRequestV4**](../Model/CreatePayeesRequestV4.md)| Post payees to create. | [optional] |
 
 ### Return type
 
-[**\VeloPayments\Client\Model\CreatePayeesCSVResponse2**](../Model/CreatePayeesCSVResponse2.md)
+[**\VeloPayments\Client\Model\CreatePayeesCSVResponseV4**](../Model/CreatePayeesCSVResponseV4.md)
 
 ### Authorization
 

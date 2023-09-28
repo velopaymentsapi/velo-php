@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **funding_account_routing_number** | **string** | The funding account routing number to be used for the payor. | [optional]
 **funding_account_account_number** | **string** | The funding account number to be used for the payor. | [optional]
 **funding_account_account_name** | **string** | The funding account name to be used for the payor. | [optional]
-**kyc_state** | [**\VeloPayments\Client\Model\KycState**](KycState.md) |  | [optional]
+**kyc_state** | **string** | The kyc state of the payor. One of the following values: FAILED_KYC, PASSED_KYC, REQUIRES_KYC | [optional] [readonly]
 **manual_lockout** | **bool** | Whether or not the payor has been manually locked by the backoffice. | [optional]
 **payee_grace_period_processing_enabled** | **bool** | Whether grace period processing is enabled. | [optional] [readonly]
 **payee_grace_period_days** | **int** | The grace period for paying payees in days. | [optional] [readonly]

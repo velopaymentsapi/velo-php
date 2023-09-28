@@ -1,11 +1,11 @@
 # VeloPayments\Client\FundingManagerPrivateApi
 
-All URIs are relative to https://api.sandbox.velopayments.com.
+All URIs are relative to https://api.sandbox.velopayments.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createFundingAccountV2()**](FundingManagerPrivateApi.md#createFundingAccountV2) | **POST** /v2/fundingAccounts | Create Funding Account
-[**deleteSourceAccountV3()**](FundingManagerPrivateApi.md#deleteSourceAccountV3) | **DELETE** /v3/sourceAccounts/{sourceAccountId} | Delete a source account by ID
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createFundingAccountV2()**](FundingManagerPrivateApi.md#createFundingAccountV2) | **POST** /v2/fundingAccounts | Create Funding Account |
+| [**deleteSourceAccountV3()**](FundingManagerPrivateApi.md#deleteSourceAccountV3) | **DELETE** /v3/sourceAccounts/{sourceAccountId} | Delete a source account by ID |
 
 
 ## `createFundingAccountV2()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_funding_account_request_v2** | [**\VeloPayments\Client\Model\CreateFundingAccountRequestV2**](../Model/CreateFundingAccountRequestV2.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **create_funding_account_request_v2** | [**\VeloPayments\Client\Model\CreateFundingAccountRequestV2**](../Model/CreateFundingAccountRequestV2.md)|  | [optional] |
 
 ### Return type
 
@@ -105,9 +105,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **source_account_id** | **string**| Source account id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **source_account_id** | **string**| Source account id | |
 
 ### Return type
 
