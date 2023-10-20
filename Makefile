@@ -24,7 +24,7 @@ oa3config: ## Set version on the openapi generator config to value of the VERSIO
 	sed -i.bak 's/"artifactVersion": ".*"/"artifactVersion": "${VERSION}"/g' oa3-config.json && rm oa3-config.json.bak
 
 sdkversion:
-	@docker run -i stedolan/jq <oa3-config.json -r '.projectVersion'
+	@docker run -i stedolan/jq <oa3-config.json -r '.artifactVersion'
 
 clean: ## Remove files & directories that are auto created by generator cli
 	rm -Rf docs
