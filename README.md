@@ -75,6 +75,24 @@ This is achieved by setting the HTTP Authorization header with the value set to 
 If you make other Velo API calls which require authorization but the Authorization header is missing or invalid then you will get a **401** HTTP status response.
 
 
+## Http Status Codes
+Following is a list of Http Status codes that could be returned by the platform
+
+    | Status Code            | Description                                                                          |
+    | -----------------------| -------------------------------------------------------------------------------------|
+    | 200 OK                 | The request was successfully processed and usually returns a json response           |
+    | 201 Created            | A resource was created and a Location header is returned linking to the new resource |
+    | 202 Accepted           | The request has been accepted for processing                                         |
+    | 204 No Content         | The request has been processed and there is no response (usually deletes and updates)|
+    | 400 Bad Request        | The request is invalid and should be fixed before retrying                           |
+    | 401 Unauthorized       | Authentication has failed, usually means the token has expired                       |
+    | 403 Forbidden          | The user does not have permissions for the request                                   |
+    | 404 Not Found          | The resource was not found                                                           |
+    | 409 Conflict           | The resource already exists and there is a conflict                                  |
+    | 429 Too Many Requests  | The user has submitted too many requests in a given amount of time                   |
+    | 5xx Server Error       | Platform internal error (should rarely happen)                                       |
+
+
 
 ## Installation & Usage
 
@@ -172,6 +190,13 @@ Class | Method | HTTP request | Description
 *PayeeInvitationApi* | [**resendPayeeInviteV3**](docs/Api/PayeeInvitationApi.md#resendpayeeinvitev3) | **POST** /v3/payees/{payeeId}/invite | Resend Payee Invite
 *PayeeInvitationApi* | [**resendPayeeInviteV4**](docs/Api/PayeeInvitationApi.md#resendpayeeinvitev4) | **POST** /v4/payees/{payeeId}/invite | Resend Payee Invite
 *PayeeInvitationApi* | [**v4CreatePayee**](docs/Api/PayeeInvitationApi.md#v4createpayee) | **POST** /v4/payees | Initiate Payee Creation
+*PayeePaymentChannelsApi* | [**createPaymentChannelV4**](docs/Api/PayeePaymentChannelsApi.md#createpaymentchannelv4) | **POST** /v4/payees/{payeeId}/paymentChannels/ | Create Payment Channel
+*PayeePaymentChannelsApi* | [**deletePaymentChannelV4**](docs/Api/PayeePaymentChannelsApi.md#deletepaymentchannelv4) | **DELETE** /v4/payees/{payeeId}/paymentChannels/{paymentChannelId} | Delete Payment Channel
+*PayeePaymentChannelsApi* | [**enablePaymentChannelV4**](docs/Api/PayeePaymentChannelsApi.md#enablepaymentchannelv4) | **POST** /v4/payees/{payeeId}/paymentChannels/{paymentChannelId}/enable | Enable Payment Channel
+*PayeePaymentChannelsApi* | [**getPaymentChannelV4**](docs/Api/PayeePaymentChannelsApi.md#getpaymentchannelv4) | **GET** /v4/payees/{payeeId}/paymentChannels/{paymentChannelId} | Get Payment Channel Details
+*PayeePaymentChannelsApi* | [**getPaymentChannelsV4**](docs/Api/PayeePaymentChannelsApi.md#getpaymentchannelsv4) | **GET** /v4/payees/{payeeId}/paymentChannels/ | Get All Payment Channels Details
+*PayeePaymentChannelsApi* | [**updatePaymentChannelOrderV4**](docs/Api/PayeePaymentChannelsApi.md#updatepaymentchannelorderv4) | **PUT** /v4/payees/{payeeId}/paymentChannels/order | Update Payees preferred Payment Channel order
+*PayeePaymentChannelsApi* | [**updatePaymentChannelV4**](docs/Api/PayeePaymentChannelsApi.md#updatepaymentchannelv4) | **POST** /v4/payees/{payeeId}/paymentChannels/{paymentChannelId} | Update Payment Channel
 *PayeesApi* | [**deletePayeeByIdV3**](docs/Api/PayeesApi.md#deletepayeebyidv3) | **DELETE** /v3/payees/{payeeId} | Delete Payee by Id
 *PayeesApi* | [**deletePayeeByIdV4**](docs/Api/PayeesApi.md#deletepayeebyidv4) | **DELETE** /v4/payees/{payeeId} | Delete Payee by Id
 *PayeesApi* | [**getPayeeByIdV3**](docs/Api/PayeesApi.md#getpayeebyidv3) | **GET** /v3/payees/{payeeId} | Get Payee by Id
@@ -201,7 +226,6 @@ Class | Method | HTTP request | Description
 *PaymentAuditServiceDeprecatedApi* | [**listPaymentChanges**](docs/Api/PaymentAuditServiceDeprecatedApi.md#listpaymentchanges) | **GET** /v1/deltas/payments | V1 List Payment Changes
 *PaymentAuditServiceDeprecatedApi* | [**listPaymentsAuditV3**](docs/Api/PaymentAuditServiceDeprecatedApi.md#listpaymentsauditv3) | **GET** /v3/paymentaudit/payments | V3 Get List of Payments
 *PayorHierarchyApi* | [**payorLinksV1**](docs/Api/PayorHierarchyApi.md#payorlinksv1) | **GET** /v1/payorLinks | List Payor Links
-*PayorsApi* | [**getPayorByIdV1**](docs/Api/PayorsApi.md#getpayorbyidv1) | **GET** /v1/payors/{payorId} | Get Payor
 *PayorsApi* | [**getPayorByIdV2**](docs/Api/PayorsApi.md#getpayorbyidv2) | **GET** /v2/payors/{payorId} | Get Payor
 *PayorsApi* | [**payorAddPayorLogoV1**](docs/Api/PayorsApi.md#payoraddpayorlogov1) | **POST** /v1/payors/{payorId}/branding/logos | Add Logo
 *PayorsApi* | [**payorCreateApiKeyV1**](docs/Api/PayorsApi.md#payorcreateapikeyv1) | **POST** /v1/payors/{payorId}/applications/{applicationId}/keys | Create API Key
@@ -227,6 +251,9 @@ Class | Method | HTTP request | Description
 *SourceAccountsApi* | [**transferFundsV2**](docs/Api/SourceAccountsApi.md#transferfundsv2) | **POST** /v2/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
 *SourceAccountsApi* | [**transferFundsV3**](docs/Api/SourceAccountsApi.md#transferfundsv3) | **POST** /v3/sourceAccounts/{sourceAccountId}/transfers | Transfer Funds between source accounts
 *TokensApi* | [**resendToken**](docs/Api/TokensApi.md#resendtoken) | **POST** /v2/users/{userId}/tokens | Resend a token
+*TransactionsApi* | [**createTransactionV1**](docs/Api/TransactionsApi.md#createtransactionv1) | **POST** /v1/transactions | Create a Transaction
+*TransactionsApi* | [**getTransactionByIdV1**](docs/Api/TransactionsApi.md#gettransactionbyidv1) | **GET** /v1/transactions/{transactionId} | Get Transaction
+*TransactionsApi* | [**getTransactions**](docs/Api/TransactionsApi.md#gettransactions) | **GET** /v1/transactions | Get Transactions
 *UsersApi* | [**deleteUserByIdV2**](docs/Api/UsersApi.md#deleteuserbyidv2) | **DELETE** /v2/users/{userId} | Delete a User
 *UsersApi* | [**disableUserV2**](docs/Api/UsersApi.md#disableuserv2) | **POST** /v2/users/{userId}/disable | Disable a User
 *UsersApi* | [**enableUserV2**](docs/Api/UsersApi.md#enableuserv2) | **POST** /v2/users/{userId}/enable | Enable a User
@@ -255,12 +282,15 @@ Class | Method | HTTP request | Description
 - [AcceptedPaymentV3](docs/Model/AcceptedPaymentV3.md)
 - [AccessTokenResponse](docs/Model/AccessTokenResponse.md)
 - [AccessTokenValidationRequest](docs/Model/AccessTokenValidationRequest.md)
+- [AddressV4](docs/Model/AddressV4.md)
 - [AuthResponse](docs/Model/AuthResponse.md)
 - [AutoTopUpConfigV2](docs/Model/AutoTopUpConfigV2.md)
 - [AutoTopUpConfigV3](docs/Model/AutoTopUpConfigV3.md)
 - [Category](docs/Model/Category.md)
 - [ChallengeV3](docs/Model/ChallengeV3.md)
 - [ChallengeV4](docs/Model/ChallengeV4.md)
+- [CommonLinkObject](docs/Model/CommonLinkObject.md)
+- [CommonPageObject](docs/Model/CommonPageObject.md)
 - [CompanyV3](docs/Model/CompanyV3.md)
 - [CompanyV4](docs/Model/CompanyV4.md)
 - [CreateFundingAccountRequestV2](docs/Model/CreateFundingAccountRequestV2.md)
@@ -278,10 +308,13 @@ Class | Method | HTTP request | Description
 - [CreatePayeesCSVResponseV4](docs/Model/CreatePayeesCSVResponseV4.md)
 - [CreatePayeesRequestV3](docs/Model/CreatePayeesRequestV3.md)
 - [CreatePayeesRequestV4](docs/Model/CreatePayeesRequestV4.md)
+- [CreatePaymentChannelRequestV4](docs/Model/CreatePaymentChannelRequestV4.md)
 - [CreatePaymentChannelV3](docs/Model/CreatePaymentChannelV3.md)
 - [CreatePaymentChannelV4](docs/Model/CreatePaymentChannelV4.md)
 - [CreatePayorLinkRequest](docs/Model/CreatePayorLinkRequest.md)
 - [CreatePayoutRequestV3](docs/Model/CreatePayoutRequestV3.md)
+- [CreateTransactionRequest](docs/Model/CreateTransactionRequest.md)
+- [CreateTransactionResponse](docs/Model/CreateTransactionResponse.md)
 - [CreateWebhookRequest](docs/Model/CreateWebhookRequest.md)
 - [DebitEvent](docs/Model/DebitEvent.md)
 - [DebitEventAllOf](docs/Model/DebitEventAllOf.md)
@@ -297,6 +330,7 @@ Class | Method | HTTP request | Description
 - [FundingAccountResponseV2](docs/Model/FundingAccountResponseV2.md)
 - [FundingAudit](docs/Model/FundingAudit.md)
 - [FundingEvent](docs/Model/FundingEvent.md)
+- [FundingEvent2](docs/Model/FundingEvent2.md)
 - [FundingPayorStatusAuditResponse](docs/Model/FundingPayorStatusAuditResponse.md)
 - [FundingRequestV2](docs/Model/FundingRequestV2.md)
 - [FundingRequestV3](docs/Model/FundingRequestV3.md)
@@ -336,7 +370,6 @@ Class | Method | HTTP request | Description
 - [InviteUserRequest](docs/Model/InviteUserRequest.md)
 - [LinkForResponse](docs/Model/LinkForResponse.md)
 - [ListFundingAccountsResponseV2](docs/Model/ListFundingAccountsResponseV2.md)
-- [ListFundingAccountsResponseV2Links](docs/Model/ListFundingAccountsResponseV2Links.md)
 - [ListFundingAccountsResponseV2Page](docs/Model/ListFundingAccountsResponseV2Page.md)
 - [ListPaymentsResponseV3](docs/Model/ListPaymentsResponseV3.md)
 - [ListPaymentsResponseV3Page](docs/Model/ListPaymentsResponseV3Page.md)
@@ -357,6 +390,7 @@ Class | Method | HTTP request | Description
 - [OnboardingStatusChanged](docs/Model/OnboardingStatusChanged.md)
 - [PageForResponse](docs/Model/PageForResponse.md)
 - [PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse](docs/Model/PageResourceFundingPayorStatusAuditResponseFundingPayorStatusAuditResponse.md)
+- [PageResourceTransactions](docs/Model/PageResourceTransactions.md)
 - [PagedPayeeInvitationStatusResponseV3](docs/Model/PagedPayeeInvitationStatusResponseV3.md)
 - [PagedPayeeInvitationStatusResponseV3Page](docs/Model/PagedPayeeInvitationStatusResponseV3Page.md)
 - [PagedPayeeInvitationStatusResponseV4](docs/Model/PagedPayeeInvitationStatusResponseV4.md)
@@ -396,8 +430,12 @@ Class | Method | HTTP request | Description
 - [PayeeTypeEnum](docs/Model/PayeeTypeEnum.md)
 - [PayeeUserSelfUpdateRequest](docs/Model/PayeeUserSelfUpdateRequest.md)
 - [PaymentChannelCountry](docs/Model/PaymentChannelCountry.md)
+- [PaymentChannelOrderRequestV4](docs/Model/PaymentChannelOrderRequestV4.md)
+- [PaymentChannelResponseV4](docs/Model/PaymentChannelResponseV4.md)
 - [PaymentChannelRule](docs/Model/PaymentChannelRule.md)
 - [PaymentChannelRulesResponse](docs/Model/PaymentChannelRulesResponse.md)
+- [PaymentChannelSummaryV4](docs/Model/PaymentChannelSummaryV4.md)
+- [PaymentChannelsResponseV4](docs/Model/PaymentChannelsResponseV4.md)
 - [PaymentDelta](docs/Model/PaymentDelta.md)
 - [PaymentDeltaResponse](docs/Model/PaymentDeltaResponse.md)
 - [PaymentDeltaResponseV1](docs/Model/PaymentDeltaResponseV1.md)
@@ -415,7 +453,6 @@ Class | Method | HTTP request | Description
 - [PaymentStatusChanged](docs/Model/PaymentStatusChanged.md)
 - [PaymentStatusChangedAllOf](docs/Model/PaymentStatusChangedAllOf.md)
 - [PaymentV3](docs/Model/PaymentV3.md)
-- [PayorAddress](docs/Model/PayorAddress.md)
 - [PayorAddressV2](docs/Model/PayorAddressV2.md)
 - [PayorAmlTransaction](docs/Model/PayorAmlTransaction.md)
 - [PayorAmlTransactionV3](docs/Model/PayorAmlTransactionV3.md)
@@ -424,10 +461,12 @@ Class | Method | HTTP request | Description
 - [PayorCreateApiKeyResponse](docs/Model/PayorCreateApiKeyResponse.md)
 - [PayorCreateApplicationRequest](docs/Model/PayorCreateApplicationRequest.md)
 - [PayorEmailOptOutRequest](docs/Model/PayorEmailOptOutRequest.md)
+- [PayorFundingDetected](docs/Model/PayorFundingDetected.md)
+- [PayorFundingDetectedAllOf](docs/Model/PayorFundingDetectedAllOf.md)
 - [PayorLinksResponse](docs/Model/PayorLinksResponse.md)
 - [PayorLinksResponseLinks](docs/Model/PayorLinksResponseLinks.md)
 - [PayorLinksResponsePayors](docs/Model/PayorLinksResponsePayors.md)
-- [PayorV1](docs/Model/PayorV1.md)
+- [PayorToPaymentChannelMappingV4](docs/Model/PayorToPaymentChannelMappingV4.md)
 - [PayorV2](docs/Model/PayorV2.md)
 - [PayoutCompanyV3](docs/Model/PayoutCompanyV3.md)
 - [PayoutIndividualV3](docs/Model/PayoutIndividualV3.md)
@@ -472,13 +511,13 @@ Class | Method | HTTP request | Description
 - [SupportedCountryV2](docs/Model/SupportedCountryV2.md)
 - [SupportedCurrencyResponseV2](docs/Model/SupportedCurrencyResponseV2.md)
 - [SupportedCurrencyV2](docs/Model/SupportedCurrencyV2.md)
+- [TransactionResponse](docs/Model/TransactionResponse.md)
 - [TransferRequestV2](docs/Model/TransferRequestV2.md)
 - [TransferRequestV3](docs/Model/TransferRequestV3.md)
-- [TransmissionTypes](docs/Model/TransmissionTypes.md)
-- [TransmissionTypes2](docs/Model/TransmissionTypes2.md)
 - [UnregisterMFARequest](docs/Model/UnregisterMFARequest.md)
 - [UpdatePayeeDetailsRequestV3](docs/Model/UpdatePayeeDetailsRequestV3.md)
 - [UpdatePayeeDetailsRequestV4](docs/Model/UpdatePayeeDetailsRequestV4.md)
+- [UpdatePaymentChannelRequestV4](docs/Model/UpdatePaymentChannelRequestV4.md)
 - [UpdateRemoteIdRequestV3](docs/Model/UpdateRemoteIdRequestV3.md)
 - [UpdateRemoteIdRequestV4](docs/Model/UpdateRemoteIdRequestV4.md)
 - [UpdateWebhookRequest](docs/Model/UpdateWebhookRequest.md)
@@ -533,6 +572,6 @@ vendor/bin/phpunit
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `2.35.58`
-    - Package version: `2.35.58`
+- API version: `2.37.150`
+    - Package version: `2.37.150-RC1`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

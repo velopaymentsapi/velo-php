@@ -13,9 +13,9 @@
 /**
  * Velo Payments APIs
  *
- * ## Terms and Definitions  Throughout this document and the Velo platform the following terms are used:  * **Payor.** An entity (typically a corporation) which wishes to pay funds to one or more payees via a payout. * **Payee.** The recipient of funds paid out by a payor. * **Payment.** A single transfer of funds from a payor to a payee. * **Payout.** A batch of Payments, typically used by a payor to logically group payments (e.g. by business day). Technically there need be no relationship between the payments in a payout - a single payout can contain payments to multiple payees and/or multiple payments to a single payee. * **Sandbox.** An integration environment provided by Velo Payments which offers a similar API experience to the production environment, but all funding and payment events are simulated, along with many other services such as OFAC sanctions list checking.  ## Overview  The Velo Payments API allows a payor to perform a number of operations. The following is a list of the main capabilities in a natural order of execution:  * Authenticate with the Velo platform * Maintain a collection of payees * Query the payor’s current balance of funds within the platform and perform additional funding * Issue payments to payees * Query the platform for a history of those payments  This document describes the main concepts and APIs required to get up and running with the Velo Payments platform. It is not an exhaustive API reference. For that, please see the separate Velo Payments API Reference.  ## API Considerations  The Velo Payments API is REST based and uses the JSON format for requests and responses.  Most calls are secured using OAuth 2 security and require a valid authentication access token for successful operation. See the Authentication section for details.  Where a dynamic value is required in the examples below, the {token} format is used, suggesting that the caller needs to supply the appropriate value of the token in question (without including the { or } characters).  Where curl examples are given, the –d @filename.json approach is used, indicating that the request body should be placed into a file named filename.json in the current directory. Each of the curl examples in this document should be considered a single line on the command-line, regardless of how they appear in print.  ## Authenticating with the Velo Platform  Once Velo backoffice staff have added your organization as a payor within the Velo platform sandbox, they will create you a payor Id, an API key and an API secret and share these with you in a secure manner.  You will need to use these values to authenticate with the Velo platform in order to gain access to the APIs. The steps to take are explained in the following:  create a string comprising the API key (e.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8) and API secret (e.g. c396b26b-137a-44fd-87f5-34631f8fd529) with a colon between them. E.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8:c396b26b-137a-44fd-87f5-34631f8fd529  base64 encode this string. E.g.: NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  create an HTTP **Authorization** header with the value set to e.g. Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  perform the Velo authentication REST call using the HTTP header created above e.g. via curl:  ```   curl -X POST \\   -H \"Content-Type: application/json\" \\   -H \"Authorization: Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==\" \\   'https://api.sandbox.velopayments.com/v1/authenticate?grant_type=client_credentials' ```  If successful, this call will result in a **200** HTTP status code and a response body such as:  ```   {     \"access_token\":\"19f6bafd-93fd-4747-b229-00507bbc991f\",     \"token_type\":\"bearer\",     \"expires_in\":1799,     \"scope\":\"...\"   } ``` ## API access following authentication Following successful authentication, the value of the access_token field in the response (indicated in green above) should then be presented with all subsequent API calls to allow the Velo platform to validate that the caller is authenticated.  This is achieved by setting the HTTP Authorization header with the value set to e.g. Bearer 19f6bafd-93fd-4747-b229-00507bbc991f such as the curl example below:  ```   -H \"Authorization: Bearer 19f6bafd-93fd-4747-b229-00507bbc991f \" ```  If you make other Velo API calls which require authorization but the Authorization header is missing or invalid then you will get a **401** HTTP status response.
+ * ## Terms and Definitions  Throughout this document and the Velo platform the following terms are used:  * **Payor.** An entity (typically a corporation) which wishes to pay funds to one or more payees via a payout. * **Payee.** The recipient of funds paid out by a payor. * **Payment.** A single transfer of funds from a payor to a payee. * **Payout.** A batch of Payments, typically used by a payor to logically group payments (e.g. by business day). Technically there need be no relationship between the payments in a payout - a single payout can contain payments to multiple payees and/or multiple payments to a single payee. * **Sandbox.** An integration environment provided by Velo Payments which offers a similar API experience to the production environment, but all funding and payment events are simulated, along with many other services such as OFAC sanctions list checking.  ## Overview  The Velo Payments API allows a payor to perform a number of operations. The following is a list of the main capabilities in a natural order of execution:  * Authenticate with the Velo platform * Maintain a collection of payees * Query the payor’s current balance of funds within the platform and perform additional funding * Issue payments to payees * Query the platform for a history of those payments  This document describes the main concepts and APIs required to get up and running with the Velo Payments platform. It is not an exhaustive API reference. For that, please see the separate Velo Payments API Reference.  ## API Considerations  The Velo Payments API is REST based and uses the JSON format for requests and responses.  Most calls are secured using OAuth 2 security and require a valid authentication access token for successful operation. See the Authentication section for details.  Where a dynamic value is required in the examples below, the {token} format is used, suggesting that the caller needs to supply the appropriate value of the token in question (without including the { or } characters).  Where curl examples are given, the –d @filename.json approach is used, indicating that the request body should be placed into a file named filename.json in the current directory. Each of the curl examples in this document should be considered a single line on the command-line, regardless of how they appear in print.  ## Authenticating with the Velo Platform  Once Velo backoffice staff have added your organization as a payor within the Velo platform sandbox, they will create you a payor Id, an API key and an API secret and share these with you in a secure manner.  You will need to use these values to authenticate with the Velo platform in order to gain access to the APIs. The steps to take are explained in the following:  create a string comprising the API key (e.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8) and API secret (e.g. c396b26b-137a-44fd-87f5-34631f8fd529) with a colon between them. E.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8:c396b26b-137a-44fd-87f5-34631f8fd529  base64 encode this string. E.g.: NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  create an HTTP **Authorization** header with the value set to e.g. Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  perform the Velo authentication REST call using the HTTP header created above e.g. via curl:  ```   curl -X POST \\   -H \"Content-Type: application/json\" \\   -H \"Authorization: Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==\" \\   'https://api.sandbox.velopayments.com/v1/authenticate?grant_type=client_credentials' ```  If successful, this call will result in a **200** HTTP status code and a response body such as:  ```   {     \"access_token\":\"19f6bafd-93fd-4747-b229-00507bbc991f\",     \"token_type\":\"bearer\",     \"expires_in\":1799,     \"scope\":\"...\"   } ``` ## API access following authentication Following successful authentication, the value of the access_token field in the response (indicated in green above) should then be presented with all subsequent API calls to allow the Velo platform to validate that the caller is authenticated.  This is achieved by setting the HTTP Authorization header with the value set to e.g. Bearer 19f6bafd-93fd-4747-b229-00507bbc991f such as the curl example below:  ```   -H \"Authorization: Bearer 19f6bafd-93fd-4747-b229-00507bbc991f \" ```  If you make other Velo API calls which require authorization but the Authorization header is missing or invalid then you will get a **401** HTTP status response.   ## Http Status Codes Following is a list of Http Status codes that could be returned by the platform      | Status Code            | Description                                                                          |     | -----------------------| -------------------------------------------------------------------------------------|     | 200 OK                 | The request was successfully processed and usually returns a json response           |     | 201 Created            | A resource was created and a Location header is returned linking to the new resource |     | 202 Accepted           | The request has been accepted for processing                                         |     | 204 No Content         | The request has been processed and there is no response (usually deletes and updates)|     | 400 Bad Request        | The request is invalid and should be fixed before retrying                           |     | 401 Unauthorized       | Authentication has failed, usually means the token has expired                       |     | 403 Forbidden          | The user does not have permissions for the request                                   |     | 404 Not Found          | The resource was not found                                                           |     | 409 Conflict           | The resource already exists and there is a conflict                                  |     | 429 Too Many Requests  | The user has submitted too many requests in a given amount of time                   |     | 5xx Server Error       | Platform internal error (should rarely happen)                                       |
  *
- * The version of the OpenAPI document: 2.35.58
+ * The version of the OpenAPI document: 2.37.150
  * Generated by: https://openapi-generator.tech
  * OpenAPI Generator version: 7.1.0-SNAPSHOT
  */
@@ -59,6 +59,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPITypes = [
         'payee_id' => 'string',
         'payor_refs' => '\VeloPayments\Client\Model\PayeePayorRefV4[]',
+        'payment_channels' => '\VeloPayments\Client\Model\PaymentChannelSummaryV4[]',
         'email' => 'string',
         'onboarded_status' => 'string',
         'watchlist_status' => 'string',
@@ -76,6 +77,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'individual' => '\VeloPayments\Client\Model\IndividualV4',
         'company' => '\VeloPayments\Client\Model\CompanyV4',
         'cellphone_number' => 'string',
+        'managed_by_payor_id' => 'string',
         'watchlist_status_updated_timestamp' => 'string',
         'grace_period_end_date' => '\DateTime',
         'enhanced_kyc_completed' => 'bool',
@@ -98,6 +100,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $openAPIFormats = [
         'payee_id' => 'uuid',
         'payor_refs' => null,
+        'payment_channels' => null,
         'email' => 'email',
         'onboarded_status' => null,
         'watchlist_status' => null,
@@ -115,6 +118,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'individual' => null,
         'company' => null,
         'cellphone_number' => null,
+        'managed_by_payor_id' => 'uuid',
         'watchlist_status_updated_timestamp' => 'date_time',
         'grace_period_end_date' => 'date',
         'enhanced_kyc_completed' => null,
@@ -135,6 +139,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static array $openAPINullables = [
         'payee_id' => false,
 		'payor_refs' => true,
+		'payment_channels' => true,
 		'email' => true,
 		'onboarded_status' => false,
 		'watchlist_status' => false,
@@ -152,6 +157,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
 		'individual' => false,
 		'company' => true,
 		'cellphone_number' => false,
+		'managed_by_payor_id' => false,
 		'watchlist_status_updated_timestamp' => true,
 		'grace_period_end_date' => true,
 		'enhanced_kyc_completed' => false,
@@ -252,6 +258,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $attributeMap = [
         'payee_id' => 'payeeId',
         'payor_refs' => 'payorRefs',
+        'payment_channels' => 'paymentChannels',
         'email' => 'email',
         'onboarded_status' => 'onboardedStatus',
         'watchlist_status' => 'watchlistStatus',
@@ -269,6 +276,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'individual' => 'individual',
         'company' => 'company',
         'cellphone_number' => 'cellphoneNumber',
+        'managed_by_payor_id' => 'managedByPayorId',
         'watchlist_status_updated_timestamp' => 'watchlistStatusUpdatedTimestamp',
         'grace_period_end_date' => 'gracePeriodEndDate',
         'enhanced_kyc_completed' => 'enhancedKycCompleted',
@@ -289,6 +297,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $setters = [
         'payee_id' => 'setPayeeId',
         'payor_refs' => 'setPayorRefs',
+        'payment_channels' => 'setPaymentChannels',
         'email' => 'setEmail',
         'onboarded_status' => 'setOnboardedStatus',
         'watchlist_status' => 'setWatchlistStatus',
@@ -306,6 +315,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'individual' => 'setIndividual',
         'company' => 'setCompany',
         'cellphone_number' => 'setCellphoneNumber',
+        'managed_by_payor_id' => 'setManagedByPayorId',
         'watchlist_status_updated_timestamp' => 'setWatchlistStatusUpdatedTimestamp',
         'grace_period_end_date' => 'setGracePeriodEndDate',
         'enhanced_kyc_completed' => 'setEnhancedKycCompleted',
@@ -326,6 +336,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     protected static $getters = [
         'payee_id' => 'getPayeeId',
         'payor_refs' => 'getPayorRefs',
+        'payment_channels' => 'getPaymentChannels',
         'email' => 'getEmail',
         'onboarded_status' => 'getOnboardedStatus',
         'watchlist_status' => 'getWatchlistStatus',
@@ -343,6 +354,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'individual' => 'getIndividual',
         'company' => 'getCompany',
         'cellphone_number' => 'getCellphoneNumber',
+        'managed_by_payor_id' => 'getManagedByPayorId',
         'watchlist_status_updated_timestamp' => 'getWatchlistStatusUpdatedTimestamp',
         'grace_period_end_date' => 'getGracePeriodEndDate',
         'enhanced_kyc_completed' => 'getEnhancedKycCompleted',
@@ -414,6 +426,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $this->setIfExists('payee_id', $data ?? [], null);
         $this->setIfExists('payor_refs', $data ?? [], null);
+        $this->setIfExists('payment_channels', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('onboarded_status', $data ?? [], null);
         $this->setIfExists('watchlist_status', $data ?? [], null);
@@ -431,6 +444,7 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('individual', $data ?? [], null);
         $this->setIfExists('company', $data ?? [], null);
         $this->setIfExists('cellphone_number', $data ?? [], null);
+        $this->setIfExists('managed_by_payor_id', $data ?? [], null);
         $this->setIfExists('watchlist_status_updated_timestamp', $data ?? [], null);
         $this->setIfExists('grace_period_end_date', $data ?? [], null);
         $this->setIfExists('enhanced_kyc_completed', $data ?? [], null);
@@ -542,6 +556,40 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['payor_refs'] = $payor_refs;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_channels
+     *
+     * @return \VeloPayments\Client\Model\PaymentChannelSummaryV4[]|null
+     */
+    public function getPaymentChannels()
+    {
+        return $this->container['payment_channels'];
+    }
+
+    /**
+     * Sets payment_channels
+     *
+     * @param \VeloPayments\Client\Model\PaymentChannelSummaryV4[]|null $payment_channels A list of the Payee's payment channels in their preferred order
+     *
+     * @return self
+     */
+    public function setPaymentChannels($payment_channels)
+    {
+        if (is_null($payment_channels)) {
+            array_push($this->openAPINullablesSetToNull, 'payment_channels');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('payment_channels', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['payment_channels'] = $payment_channels;
 
         return $this;
     }
@@ -1022,6 +1070,33 @@ class PayeeDetailResponseV4 implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable cellphone_number cannot be null');
         }
         $this->container['cellphone_number'] = $cellphone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets managed_by_payor_id
+     *
+     * @return string|null
+     */
+    public function getManagedByPayorId()
+    {
+        return $this->container['managed_by_payor_id'];
+    }
+
+    /**
+     * Sets managed_by_payor_id
+     *
+     * @param string|null $managed_by_payor_id The id of the payor if the payee is managed
+     *
+     * @return self
+     */
+    public function setManagedByPayorId($managed_by_payor_id)
+    {
+        if (is_null($managed_by_payor_id)) {
+            throw new \InvalidArgumentException('non-nullable managed_by_payor_id cannot be null');
+        }
+        $this->container['managed_by_payor_id'] = $managed_by_payor_id;
 
         return $this;
     }

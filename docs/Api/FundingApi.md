@@ -199,7 +199,7 @@ try {
 ## `getFundingAccountsV2()`
 
 ```php
-getFundingAccountsV2($payor_id, $name, $country, $currency, $type, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListFundingAccountsResponseV2
+getFundingAccountsV2($payor_id, $name, $country_code, $currency, $type, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListFundingAccountsResponseV2
 ```
 
 Get Funding Accounts
@@ -225,7 +225,7 @@ $apiInstance = new VeloPayments\Client\Api\FundingApi(
 );
 $payor_id = 'payor_id_example'; // string
 $name = 'name_example'; // string | The descriptive funding account name
-$country = US; // string | The 2 letter ISO 3166-1 country code (upper case)
+$country_code = US; // string | The 2 letter ISO 3166-1 country code (upper case)
 $currency = USD; // string | The ISO 4217 currency code
 $type = 'type_example'; // string | The type of funding account.
 $page = 1; // int | Page number. Default is 1.
@@ -234,7 +234,7 @@ $sort = 'accountName:asc'; // string | List of sort fields (e.g. ?sort=accountNa
 $sensitive = false; // bool
 
 try {
-    $result = $apiInstance->getFundingAccountsV2($payor_id, $name, $country, $currency, $type, $page, $page_size, $sort, $sensitive);
+    $result = $apiInstance->getFundingAccountsV2($payor_id, $name, $country_code, $currency, $type, $page, $page_size, $sort, $sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FundingApi->getFundingAccountsV2: ', $e->getMessage(), PHP_EOL;
@@ -247,7 +247,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **payor_id** | **string**|  | [optional] |
 | **name** | **string**| The descriptive funding account name | [optional] |
-| **country** | **string**| The 2 letter ISO 3166-1 country code (upper case) | [optional] |
+| **country_code** | **string**| The 2 letter ISO 3166-1 country code (upper case) | [optional] |
 | **currency** | **string**| The ISO 4217 currency code | [optional] |
 | **type** | **string**| The type of funding account. | [optional] |
 | **page** | **int**| Page number. Default is 1. | [optional] [default to 1] |

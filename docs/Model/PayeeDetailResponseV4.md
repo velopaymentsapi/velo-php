@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **payee_id** | **string** |  | [optional] [readonly]
 **payor_refs** | [**\VeloPayments\Client\Model\PayeePayorRefV4[]**](PayeePayorRefV4.md) |  | [optional] [readonly]
+**payment_channels** | [**\VeloPayments\Client\Model\PaymentChannelSummaryV4[]**](PaymentChannelSummaryV4.md) | A list of the Payee&#39;s payment channels in their preferred order | [optional] [readonly]
 **email** | **string** |  | [optional]
 **onboarded_status** | **string** | Payee onboarded status. One of the following values: CREATED, INVITED, REGISTERED, ONBOARDED | [optional]
 **watchlist_status** | **string** | Current watchlist status. One of the following values: NONE, PENDING, REVIEW, PASSED, FAILED | [optional]
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **individual** | [**\VeloPayments\Client\Model\IndividualV4**](IndividualV4.md) |  | [optional]
 **company** | [**\VeloPayments\Client\Model\CompanyV4**](CompanyV4.md) |  | [optional]
 **cellphone_number** | **string** |  | [optional]
+**managed_by_payor_id** | **string** | The id of the payor if the payee is managed | [optional]
 **watchlist_status_updated_timestamp** | **string** |  | [optional] [readonly]
 **grace_period_end_date** | **\DateTime** |  | [optional] [readonly]
 **enhanced_kyc_completed** | **bool** |  | [optional]

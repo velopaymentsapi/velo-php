@@ -74,7 +74,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/csv`
+- **Accept**: `application/csv`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -511,7 +511,7 @@ try {
 ## `listPaymentsAuditV4()`
 
 ```php
-listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $rails_id, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $post_instruct_fx_status, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListPaymentsResponseV4
+listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $payor_payment_id, $rails_id, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $post_instruct_fx_status, $transaction_reference, $transaction_id, $page, $page_size, $sort, $sensitive): \VeloPayments\Client\Model\ListPaymentsResponseV4
 ```
 
 Get List of Payments
@@ -552,18 +552,21 @@ $payment_currency = 'payment_currency_example'; // string | The payment currency
 $submitted_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date from range filter. Format is yyyy-MM-dd.
 $submitted_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The submitted date to range filter. Format is yyyy-MM-dd.
 $payment_memo = 'payment_memo_example'; // string | The payment memo filter. This filters via a case insensitive substring match.
+$payor_payment_id = 'payor_payment_id_example'; // string | Payor's Id of the Payment
 $rails_id = 'rails_id_example'; // string | Payout Rails ID filter - case insensitive match. Any value is allowed, but you should use one of the supported railsId values. To get this list of values, you should call the 'Get Supported Rails' endpoint.
 $scheduled_for_date_from = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter payouts scheduled to run on or after the given date. Format is yyyy-MM-dd.
 $scheduled_for_date_to = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter payouts scheduled to run on or before the given date. Format is yyyy-MM-dd.
 $schedule_status = 'schedule_status_example'; // string | Payout Schedule Status
 $post_instruct_fx_status = 'post_instruct_fx_status_example'; // string | The status of the post instruct FX step if one was required for the payment
+$transaction_reference = 'transaction_reference_example'; // string | Query for all payments associated with a specific transaction reference
+$transaction_id = 'transaction_id_example'; // string | Query for all payments associated with a specific transaction id
 $page = 1; // int | Page number. Default is 1.
 $page_size = 25; // int | The number of results to return in a page
 $sort = 'sort_example'; // string | List of sort fields (e.g. ?sort=submittedDateTime:asc,status:asc). Default is sort by submittedDateTime:desc,paymentId:asc The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime, status and paymentId
 $sensitive = True; // bool | Optional. If omitted or set to false, any Personal Identifiable Information (PII) values are returned masked. If set to true, and you have permission, the PII values will be returned as their original unmasked values.
 
 try {
-    $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $rails_id, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $post_instruct_fx_status, $page, $page_size, $sort, $sensitive);
+    $result = $apiInstance->listPaymentsAuditV4($payee_id, $payor_id, $payor_name, $remote_id, $remote_system_id, $status, $transmission_type, $source_account_name, $source_amount_from, $source_amount_to, $source_currency, $payment_amount_from, $payment_amount_to, $payment_currency, $submitted_date_from, $submitted_date_to, $payment_memo, $payor_payment_id, $rails_id, $scheduled_for_date_from, $scheduled_for_date_to, $schedule_status, $post_instruct_fx_status, $transaction_reference, $transaction_id, $page, $page_size, $sort, $sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentAuditServiceApi->listPaymentsAuditV4: ', $e->getMessage(), PHP_EOL;
@@ -591,11 +594,14 @@ try {
 | **submitted_date_from** | **\DateTime**| The submitted date from range filter. Format is yyyy-MM-dd. | [optional] |
 | **submitted_date_to** | **\DateTime**| The submitted date to range filter. Format is yyyy-MM-dd. | [optional] |
 | **payment_memo** | **string**| The payment memo filter. This filters via a case insensitive substring match. | [optional] |
+| **payor_payment_id** | **string**| Payor&#39;s Id of the Payment | [optional] |
 | **rails_id** | **string**| Payout Rails ID filter - case insensitive match. Any value is allowed, but you should use one of the supported railsId values. To get this list of values, you should call the &#39;Get Supported Rails&#39; endpoint. | [optional] |
 | **scheduled_for_date_from** | **\DateTime**| Filter payouts scheduled to run on or after the given date. Format is yyyy-MM-dd. | [optional] |
 | **scheduled_for_date_to** | **\DateTime**| Filter payouts scheduled to run on or before the given date. Format is yyyy-MM-dd. | [optional] |
 | **schedule_status** | **string**| Payout Schedule Status | [optional] |
 | **post_instruct_fx_status** | **string**| The status of the post instruct FX step if one was required for the payment | [optional] |
+| **transaction_reference** | **string**| Query for all payments associated with a specific transaction reference | [optional] |
+| **transaction_id** | **string**| Query for all payments associated with a specific transaction id | [optional] |
 | **page** | **int**| Page number. Default is 1. | [optional] [default to 1] |
 | **page_size** | **int**| The number of results to return in a page | [optional] [default to 25] |
 | **sort** | **string**| List of sort fields (e.g. ?sort&#x3D;submittedDateTime:asc,status:asc). Default is sort by submittedDateTime:desc,paymentId:asc The supported sort fields are: sourceAmount, sourceCurrency, paymentAmount, paymentCurrency, routingNumber, accountNumber, remoteId, submittedDateTime, status and paymentId | [optional] |

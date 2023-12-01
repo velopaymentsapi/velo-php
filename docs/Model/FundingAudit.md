@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**payor_id** | **string** | The id of the payor associated with the funding. | [optional]
 **amount** | **float** | The amount funded | [optional]
 **currency** | **string** | The currency of the funding | [optional]
 **date_time** | **\DateTime** |  | [optional]
@@ -11,7 +12,9 @@ Name | Type | Description | Notes
 **source_account_name** | **string** |  | [optional]
 **funding_account_name** | **string** |  | [optional]
 **funding_type** | **string** | Funding type. One of the following values: ACH, WIRE, EMBEDDED, BANK_TRANSFER | [optional]
-**events** | [**\VeloPayments\Client\Model\FundingEvent[]**](FundingEvent.md) |  | [optional]
+**events** | [**\VeloPayments\Client\Model\FundingEvent2[]**](FundingEvent2.md) |  | [optional]
 **topup_type** | **string** | Type of top up. One of the following values: AUTOMATIC, MANUAL | [optional]
+**transaction_id** | **string** | The id of the transaction associated with the funding if there was one | [optional]
+**transaction_reference** | **string** | The payors reference for the transaction associated with the funding if there was one | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

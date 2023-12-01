@@ -35,7 +35,7 @@ $apiInstance = new VeloPayments\Client\Api\FundingManagerPrivateApi(
     new GuzzleHttp\Client(),
     $config
 );
-$create_funding_account_request_v2 = {"type":"FBO","name":"My FBO Account","payorId":"ee53e01d-c078-43fd-abd4-47e92f4a06cf","accountName":"My Account Name","accountNumber":1231231234556,"routingNumber":123456789}; // \VeloPayments\Client\Model\CreateFundingAccountRequestV2
+$create_funding_account_request_v2 = {"type":"FBO","name":"My FBO Account","payorId":"ee53e01d-c078-43fd-abd4-47e92f4a06cf","accountName":"My Account Name","accountNumber":1231231234556,"routingNumber":123456789,"countryCode":"US"}; // \VeloPayments\Client\Model\CreateFundingAccountRequestV2
 
 try {
     $apiInstance->createFundingAccountV2($create_funding_account_request_v2);

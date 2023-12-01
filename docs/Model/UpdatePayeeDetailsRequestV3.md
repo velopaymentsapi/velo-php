@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **payee_type** | [**\VeloPayments\Client\Model\PayeeTypeEnum**](PayeeTypeEnum.md) |  | [optional]
 **challenge** | [**\VeloPayments\Client\Model\ChallengeV3**](ChallengeV3.md) |  | [optional]
 **email** | **string** |  | [optional]
+**contact_sms_number** | **string** | The phone number of a device that the payee wishes to receive sms messages on | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

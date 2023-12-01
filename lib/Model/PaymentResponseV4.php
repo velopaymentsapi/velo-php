@@ -13,9 +13,9 @@
 /**
  * Velo Payments APIs
  *
- * ## Terms and Definitions  Throughout this document and the Velo platform the following terms are used:  * **Payor.** An entity (typically a corporation) which wishes to pay funds to one or more payees via a payout. * **Payee.** The recipient of funds paid out by a payor. * **Payment.** A single transfer of funds from a payor to a payee. * **Payout.** A batch of Payments, typically used by a payor to logically group payments (e.g. by business day). Technically there need be no relationship between the payments in a payout - a single payout can contain payments to multiple payees and/or multiple payments to a single payee. * **Sandbox.** An integration environment provided by Velo Payments which offers a similar API experience to the production environment, but all funding and payment events are simulated, along with many other services such as OFAC sanctions list checking.  ## Overview  The Velo Payments API allows a payor to perform a number of operations. The following is a list of the main capabilities in a natural order of execution:  * Authenticate with the Velo platform * Maintain a collection of payees * Query the payor’s current balance of funds within the platform and perform additional funding * Issue payments to payees * Query the platform for a history of those payments  This document describes the main concepts and APIs required to get up and running with the Velo Payments platform. It is not an exhaustive API reference. For that, please see the separate Velo Payments API Reference.  ## API Considerations  The Velo Payments API is REST based and uses the JSON format for requests and responses.  Most calls are secured using OAuth 2 security and require a valid authentication access token for successful operation. See the Authentication section for details.  Where a dynamic value is required in the examples below, the {token} format is used, suggesting that the caller needs to supply the appropriate value of the token in question (without including the { or } characters).  Where curl examples are given, the –d @filename.json approach is used, indicating that the request body should be placed into a file named filename.json in the current directory. Each of the curl examples in this document should be considered a single line on the command-line, regardless of how they appear in print.  ## Authenticating with the Velo Platform  Once Velo backoffice staff have added your organization as a payor within the Velo platform sandbox, they will create you a payor Id, an API key and an API secret and share these with you in a secure manner.  You will need to use these values to authenticate with the Velo platform in order to gain access to the APIs. The steps to take are explained in the following:  create a string comprising the API key (e.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8) and API secret (e.g. c396b26b-137a-44fd-87f5-34631f8fd529) with a colon between them. E.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8:c396b26b-137a-44fd-87f5-34631f8fd529  base64 encode this string. E.g.: NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  create an HTTP **Authorization** header with the value set to e.g. Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  perform the Velo authentication REST call using the HTTP header created above e.g. via curl:  ```   curl -X POST \\   -H \"Content-Type: application/json\" \\   -H \"Authorization: Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==\" \\   'https://api.sandbox.velopayments.com/v1/authenticate?grant_type=client_credentials' ```  If successful, this call will result in a **200** HTTP status code and a response body such as:  ```   {     \"access_token\":\"19f6bafd-93fd-4747-b229-00507bbc991f\",     \"token_type\":\"bearer\",     \"expires_in\":1799,     \"scope\":\"...\"   } ``` ## API access following authentication Following successful authentication, the value of the access_token field in the response (indicated in green above) should then be presented with all subsequent API calls to allow the Velo platform to validate that the caller is authenticated.  This is achieved by setting the HTTP Authorization header with the value set to e.g. Bearer 19f6bafd-93fd-4747-b229-00507bbc991f such as the curl example below:  ```   -H \"Authorization: Bearer 19f6bafd-93fd-4747-b229-00507bbc991f \" ```  If you make other Velo API calls which require authorization but the Authorization header is missing or invalid then you will get a **401** HTTP status response.
+ * ## Terms and Definitions  Throughout this document and the Velo platform the following terms are used:  * **Payor.** An entity (typically a corporation) which wishes to pay funds to one or more payees via a payout. * **Payee.** The recipient of funds paid out by a payor. * **Payment.** A single transfer of funds from a payor to a payee. * **Payout.** A batch of Payments, typically used by a payor to logically group payments (e.g. by business day). Technically there need be no relationship between the payments in a payout - a single payout can contain payments to multiple payees and/or multiple payments to a single payee. * **Sandbox.** An integration environment provided by Velo Payments which offers a similar API experience to the production environment, but all funding and payment events are simulated, along with many other services such as OFAC sanctions list checking.  ## Overview  The Velo Payments API allows a payor to perform a number of operations. The following is a list of the main capabilities in a natural order of execution:  * Authenticate with the Velo platform * Maintain a collection of payees * Query the payor’s current balance of funds within the platform and perform additional funding * Issue payments to payees * Query the platform for a history of those payments  This document describes the main concepts and APIs required to get up and running with the Velo Payments platform. It is not an exhaustive API reference. For that, please see the separate Velo Payments API Reference.  ## API Considerations  The Velo Payments API is REST based and uses the JSON format for requests and responses.  Most calls are secured using OAuth 2 security and require a valid authentication access token for successful operation. See the Authentication section for details.  Where a dynamic value is required in the examples below, the {token} format is used, suggesting that the caller needs to supply the appropriate value of the token in question (without including the { or } characters).  Where curl examples are given, the –d @filename.json approach is used, indicating that the request body should be placed into a file named filename.json in the current directory. Each of the curl examples in this document should be considered a single line on the command-line, regardless of how they appear in print.  ## Authenticating with the Velo Platform  Once Velo backoffice staff have added your organization as a payor within the Velo platform sandbox, they will create you a payor Id, an API key and an API secret and share these with you in a secure manner.  You will need to use these values to authenticate with the Velo platform in order to gain access to the APIs. The steps to take are explained in the following:  create a string comprising the API key (e.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8) and API secret (e.g. c396b26b-137a-44fd-87f5-34631f8fd529) with a colon between them. E.g. 44a9537d-d55d-4b47-8082-14061c2bcdd8:c396b26b-137a-44fd-87f5-34631f8fd529  base64 encode this string. E.g.: NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  create an HTTP **Authorization** header with the value set to e.g. Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==  perform the Velo authentication REST call using the HTTP header created above e.g. via curl:  ```   curl -X POST \\   -H \"Content-Type: application/json\" \\   -H \"Authorization: Basic NDRhOTUzN2QtZDU1ZC00YjQ3LTgwODItMTQwNjFjMmJjZGQ4OmMzOTZiMjZiLTEzN2EtNDRmZC04N2Y1LTM0NjMxZjhmZDUyOQ==\" \\   'https://api.sandbox.velopayments.com/v1/authenticate?grant_type=client_credentials' ```  If successful, this call will result in a **200** HTTP status code and a response body such as:  ```   {     \"access_token\":\"19f6bafd-93fd-4747-b229-00507bbc991f\",     \"token_type\":\"bearer\",     \"expires_in\":1799,     \"scope\":\"...\"   } ``` ## API access following authentication Following successful authentication, the value of the access_token field in the response (indicated in green above) should then be presented with all subsequent API calls to allow the Velo platform to validate that the caller is authenticated.  This is achieved by setting the HTTP Authorization header with the value set to e.g. Bearer 19f6bafd-93fd-4747-b229-00507bbc991f such as the curl example below:  ```   -H \"Authorization: Bearer 19f6bafd-93fd-4747-b229-00507bbc991f \" ```  If you make other Velo API calls which require authorization but the Authorization header is missing or invalid then you will get a **401** HTTP status response.   ## Http Status Codes Following is a list of Http Status codes that could be returned by the platform      | Status Code            | Description                                                                          |     | -----------------------| -------------------------------------------------------------------------------------|     | 200 OK                 | The request was successfully processed and usually returns a json response           |     | 201 Created            | A resource was created and a Location header is returned linking to the new resource |     | 202 Accepted           | The request has been accepted for processing                                         |     | 204 No Content         | The request has been processed and there is no response (usually deletes and updates)|     | 400 Bad Request        | The request is invalid and should be fixed before retrying                           |     | 401 Unauthorized       | Authentication has failed, usually means the token has expired                       |     | 403 Forbidden          | The user does not have permissions for the request                                   |     | 404 Not Found          | The resource was not found                                                           |     | 409 Conflict           | The resource already exists and there is a conflict                                  |     | 429 Too Many Requests  | The user has submitted too many requests in a given amount of time                   |     | 5xx Server Error       | Platform internal error (should rarely happen)                                       |
  *
- * The version of the OpenAPI document: 2.35.58
+ * The version of the OpenAPI document: 2.37.150
  * Generated by: https://openapi-generator.tech
  * OpenAPI Generator version: 7.1.0-SNAPSHOT
  */
@@ -96,14 +96,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
         'return_reason' => 'string',
         'rails_payment_id' => 'string',
         'rails_batch_id' => 'string',
+        'rails_account_id' => 'string',
         'payment_scheme' => 'string',
         'rejection_reason' => 'string',
+        'rails_rejection_information' => 'string',
         'withdrawn_reason' => 'string',
         'withdrawable' => 'bool',
         'auto_withdrawn_reason_code' => 'string',
         'transmission_type' => 'string',
+        'transmission_type_requested' => 'string',
         'payment_tracking_reference' => 'string',
         'payment_metadata' => 'string',
+        'transaction_id' => 'string',
+        'transaction_reference' => 'string',
         'schedule' => '\VeloPayments\Client\Model\PayoutSchedule',
         'post_instruct_fx_info' => '\VeloPayments\Client\Model\PostInstructFxInfo',
         'payout' => '\VeloPayments\Client\Model\PaymentResponseV4Payout'
@@ -156,14 +161,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
         'return_reason' => null,
         'rails_payment_id' => null,
         'rails_batch_id' => null,
+        'rails_account_id' => null,
         'payment_scheme' => null,
         'rejection_reason' => null,
+        'rails_rejection_information' => null,
         'withdrawn_reason' => null,
         'withdrawable' => null,
         'auto_withdrawn_reason_code' => null,
         'transmission_type' => null,
+        'transmission_type_requested' => null,
         'payment_tracking_reference' => null,
         'payment_metadata' => null,
+        'transaction_id' => 'uuid',
+        'transaction_reference' => null,
         'schedule' => null,
         'post_instruct_fx_info' => null,
         'payout' => null
@@ -214,14 +224,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
 		'return_reason' => false,
 		'rails_payment_id' => false,
 		'rails_batch_id' => false,
+		'rails_account_id' => false,
 		'payment_scheme' => false,
 		'rejection_reason' => false,
+		'rails_rejection_information' => false,
 		'withdrawn_reason' => false,
 		'withdrawable' => false,
 		'auto_withdrawn_reason_code' => false,
 		'transmission_type' => false,
+		'transmission_type_requested' => false,
 		'payment_tracking_reference' => false,
 		'payment_metadata' => false,
+		'transaction_id' => false,
+		'transaction_reference' => false,
 		'schedule' => false,
 		'post_instruct_fx_info' => false,
 		'payout' => false
@@ -352,14 +367,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
         'return_reason' => 'returnReason',
         'rails_payment_id' => 'railsPaymentId',
         'rails_batch_id' => 'railsBatchId',
+        'rails_account_id' => 'railsAccountId',
         'payment_scheme' => 'paymentScheme',
         'rejection_reason' => 'rejectionReason',
+        'rails_rejection_information' => 'railsRejectionInformation',
         'withdrawn_reason' => 'withdrawnReason',
         'withdrawable' => 'withdrawable',
         'auto_withdrawn_reason_code' => 'autoWithdrawnReasonCode',
         'transmission_type' => 'transmissionType',
+        'transmission_type_requested' => 'transmissionTypeRequested',
         'payment_tracking_reference' => 'paymentTrackingReference',
         'payment_metadata' => 'paymentMetadata',
+        'transaction_id' => 'transactionId',
+        'transaction_reference' => 'transactionReference',
         'schedule' => 'schedule',
         'post_instruct_fx_info' => 'postInstructFxInfo',
         'payout' => 'payout'
@@ -410,14 +430,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
         'return_reason' => 'setReturnReason',
         'rails_payment_id' => 'setRailsPaymentId',
         'rails_batch_id' => 'setRailsBatchId',
+        'rails_account_id' => 'setRailsAccountId',
         'payment_scheme' => 'setPaymentScheme',
         'rejection_reason' => 'setRejectionReason',
+        'rails_rejection_information' => 'setRailsRejectionInformation',
         'withdrawn_reason' => 'setWithdrawnReason',
         'withdrawable' => 'setWithdrawable',
         'auto_withdrawn_reason_code' => 'setAutoWithdrawnReasonCode',
         'transmission_type' => 'setTransmissionType',
+        'transmission_type_requested' => 'setTransmissionTypeRequested',
         'payment_tracking_reference' => 'setPaymentTrackingReference',
         'payment_metadata' => 'setPaymentMetadata',
+        'transaction_id' => 'setTransactionId',
+        'transaction_reference' => 'setTransactionReference',
         'schedule' => 'setSchedule',
         'post_instruct_fx_info' => 'setPostInstructFxInfo',
         'payout' => 'setPayout'
@@ -468,14 +493,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
         'return_reason' => 'getReturnReason',
         'rails_payment_id' => 'getRailsPaymentId',
         'rails_batch_id' => 'getRailsBatchId',
+        'rails_account_id' => 'getRailsAccountId',
         'payment_scheme' => 'getPaymentScheme',
         'rejection_reason' => 'getRejectionReason',
+        'rails_rejection_information' => 'getRailsRejectionInformation',
         'withdrawn_reason' => 'getWithdrawnReason',
         'withdrawable' => 'getWithdrawable',
         'auto_withdrawn_reason_code' => 'getAutoWithdrawnReasonCode',
         'transmission_type' => 'getTransmissionType',
+        'transmission_type_requested' => 'getTransmissionTypeRequested',
         'payment_tracking_reference' => 'getPaymentTrackingReference',
         'payment_metadata' => 'getPaymentMetadata',
+        'transaction_id' => 'getTransactionId',
+        'transaction_reference' => 'getTransactionReference',
         'schedule' => 'getSchedule',
         'post_instruct_fx_info' => 'getPostInstructFxInfo',
         'payout' => 'getPayout'
@@ -577,14 +607,19 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
         $this->setIfExists('return_reason', $data ?? [], null);
         $this->setIfExists('rails_payment_id', $data ?? [], null);
         $this->setIfExists('rails_batch_id', $data ?? [], null);
+        $this->setIfExists('rails_account_id', $data ?? [], null);
         $this->setIfExists('payment_scheme', $data ?? [], null);
         $this->setIfExists('rejection_reason', $data ?? [], null);
+        $this->setIfExists('rails_rejection_information', $data ?? [], null);
         $this->setIfExists('withdrawn_reason', $data ?? [], null);
         $this->setIfExists('withdrawable', $data ?? [], null);
         $this->setIfExists('auto_withdrawn_reason_code', $data ?? [], null);
         $this->setIfExists('transmission_type', $data ?? [], null);
+        $this->setIfExists('transmission_type_requested', $data ?? [], null);
         $this->setIfExists('payment_tracking_reference', $data ?? [], null);
         $this->setIfExists('payment_metadata', $data ?? [], null);
+        $this->setIfExists('transaction_id', $data ?? [], null);
+        $this->setIfExists('transaction_reference', $data ?? [], null);
         $this->setIfExists('schedule', $data ?? [], null);
         $this->setIfExists('post_instruct_fx_info', $data ?? [], null);
         $this->setIfExists('payout', $data ?? [], null);
@@ -1749,6 +1784,33 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets rails_account_id
+     *
+     * @return string|null
+     */
+    public function getRailsAccountId()
+    {
+        return $this->container['rails_account_id'];
+    }
+
+    /**
+     * Sets rails_account_id
+     *
+     * @param string|null $rails_account_id rails_account_id
+     *
+     * @return self
+     */
+    public function setRailsAccountId($rails_account_id)
+    {
+        if (is_null($rails_account_id)) {
+            throw new \InvalidArgumentException('non-nullable rails_account_id cannot be null');
+        }
+        $this->container['rails_account_id'] = $rails_account_id;
+
+        return $this;
+    }
+
+    /**
      * Gets payment_scheme
      *
      * @return string|null
@@ -1798,6 +1860,33 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable rejection_reason cannot be null');
         }
         $this->container['rejection_reason'] = $rejection_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets rails_rejection_information
+     *
+     * @return string|null
+     */
+    public function getRailsRejectionInformation()
+    {
+        return $this->container['rails_rejection_information'];
+    }
+
+    /**
+     * Sets rails_rejection_information
+     *
+     * @param string|null $rails_rejection_information The original reason that the payment was rejected. This can be third party rails specific if rejected by the underlying third party rails logic.
+     *
+     * @return self
+     */
+    public function setRailsRejectionInformation($rails_rejection_information)
+    {
+        if (is_null($rails_rejection_information)) {
+            throw new \InvalidArgumentException('non-nullable rails_rejection_information cannot be null');
+        }
+        $this->container['rails_rejection_information'] = $rails_rejection_information;
 
         return $this;
     }
@@ -1911,6 +2000,33 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
+     * Gets transmission_type_requested
+     *
+     * @return string|null
+     */
+    public function getTransmissionTypeRequested()
+    {
+        return $this->container['transmission_type_requested'];
+    }
+
+    /**
+     * Sets transmission_type_requested
+     *
+     * @param string|null $transmission_type_requested The transmission type of the payment requested by the payor
+     *
+     * @return self
+     */
+    public function setTransmissionTypeRequested($transmission_type_requested)
+    {
+        if (is_null($transmission_type_requested)) {
+            throw new \InvalidArgumentException('non-nullable transmission_type_requested cannot be null');
+        }
+        $this->container['transmission_type_requested'] = $transmission_type_requested;
+
+        return $this;
+    }
+
+    /**
      * Gets payment_tracking_reference
      *
      * @return string|null
@@ -1960,6 +2076,60 @@ class PaymentResponseV4 implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable payment_metadata cannot be null');
         }
         $this->container['payment_metadata'] = $payment_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_id
+     *
+     * @return string|null
+     */
+    public function getTransactionId()
+    {
+        return $this->container['transaction_id'];
+    }
+
+    /**
+     * Sets transaction_id
+     *
+     * @param string|null $transaction_id transaction_id
+     *
+     * @return self
+     */
+    public function setTransactionId($transaction_id)
+    {
+        if (is_null($transaction_id)) {
+            throw new \InvalidArgumentException('non-nullable transaction_id cannot be null');
+        }
+        $this->container['transaction_id'] = $transaction_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_reference
+     *
+     * @return string|null
+     */
+    public function getTransactionReference()
+    {
+        return $this->container['transaction_reference'];
+    }
+
+    /**
+     * Sets transaction_reference
+     *
+     * @param string|null $transaction_reference transaction_reference
+     *
+     * @return self
+     */
+    public function setTransactionReference($transaction_reference)
+    {
+        if (is_null($transaction_reference)) {
+            throw new \InvalidArgumentException('non-nullable transaction_reference cannot be null');
+        }
+        $this->container['transaction_reference'] = $transaction_reference;
 
         return $this;
     }

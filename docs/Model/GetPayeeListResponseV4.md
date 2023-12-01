@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **disabled** | **bool** |  | [optional]
 **disabled_comment** | **string** |  | [optional]
 **disabled_updated_timestamp** | **\DateTime** |  | [optional]
+**managed_by_payor_id** | **string** | The id of the payor if the payee is managed | [optional]
 **individual** | [**\VeloPayments\Client\Model\GetPayeeListResponseIndividualV4**](GetPayeeListResponseIndividualV4.md) |  | [optional]
 **company** | [**\VeloPayments\Client\Model\GetPayeeListResponseCompanyV4**](GetPayeeListResponseCompanyV4.md) |  | [optional]
 
