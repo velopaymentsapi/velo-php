@@ -337,19 +337,19 @@ class CreatePaymentChannelRequestV4 implements ModelInterface, ArrayAccess, \Jso
         }
 
         if (!is_null($this->container['account_number']) && (mb_strlen($this->container['account_number']) > 256)) {
-            $invalidProperties[] = "invalid value for 'account_number', the character length must be smaller than or equal to 17.";
+            $invalidProperties[] = "invalid value for 'account_number', the character length must be smaller than or equal to 256.";
         }
 
         if (!is_null($this->container['account_number']) && (mb_strlen($this->container['account_number']) < 1)) {
-            $invalidProperties[] = "invalid value for 'account_number', the character length must be bigger than or equal to 6.";
+            $invalidProperties[] = "invalid value for 'account_number', the character length must be bigger than or equal to 1.";
         }
 
         if (!is_null($this->container['routing_number']) && (mb_strlen($this->container['routing_number']) > 256)) {
-            $invalidProperties[] = "invalid value for 'routing_number', the character length must be smaller than or equal to 9.";
+            $invalidProperties[] = "invalid value for 'routing_number', the character length must be smaller than or equal to 256.";
         }
 
         if (!is_null($this->container['routing_number']) && (mb_strlen($this->container['routing_number']) < 1)) {
-            $invalidProperties[] = "invalid value for 'routing_number', the character length must be bigger than or equal to 9.";
+            $invalidProperties[] = "invalid value for 'routing_number', the character length must be bigger than or equal to 1.";
         }
 
         if (!is_null($this->container['country_code']) && (mb_strlen($this->container['country_code']) > 2)) {
