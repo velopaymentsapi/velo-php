@@ -413,11 +413,11 @@ class UpdatePaymentChannelRequestV4 implements ModelInterface, ArrayAccess, \Jso
         if (is_null($routing_number)) {
             throw new \InvalidArgumentException('non-nullable routing_number cannot be null');
         }
-        if ((mb_strlen($routing_number) > 9)) {
-            throw new \InvalidArgumentException('invalid length for $routing_number when calling UpdatePaymentChannelRequestV4., must be smaller than or equal to 9.');
+        if ((mb_strlen($routing_number) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $routing_number when calling UpdatePaymentChannelRequestV4., must be smaller than or equal to 256.');
         }
-        if ((mb_strlen($routing_number) < 9)) {
-            throw new \InvalidArgumentException('invalid length for $routing_number when calling UpdatePaymentChannelRequestV4., must be bigger than or equal to 9.');
+        if ((mb_strlen($routing_number) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $routing_number when calling UpdatePaymentChannelRequestV4., must be bigger than or equal to 1.');
         }
 
         $this->container['routing_number'] = $routing_number;
@@ -447,11 +447,11 @@ class UpdatePaymentChannelRequestV4 implements ModelInterface, ArrayAccess, \Jso
         if (is_null($account_number)) {
             throw new \InvalidArgumentException('non-nullable account_number cannot be null');
         }
-        if ((mb_strlen($account_number) > 17)) {
-            throw new \InvalidArgumentException('invalid length for $account_number when calling UpdatePaymentChannelRequestV4., must be smaller than or equal to 17.');
+        if ((mb_strlen($account_number) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $account_number when calling UpdatePaymentChannelRequestV4., must be smaller than or equal to 256.');
         }
-        if ((mb_strlen($account_number) < 6)) {
-            throw new \InvalidArgumentException('invalid length for $account_number when calling UpdatePaymentChannelRequestV4., must be bigger than or equal to 6.');
+        if ((mb_strlen($account_number) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $account_number when calling UpdatePaymentChannelRequestV4., must be bigger than or equal to 1.');
         }
 
         $this->container['account_number'] = $account_number;
